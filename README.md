@@ -10,7 +10,7 @@ Mariano Chanampa (a definir)
 
 # Nombre del sitio
 -ShoPet
--MundoMascota
+-MundoMascotas
 -MarketPet´s
 
 # Descripción general
