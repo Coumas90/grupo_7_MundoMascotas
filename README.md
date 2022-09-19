@@ -1,4 +1,4 @@
-# proyectoDigitalHouse
+# proyectoDigitalHouse - Mundo Mascotas
 
 # Integrantes del Grupo (n°7)
 Martina Abril Boazzo Cid (Base de datos)
@@ -9,9 +9,7 @@ Nicolas San Martin (Frontend)
 Mariano Chanampa (a definir)
 
 # Nombre del sitio
--ShoPet
--MundoMascotas
--MarketPet´s
+-Mundo Mascotas
 
 # Descripción general
 El sitio está apuntado a todas aquellas personas amantes de las mascotas. 
