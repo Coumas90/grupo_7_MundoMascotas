@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mundo Mascotas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <span class="burger-menu">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <span class ="logo-chico">
+                    <img class="logo-chico" src = "images/Logo-2.jpg" alt="logo Mundo Mascotas">
+                </span>            
+                <span class="barra-de-busqueda">
+                    <input type="search">
+                </span>
+        </ul>
+        </nav>
+    </header>
+    <section>
+        <form action="/" method="get"> 
+            <div class="elem-group"> 
+                <input type="email" id="email" name="client_email" placeholder="nombre@mundomascotas.com.ar" required> 
+            </div> 
+            <div class="elem-group"> 
+                <input type="text" id="username" name="client_name" placeholder="Nombre" pattern=[A-Z\sa-z] required> 
+            </div> 
+            <div class="elem-group"> 
+                <input type="text" id="usersurname" name="client_surname" placeholder="Apellido" pattern=[A-Z\sa-z] required> 
+            </div> 
+            <div class="elem-group"> 
+                <input type="number" id="DNI" name="client_dni" required> 
+            </div> 
+            <div class="elem-group"> 
+                <legend>Telefono</legend>
+                <input type="number" id="telephone" name="client_telephone" pattern=[A-Z\sa-z] required> 
+            </div> 
+            <div class="elem-group">
+                     <input type="password" id="pass" name="password" placeholder="Contraseña (8 caracteres minimo)" minlength="8" required>
+            </div>
+             <div class="elem-group">
+                 <label for="pass">Confirmar contraseña</label>
+                     <input type="password" id="pass" name="password" placeholder="Repita contraseña"  minlength="8" required>
+            </div>
+             <button type="submit">Enviar mensaje</button>
+             <button type="reset">Borrar</button>
+            </form>
+    </section>
+    <div class="logo-grande">
+    <section class="logo-grande">
+        <img class="logo2" src = "images/Low Resolution Logo-2.png" alt="logo Mundo Mascotas">
+    </section></div>
+</body>

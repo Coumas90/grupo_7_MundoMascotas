@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mundo Mascotas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="card">
+                <div class="card-body">
+                    Encontrá las mejores promociones, productos de calidad y grandes descuentos.
+                </div>
+            </div>
+            <nav>
+                <span class="burger-menu">
+                    <i class="fa fa-bars burger"></i>
+                </span>    
+                <span class="logo-chico">
+                    <img class="logo-chico" src="images/Logos/Logo-2.jpg" alt="Logo Mundo Mascotas" class="logo_img">
+                </span>
+                <span class="form" action="#" method="GET">
+                    <span class="barra-de-busqueda">
+                        <input type="search">
+                        <span class="submit">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </span>
+                </span>
+                <button class="btn btn-primary" type="submit">Ayuda</button>
+                <button class="btn btn-primary" type="submit">Mi cuenta</button>
+                <span><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
+            </nav>        
+        <nav>
+            <span class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Mascotas
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Perros</a></li>
+                  <li><a class="dropdown-item" href="#">Gatos</a></li>
+                  <li><a class="dropdown-item" href="#">Peces</a></li>
+                  <li><a class="dropdown-item" href="#">Otras mascotas</a></li>
+                </ul>
+            </span>
+            <span class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Marcas
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Pedigree</a></li>
+                  <li><a class="dropdown-item" href="#">Purina</a></li>
+                  <li><a class="dropdown-item" href="#">Royal Canin</a></li>
+                  <li><a class="dropdown-item" href="#">Otras marcas</a></li>
+                </ul>
+            </span>
+            <span class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Ofertas
+                    </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Alimento</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                  <li><a class="dropdown-item" href="#">Todas las ofertas</a></li>
+                </ul>
+            </span>
+        </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="images/Banners/banner1-mascotas.jpg" class="d-block w-100" alt="Foto1 Carrusel">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/Banners/banner2-perros.jpg" class="d-block w-100" alt="Foto2 Carrusel">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/Banners/banner3-perros-accesorios.jpg" class="d-block w-100" alt="Foto3 Carrusel">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <section>
+            <h2>"Las mejores promociones"</h2>
+            <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="images/Productos/Producto1.jpg" class="card-img-top" alt="Producto1">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto1</h5>
+                      <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$1.000</p>
+                        <p class="discount">5% off</p>
+                        <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                        <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="images/Productos/Producto2.jpg" class="card-img-top" alt="Producto2">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto2</h5>
+                      <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                            <p class="price">$1.000</p>
+                            <p class="discount">5% off</p>
+                            <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                            <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="images/Productos/Producto3.jpg" class="card-img-top" alt="Producto3">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto3</h5>
+                      <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                            <p class="price">$1.000</p>
+                            <p class="discount">5% off</p>
+                            <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                            <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="images/Productos/Producto4.jpg" class="card-img-top" alt="Producto4">
+                    <div class="card-body">
+                      <h5 class="card-title">Producto4</h5>
+                      <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                            <p class="price">$1.000</p>
+                            <p class="discount">5% off</p>
+                            <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                            <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </section>
+        <!-- <section>
+            <h2>"Las mejores promociones"</h2>
+            <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
+            <article>
+                <img src="images/Productos/Producto1.jpg" alt="Foto del producto">
+                <div class="main-article">
+                    <i class="fas fa-truck"></i>
+                    <p class="price">$1.000</p>
+                    <p class="discount">5% off</p>
+                    <h4 class="description">Producto1</h4>
+                    <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                    <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                </div>
+            </article>
+            <article>
+                <img src="images/Productos/Producto2.jpg" alt="Foto del producto">
+                <div class="main-article">
+                <i class="fas fa-truck"></i>
+                    <p class="price">$1.000</p>
+                    <p class="discount">5% off</p>
+                    <h4 class="description">Producto2</h4>
+                    <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                    <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                </div>
+            </article>
+            <article>
+                <img src="images/Productos/Producto3.jpg" alt="Foto del producto">
+                <div class="main-article">
+                <i class="fas fa-truck"></i>
+                    <p class="price">$1.000</p>
+                    <p class="discount">5% off</p>
+                    <h4 class="description">Producto3</h4>
+                    <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                    <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                </div>
+            </article>
+            <article>
+                <img src="images/Productos/Producto4.jpg" alt="Foto del producto">
+                <div class="main-article">
+                <i class="fas fa-truck"></i>
+                    <p class="price">$1.000</p>
+                    <p class="discount">5% off</p>
+                    <h4 class="description">Producto4</h4>
+                    <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                    <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                </div>
+            </article>
+        </section> -->
+        <section>
+            <h2>"Marcas destacadas"</h2>
+            <article class="marca1">
+                <img src="images/Marcas/dogui.jpg" alt="marca1">
+            </article>
+            <article class="marca2">
+                <img src="images/Marcas/Pedigree.jpg" alt="marca3">
+            </article>
+            <article class="marca3">
+                <img src="images/Marcas/purina.jpg" alt="marca3">
+            </article>
+            <article class="marca4">
+                <img src="images/Marcas/Royalcanin.jpg" alt="marca4">
+            </article>
+            <article class="marca5">
+                <img src="images/Marcas/friskies.jpg" alt="marca5">
+            </article>
+        </section>
+        <section>
+            <span><p>Registrate y obtené 15% off</p></span>
+                <button type="submit">Quiero mi cupón</button>
+        </section>
+    </main>
+    <footer>
+        <div><img class="logo-chico" src="images/Logos/Logo-2.jpg" alt="Logo Mundo Mascotas" class="logo_img"></div>
+        <section>
+            <ul>
+                <li><a href="#">¿Quiénes somos?</a></li>
+                <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Redes sociales</a></li>
+            </ul>
+        </section>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</body>
+</html>
