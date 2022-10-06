@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html lang ="es">
+        <head>
+            <title>Registro de usuario</title>
+            <meta charset = "UTF-8">
+            <link href = "css/register.css" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+            <link href = https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css rel = "stylesheet">
+        </head>
+        <body>
+            <div class="banner"><label><h3>En tu compra mayor a $5000 el envio es gratis!</h3></label></div>
+            <header>
+                <div class="header.log">
+                <span class="burger-menu"><i class="fas fa-bars"></i></span>
+                <span class ="logo-chico"><img class="logo-chico" src = "images/1.png" alt="logo Mundo Mascotas"></span>
+                <span class="barra-de-busqueda">
+                         <input  class="barra-de-busqueda" type="search">
+                </span>
+                <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="icon-shopping"><a href="/productCart"><i class="fa-solid fa-basket-shopping"></i></a></span>
+                </div>
+            </header>
+            <section class="form-registro">
+                <div><img class="logo-2" src = "images/Captura de Pantalla 2022-10-05 a la(s) 17.29.13.png" alt="Banner Mundo Mascotas"></div>
+                <form action="/" method="get"> 
+                    <label>Registrate en Mundo Mascota!</label>
+                    <div class="elem-group"> 
+                        <input class="elem-group" type="email" id="email" name="client_email" placeholder="nombre@mundomascotas.com.ar" required> 
+                    </div> 
+                    <div>
+                    <span class="elem-group"> 
+                        <input class="elem-group2" type="text" id="username" name="client_name" placeholder="Nombre" pattern=[A-Z\sa-z] required> 
+                    </span> 
+                    <span class="elem-group2"> 
+                        <input class="elem-group2" type="text" id="usersurname" name="client_surname" placeholder="Apellido" pattern=[A-Z\sa-z] required> 
+                    </span> 
+                    </div>
+                    <div>
+                    <span class="elem-group"> 
+                        <input class="elem-group2" type="text" id="DNI" name="client_dni" placeholder= "DNI" required> 
+                    </span> 
+                    <span class="elem-group"> 
+                        <input class="elem-group2" type="text" id="telephone" name="client_telephone" placeholder="Telefono" pattern=[A-Z\sa-z] required> 
+                    </span> 
+                    </div>
+                    <div class="elem-group">
+                             <input class="elem-group" type="password" id="pass" name="password" placeholder="Contraseña (8 caracteres minimo)" minlength="8" required>
+                    </div>
+                     <div class="elem-group">
+                             <input class="elem-group" type="password" id="pass" name="password" placeholder="Confirmar contraseña"  minlength="8" required>
+                    </div>
+                    <button type="submit">REGISTRAR</button>
+                    </form>
+           </section>
+        </body>
