@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  color: black;
+}
+p{
+  margin: 0;
+}
+thead {
+  background-color: rgba(111, 116, 116, 0.8);
+}
+
+td {
+  padding: 4px 12px;
+  text-align: end;
+  height: auto;
+}
+tr{
+  border-bottom: 0.5px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tbody {
+  background-color: rgba(111, 116, 116, 0.4);
+}
+
+img {
+  border-radius: 50%;
+}
+
+
+.delete {
+  cursor: pointer;
+}
+button {
+  display: inline;
+  margin: 0 8px;
+  background-color: darkgoldenrod;
+  min-width: 14px;
+}
+
+.container{
+  margin-top: 10vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

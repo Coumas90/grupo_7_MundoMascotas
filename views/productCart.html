@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" TYPE href="css/styles.css" />
+    <link rel="stylesheet" href="/css/color.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <header>
+      <div class="top-header">
+          <div class="card">
+              <div class="card-body">
+                  Encontrá las mejores promociones, productos de calidad y grandes descuentos.
+              </div>
+          </div>
+          <nav>
+              <span class="burger-menu">
+                  <i class="fa fa-bars burger"></i>
+              </span>    
+              <span class="logo-chico">
+                  <img class="logo-chico" src="images/Logos/Logo-2.jpg" alt="Logo Mundo Mascotas" class="logo_img">
+              </span>
+              <span class="form" action="#" method="GET">
+                  <span class="barra-de-busqueda">
+                      <input type="search">
+                      <span class="submit">
+                          <i class="fa fa-search"></i>
+                      </span>
+                  </span>
+              </span>
+              <button class="btn btn-primary" type="submit">Ayuda</button>
+              <button class="btn btn-primary" type="submit">Mi cuenta</button>
+              <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
+          </nav>        
+      <nav>
+    <div class="container">
+
+      <table>
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th>Eliminar  </th>
+        </tr>
+      </thead>
+      <tbody class="cart"></tbody>
+    </table>
+    
+    </div>
+  </body>
+  <script >
+const products = [
+  {
+    name: "Alimento para perro (5kg)",
+    price: 100,
+    image:
+      "https://puppis.vteximg.com.br/arquivos/ids/167601-1000-1000/150042.jpg?v=637021774562500000",
+    q: 1,
+  },
+];
+
+const tableBody = document.querySelector(".cart");
+
+let tableContent = products.reduce((body, product, index) => {
+  let total = product.price * product.q;
+  return (
+    body +
+    `
+            <tr>
+    <td>
+      <img
+        src="${product.image}"
+        alt="${product.name}"
+        height="50"
+        width="50"
+      />
+    </td>
+    <td>
+      <p>${product.name}</p>
+    </td>
+    <td>
+      <p>${product.price}</p>
+    </td>
+    <td class="quantity"><button>-</button>${product.q}<button>+</button></td>
+    <td><p>${total}</p></td>
+    <td class="delete"> 
+    <i class="fa fa-trash"/>
+    </td>    
+  </tr> `
+  );
+}, "");
+
+tableBody.innerHTML = tableContent;
+
+
+  </script>
+</html>
