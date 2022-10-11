@@ -18,4 +18,4 @@ app.get('/register', (req, res)=> {res.sendFile(__dirname + '/views/register.htm
 
 app.get('/productCart', (req, res)=> {res.sendFile(__dirname + '/views/productCart.html');});
 
-
+app.get('/login', (req, res)=> {res.sendFile(__dirname + '/views/login.html');});
