@@ -1,0 +1,2 @@
+Weekly sprint 2:
+No tuvimos las weekly que deberiamos haber tenido. Para el proximo sprint se dejan seteadas dos reuniones semanales para avanzar con el sprint y despejar dudas. Para este sprint tuvimos comunicacion via whatsapp y una call para revisar los entregables del sprint
