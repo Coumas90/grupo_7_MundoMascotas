@@ -8,9 +8,6 @@ body{
     background-color: #FFC97D;
 }
 
-header{
-    display: flex;
-}
 .barra-de-busqueda{
     flex-grow: 4;
 }
@@ -19,6 +16,11 @@ img.logo-chico{
     height: 50px;
     border-radius: 120ch;
     bottom:2cm;
+    margin-top: 4cm;
+}
+img.logo-banner{
+    width:100%;
+    height: 7cm;
 }
 
 section{

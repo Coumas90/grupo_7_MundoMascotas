@@ -16,7 +16,7 @@ section{
     justify-content: center;
     flex-direction: column;
 }
-img.logo-banner{
+img.logo-2{
     height: 6cm;
     width: min-content;
     width: 100%;
@@ -45,6 +45,18 @@ input.elem-group{
     margin: 1%;
     padding:3%;
 }
+input.elem-group2{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    color: black;
+    font-weight: lighter;
+    height: 100%;
+    width: 50%;
+    line-height: 120px;
+    margin: 1%;
+    padding:3%;
+}
 button{
     color: white;
     border: 2px solid black;
@@ -63,7 +75,6 @@ form{
     box-shadow: inherit;
 }
 .logo-chico{
-    border-radius: 120px;
     height: 2cm;
     width: 2cm;
     margin-top: 3cm;
