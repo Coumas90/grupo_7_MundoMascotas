@@ -1,5 +1,5 @@
 const controladorMiCuenta = {
-    crearProductos: (req, res)=> {res.render('creacioProductos')},
+    crearProductos: (req, res)=> {res.render('creacionProductos')},
     actualizarProductos: (req, res)=> {res.render('actualizacionProductos')},
     carrito: (req, res)=> {res.render('productCart')},
     historialVentas: (req, res)=> {res.render('historialVentas')},
@@ -9,4 +9,4 @@ const controladorMiCuenta = {
 };
 
 
-module.exports = controladorLogin;
+module.exports = controladorMiCuenta;

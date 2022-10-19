@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <html lang ="es">
+        <head>
+            <title>Administra tus productos</title>
+            <meta charset = "UTF-8">
+            <link href = "css/login.css" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+            <link href = https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css rel = "stylesheet">
+        </head>
+        <body>
+            <header>
+                <div class ="logo-banner"><img class="logo-banner" src = "images/logos/logo1.png" alt="Banner Mundo Mascotas"></div>
+            </header>
+            <section class="form-login">
+                <div><img class="logo-chico" src = "images/logos/logo2.png" alt="Banner Mundo Mascotas"></div>
+                <form>
+                    <label>Crear nuevo producto</label>
+                    <form class="was-validated">
+
+                        <div>
+                        <label for="validationServer01" class="form-label">Nombre publicación</label>
+                            <input type="text" class="form-control is-valid" id="validationServer01" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="validationTextarea" class="form-label">Descripcion del producto</label>
+                          <textarea class="form-control is-invalid" id="validationTextarea" required></textarea>
+                        </div>
+
+                        <div>
+                            <label for="validationServer01" class="form-label">Precio</label>
+                                <input type="number" class="form-control is-valid" id="validationServer01" required>
+                            </div>
+
+                        <div class="mb-3">
+                            <select class="form-select" required aria-label="select example">
+                              <option value="">Categoria</option>
+                              <option value="1">Alimento</option>
+                              <option value="2">Juguetes</option>
+                              <option value="3">Accesorios</option>
+                            </select>
+                          </div>
+
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                            <label class="form-check-label" for="validationFormCheck1">Medida</label>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Chico</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Mediano</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Grande</label>
+                                </div>
+                            <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                            <label class="form-check-label" for="validationFormCheck1">Color</label>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Rojo</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Azul</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Verde</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Amarillo</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Naranja</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Marron</label>
+                                </div>
+                              </div>                           
+                       </div>
+                      
+                                       
+                        <div class="mb-3">
+                          <input type="file" class="form-control" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
+                        </div>
+                      
+                        <div class="mb-3">
+                          <button class="btn btn-primary" type="submit" disabled>Enviar</button>
+                        </div>
+                      </form>
+ 
+                  </form>
+            </section>
+
+        </body>
+    </html>
