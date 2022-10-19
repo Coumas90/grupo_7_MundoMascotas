@@ -4,5 +4,4 @@ const controladorLogin = {
     olvido: (req, res)=> {res.render('restablecer');},
 };
 
-
 module.exports = controladorLogin;

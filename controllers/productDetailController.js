@@ -3,6 +3,4 @@ const controladorDetalleProducto = {
     },
 };
 
-
-
 module.exports = controladorDetalleProducto;

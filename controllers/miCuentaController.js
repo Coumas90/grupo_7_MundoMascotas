@@ -8,5 +8,4 @@ const controladorMiCuenta = {
     administradorPerfiles: (req, res)=> {res.render('administradorPerfiles')},
 };
 
-
 module.exports = controladorMiCuenta;
