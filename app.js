@@ -12,6 +12,7 @@ const rutasLogin = require('./routes/login.js');
 const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
 const rutasRegister = require('./routes/register.js');
+const rutasMiCuenta = requiere('./routes/miCuenta.js');
 
 // Uso recursos estaticos -> app.use(express.static('public))
 app.use(express.static(path.join(__dirname, '/public')));
@@ -28,3 +29,4 @@ app.use('/producatDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
 app.use('/register',rutasRegister);
+app.use('/MiCuenta', rutasMiCuenta)
