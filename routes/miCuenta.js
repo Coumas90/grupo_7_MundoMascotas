@@ -7,6 +7,6 @@ const router = express.Router();
 const controladorMiCuenta = require('../controllers/miCuentaController');
 
 //Definir todas las rutas, yendo del controlador al metodo que necesitamos
-router.get('/MiCuenta', controladorMiCuenta.perfil);
+router.get('/miCuenta', controladorMiCuenta.crearProductos);
 
 module.exports = router;
