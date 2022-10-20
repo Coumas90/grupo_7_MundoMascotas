@@ -21,7 +21,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor 3030
-app.listen(3600, () => {console.log('Servidor corriendo')});
+app.listen(3013, () => {console.log('Servidor corriendo')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasIndex);
@@ -29,4 +29,4 @@ app.use('/productDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
 app.use('/register',rutasRegister);
-app.use('/MiCuenta', rutasMiCuenta)
+app.use('/miCuenta', rutasMiCuenta)
