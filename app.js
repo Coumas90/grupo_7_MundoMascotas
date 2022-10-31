@@ -11,7 +11,6 @@ const rutasIndex = require('./routes/index.js');
 const rutasLogin = require('./routes/login.js');
 const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
-const rutasRegister = require('./routes/register.js');
 const rutasMiCuenta = require('./routes/miCuenta.js');
 
 // Uso recursos estaticos -> app.use(express.static('public))
@@ -28,5 +27,4 @@ app.use('/', rutasIndex);
 app.use('/productDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
-//app.use('/register',rutasRegister);
 app.use('/miCuenta', rutasMiCuenta)
