@@ -96,25 +96,29 @@
             </div>
         </section>
         <section>
+          <!-- filter solo con promociones -->
+          <!-- hacer dinamico todos los datos  -->
             <h2>"Las mejores promociones"</h2>
+            <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
             <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                   <div class="card h-100">
-                    <img src="images/Productos/Producto1.jpg" class="card-img-top" alt="Producto1">
+                    <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="Producto1">
                     <div class="card-body">
-                      <h5 class="card-title">Producto1</h5>
+                      <h5 class="card-title"><%= product.nombre %></h5>
                       <div class="main-article">
                         <i class="fas fa-truck"></i>
-                        <p class="price">$1.000</p>
-                        <p class="discount">5% off</p>
+                        <p class="price"><%= product.precio %></p>
+                        <p class="discount"><%= product.descuento %></p>
                         <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
                         <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
                     </div>
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <% }) %>
+                <!-- <div class="col">
                   <div class="card h-100">
                     <img src="images/Productos/Producto2.jpg" class="card-img-top" alt="Producto2">
                     <div class="card-body">
@@ -143,7 +147,7 @@
                         </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- <div class="col">
                   <div class="card h-100">
                     <img src="images/Productos/Producto4.jpg" class="card-img-top" alt="Producto4">

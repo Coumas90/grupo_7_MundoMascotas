@@ -8,9 +8,6 @@ body{
     background-color: #FFC97D;
 }
 
-.barra-de-busqueda{
-    flex-grow: 4;
-}
 img.logo-chico{
     width: 50px;
     height: 50px;
@@ -20,7 +17,6 @@ img.logo-chico{
 }
 img.logo-banner{
     width:100%;
-    height: 7cm;
 }
 
 section{
@@ -48,9 +44,7 @@ form{
 
 .banner{
     background-color: #a87731;
-    align-content: center;
-    text-align: center;
-    margin-bottom: 1cm;;
+    margin-bottom: 1cm;
 }
 
 input.elem-group{
@@ -59,12 +53,6 @@ input.elem-group{
 
 section.button{
     background-color: #4B86AB;
+    color: white;
 }
-.logo-2{
-    margin-top: 2cm;
-    border-radius: 120px;
-    height: 2cm;
-    width: 2cm;
-    align-items: center;   
-    justify-content: center;
-}
+
