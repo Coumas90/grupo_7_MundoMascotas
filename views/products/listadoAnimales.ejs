@@ -36,31 +36,31 @@
                     Mascotas
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/animales" category="perro">Perros</a></li>
-                  <li><a class="dropdown-item" href="/animales" category="gato">Gatos</a></li>
-                  <li><a class="dropdown-item" href="/animales" category="otros">Otras mascotas</a></li>
-                </ul>
-            </span>
-            <span class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Marcas
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/marcas" category="pedigree">Pedigree</a></li>
-                  <li><a class="dropdown-item" href="/marcas" category="purina">Purina</a></li>
-                  <li><a class="dropdown-item" href="/marcas" category="royal canin">Royal Canin</a></li>
-                  <li><a class="dropdown-item" href="/marcas"category= "otra marca">Otras marcas</a></li>
-                </ul>
-            </span>
-            <span class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ofertas
-                    </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/categoria" category="alimento">Alimento</a></li>
-                  <li><a class="dropdown-item" href="/categoria" category="accesorios">Accesorios</a></li>
-                  <li><a class="dropdown-item" href="/categoria" category="ofertas">Todas las ofertas</a></li>
-                </ul>
+                    <li><a class="dropdown-item" href="/menu" category="perro">Perros</a></li>
+                    <li><a class="dropdown-item" href="/menu" category="gato">Gatos</a></li>
+                    <li><a class="dropdown-item" href="/menu" category="otros">Otras mascotas</a></li>
+                  </ul>
+              </span>
+              <span class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Marcas
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/menu" category="pedigree">Pedigree</a></li>
+                    <li><a class="dropdown-item" href="/menu" category="purina">Purina</a></li>
+                    <li><a class="dropdown-item" href="/menu" category="royal canin">Royal Canin</a></li>
+                    <li><a class="dropdown-item" href="/menu"category= "otra marca">Otras marcas</a></li>
+                  </ul>
+              </span>
+              <span class="dropdown">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Ofertas
+                      </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/menu" category="alimento">Alimento</a></li>
+                    <li><a class="dropdown-item" href="/menu" category="accesorios">Accesorios</a></li>
+                    <li><a class="dropdown-item" href="/menu" category="ofertas">Todas las ofertas</a></li>
+                  </ul>
             </span>
         </nav>
         </div>
@@ -95,10 +95,10 @@
             </div>
         </section>
         <section>
-          <!-- filter solo con promociones -->
+          <!-- filter por categoria -->
           <!-- hacer dinamico todos los datos  -->
-            <h2>"Las mejores promociones"</h2>
-            <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
+        <!-- banner categoria -->
+            <% products.filter(product => product.mascotas === ).forEach(product => { %>
             <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
@@ -117,90 +117,8 @@
                   </div>
                 </div>
                 <% }) %>
-                <!-- <div class="col">
-                  <div class="card h-100">
-                    <img src="images/Productos/Producto2.jpg" class="card-img-top" alt="Producto2">
-                    <div class="card-body">
-                      <h5 class="card-title">Producto2</h5>
-                      <div class="main-article">
-                        <i class="fas fa-truck"></i>
-                            <p class="price">$1.000</p>
-                            <p class="discount">5% off</p>
-                            <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
-                            <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card h-100">
-                    <img src="images/Productos/Producto3.jpg" class="card-img-top" alt="Producto3">
-                    <div class="card-body">
-                      <h5 class="card-title">Producto3</h5>
-                      <div class="main-article">
-                        <i class="fas fa-truck"></i>
-                            <p class="price">$1.000</p>
-                            <p class="discount">5% off</p>
-                            <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
-                            <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
-                        </div>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- <div class="col">
-                  <div class="card h-100">
-                    <img src="images/Productos/Producto4.jpg" class="card-img-top" alt="Producto4">
-                    <div class="card-body">
-                      <h5 class="card-title">Producto4</h5>
-                      <div class="main-article">
-                        <i class="fas fa-truck"></i>
-                            <p class="price">$1.000</p>
-                            <p class="discount">5% off</p>
-                            <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
-                            <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
-                        </div>
-                    </div>
-                  </div>
-                </div> -->
-              </div>
-        </section>
-        <section>
-            <h2>"Marcas destacadas"</h2>
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="images/Marcas/Royalcanin.jpg" class="d-block w-100" alt="marca1">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/Marcas/Pedigree.jpg" class="d-block w-100" alt="marca2">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/Marcas/dogchow-logo-producto_0.jpg" class="d-block w-100" alt="marca3">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/Marcas/proplan-logo-producto-2019.jpg" class="d-block w-100" alt="marca4">
-                  </div>
-                 <!--  <div class="carousel-item">
-                    <img src="images/Marcas/friskies.jpg" class="d-block w-100" alt="marca5">
-                  </div> -->
-                </div>
-              </div>
-
-           <!--  <article class="marca1">
-                <img src="images/Marcas/dogui.jpg" alt="marca1">
+   
             </article>
-            <article class="marca2">
-                <img src="images/Marcas/Pedigree.jpg" alt="marca3">
-            </article>
-            <article class="marca3">
-                <img src="images/Marcas/purina.jpg" alt="marca3">
-            </article>
-            <article class="marca4">
-                <img src="images/Marcas/Royalcanin.jpg" alt="marca4">
-            </article>
-            <article class="marca5">
-                <img src="images/Marcas/friskies.jpg" alt="marca5">
-            </article> -->
 
         </section>
         <section>
