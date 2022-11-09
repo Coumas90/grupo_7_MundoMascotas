@@ -93,27 +93,3 @@ footer{
     background-color: #F5B75F;
     width: 100%;
 }
-
-.form-label {
-    display: inline-block;
-    font-size: 1.6em;
-    margin: 10px 0;
-  }
-  
-  .formulario {
-    display: block;
-    width: 100%;
-    height: 45px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    border-radius: 8px;
-    border: none;
-    border: solid 1px var(--gray);
-    padding: 0 15px;
-  }
-  
-  textarea.formulario {
-    min-height: 140px;
-    resize: vertical;
-    padding: 15px;
-  }
