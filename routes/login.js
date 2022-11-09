@@ -7,7 +7,7 @@ const router = express.Router();
 const controladorLogin = require('../controllers/loginController');
 
 router.get('/', controladorLogin.login);
-router.get('/registrate', controladorLogin.registrate);
+router.get('/register', controladorLogin.register);
 router.get('/olvido', controladorLogin.olvido);
 
 module.exports = router;
