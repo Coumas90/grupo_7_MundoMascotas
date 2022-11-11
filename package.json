@@ -7,14 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "nodemon app.js"
-    
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "-": "^0.0.1",
     "bootstrap": "^5.2.2",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "g": "^2.0.1",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.20"
   }
