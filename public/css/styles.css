@@ -1,3 +1,5 @@
+/*====== Basics ======*/
+
 *{
     border: 1px;
     margin: 2px;
@@ -11,14 +13,12 @@ body{
     
 }
 
-
 div .card-body{
     border: 1px;
     margin: 2px;
     padding: 2px;
     width: 100%;
 }
-
 
 h3{
     font-size: 15px;
@@ -91,9 +91,34 @@ main section article img{
     width: 80%;
 }
 
+/*====== Header ======*/
+
+
+/*====== Navbar ======*/
+
+
+/*====== Banner ======*/
+
+
+/*====== Productos ======*/
+
+
+/*====== Footer ======*/
+
 footer{
     background-color: #F5B75F;
     width: 100%;
 }
 
 
+
+
+/*====== Product Detail ======*/
+
+
+
+/*====== Formularios ======*/
+
+
+
+/*====== Media-Queries ======*/

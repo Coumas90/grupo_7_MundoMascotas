@@ -39,57 +39,60 @@
           <!-- hacer dinamico todos los datos  -->
             <h2>"Las mejores promociones"</h2>
             <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
-            <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                  <div class="card h-100">
-                    <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="Producto1">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= product.nombre %></h5>
-                      <div class="main-article">
-                        <i class="fas fa-truck"></i>
-                        <p class="price"><%= product.precio %></p>
-                        <p class="discount"><%= product.descuento %></p>
-                        <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
-                        <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <div class="col">
+                    <div class="card h-100">
+                      <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="Producto1">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= product.nombre %></h5>
+                        <div class="main-article">
+                          <i class="fas fa-truck"></i>
+                          <p class="price"><%= product.precio %></p>
+                          <p class="discount"><%= product.descuento %></p>
+                          <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+                          <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                      </div>
+                      </div>
                     </div>
-                    </div>
-                  </div>
-                </div>
-                <% }) %>
+                  </div>              
               </div>
+            <% }) %>
+          <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
         </section>
+
         <section>
             <h2>"Marcas destacadas"</h2>
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="images/Marcas/Royalcanin.jpg" class="d-block w-100" alt="marca1">
-                  </div>
-                  <div class="carousel-item">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="images/Marcas/Royalcanin.jpg" class="d-block w-100" alt="marca1">
+                </div>
+                <div class="carousel-item">
                     <img src="images/Marcas/Pedigree.jpg" class="d-block w-100" alt="marca2">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/Marcas/dogchow-logo-producto_0.jpg" class="d-block w-100" alt="marca3">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/Marcas/proplan-logo-producto-2019.jpg" class="d-block w-100" alt="marca4">
-                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="images/Marcas/dogchow-logo-producto_0.jpg" class="d-block w-100" alt="marca3">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/Marcas/proplan-logo-producto-2019.jpg" class="d-block w-100" alt="marca4">
                 </div>
               </div>
-        </section>
-        <section>
-            <div class="card">
-                <div class="card-body">
-                    Registrate y obtené 15% off
-                    <span>
-                        <button class="btn btn-primary btn-sm" type="submit"><a href="/login/register">Quiero mi cupón!</a></button>
-                    </span>
-                </div>
             </div>
         </section>
+
+        <section>
+          <div class="card">
+            <div class="card-body">Registrate y obtené 15% off
+              <span>
+                <button class="btn btn-primary btn-sm" type="submit"><a href="/login/register">Quiero mi cupón!</a></button>
+              </span>
+            </div>
+          </div>
+        </section>
     </main>
+
     <%- include('../partials/footer.ejs') %>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 </body>
