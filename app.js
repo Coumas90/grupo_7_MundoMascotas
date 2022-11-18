@@ -13,7 +13,7 @@ const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
 const rutasMiCuenta = require('./routes/miCuenta.js');
 const rutasListado = require('./routes/listado.js');
-
+const rutasPerfil = require('./routes/perfil.js');
 
 // Uso recursos estaticos -> app.use(express.static('public))
 app.use(express.static('public'));
@@ -31,3 +31,4 @@ app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
 app.use('/miCuenta', rutasMiCuenta);
 app.use('/listado', rutasListado);
+app.use('/perfil', rutasPerfil);
