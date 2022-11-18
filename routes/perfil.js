@@ -7,7 +7,7 @@ const router = express.Router();
 const controladorPerfil = require('../controllers/perfilController');
 
 //Definir todas las rutas, yendo del controlador al metodo que necesitamos
-router.get('/', controladorPerfil.index);
+router.get('/', controladorPerfil.perfil);
 
 
 
