@@ -13,9 +13,13 @@ const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
 const rutasMiCuenta = require('./routes/miCuenta.js');
 const rutasListado = require('./routes/listado.js');
+<<<<<<< HEAD
 //Necesario para poder utilizar los metodos put y delete en HTTP
 const methodOverride = require ('method-override');
 
+=======
+const rutasPerfil = require('./routes/perfil.js');
+>>>>>>> 984e018f7bad5ef04bf9192fb1a9fb4276fc3763
 
 // Uso recursos estaticos -> app.use(express.static('public))
 app.use(express.static('public'));
@@ -33,6 +37,7 @@ app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
 app.use('/miCuenta', rutasMiCuenta);
 app.use('/listado', rutasListado);
+<<<<<<< HEAD
 
 //Creamos estos dos entornos para poder trabajar con los datos que se envian desde el formulario, para poder capturar esta informacion
 app.use(express.urlencoded({extended:false}));
@@ -45,3 +50,6 @@ app.use(methodOverride('_method'));
 app.use((req,res,next)=>{
     res.status(404).render('user/not-found');
 });
+=======
+app.use('/perfil', rutasPerfil);
+>>>>>>> 984e018f7bad5ef04bf9192fb1a9fb4276fc3763
