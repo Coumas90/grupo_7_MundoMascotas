@@ -22,8 +22,11 @@ const upload = multer({
 })
 
 router.get('/', controladorDetalleProducto.detalle);
-
 router.get('/create', controladorDetalleProducto.creacion); // obtener un producto creado
 router.post('/', upload.single('imagen'), controladorDetalleProducto.store);
+
+//rutas para la edicion de productos
+router.get('/editar',controladorDetalleProducto.editar);
+router.put('/editar',controladorDetalleProducto.storeedit);
 
 module.exports = router;
