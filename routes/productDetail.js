@@ -26,7 +26,11 @@ router.get('/create', controladorDetalleProducto.creacion); // obtener un produc
 router.post('/', upload.single('imagen'), controladorDetalleProducto.store);
 
 //rutas para la edicion de productos
-router.get('/editar',controladorDetalleProducto.editar);
-router.put('/editar',controladorDetalleProducto.storeedit);
+router.get('/:id/editar',controladorDetalleProducto.editar);
+router.put('/:id/editar',controladorDetalleProducto.storeedit);
+
+//rutas para eliminar productos
+
+
 
 module.exports = router;

@@ -1,76 +1,61 @@
 <!DOCTYPE html>
-    <html lang ="es">
-        <%- include('../partials/head.ejs') %>
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link
-              href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-              rel="stylesheet"
-            />
-            <link
-              rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-            />
-            <link
-              href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-              rel="stylesheet"
-              integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-              crossorigin="anonymous"
-            />
-            <link rel="stylesheet" TYPE href="css/styles.css" />
-            <link rel="stylesheet" href="/css/color.css" />
-            <link rel="stylesheet" href="/css/register.css" />
-            <title>Document</title>
-        </head>    
-        <body>
-            <div class="banner"><label><h3>En tu compra mayor a $5000 el envio es gratis!</h3></label></div>
-            <header>
-                <div class="header.log">
-                <span class="burger-menu"><i class="fas fa-bars"></i></span>
-                <span class ="logo-chico"><img class="logo-chico" src = "images/logos/logo1.png" alt="logo Mundo Mascotas"></span>
-                <span class="barra-de-busqueda">
-                         <input  class="barra-de-busqueda" type="search">
-                </span>
-                <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <span class="icon-shopping"><a href="/productCart"><i class="fa-solid fa-basket-shopping"></i></a></span>
-                </div>
-            </header>
-            <section class="form-registro">
-                <div><img class="logo-2" src = "images/logos/logo2.png" alt="Banner Mundo Mascotas"></div>
-                <form action="/register" method="post"> 
-                    <label>Registrate en Mundo Mascota!</label>
-                    <div class="elem-group"> 
-                        <input class="elem-group" type="email" id="email" name="client_email" placeholder="nombre@mundomascotas.com.ar" required> 
-                    </div> 
-                    <div>
-                    <span class="elem-group"> 
-                        <input class="elem-group2" type="text" id="username" name="client_name" placeholder="Nombre" pattern=[A-Z\sa-z] required> 
-                    </span> 
-                    <span class="elem-group2"> 
-                        <input class="elem-group2" type="text" id="usersurname" name="client_surname" placeholder="Apellido" pattern=[A-Z\sa-z] required> 
-                    </span> 
-                    </div>
-                    <div>
-                    <span class="elem-group"> 
-                        <input class="elem-group2" type="text" id="DNI" name="client_dni" placeholder= "DNI" required> 
-                    </span> 
-                    <span class="elem-group"> 
-                        <input class="elem-group2" type="text" id="telephone" name="client_telephone" placeholder="Telefono" pattern=[A-Z\sa-z] required> 
-                    </span> 
-                    </div>
-                    <div class="elem-group">
-                             <input class="elem-group" type="password" id="pass" name="password" placeholder="Contraseña (8 caracteres minimo)" minlength="8" required>
-                    </div>
-                     <div class="elem-group">
-                             <input class="elem-group" type="password" id="pass" name="password" placeholder="Confirmar contraseña"  minlength="8" required>
-                    </div>
-                    <button type="submit">REGISTRAR</button>
+<html lang="en">
 
-                    </form>
-                    <div id="volver">
-                        <a href="/"><button>Página principal</button></a>
-                      </div>
-           </section>
-        </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms 01</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+    <div class="form">
+        <span class="form__title">Registrate en Mundo Mascotas!</span>
+        <form action="/register" method="post">
+            <div class="form__input">
+                <i class="ri-user-line"></i>
+                <input type="text" name="client_name" placeholder="Nombre" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form__input">
+                <i class="ri-user-line"></i>
+                <input type="text" name="client_surname" placeholder="Apellido" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form__input">
+                <i class="ri-user-line"></i>
+                <input type="text" name="client_dni" placeholder="DNI" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form__input">
+                <i class="ri-user-line"></i>
+                <input type="text" name="client_telephone" placeholder="Telefono" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form__input">
+                <i class="ri-mail-line"></i>
+                <input type="email" name="client_email" placeholder="Email" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form__input">
+                <i class="ri-lock-line"></i>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form__input">
+                <i class="ri-lock-line"></i>
+                <input type="password" name="confirm_password" placeholder="Confirme contraseña" required>
+                <span class="bar"></span>
+            </div>
+            <button type="submit" class="form__button">Registrarme</button>
+            <span class="form__switch">
+                Ya tenes cuenta?? <a href="/login">Login</a>
+            </span>
+        </form>
+    </div>
+</body>
+
+</html>

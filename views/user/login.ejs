@@ -1,29 +1,33 @@
-<!DOCTYPE html>
-    <html lang ="es">
-      <%- include('../partials/head.ejs') %>
-        <body>
-            <header>
-                <div class ="logo-banner"><img class="logo-banner" src = "images/logos/logo1.png" alt="Banner Mundo Mascotas"></div>
-            </header>
-            <section class="form-login">
-                <div><img class="logo-chico" src = "images/logos/logo2.png" alt="Banner Mundo Mascotas"></div>
-                <form method="post" action="/login">
-                    <div class="row mb-3">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                      <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" name="client_email" required>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
-                      <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword3" name= "password" required>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><a href="/miCuenta">Sign in</a></button>
-                    <span class="next"><a href="/login/olvido">¿Olvidaste tu contraseña?</a></span>
-                    <span class="next"><a href="/login/register">Registrate en Mundo Mascotas</a></span>
-                  </form>
-            </section>
 
-        </body>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms 01</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+    <div class="form">
+        <span class="form__title">Registrate en Mundo Mascotas!</span>
+        <form action="/login" method="post">
+            <div class="form__input">
+                <i class="ri-mail-line"></i>
+                <input type="email" name="client_email" placeholder="Email" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form__input">
+                <i class="ri-lock-line"></i>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <span class="bar"></span>
+            </div>
+            <button type="submit" class="form__button">Ingresar</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -12,5 +12,9 @@ router.get('/marca/:filtro', controladorListado.detallemarca);
 router.get('/animal/:filtro', controladorListado.detalleanimal);
 router.get('/categoria/:filtro', controladorListado.detallecategoria);
 
+//Detalle productos
+router.get('/:id');
+
+
 
 module.exports = router;
