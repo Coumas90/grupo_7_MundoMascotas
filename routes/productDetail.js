@@ -13,17 +13,16 @@ const storage = multer.diskStorage({
         // el destination indica donde va a ir a parar  y el Filename con que nombre
     },
     filename : function(req, file, cb){
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        const newFileName = file.filename + '-' + Date.now() + path.extname(file.originalname);
+        cb(null, newFileName);
         // genero el nombre con el cual se va a guardar el archivo  y datenow para que tenga nombre unico e irrepetible
     }
 })
-const upload = multer({
-    storage
-})
+const upload = multer({storage})
 
 router.get('/', controladorDetalleProducto.detalle);
 router.get('/create', controladorDetalleProducto.creacion); // obtener un producto creado
-router.post('/', upload.single('imagen'), controladorDetalleProducto.store);
+router.post('/', upload.single('imagen_producto'), controladorDetalleProducto.store);
 
 //rutas para la edicion de productos
 router.get('/:id/editar',controladorDetalleProducto.editar);

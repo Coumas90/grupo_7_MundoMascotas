@@ -12,7 +12,13 @@ const controladorDetalleProducto = {
 	},
 
     store: (req, res) => {
-		console.log(req.file);
+		const file = req.file;
+
+	// if(!file){
+	// 	const error= new Error('Por favor seleccione un archivo')
+	// 	error.httpStatusCode =400
+	// 	return next (error)
+	// }
 
 		let productoNuevo = {
 			//id : Math.random() *1000,
