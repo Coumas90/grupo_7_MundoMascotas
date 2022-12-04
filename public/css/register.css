@@ -32,8 +32,8 @@ body {
     left: 0;
     width: 100%;
     height: 10rem;
-    background: linear-gradient(to left, #ec008c,
-    #FFC97D);
+    background: linear-gradient(to left, #d5eaf7,
+    #4b86ab);
     border-radius: 1rem 1rem 100% 100%;
     z-index: -1;
 }
@@ -102,8 +102,8 @@ body {
     display: block;
     margin: 2.5rem auto 3rem;
     padding: 1rem 5rem;
-    background: linear-gradient(to left, #FFC97D,
-            #ec008c);
+    background: linear-gradient(to left, #4b86ab,
+            #d5eaf7);
     color: #fff;
     font: inherit;
     border: .5rem solid #fff;
@@ -113,8 +113,8 @@ body {
 }
 
 .form__button:hover {
-    background: linear-gradient(to right, #FFC97D,
-            #ec008c);
+    background: linear-gradient(to right, #4b86ab,
+            #d5eaf7);
 }
 
 .form__switch {
@@ -148,4 +148,7 @@ body {
         border-radius: inherit;
         box-shadow: inherit;
     }
+}
+a{
+    color:white
 }

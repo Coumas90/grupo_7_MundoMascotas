@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms 01</title>
+    <title>Registrate en Munfo Mascota</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/register.css">
 </head>
@@ -22,12 +22,19 @@
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="password" placeholder="Contraseña"  minlength="8" required>
                 <span class="bar"></span>
             </div>
             <button type="submit" class="form__button">Ingresar</button>
+            <span class="form__switch">
+                Registrate <a href="/login/register">Login</a>
+            </span>
+            <span class="form__switch">
+                Olvidaste tu contraseña? <a href="/login/olvido">Restablecela</a>
+            </span>
         </form>
     </div>
 </body>
 
 </html>
+

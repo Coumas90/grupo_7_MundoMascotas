@@ -19,7 +19,14 @@ const controladorLogin = {
         }
         res.redirect("/");
     },
-    olvido: (req, res)=> {res.render('user/restablecer');},
+    olvido: (req, res)=> {res.render('user/restablecer');
+    },
+    restablecer: (req,res)=>{
+        let nuevousuario={
+            client_email: req.body.client_email,
+            password: req.body.password
+        }
+},
 };
 
 module.exports = controladorLogin;

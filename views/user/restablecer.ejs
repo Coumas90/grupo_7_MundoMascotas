@@ -1,60 +1,39 @@
-<!DOCTYPE html>
-    <html lang ="es">
-      <%- include('../partials/head.ejs') %>
-      <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-        />
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-          crossorigin="anonymous"
-        />
-        <link rel="stylesheet" TYPE href="css/styles.css" />
-        <link rel="stylesheet" href="/css/color.css" />
-        <link rel="stylesheet" href="/css/register.css" />
-        <title>Document</title>
-    </head>    
-      <body>
-            <header>
-                <div class ="logo-banner"><img class="logo-banner" src = "images/logos/logo1.png" alt="Banner Mundo Mascotas"></div>
-            </header>
-            <section class="form-login">
-                <div><img class="logo-chico" src = "images/logos/logo2.png" alt="Banner Mundo Mascotas"></div>
-                <form>
-                    <div class="row mb-3">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                      <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" required>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Nueva contraseña</label>
-                      <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword3" required>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Repita nueva contraseña</label>
-                        <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputPassword3" required>
-                        </div>
-                      </div>
-                    <button type="submit" class="btn btn-primary">Restablecer usuario</button>
-                  </form>
-                  <div id="volver">
-                    <a href="/"><button>Página principal</button></a>
-                  </div>
-            </section>
 
-        </body>
-    </html>
+
+<html lang="en">
+
+
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Forms 01</title>
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <link rel="stylesheet" href="/css/register.css">
+  </head>
+  
+  <body>
+      <div class="form">
+          <span class="form__title">Restablece tu usuario en Mundo Mascotas!</span>
+          <form action="/login/olvido" method="post">
+              <div class="form__input">
+                  <i class="ri-mail-line"></i>
+                  <input type="email" name="client_email" placeholder="Email" required>
+                  <span class="bar"></span>
+              </div>
+              <div class="form__input">
+                  <i class="ri-lock-line"></i>
+                  <input type="password" name="password" placeholder="Nueva contraseña" required>
+                  <span class="bar"></span>
+              </div>
+              <div class="form__input">
+                <i class="ri-lock-line"></i>
+                <input type="password" name="password" placeholder="Repita nueva contraseña" required>
+                <span class="bar"></span>
+            </div>
+              <button type="submit" class="form__button">Restablecer usuario</button>
+          </form>
+      </div>
+  </body>
+  
+  </html>
