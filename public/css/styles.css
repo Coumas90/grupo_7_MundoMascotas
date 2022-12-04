@@ -7,8 +7,8 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-    background-color: #FFC97D;
-    
+    background: linear-gradient(to left, #d5eaf7,
+    #ffc97d);
     
 }
 
@@ -28,23 +28,26 @@ p{
 }
 
 header{
-    background-color: #f4debf;
+    padding: 1%;
+    background: linear-gradient(to left, #d5eaf7,
+    #ffc97d);
     
 }
-
-div.top-header{
-    padding: 5%;
+div.contenedor{
     display: flex;
-    flex-flow: row wrap;
+    flex-direction:  row;
+    justify-content: space-between;
+}
+div.top-header{
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1%;
 }
 
 img.logo-chico{
-    z-index: -1;
     width: 100px;
     height: 100px;
-    border-radius: 120ch;
 }
 
 header div.logo{
@@ -93,6 +96,18 @@ main section article img{
     width: 80%;
 }
 
+i{
+    color: #4B86AB;
+}
+
+.btn-primary{
+    color: white;
+    background-color: #a87731;
+}
+
+a{
+    color:white
+}
 /*====== Header ======*/
 
 

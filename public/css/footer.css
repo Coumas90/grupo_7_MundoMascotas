@@ -11,7 +11,6 @@ html {
 body {
     font-family: sans-serif;
     font-size: 1.6rem;
-    background-color: hsl(38, 69%, 59%);
 }
 
 i {
@@ -20,7 +19,6 @@ i {
 
 .footer {
     padding-block: 5rem;
-    background-color: hsl(38, 69%, 59%);
     color: #666873;
 }
 

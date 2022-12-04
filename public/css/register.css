@@ -11,7 +11,8 @@ html {
 
 body {
     font-size: 1.6rem;
-    background-color:#FFC97D;
+    background: linear-gradient(to left, #d5eaf7,
+    #ffc97d);
 }
 
 .form {
@@ -114,7 +115,7 @@ body {
 
 .form__button:hover {
     background: linear-gradient(to right, #4b86ab,
-            #d5eaf7);
+            #4b86ab);
 }
 
 .form__switch {

@@ -1,17 +1,12 @@
 <header>
+    <div class="contenedor">
     <div class="top-header">
-        <div class="card">
-            <div class="card-body">
-                Encontrá las mejores promociones, productos de calidad y grandes descuentos.
-            </div>
-        </div>
-        <nav>
-            <span class="burger-menu">
-                <i class="fa fa-bars burger"></i>
-            </span>    
-            <span class="logo-chico">
-                <img class="logo-chico" src="/public/images/Logos/logo2.png" alt="Logo Mundo Mascotas" class="logo_img">
-            </span>
+        <span class="logo-chico">
+            <img class="logo-chico" src="/images/Logos/logo1.png" alt="Logo Mundo Mascotas" class="logo_img">
+        </span>
+    </div>
+    <div class="top-header">
+        <nav>  
             <span class="form" action="label" method="GET">
                 <span class="barra-de-busqueda">
                     <input type="search">
@@ -20,59 +15,51 @@
                     </span>
                 </span>
             </span>
-            <!-- comentamos los botones de Ayuda y Mi Cuenta para ahorrar espacio -->
-          
-            <!-- <button class="btn btn-primary" type="submit">Ayuda</button> -->
-           <!-- <button class="btn btn-primary" type="submit"><a href="/login">Mi cuenta</a></button> -->
-          
+        </nav>
+    </div>
+    <div class="top-header">
+        <nav>
            <span><a href="/login"><i class="fas fa-user-alt"></i></a></span> 
            <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
-          
-           <!-- dejamos comentados los botones de Registro y Olvide mi contraseña ya que estàn dentro de login --> 
-          
-           <!-- <button class="btn btn-primary" type="submit"><a href="/login/register">Registro</a></button>
-            <button class="btn btn-primary" type="submit"><a href="/login/olvido">Olvide mi Contraseña</a></button> -->
-            <button class="btn btn-primary" type="submit">Ayuda</button>
-            <button class="btn btn-primary" type="submit"><a href="/login">Mi cuenta</a></button>
-            <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
-            <button class="btn btn-primary" type="submit"><a href="/login/register">Registro</a></button>
-            <button class="btn btn-primary" type="submit"><a href="/login/olvido">Olvide] mi Contraseña</a></button>
-            <button class="btn btn-primary" type="submit"><a href="/perfil">Perfil</a></button>
-        </nav>        
-    <nav>
-        <span class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-primary" type="submit"><a href="/login/register">Registrate</a></button>
+        </nav>    
+    </div>   
+    </div>
+    <div class="top-header">
+        <nav>
+            <span class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Mascotas
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/listado/animal/perro" category="perro">Perros</a></li>
-              <li><a class="dropdown-item" href="/listado/animal/gato" category="gato">Gatos</a></li>
-            </ul>
-        </span>
-        <span class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/listado/animal/perro" category="perro">Perros</a></li>
+                        <li><a class="dropdown-item" href="/listado/animal/gato" category="gato">Gatos</a></li>
+                    </ul>
+            </span>
+            <span class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Marcas
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/listado/marca/pedigree" category="pedigree">Pedigree</a></li>
-              <li><a class="dropdown-item" href="/listado/marca/purina" category="purina">Purina</a></li>
-              <li><a class="dropdown-item" href="/listado/marca/royalcanin" category="royal canin">Royal Canin</a></li>
-              <li><a class="dropdown-item" href="/listado/marca/catchow"category= "otra marca">Cat Chow</a></li>
-              <li><a class="dropdown-item" href="/listado/marca/cancat"category= "otra marca">Can Cat</a></li>
-              <li><a class="dropdown-item" href="/listado/marca/cancat"category= "otra marca">Pro Plan</a></li>
-              <li><a class="dropdown-item" href="/listado/marca/whiskas"category= "otra marca">Whiskas</a></li>
-            </ul>
-        </span>
-        <span class="dropdown">
+                </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/listado/marca/pedigree" category="pedigree">Pedigree</a></li>
+                        <li><a class="dropdown-item" href="/listado/marca/purina" category="purina">Purina</a></li>
+                        <li><a class="dropdown-item" href="/listado/marca/royalcanin" category="royal canin">Royal Canin</a></li>
+                        <li><a class="dropdown-item" href="/listado/marca/catchow"category= "otra marca">Cat Chow</a></li>
+                        <li><a class="dropdown-item" href="/listado/marca/cancat"category= "otra marca">Can Cat</a></li>
+                        <li><a class="dropdown-item" href="/listado/marca/cancat"category= "otra marca">Pro Plan</a></li>
+                        <li><a class="dropdown-item" href="/listado/marca/whiskas"category= "otra marca">Whiskas</a></li>
+                    </ul>
+            </span>
+            <span class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categorias
                 </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/listado/categoria/alimento" category="alimento">Alimento</a></li>
-              <li><a class="dropdown-item" href="/listado/categoria/accesorios" category="accesorios">Accesorios</a></li>
-              <li><a class="dropdown-item" href="/listado/categoria/juguetes" category="juguetes">Juguetes</a></li>
-            </ul>
-        </span>
-    </nav>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/listado/categoria/alimento" category="alimento">Alimento</a></li>
+                        <li><a class="dropdown-item" href="/listado/categoria/accesorios" category="accesorios">Accesorios</a></li>
+                        <li><a class="dropdown-item" href="/listado/categoria/juguetes" category="juguetes">Juguetes</a></li>
+                    </ul>
+            </span>
+        </nav>
     </div>
 </header>

@@ -5,7 +5,7 @@ const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controladorIndex = {
-    index: (req, res) => {res.render('products/listadoProductos',{products:products});},
+    index: (req, res) => {res.render('products/listadoProductos',{products});},
 
 // Como hacer la ruta por url
     detalleanimal: (req,res) => {
@@ -22,7 +22,12 @@ const controladorIndex = {
         let filtromarca = req.params.filtro
         let marca = products.filter(product => product.marca == filtromarca)
         res.render('products/listadoProductos',{filtrados:marca})
-}
+},
+    detalleProducto: (req,res)=>{
+        let filtroproducto = req.params.filtro
+        let productoelegido = products.filter (product => product.id == filtroproducto)
+        res.render('products/listadoProductos',{filtrados:productoelegido})
+    }
 }
 
 module.exports = controladorIndex;
