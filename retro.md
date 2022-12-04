@@ -10,3 +10,8 @@ Hacer más: reuniones y feedback entre compañeros.
 Continuar haciendo: despejar dudas con el resto. 
 Hacer menos: trabajo individual sin consultar, llegando a la entrega sin haber visto lo del otro. 
 Dejar de hacer: lo mismo que antes. 
+
+*4to Sprint
+Comenzar a hacer: reuniones semanales para ver los avances del equipo o mantenernos al tanto via whatsapp. 
+Continuar haciendo: despejar dudas con el resto. 
+Hacer menos: trabajo individual sin consultar, llegando a la entrega sin haber visto lo del otro. 
