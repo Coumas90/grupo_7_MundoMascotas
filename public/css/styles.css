@@ -88,13 +88,13 @@ h3,
 
 main{
     margin : 1px;
-    width: 80%;
+    width: 100%;
 }
 
-main section article img{
-    margin-bottom: 1px;
-    width: 80%;
+section.banner{
+    width: 90%;
 }
+
 
 i{
     color: #4B86AB;
@@ -107,6 +107,38 @@ i{
 
 a{
     color:white
+}
+
+
+div.listadoProductos{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+main{
+    align-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+article.detalleProducto{
+    margin:10px;
+    width: 9cm;
+    height: 9cm;
+    padding: 0.3%;
+    background-color: #a87731;
+}
+article:hover{
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+img.card-img-top{
+    height: 4cm;
+    width: 4cm;
+    align-items: center;
 }
 /*====== Header ======*/
 

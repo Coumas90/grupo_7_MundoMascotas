@@ -5,7 +5,7 @@
 <body>
   <%- include('../partials/header.ejs') %>
     <main>
-        <section>
+        <section class="banner">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -37,8 +37,9 @@
           <!-- filter solo con promociones -->
           <!-- hacer dinamico todos los datos  -->
             <h2>"Las mejores promociones"</h2>
+            <div class ="listadoProductos">
             <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
-              <div class="row row-cols-1 row-cols-md-3 g-4">
+              <article class="detalleProducto">
                   <div class="col">
                     <div class="card h-100">
                       <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="Producto1">
@@ -54,12 +55,13 @@
                       </div>
                     </div>
                   </div>              
-              </div>
+                </article>
             <% }) %>
+            </div>
           <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
         </section>
 
-        <section>
+        <section class="banner">
             <h2>"Marcas destacadas"</h2>
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
