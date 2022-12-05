@@ -26,6 +26,7 @@ const controladorLogin = {
             client_email: req.body.client_email,
             password: req.body.password
         }
+        res.redirect("/login");
 },
 };
 
