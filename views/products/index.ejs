@@ -36,7 +36,7 @@
         <section>
           <!-- filter solo con promociones -->
           <!-- hacer dinamico todos los datos  -->
-            <h2>"Las mejores promociones"</h2>
+            <h2>Las mejores promociones</h2>
             <div class ="listadoProductos">
             <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
               <article class="detalleProducto"><a class="redireccion" href="/productDetail">
@@ -62,20 +62,18 @@
         </section>
 
         <section class="banner">
-            <h2>"Marcas destacadas"</h2>
+            <h2>Marcas destacadas</h2>
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="images/Marcas/Royalcanin.jpg" class="d-block w-100" alt="marca1">
+                  <img src="images/Marcas/Banner1.jpg" class="d-block w-100" alt="marca1">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/Marcas/Pedigree.jpg" class="d-block w-100" alt="marca2">
+                    <img src="images/Marcas/Banner2.jpg" class="d-block w-100" alt="marca2">
                 </div>
                 <div class="carousel-item">
-                  <img src="images/Marcas/dogchow-logo-producto_0.jpg" class="d-block w-100" alt="marca3">
+                  <img src="images/Marcas/Banner3.jpg" class="d-block w-100" alt="marca3">
                 </div>
-                <div class="carousel-item">
-                  <img src="images/Marcas/proplan-logo-producto-2019.jpg" class="d-block w-100" alt="marca4">
                 </div>
               </div>
             </div>

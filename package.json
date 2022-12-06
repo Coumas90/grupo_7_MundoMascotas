@@ -1,7 +1,7 @@
 {
   "name": "proyecto-mundomascotas",
   "version": "1.0.0",
-  "description": "",
+  "description": "Martina Abril Boazzo Cid (Base de datos)\r Facundo Nahuel Vega Laricchia (Lead)\r Nicolas Comas (Base de datos)\r Sebastian Lio (a definir)\r Nicolas San Martin (Frontend)\r Mariano Chanampa (a definir)",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,5 +19,14 @@
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.20"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coumas90/grupo_7_MundoMascotas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Coumas90/grupo_7_MundoMascotas/issues"
+  },
+  "homepage": "https://github.com/Coumas90/grupo_7_MundoMascotas#readme"
 }
