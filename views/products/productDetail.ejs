@@ -1,32 +1,9 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mundo Mascotas</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <!-- CSS -->
-    <link href="style.css" rel="stylesheet">
-    <meta name="robots" content="noindex,follow" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  </head>
-  
-  <body>
+<html lang="es">
+  <%- include('../partials/head.ejs') %>
+<body>
+  <%- include('../partials/header.ejs') %>
 
-    <header class="main-header">
-      <div class="top-header">
-      <div class="form">
-      <img class="logo" src="images/Logos/Nuevo Logo 2 (2).png" alt="">
-      <div class="search-box">
-      <div class="busqueda">
-      <input class="barra" type="Lugar para poner la barra de búsqueda">
-       <nav class="main-nav">
-        <ul class="right-nav">
-          <li><a href="">Carrito</a></li>
-          <li><a href="">Tu Cuenta</a></li>
-      </ul>
-    </header>  
   
     <main class="container">
 
@@ -75,40 +52,11 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="images/Productos/Alimento Perro 4.png" class="d-block w-100" alt="Alimento Perro 4">
-          </div>
-          <div class="carousel-item">
-            <img src="images/Productos/Alimento Perro 5.png" class="d-block w-100" alt="Alimento Perro 5">
-          </div>
-          <div class="carousel-item">
-            <img src="images/Productos/Alimento Perro 6.png" class="d-block w-100" alt="Alimento Perro 6">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+   
+        <%- include('../partials/footer.ejs') %>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script src="script.js" charset="utf-8"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-
-    <div class="banner">
-      <div>
-        <img src="images/Banners/banner1-mascotas.jpg">
-      </div>  
-    </div>
-
-  </body>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    </body>
 
 </html>

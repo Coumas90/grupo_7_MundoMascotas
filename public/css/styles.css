@@ -116,6 +116,7 @@ div.listadoProductos{
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    justify-content: flex-start;
 
 }
 main{
@@ -151,7 +152,10 @@ img.card-img-top{
 .card-title{
     width: 100%;
 }
-
+a.redireccion{
+    color:black;
+    text-decoration: none;
+}
 /*====== Header ======*/
 
 

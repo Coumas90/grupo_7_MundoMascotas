@@ -7,13 +7,13 @@
     <main>
       <div class ="listadoProductos">
         <% filtrados.forEach(product => { %>
-        <article class="detalleProducto">
+        <article class="detalleProducto"><a class="redireccion" href="/productDetail">
               <div class="row row-cols-1 row-cols-md-3 g-4">
                   <div class="col">
                     <div class="card h-100">
                       <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="Producto1">
                       <div class="card-body">
-                        <h5 class="card-title"><%= product.nombre %></h5>
+                        <h5 class="card-title"><a href= "/"><%= product.nombre %></a></h5>
                         <div class="main-article">
                           <i class="fas fa-truck"></i>
                           <p class="price"><%= product.precio %></p>
@@ -25,7 +25,7 @@
                     </div>
                   </div>
               </div>
-            </article>
+            </a></article>
             <% }) %>
       </div>
     </main>
