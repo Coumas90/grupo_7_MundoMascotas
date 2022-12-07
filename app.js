@@ -11,7 +11,7 @@ const rutasIndex = require('./routes/index.js');
 const rutasLogin = require('./routes/login.js');
 const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
-const rutasMiCuenta = require('./routes/miCuenta.js');
+const rutasPerfil = require('./routes/perfil.js');
 const rutasListado = require('./routes/listado.js');
 //Necesario para poder utilizar los metodos put y delete en HTTP
 const methodOverride = require ('method-override');
@@ -31,8 +31,8 @@ app.use('/', rutasIndex);
 app.use('/productDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
-app.use('/miCuenta', rutasMiCuenta);
 app.use('/listado', rutasListado);
+app.use('/perfil', rutasPerfil);
 
 //Creamos estos dos entornos para poder trabajar con los datos que se envian desde el formulario, para poder capturar esta informacion
 app.use(express.urlencoded({extended:false}));
