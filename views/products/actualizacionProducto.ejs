@@ -16,7 +16,7 @@
                       <h3 class="products-title">Crear nuevo producto</h3>
                     </div>
 
-                    <form action="/productDetail/:id/editar?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario-de-producto">
+                    <form action="/productDetail/<%= product.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario-de-producto">
                       <div class="row product-detail">
                         <div>
                           <label for="nombre-producto" class="form-label">Nombre del producto:</label>
