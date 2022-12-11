@@ -1,0 +1,30 @@
+<p>
+    <label>
+        Título
+        <input type="text" name="title" value="<%= locals.product ? product.nombre-producto : '' %>">
+    </label>
+</p>
+<p>
+    <label>
+        Descripción
+        <textarea name="desc"><%= locals.product ? product.descripcion-producto : '' %></textarea>
+    </label>
+</p>
+<p class="image">
+    <% if (locals.product) { %>
+        <img src="/images/Productos/<%= product.imagen ? product.imagen : '' %>" alt="">
+        <input type="hidden" name="oldImage" value="<%= product.imagen %>">
+    <% } %>
+</p>
+<p>
+    <label>
+        Imagen
+        <input type="file" name="image">
+    </label>
+</p>
+<p>
+    <label>
+        Precio
+        <input type="text" name="price" value="<%= locals.product ? product.precio : '' %>">
+    </label>
+</p>
