@@ -4,7 +4,7 @@ const express = require ('express');
 //Constante con la extension de express router
 const router = express.Router();
 
-const controladorDetalleProducto = require('../controllers/productDetailController');
+
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination : function(req, file, cb){
@@ -19,6 +19,8 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({storage})
+
+const controladorDetalleProducto = require('../controllers/productDetailController');
 
 router.get('/', controladorDetalleProducto.detalle);
 router.get('/create', controladorDetalleProducto.creacion); // obtener un producto creado

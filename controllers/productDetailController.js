@@ -1,42 +1,19 @@
 const fs = require('fs');
 const path = require('path');
-
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const productsModel = new JsonModel('products');
-
 const controladorDetalleProducto = {
     detalle: (req, res)=> {
-		let products = productsModel.all();
-		res.render('products/productDetail', { products })
+		// let product = products.find(req.params.id);
+		res.render('products/productDetail',{ product })
     },
-	/* show: (req, res) => {
-        let product = productsModel.find(req.params.id);
-
-        if (product) {
-            res.render('products/detail', { product });
-        } else {
-            res.render('products/404', { 
-                message: {
-                    class: 'error-message',
-                    title: 'Inexistente',
-                    desc: 'El producto que buscas ya no existe, nunca existió y tal vez nunca exista.'
-                }
-            });
-        }
-    }, */
+	
     creacion: (req, res) => {res.render('products/creacionProductos');
 	},
 
     store: (req, res) => {
 		const file = req.file;
-
-	// if(!file){
-	// 	const error= new Error('Por favor seleccione un archivo')
-	// 	error.httpStatusCode =400
-	// 	return next (error)
-	// }
 
 		let productoNuevo = {
 			//id : Math.random() *1000,

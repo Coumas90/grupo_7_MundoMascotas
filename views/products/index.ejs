@@ -34,12 +34,12 @@
             </div>
         </section>
         <section>
-          <!-- filter solo con promociones -->
-          <!-- hacer dinamico todos los datos  -->
+         
             <h2>Las mejores promociones</h2>
             <div class ="listadoProductos">
             <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
-              <article class="detalleProducto"><a class="redireccion" href="/productDetail/<%= product.id %>">
+              <article class="detalleProducto">
+                <a class="redireccion" href="/productDetail/<%= product.id %>">
                   <div class="col">
                     <div class="card h-100">
                       <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
@@ -51,13 +51,13 @@
                           <p class="discount"><%= product.descuento %></p>
                           <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
                           <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
-                      </div>
+                        </div>
                       </div>
                     </div>
                   </div>              
                 </article>
             <% }) %>
-          </a></div>
+          </div>
           
         </section>
 
