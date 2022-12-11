@@ -2,17 +2,21 @@
     <div class="contenedor">
     <div class="top-header">
         <span class="logo-chico">
-            <img class="logo-chico" src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img">
+            <a href="/"><img class="logo-chico"  src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img"></a>
         </span>
     </div>
     <div class="top-header">
         <nav>  
             <span class="form" action="label" method="GET">
                 <span class="barra-de-busqueda">
-                    <input type="search">
+                    <!-- <input type="search" placeholder="Búsqueada">
                     <span class="submit">
-                        <i class="fa fa-search"></i>
-                    </span>
+                        <button class="fa fa-search" type="submit"></button>
+                    </span> -->
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                      </form>
                 </span>
             </span>
         </nav>

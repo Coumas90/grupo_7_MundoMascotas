@@ -39,10 +39,10 @@
             <h2>Las mejores promociones</h2>
             <div class ="listadoProductos">
             <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
-              <article class="detalleProducto"><a class="redireccion" href="/productDetail">
+              <article class="detalleProducto"><a class="redireccion" href="/productDetail/<%= product.id %>">
                   <div class="col">
                     <div class="card h-100">
-                      <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="Producto1">
+                      <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title" ><%= product.nombre %></h5>
                         <div class="main-article">
@@ -58,7 +58,7 @@
                 </article>
             <% }) %>
           </a></div>
-          <button class="btn btn-outline-primary" disabled type="submit">Ver más productos</button>
+          
         </section>
 
         <section class="banner">
