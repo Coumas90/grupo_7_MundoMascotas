@@ -1,0 +1,14 @@
+<article class="product"><a class="redireccion" href="/productDetail/<%= product.id %>">
+    <h5 class="card-title" ><%= product.nombre %></h5>
+    <p class="image">
+        <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
+    </p>
+    <div class="main-article">
+        <i class="fas fa-truck"></i>
+        <p class="price"><%= product.precio %></p>
+        <p class="discount"><%= product.descuento %></p>
+        <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
+        <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+    </div>
+    </a>
+</article>

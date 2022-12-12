@@ -4,9 +4,7 @@
 <body>
   <%- include('../partials/header.ejs') %>
 
-  
     <main class="container">
-
       
       <div class="left-column">
         <img data-image="Bolsa" class="active" src="images/Productos/Alimento Perro.png" alt="">
@@ -22,8 +20,7 @@
           <h1>Royal Canin - Puppy</h1>
           <p>Alimento para perros cachorros de talla pequeña (hasta 10kg de peso adulto). Hasta los 10 meses de edad.</p>
         </div>
-
-  
+          
           <!-- Weight Configuration -->
           <div class="weight-config">
             <span>Peso del Alimento</span>
@@ -52,6 +49,9 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+
+
+        <a href="/products/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
    
         <%- include('../partials/footer.ejs') %>
 

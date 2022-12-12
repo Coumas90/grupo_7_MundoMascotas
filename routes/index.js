@@ -10,5 +10,4 @@ const controladorIndex = require('../controllers/indexController');
 router.get('/', controladorIndex.index);
 
 
-
 module.exports = router;

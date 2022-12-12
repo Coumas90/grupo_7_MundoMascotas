@@ -1,117 +1,20 @@
 <!DOCTYPE html>
-    <html lang ="es">
-        <%- include('../partials/head.ejs') %>
-
-        <body>
-
-            <%- include('../partials/header.ejs') %>
-
-            <div class="form-creacion">
-                <div>
-                  <img class="logo-chico" src = "images/logos/logo2.png" alt="Banner Mundo Mascotas">
-                </div>
-
-                <div class="container products-wrapper">
-                    <div class="col-12">
-                      <h3 class="products-title">Crear nuevo producto</h3>
-                    </div>
-
-                    <form action="/productDetail/:id/editar?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario-de-producto">
-                      <div class="row product-detail">
-                        <div>
-                          <label for="nombre-producto" class="form-label">Nombre del producto:</label>
-                          <input type="text" class="form-input" id="nombre-producto" placeholder="Ej: Alimento balanceado" required>
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="descripcion-producto" class="form-label">Descripcion del producto:</label>
-                          <textarea class="form-input" id="descripcion-producto" required></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Seleccionar marca</option>
-                              <option value="1">Pedigree</option>
-                              <option value="2">Purina</option>
-                              <option value="3">Royal Canin</option>
-                              <option value="4">Cat Chow</option>
-                              <option value="5">Can Cat</option>
-                              <option value="6">Pro Plan</option>
-                              <option value="7">Whiskas</option>
-                            </select>
-                          </div>
-
-                          <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Seleccionar categoria</option>
-                              <option value="1">Alimento</option>
-                              <option value="2">Juguetes</option>
-                              <option value="3">Accesorios</option>
-                            </select>
-                          </div>
-
-                        <div>
-                          <label for="precio" class="form-label">Precio del producto:</label>
-                          <input type="number" class="form-input" placeholder="Ej: 3000" id="precio" required>
-                        </div>
-
-                        <div>
-                          <label for="descuento" class="form-label">Descuento:</label>
-                          <input type="number" class="form-input" placeholder="Ej: 25" id="descuento" required>
-                        </div>
-
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
-                            <label class="form-check-label" for="validationFormCheck1">Seleccionar el color</label>   
-                            <input type="color" class="form-check-input" id="validationFormCheck1" required>                                
-                       </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Seleccionar talle</option>
-                              <option value="1">S</option>
-                              <option value="2">M</option>
-                              <option value="3">L</option>
-                              <option value="4">XL</option>
-                            </select>
-                          </div>
-
-                          <div>
-                            <label for="validationServer01" class="form-label">Peso del producto:</label>
-                            <input type="number" class="form-input" placeholder="Ej: 10" id="validationServer01" required>
-                          </div>
-                              
-                        <div class="mb-3">
-                          <input type="file" class="form-control" name="imagen_producto" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Sección</option>
-                              <option value="1">Ofertas</option>
-                              <option value="2">Más buscados</option>
-                            </select>
-                          </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Tipo de mascota</option>
-                              <option value="1">Perros</option>
-                              <option value="2">Gatos</option>
-                            </select>
-                        </div>
-                      
-                        <div class="mb-3">
-                          <button class="btn btn-primary" type="submit" disabled>Guardar producto</button>
-                        </div>
-
-                      </div>
-                      </form>
-
-                </div>
-
-              </div>
-            </div>
-            <%- include('../partials/footer.ejs') %>
-        </body>
-    </html>
+<html lang ="es">
+  <%- include('../partials/head.ejs') %>
+    <body>
+      <%- include('../partials/header.ejs') %>
+      <section class="product-detail">
+        <div class="container form-container">
+            <h3 class="title">Editar producto</h3>
+            <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <%- include('./partials/formFields'); %>
+                <p class="buttons">
+                    <a class="button" href="/products/<%= product.id %>">&larr; Volver al detalle</a>
+                    <button type="submit" class="button is-primary">Guardar producto</button>
+                </p>
+            </form>
+        </div>
+    </section>       
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
