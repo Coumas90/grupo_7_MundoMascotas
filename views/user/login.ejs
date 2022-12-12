@@ -17,13 +17,19 @@
         <form action="/login" method="post">
             <div class="form__input">
                 <i class="ri-mail-line"></i>
-                <input type="email" name="client_email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" required>
                 <span class="bar"></span>
+                <% if(locals.errors && errors.email){ %>
+                    <p style="color:red"> <%= errors.email.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="password" placeholder="Contraseña"  minlength="8" required>
+                <input type="password" name="password" placeholder="Contraseña"  id="password"minlength="8" required>
                 <span class="bar"></span>
+                <% if(locals.errors && errors.password){ %>
+                    <p style="color:red"> <%=errors.password.msg%> </p>
+                <%}%>
             </div>
             <button type="submit" class="form__button">Ingresar</button>
             <span class="form__switch">

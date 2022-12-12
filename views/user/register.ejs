@@ -14,46 +14,70 @@
 <body>
     <div class="form">
         <span class="form__title">Registrate en Mundo Mascotas!</span>
-        <form action="/login/register" method="post">
+        <form action="/login/register" method="POST" enctype="multipart/form-data">
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="client_name" placeholder="Nombre" required>
+                <input type="text" name="client_name" placeholder="Nombre" id="client_name" value="<%= locals.old && old.client_name ? old.client_name : '' %>" required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.client_name){ %>
+                    <p style="color:red"> <%=errorsregister.client_name.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="client_surname" placeholder="Apellido" required>
+                <input type="text" name="client_surname" placeholder="Apellido" id="client_surname" value="<%= locals.old && old.client_surname ? old.client_surname : '' %>"required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.client_surname){ %>
+                    <p style="color:red"> <%=errorsregister.client_surname.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="client_dni" placeholder="DNI" required>
+                <input type="text" name="client_dni" placeholder="DNI"  id="client_dni" value="<%= locals.old && old.client_dni ? old.client_dni : '' %>"required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.client_dni){ %>
+                    <p style="color:red"> <%=errorsregister.client_dni.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="client_telephone" placeholder="Telefono" required>
+                <input type="text" name="client_telephone" placeholder="Telefono" id="client_telephone" value="<%= locals.old && old.client_telephone ? old.client_telephone : '' %>"required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.client_telephone){ %>
+                    <p style="color:red"> <%=errorsregister.client_telephone.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-mail-line"></i>
-                <input type="email" name="client_email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email" id="email" value="<%= locals.old && old.email ? old.email : '' %>"required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.email){ %>
+                    <p style="color:red"> <%=errorsregister.email.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="password" placeholder="Contraseña" id="password"  required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.password){ %>
+                    <p style="color:red"> <%=errorsregister.password.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="confirm_password" placeholder="Confirme contraseña" required>
+                <input type="password" name="confirm_password" placeholder="Confirme contraseña" id="confirm_password" required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.password){ %>
+                    <p style="color:red"> <%=errorsregister.password.msg%> </p>
+                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="file" name="client_picture" placeholder="Adjuntar imagen de perfil"  accept= "pdf, jpeg, jpg" required>
+                <input type="file" name="client_picture" placeholder="Adjuntar imagen de perfil" id="client_picture" accept= "pdf, jpeg, jpg" required>
                 <span class="bar"></span>
+                <% if(locals.errorsregister && errorsregister.client_picture){ %>
+                    <p style="color:red"> <%=errorsregister.client_picture.msg%> </p>
+                <%}%>
             </div>
             <button type="submit" class="form__button">Registrarme</button>
             <span class="form__switch">
