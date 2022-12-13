@@ -32,6 +32,8 @@ router.put('/:id/editar',controladorDetalleProducto.storeedit);
 
 //rutas para eliminar productos
 
+// detalle de producto
+router.get('/:id',controladorDetalleProducto.detalleSKU);
 
 
 module.exports = router;
