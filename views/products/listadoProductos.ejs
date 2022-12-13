@@ -11,7 +11,7 @@
               <div class="row row-cols-1 row-cols-md-3 g-4">
                   <div class="col">
                     <div class="card h-100">
-                      <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="Producto1">
+                      <img src="images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title"><a href= "/"><%= product.nombre %></a></h5>
                         <div class="main-article">
@@ -19,7 +19,8 @@
                           <p class="price"><%= product.precio %></p>
                           <p class="discount"><%= product.descuento %></p>
                           <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
-                          <button class="btn btn-secondary btn-sm" type="submit">Agregar al carrito</button>
+                          <button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button>
+                          <button class="btn btn-light btn-sm" type="submit">Editar producto</button>
                       </div>
                       </div>
                     </div>
