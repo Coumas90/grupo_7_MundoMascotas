@@ -63,6 +63,11 @@ const controladorDetalleProducto = {
 
 		res.redirect ('/products');
 	},
+	detalleSKU: (req,res) => {
+        let filtroSKU = req.params.filtro
+        let SKU = products.filter(product => product.id == filtroSKU)
+        res.render('products/productDetail',{filtrados:SKU})
+},
 }
 
 module.exports = controladorDetalleProducto;

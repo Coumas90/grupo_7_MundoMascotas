@@ -8,6 +8,7 @@ const usersFilePath = path.join(__dirname, '../database/users.json');
 //leemos el archivo de usuarios
 let archivoUsuarios = fs.readFileSync(usersFilePath, {encoding:"utf-8"} );
 
+const User = require ('../models/User')
 
 const controladorLogin = {
     login: (req, res)=> {res.render('user/login')},
