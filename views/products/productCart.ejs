@@ -1,56 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" TYPE href="css/styles.css" />
-    <link rel="stylesheet" href="/css/color.css" />
-    <title>Document</title>
-  </head>
+  <%- include('../partials/head.ejs') %>
   <body>
-    
     <header>
-      <div class="top-header">
-          <div class="card">
-              <div class="card-body">
-                  Encontrá las mejores promociones, productos de calidad y grandes descuentos.
-              </div>
-          </div>
-          <nav>
-              <span class="burger-menu">
-                  <i class="fa fa-bars burger"></i>
-              </span>    
-              <span class="logo-chico">
-                  <img class="logo-chico" src="images/Logos/Logo-2.jpg" alt="Logo Mundo Mascotas" class="logo_img">
-              </span>
-              <span class="form" action="#" method="GET">
-                  <span class="barra-de-busqueda">
-                      <input type="search">
-                      <span class="submit">
-                          <i class="fa fa-search"></i>
-                      </span>
-                  </span>
-              </span>
-              <button class="btn btn-primary" type="submit">Ayuda</button>
-              <button class="btn btn-primary" type="submit">Mi cuenta</button>
+      <div class="contenedor">
+        <div class="top-header">
+            <span class="logo-chico">
+                <a href="/"><img class="logo-chico"  src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img"></a>
+            </span>
+        </div>
+        <div class="top-header">
+            <nav>  
+                <span class="form" action="label" method="GET">
+                    <span class="barra-de-busqueda">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                          </form>
+                    </span>
+                </span>
+            </nav>
+        </div>
+        <div class="top-header">
+            <nav>
+              <span><a href="/login"><i class="fas fa-user-alt"></i></a></span> 
               <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
-          </nav>        
-      <nav>
+                <button class="btn btn-primary" type="submit"><a href="/login/register">Registrate</a></button>
+            </nav>    
+        </div>   
+      </div>
+    </header>
+    
+    
     <div class="container">
 
       <table>
@@ -69,102 +50,23 @@
 
     
   
-<div class="checkout" >
+        <div class="checkout" >
 
 
-  <ul class="detalle">
-    <li>Precio:</li>    
-    <li>Impuestos (IVA):</li>  
-    <li>
-      Total:
-    </li> 
-  </ul>
-  <span>
-    <button>Comprar</button>
-    <button>Volver</button>
-  </span>
-</div>      </div>
+          <ul class="detalle">
+            <li>Precio:</li>    
+            <li>Impuestos (IVA):</li>  
+            <li>
+              Total:
+            </li> 
+          </ul>
+          <span>
+            <button>Comprar</button>
+            <button>Volver</button>
+          </span>
+        </div>      </div>
 
-<footer>
-  <ul class="nav justify-content-center">
-      <div><img class="logo-chico" src="images/Logos/Logo-2.jpg" alt="Logo Mundo Mascotas" class="logo_img"></div>
-      <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  ¿Quiénes somos?
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Términos y condiciones
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Contacto
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Redes sociales
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-              </div>
-            </div>
-        </div>
-
-      <!-- <li class="nav-item">
-        <a class="nav-link">¿Quiénes somos?</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link">Términos y condiciones</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Contacto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Redes sociales</a>
-      </li>
-    </ul>-->
-  <!-- <section>
-      <ul>
-          <li><a href="#">¿Quiénes somos?</a></li>
-          <li><a href="#">Términos y condiciones</a></li>
-      </ul>
-  </section>
-  <section>
-      <ul>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="#">Redes sociales</a></li>
-      </ul>
-  </section> -->
-</footer>
+  <%- include('../partials/footer.ejs') %>
   </body>
   <script >
 const products = [

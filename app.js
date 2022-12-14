@@ -12,6 +12,7 @@ app.use(express.json());
 
 //Creo contantes que guardan las rutas
 const rutasIndex = require('./routes/index.js');
+const rutasResults = require('./routes/index.js');
 const rutasLogin = require('./routes/login.js');
 const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
@@ -37,6 +38,7 @@ app.listen(3037, () => {console.log('Servidor corriendo')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasIndex);
+app.use('/results', rutasResults);
 app.use('/productDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
