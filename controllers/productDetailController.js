@@ -65,8 +65,8 @@ const controladorDetalleProducto = {
 	},
 	detalleSKU: (req,res) => {
         let filtroSKU = req.params.filtro
-        let SKU = products.filter(product => product.id == filtroSKU)
-        res.render('products/productDetail',{filtrados:SKU})
+        let SKU = products.find(product => product.id == filtroSKU)
+        res.render('products/productDetail',{producto:SKU})
 },
 }
 
