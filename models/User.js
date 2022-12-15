@@ -60,7 +60,7 @@ const User = {
     //     return userFound
     // },
     // 3. Buscar al usuario que se quiere loguear a traves de su email
-    findByField : function (email){
+    findByEmail : function (email){
         let allUsers = this.findAll();
         let userFound = allUsers.find(oneUser => oneUser.email === email);
         return userFound

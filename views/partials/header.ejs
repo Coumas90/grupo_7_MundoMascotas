@@ -23,9 +23,13 @@
     </div>
     <div class="top-header">
         <nav>
-           <span><a href="/login"><i class="fas fa-user-alt"></i></a></span> 
+            <% if (locals.isLogged){ %>
+           <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
            <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
+           <% } else { %>
             <button class="btn btn-primary" type="submit"><a href="/login/register">Registrate</a></button>
+            <button class="btn btn-primary" type="submit"><a href="/login">Log In</a></button>
+            <% } %>
         </nav>    
     </div>   
     </div>

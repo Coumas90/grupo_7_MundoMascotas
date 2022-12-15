@@ -7,6 +7,9 @@ const router = express.Router();
 // Constante para traer el metodo path de express
 const path = require('path');
 
+//Traemos el middleware para loguearse
+const guestMiddleware = require('../middlewares/guestMiddleware');
+
 //Requerimos multer ya que vamos a querer almacenar las fotos de perfil
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -52,8 +55,14 @@ const validacionesRegistro = [
     body("client_picture").notEmpty().withMessage("El campo imagen es obligatorio"),
     body("client_picture").custom((value,{req})=>{
         let file = req.file;
+        let acceptedExtensions = ['.jpg','.png','.gif','.jpeg'];
         if(!file){
             throw new Error ('Tienes que subir una imagen');
+        }else{
+            let fileExtension = path.extname(file.originalname);
+            if(!acceptedExtensions.includes(fileExtension)){
+                throw new Error ('Las extensiones de archivo permitidas son ${acceptedExtensions.join(',')}');
+            }
         }
         return true;
     })
@@ -62,9 +71,9 @@ const validacionesRegistro = [
 
 const controladorLogin = require('../controllers/loginController');
 
-router.get('/', controladorLogin.login);
+router.get('/', validacionesLogIn, controladorLogin.login);
 router.post('/',validacionesLogIn ,controladorLogin.userLogin);
-router.get('/register', controladorLogin.register);
+router.get('/register',guestMiddleware, controladorLogin.register);
 router.post('/register', uploadPhoto.single('client_picture'),validacionesRegistro , controladorLogin.createuser);
 router.get('/olvido', controladorLogin.olvido);
 router.post('/olvido', controladorLogin.restablecer);

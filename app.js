@@ -26,6 +26,10 @@ const methodOverride = require ('method-override');
 //requerimos session
 const session = require ('express-session');
 
+//Middleware para la barra de navegacion
+const userLoggedMiddleware = require ('./middlewares/userLoggedMiddleware');
+
+
 
 // Uso recursos estaticos -> app.use(express.static('public))
 app.use(express.static('public'));
@@ -34,7 +38,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor 3030
-app.listen(3037, () => {console.log('Servidor corriendo')});
+app.listen(3040, () => {console.log('Servidor corriendo')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasIndex);
@@ -49,7 +53,14 @@ app.use('/perfil', rutasPerfil);
 app.use(methodOverride('_method'));
 
 // configuramos session como middleware a nivel aplicacion 
-app.use(session({secret:"Mensaje secreto"}));
+app.use(session({
+    secret:"Mensaje secreto",
+    resave: false,
+    saveUninitialized:false
+}));
+
+// Lo usamos SIEMPRE despues de haber requerido a session
+app.use(userLoggedMiddleware);
 
 //Error 404 nos va a redirigir a una vista creada para este error
 app.use((req,res,next)=>{
