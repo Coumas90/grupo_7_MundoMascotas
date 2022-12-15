@@ -8,6 +8,6 @@ const controladorCarrito = require('../controllers/productCartController');
 
 
 
-router.get('/', controladorCarrito.carrito);
+router.get('/carrito', controladorCarrito.carrito);
 
 module.exports = router;

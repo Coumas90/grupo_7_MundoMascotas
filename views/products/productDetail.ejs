@@ -3,57 +3,49 @@
   <%- include('../partials/head.ejs') %>
 <body>
   <%- include('../partials/header.ejs') %>
+  <div class="container products-wrapper">
+		
+		<div class="product-detail">
+			<div class="row">
+				<div class="col-12 col-lg-8">
+					<img src="/images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
+					<p class="product-detail-description">
+						<%= product.descripción %>
+					</p>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="product-detail-info">
+						<h2 class="product-detail-title"><%= product.nombre %></h2>
+							<p class="product-detail-price"><span><%= product.precio %></span></p>
+							<p class="product-detail-price"><b><%= product.descuento %></b></p>
+						<ul class="actions-list">
+							<li>
+								<i class="fas fa-credit-card">
+                  <span><p>Pagar en 12 cuotas sin interes</p></span></i>
+							</li>
+							<li>
+								<i class="fas fa-store">
+                <span><p>Retiro gratis en locales del vendedor</p></span></i>
+							</li>
+						</ul>
+						
+            <a href="/products/carrito"><button class="btn btn-success btn-sm" type="submit">Comprar</button></a>
+            <a href="/products/carrito"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></a>
+            <a href="/products/:id/editar"><button class="btn btn-light btn-sm" type="submit">Editar producto</button></a>
+						
+						<form action="/products/delete/??" method="POST" style="display: inline-flex">
+							<button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+						</form>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+ 
 
-    <main class="container">
+  <%- include('../partials/footer.ejs') %>
 
-      <div class="left-column">
-        <img data-image="Bolsa" class="active" src="images/Productos/Alimento Perro.png" alt="">
-        <img data-image="Alimento" src="images/Productos/Alimento Perro 2.png" alt="">
-        <img data-image="Informacion nutricional" src="images/Productos/Alimento Perro 3.png" alt="">
-      </div>
-
-      <div class="right-column">
-
-        <div class="product-description">
-          <span>ALIMENTO DE PERRO</span>
-          <h1>Royal Canin - Puppy</h1>
-          <p>Alimento para perros cachorros de talla pequeña (hasta 10kg de peso adulto). Hasta los 10 meses de edad.</p>
-        </div>
-          
-
-          <div class="weight-config">
-            <span>Peso del Alimento</span>
-
-            <div class="weight-choose"> 
-              <button>1 kg</button>
-              <button>5 kg</button>
-              <button>10 kg</button>
-            </div>
-
-            <a href="#">Información nutricional</a>
-          </div>
-        </div>
-    
-
-        <div class="product-price">
-          <span>2.200$</span>
-          <a href="#" class="cart-btn">Agregar al Carrito</a>
-        </div>
-      </div>
-    </main>
-    
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-
-   
-        <%- include('../partials/footer.ejs') %>
-
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-    </body>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</body>
 </html>

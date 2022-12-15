@@ -6,7 +6,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const controladorDetalleProducto = {
     detalle: (req, res)=> {
 		// let product = products.find(req.params.id);
-		res.render('products/productDetail',{ product })
+		res.render('products/productDetail',{product : products.find(product => product.id == req.params.id)})
     },
 	
     creacion: (req, res) => {res.render('products/creacionProductos');
