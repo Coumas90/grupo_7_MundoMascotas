@@ -105,7 +105,7 @@ i{
 }
 
 a{
-    color:white
+    color:white;
 }
 
 
@@ -165,7 +165,11 @@ a.redireccion{
 
 
 /*====== Productos ======*/
-
+div.contenedorDetalle{
+    height: auto;
+    width: auto;
+    align-items: center;
+}
 
 /*====== Footer ======*/
 
