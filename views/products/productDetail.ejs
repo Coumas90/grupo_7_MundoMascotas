@@ -7,17 +7,15 @@
 		
 		<div class="product-detail">
 			<div class="row">
-				<div class="col-12 col-lg-8">
-					<img src="/images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
-					<p class="product-detail-description">
-						<%= product.descripción %>
-					</p>
+				<div class="imagen-detalle-producto">
+					<img src="/images/Productos/<%= product.imagen %>" class="imagen-detalle-producto" alt="">
+					
 				</div>
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
 						<h2 class="product-detail-title"><%= product.nombre %></h2>
-							<p class="product-detail-price"><span><%= product.precio %></span></p>
-							<p class="product-detail-price"><b><%= product.descuento %></b></p>
+							<p class="product-detail-price"><span>$ <%= product.precio %></span></p>
+							<p class="product-detail-discount"><b><%= product.descuento %>%</b></p>
 						<ul class="actions-list">
 							<li>
 								<i class="fas fa-credit-card">
@@ -36,6 +34,10 @@
 						<form action="/products/delete/??" method="POST" style="display: inline-flex">
 							<button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
 						</form>
+						<p class="product-detail-description">
+							<h2>DESCRIPCIÓN:</h2>
+							<%= product.descripción %>
+						</p>
 					</article>
 				</div>
 			</div>
