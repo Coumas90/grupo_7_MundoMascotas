@@ -1,10 +1,12 @@
 // Si no tengo a nadie logueado no podria entrar a determinadas vistas
 
-function authMiddleware(req,res,next){
+const authMiddleware = function (req, res, next){
     if(!req.session.userLogged){
-        return res.redirect('../views/user/login');
+        res.redirect('/login');
+    }else{
+        next();
     }
-    next();
+    
 }
 
 module.exports = authMiddleware;
