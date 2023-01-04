@@ -37,8 +37,8 @@ const controladorDetalleProducto = {
 
 		res.redirect ('/products');
 },
-	editar: (req,res)=>{res.render('products/actualizacionProducto');},
-	storeedit: (req,res)=> {
+	editar: (req,res)=>{res.render('products/editarProducto');},
+	actualizar: (req,res)=> {
 	console.log(req.file);
 
 		let productoActualizado = {

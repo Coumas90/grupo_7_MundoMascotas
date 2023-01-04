@@ -28,7 +28,7 @@ router.post('/', upload.single('imagen_producto'), controladorDetalleProducto.st
 
 //rutas para la edicion de productos
 router.get('/:id/editar',controladorDetalleProducto.editar);
-router.put('/:id/editar',controladorDetalleProducto.storeedit);
+router.put('/:id/actualizar',controladorDetalleProducto.actualizar);
 
 //rutas para eliminar productos
 

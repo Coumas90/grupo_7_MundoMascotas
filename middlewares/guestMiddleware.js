@@ -1,10 +1,11 @@
 // Si tengo a un usuario logueado no voy a poder abrir las vistas que lo tengan como middleware
 
-function guestMiddleware(req,res,next){
+const guestMiddleware = function(req, res, next){
     if(req.session.userLogged){
-        return res.redirect('../views/user/profile');
-    }
-    next();
+        res.redirect('../views/user/profile');
+    }else{
+        next();
+    }  
 }
 
 module.exports = guestMiddleware;

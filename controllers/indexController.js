@@ -9,7 +9,15 @@ const controladorIndex = {
         res.render('products/index',{products : products});
     },
     search: (req, res) => {
-        res.render('products/results',{product : product.name});
+        //res.render('products/results',{product : product.name});
+        let busquedaUsuario = req.query.search;
+        
+        let productoBuscado = [];
+        for(let i = 0; i < product.length; i++){
+            if(product[i].name.includes(busquedaUsuario))
+            productoBuscado.push(product[i]);
+        }
+        res.render('productoBuscado',{productoBuscado : productoBuscado});
     },
 };
 

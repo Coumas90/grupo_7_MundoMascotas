@@ -6,7 +6,6 @@ const authMiddleware = function (req, res, next){
     }else{
         next();
     }
-    
 }
 
 module.exports = authMiddleware;

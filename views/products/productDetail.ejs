@@ -16,16 +16,14 @@
 						<h2 class="product-detail-title"><%= product.nombre %></h2>
 							<p class="product-detail-price"><span>$ <%= product.precio %></span></p>
 							<p class="product-detail-discount"><b><%= product.descuento %>%</b></p>
-						<ul class="actions-list">
-							<li>
-								<i class="fas fa-credit-card">
-                  <span><p>Pagar en 12 cuotas sin interes</p></span></i>
-							</li>
-							<li>
-								<i class="fas fa-store">
-                <span><p>Retiro gratis en locales del vendedor</p></span></i>
-							</li>
-						</ul>
+						<div class="actions-list">
+							<div>
+								<i class="fas fa-credit-card"><p>Pagar en 12 cuotas sin interes</p></i>
+							</div>
+							<div>
+								<i class="fas fa-store"><p>Retiro gratis en locales del vendedor</p></i>
+							</div>
+								</div>
 						
             <a href="/productDetail/:id/agregar"><button class="btn btn-success btn-sm" type="submit">Comprar</button></a>
             <a href="/productDetail/:id/agregar"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></a>
