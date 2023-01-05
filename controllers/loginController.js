@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+
 // Aca llamamos a las validaciones para poder enviarlas a la vista
 const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs'); 
