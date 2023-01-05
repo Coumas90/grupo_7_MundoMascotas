@@ -13,7 +13,7 @@ const controladorDetalleProducto = {
 	},
 
     store: (req, res) => {
-		const file = req.file;
+		//const file = req.file;
 
 		let productoNuevo = {
 			//id : Math.random() *1000,
@@ -37,7 +37,21 @@ const controladorDetalleProducto = {
 
 		res.redirect ('/products');
 },
-	editar: (req,res)=>{res.render('products/editarProducto');},
+	editar: (req,res)=>{
+		//res.render('products/editarProducto');
+
+		let idProducto = req.params.id;
+
+		let productoAEditar = [];
+        for(let i = 0; i < product.length; i++){
+            if(product[i].name.includes(idProducto))
+            productoAEditar.push(product[i]);
+        }
+		let productoEditado = productoAEditar[idProducto];
+		res.render('editarProducto', {productoEditado : productoEditado});
+
+},
+		
 	actualizar: (req,res)=> {
 	console.log(req.file);
 
