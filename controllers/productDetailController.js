@@ -37,20 +37,20 @@ const controladorDetalleProducto = {
 
 		res.redirect ('/products');
 },
-	editar: (req,res)=>{
-		//res.render('products/editarProducto');
 
+	editar: (req, res) => {
 		let idProducto = req.params.id;
-
-		let productoAEditar = [];
-        for(let i = 0; i < product.length; i++){
-            if(product[i].name.includes(idProducto))
-            productoAEditar.push(product[i]);
-        }
-		let productoEditado = productoAEditar[idProducto];
-		res.render('editarProducto', {productoEditado : productoEditado});
-
-},
+  
+		let productoAEditar = products.filter(productoAEditar => productoAEditar.name && productoAEditar.name.includes(idProducto));
+		if (productoAEditar.length > 0) {
+			let productoEditado = productoAEditar[0];
+			res.render('products/editarProducto', {productoEditado: productoEditado});
+			} else {
+				// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
+				res.redirect("/products"); // Redirige a la lista de productos
+			}
+  	},
+  
 		
 	actualizar: (req,res)=> {
 	console.log(req.file);
@@ -77,11 +77,18 @@ const controladorDetalleProducto = {
 
 		res.redirect ('/products');
 	},
+
+
 	detalleSKU: (req,res) => {
         let filtroSKU = req.params.filtro
         let SKU = products.find(product => product.id == filtroSKU)
         res.render('products/productDetail',{producto:SKU})
-},
+	},
+
+	eliminar: (req, res) => {
+		//
+	}
+
 }
 
 module.exports = controladorDetalleProducto;

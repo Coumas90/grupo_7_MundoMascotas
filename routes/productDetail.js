@@ -28,10 +28,13 @@ router.get('/create', controladorDetalleProducto.creacion); // obtener un produc
 router.post('/create', upload.single('imagen_producto'), controladorDetalleProducto.store);
 
 //rutas para la edicion de productos
-router.get('/:id/editar',controladorDetalleProducto.editar);
-router.put('/:id/actualizar',controladorDetalleProducto.actualizar);
+router.get('/:id/editar', controladorDetalleProducto.editar);
+router.put('/:id/actualizar', controladorDetalleProducto.actualizar);
 
 //rutas para eliminar productos
+router.delete('/delete/:id', function (req, res) {
+    res.send("Soy delete");
+});
 
 // detalle de producto
 router.get('/:id',controladorDetalleProducto.detalleSKU);

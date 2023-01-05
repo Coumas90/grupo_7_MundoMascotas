@@ -12,8 +12,6 @@ let archivoUsuarios = fs.readFileSync(usersFilePath, {encoding:"utf-8"} );
 
 const User = require ('../models/User');
 
-
-
 const controladorLogin = {
     login: (req, res)=> {res.render('user/login')},
     userLogin: (req,res)=> {
