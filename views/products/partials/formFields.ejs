@@ -1,13 +1,13 @@
 <p>
     <label>
         Título
-        <input type="text" name="title" value="<%= locals.product ? product.nombre-producto : '' %>">
+        <input type="text" name="title" value="<%= productoEditado.nombre%>">
     </label>
 </p>
 <p>
     <label>
         Descripción
-        <textarea name="desc"><%= locals.product ? product.descripcion-producto : '' %></textarea>
+        <textarea name="desc"><%= productoEditado.descripcion %></textarea>
     </label>
 </p>
 <p class="image">
@@ -25,6 +25,6 @@
 <p>
     <label>
         Precio
-        <input type="text" name="price" value="<%= locals.product ? product.precio : '' %>">
+        <input type="text" name="price" value="<%= productoEditado.precio %>">
     </label>
 </p>
