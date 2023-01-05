@@ -78,7 +78,6 @@ const controladorDetalleProducto = {
 		res.redirect ('/products');
 	},
 
-
 	detalleSKU: (req,res) => {
         let filtroSKU = req.params.filtro
         let SKU = products.find(product => product.id == filtroSKU)
@@ -86,8 +85,15 @@ const controladorDetalleProducto = {
 	},
 
 	eliminar: (req, res) => {
-		//
-	}
+		// Obtener el ID del producto a eliminar
+		let idProducto = req.params.id;
+		// Filtrar la lista de productos para obtener sólo el producto a eliminar
+		let productosFiltrados = products.find(producto => producto.id !== idProducto);
+		// Sobreescribir la lista de productos con la lista filtrada (sin el producto a eliminar)
+		fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, ''));
+		// Redirigir a la lista de productos
+		res.redirect('/products');
+	  }
 
 }
 

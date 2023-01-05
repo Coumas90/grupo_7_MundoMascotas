@@ -32,9 +32,7 @@ router.get('/:id/editar', controladorDetalleProducto.editar);
 router.put('/:id/actualizar', controladorDetalleProducto.actualizar);
 
 //rutas para eliminar productos
-router.delete('/delete/:id', function (req, res) {
-    res.send("Soy delete");
-});
+router.delete('/delete/:id', controladorDetalleProducto.eliminar);
 
 // detalle de producto
 router.get('/:id',controladorDetalleProducto.detalleSKU);
