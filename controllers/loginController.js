@@ -21,7 +21,6 @@ const controladorLogin = {
             return('user/login', {errors:errors.mapped(), old:req.body});
         }
         let userToLogin = User.findByEmail(req.body.email);
-
         // Si el que intenta ingresar esta en nuestra base de datos
         if(userToLogin){
             // Comparamos la contraseña que ingreso en el formulario de Log In y el guardado en nuestra BD

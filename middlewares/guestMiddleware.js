@@ -3,9 +3,8 @@
 const guestMiddleware = function(req, res, next){
     if(req.session.userLogged){
         res.redirect('../views/user/profile');
-    }else{
-        next();
-    }  
+    }
+        next();  
 }
 
 module.exports = guestMiddleware;

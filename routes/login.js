@@ -71,7 +71,7 @@ const validacionesRegistro = [
 
 const controladorLogin = require('../controllers/loginController');
 
-router.get('/', validacionesLogIn, controladorLogin.login);
+router.get('/', guestMiddleware, validacionesLogIn, controladorLogin.login);
 router.post('/',validacionesLogIn ,controladorLogin.userLogin);
 router.get('/register',guestMiddleware, controladorLogin.register);
 router.post('/register', uploadPhoto.single('client_picture'),validacionesRegistro , controladorLogin.createuser);
