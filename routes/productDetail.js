@@ -34,6 +34,7 @@ router.put('/:id/actualizar', controladorDetalleProducto.actualizar);
 //rutas para eliminar productos
 router.delete('/delete/:id', controladorDetalleProducto.eliminar);
 
+
 // detalle de producto
 router.get('/:id',controladorDetalleProducto.detalleSKU);
 

@@ -10,6 +10,8 @@ const app = express();
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
+
+
 //Creo contantes que guardan las rutas
 const rutasIndex = require('./routes/index.js');
 const rutasResults = require('./routes/index.js');
@@ -30,7 +32,6 @@ const session = require ('express-session');
 const userLoggedMiddleware = require ('./middlewares/userLoggedMiddleware');
 
 
-
 // Uso recursos estaticos -> app.use(express.static('public))
 app.use(express.static('public'));
 
@@ -38,7 +39,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor 3030
-app.listen(3040, () => {console.log('Servidor corriendo')});
+app.listen(3000, () => {console.log('Servidor corriendo en 3000')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasIndex);
@@ -56,7 +57,7 @@ app.use(methodOverride('_method'));
 app.use(session({
     secret:"Mensaje secreto",
     resave: false,
-    saveUninitialized:false
+    saveUninitialized: true
 }));
 
 // Lo usamos SIEMPRE despues de haber requerido a session
@@ -66,3 +67,4 @@ app.use(userLoggedMiddleware);
 app.use((req,res,next)=>{
     res.status(404).render('user/not-found');
 });
+

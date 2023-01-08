@@ -25,9 +25,10 @@
 							</div>
 								</div>
 						
-						<a href="/productDetail/<%= product.id %>/agregar"><button class="btn btn-success btn-sm" type="submit">Comprar</button></a>
-						<a href="/productDetail/<%= product.id %>/agregar"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></a>
-						<a href="/productDetail/<%= product.id %>/editar"><button class="btn btn-light btn-sm" type="submit">Editar producto</button></a>
+						<form action="/productCart/<%= product.id %>/agregarProductoCarrito" method="POST"><button class="btn btn-success btn-sm" type="submit">Comprar</button></form>
+						<form action="/productCart/<%= product.id %>/agregarProductoCarrito" method="POST"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></form>
+						
+						<a href="/productDetail/<%= product.id %>/actualizacionProducto"><button class="btn btn-light btn-sm" type="submit">Editar producto</button></a>
 						
 						<form action="/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
 							<button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
@@ -51,3 +52,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 </body>
 </html>
+
+

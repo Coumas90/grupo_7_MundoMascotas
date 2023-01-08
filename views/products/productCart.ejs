@@ -31,87 +31,42 @@
       </div>
     </header>
     
-    
-    <div class="container">
-
+    <body>
+      <h1>Carrito de compras</h1>
       <table>
-      <thead>
-        <tr>
-          <th>Imagen</th>
-          <th>Nombre</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-          <th>Eliminar  </th>
-        </tr>
-      </thead>
-      <tbody class="cart"></tbody>
-    </table>
-
-    
-  
-        <div class="checkout" >
-
-
-          <ul class="detalle">
-            <li>Precio:</li>    
-            <li>Impuestos (IVA):</li>  
-            <li>
-              Total:
-            </li> 
-          </ul>
-          <span>
-            <button>Comprar</button>
-            <button>Volver</button>
-          </span>
-        </div>      </div>
-
-  <%- include('../partials/footer.ejs') %>
-  </body>
-  <script >
-const products = [
-  {
-    name: "Alimento para perro (5kg)",
-    price: 100,
-    image:
-      "https://puppis.vteximg.com.br/arquivos/ids/167601-1000-1000/150042.jpg?v=637021774562500000",
-    q: 1,
-  },
-];
-
-const tableBody = document.querySelector(".cart");
-
-let tableContent = products.reduce((body, product, index) => {
-  let total = product.price * product.q;
-  return (
-    body +
-    `
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0; i < carrito.length; i++) { %>
             <tr>
-    <td>
-      <img
-        src="${product.image}"
-        alt="${product.name}"
-        height="50"
-        width="50"
-      />
-    </td>
-    <td>
-      <p>${product.name}</p>
-    </td>
-    <td>
-      <p>${product.price}</p>
-    </td>
-    <td class="quantity"><button>-</button>${product.q}<button>+</button></td>
-    <td><p>${total}</p></td>
-    <td class="delete"> 
-    <i class="fa fa-trash"/>
-    </td>    
-  </tr> `
-  );
-}, "");
-
-tableBody.innerHTML = tableContent;
-
-
-  </script>
+              <td><img src="<%= carrito[i].imagen %>" alt="<%= carrito[i].nombre %>"></td>
+              <td><%= carrito[i].nombre %></td>
+              <td><%= carrito[i].precio %></td>
+              <td>
+                <form action="/agregarProductoCarrito/<%= carrito[i].id %>" method="POST">
+                  <input type="number" name="cantidad" min="1" value="1" required>
+                  <button type="submit">Actualizar</button>
+                </form>
+              </td>
+              <td><%= carrito[i].precio %></td>
+              <td>
+                <form action="/descartarProductoCarrito/<%= carrito[i].id %>" method="POST">
+                  <button type="submit">Eliminar</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <p>Total: $<%= carrito.reduce((total, producto) => total + producto.precio, 0) %></p>
+      <a href="/">Seguir comprando</a>
+    </body>
 </html>

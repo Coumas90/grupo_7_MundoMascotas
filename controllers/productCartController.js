@@ -5,7 +5,41 @@ const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controladorCarrito = {
-    carrito: (req, res)=> {res.render('products/productCart');},
-};
-
-module.exports = controladorCarrito;
+    // Muestra la vista del carrito de compras
+    carrito: (req, res) => {
+        // Obtiene los productos del carrito de la sesión
+        const carrito = req.session.carrito || [];
+        res.render("products/productCart", { carrito });
+        },
+    // Agrega un producto al carrito
+    agregarProducto: (req, res) => {
+        // Obtiene el ID del producto a agregar
+        const idProducto = req.params.id;
+        // Obtiene los productos del carrito de la sesión
+        let carrito = req.session.carrito || [];
+        // Busca el producto a agregar en la lista de productos
+        const producto = products.find(product => product.id == idProducto);
+        // Si el producto existe, lo agrega al carrito
+        if (producto) {
+            carrito.push(producto);
+            req.session.carrito = carrito;
+        }
+        // Redirige al usuario al carrito de compras
+        res.redirect("/productCart");
+        },
+    // Elimina un producto del carrito
+    descartarProducto: (req, res) => {
+        // Obtiene el ID del producto a eliminar
+        const idProducto = req.params.id;
+        // Obtiene los productos del carrito de la sesión
+        let carrito = req.session.carrito || [];
+        // Filtra el carrito para obtener solo los productos que no son el producto a eliminar
+        carrito = carrito.filter(product => product.id != idProducto);
+        // Actualiza el carrito en la sesión
+        req.session.carrito = carrito;
+        // Redirige al usuario al carrito de compras
+        res.redirect("/productCart");
+        },
+    };
+    
+    module.exports = controladorCarrito;
