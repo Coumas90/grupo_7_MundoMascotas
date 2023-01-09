@@ -111,6 +111,7 @@ const controladorLogin = {
 
         let userCreated = User.create(userToCreate);
         res.redirect('user/login');
+        
         // traemos los usuarios ya existentes
         // let users;
         // if (archivoUsuarios == ""){

@@ -1,15 +1,9 @@
 // Representacion de lo que hay dentro del archivo json de usuarios
-
 // 1. Guardar al usuario en la DB
-
 // 2. Loguear al usuario
-
 // 3. Buscar al usuario que se quiere loguear a traves de su email
-
 // 4. Buscar a un usuario a traves del ID
-
 // 5. Editar la informacion de un usuario
-
 // 6. Eliminar a un usuario de la DB
 
 // Vamos a hacer un objeto literal que va a tener metodos que se van a encargar de esto

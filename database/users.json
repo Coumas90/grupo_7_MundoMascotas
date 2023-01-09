@@ -24,5 +24,49 @@
   "password": "$2a$10$Rme9PnxDbXwErGT2lUbfZO8.mMFYeohikpl.hyvqVx0BU1K5Zv/HS",
   "confirm_password": "Facundo222",
   "client_picture": "undefined-1673304914918.JPG"
+ },
+ {
+  "id": 2,
+  "client_name": "Juan",
+  "client_surname": "Perez",
+  "client_dni": "40129500",
+  "client_telephone": "1167380000",
+  "email": "juanperez@gmail.com",
+  "password": "$2a$10$VPVL0Aa6bejHhT4ea98ocuJbvpSg3vw24EBdfyQLAEjLR.RJdfl0q",
+  "confirm_password": "Juan34",
+  "client_picture": "undefined-1673306513742.jfif"
+ },
+ {
+  "id": 3,
+  "client_name": "Juan",
+  "client_surname": "Perez",
+  "client_dni": "40129500",
+  "client_telephone": "1167380000",
+  "email": "juanperez@gmail.com",
+  "password": "$2a$10$nADud7odRNWCKbZkytaaJurTGkJGXF/rnWzJPLp.aDbrNMXLJ0oIG",
+  "confirm_password": "Juanperez1",
+  "client_picture": "undefined-1673306535631.jfif"
+ },
+ {
+  "id": 4,
+  "client_name": "Juan",
+  "client_surname": "Perez",
+  "client_dni": "40129500",
+  "client_telephone": "1167380000",
+  "email": "juanperez1@gmail.com",
+  "password": "$2a$10$T9oxv/n8YnKIfjCBTneQduTOXV1nsHt7h0pDNg1Cawtdv492P0Td6",
+  "confirm_password": "juan123",
+  "client_picture": "undefined-1673307173290.jfif"
+ },
+ {
+  "id": 5,
+  "client_name": "Juan",
+  "client_surname": "Perez",
+  "client_dni": "40129500",
+  "client_telephone": "1167380000",
+  "email": "juanperez1@gmail.com",
+  "password": "$2a$10$6l6x4w8jja0ypzRCszHTQ.rPN16oi7/bymKvG9CX0wZ9IIiVESzqO",
+  "confirm_password": "juanjuan123",
+  "client_picture": "undefined-1673307196651.jfif"
  }
 ]
