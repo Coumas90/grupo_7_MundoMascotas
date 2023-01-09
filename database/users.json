@@ -1,5 +1,17 @@
-[{
-    "email": "martinaboazzo@hotmail.com",
-    "password": "Martina11"
-}
+[
+ {
+  "email": "martinaboazzo@hotmail.com",
+  "password": "Martina11"
+ },
+ {
+  "id": null,
+  "client_name": "Facundo Nahuel",
+  "client_surname": "Vega Laricchia",
+  "client_dni": "40129462",
+  "client_telephone": "1167380175",
+  "email": "facundovega97@gmail.com",
+  "password": "$2a$10$/WcFEYICbL1I88BNjnE1qu7q1rCO06LuaM/ME1VGYfC.x4WRkIj1W",
+  "confirm_password": "Facundo12",
+  "client_picture": "undefined-1673298545266.JPG"
+ }
 ]

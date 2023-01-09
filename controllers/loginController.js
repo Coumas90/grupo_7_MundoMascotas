@@ -13,39 +13,41 @@ let archivoUsuarios = fs.readFileSync(usersFilePath, {encoding:"utf-8"} );
 const User = require ('../models/User');
 
 const controladorLogin = {
+    
     login: (req, res)=> {res.render('user/login')},
     userLogin: (req,res)=> {
+        console.log(req.session);
+
         let errors = validationResult(req);
         if(errors.errors.length>0){
-            return('user/login', {errors:errors.mapped(), old:req.body});
+            res.render('user/login', {errors:errors.mapped(), old:req.body});
         }
         let userToLogin = User.findByEmail(req.body.email);
 
-        // Si el que intenta ingresar esta en nuestra base de datos
-        if(userToLogin){
-            // Comparamos la contraseña que ingreso en el formulario de Log In y el guardado en nuestra BD
-            let isOKPassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
-            if(isOKPassword){
-                req.session.userLogged = userToLogin;
-                return res.redirect('/');
-            }
-            //Si la contraseña no coincide
-            return res.render('user/login',{
-                errors:{
-                    email:{
-                        msg: 'Las credenciales son invalidas'
-                    }
+        // Si el que intenta ingresar está en nuestra base de datos
+        if (userToLogin) {
+            // Comparamos la contraseña que ingresó en el formulario de Log In y el guardado en nuestra BD
+            let isOKPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+            if (isOKPassword) {
+            req.session.userLogged = userToLogin;
+            res.redirect('/');
+            } 
+            // Si la contraseña no coincide
+             res.render('user/login', {
+                errors: {
+                email: { msg: 'Las credenciales son inválidas' }
                 }
             });
+        
         }
-        // Si el email no esta en nuestra BD
-        return res.render('user/login',{
-            errors:{
-                email:{
-                    msg: 'No se encuentra este email en nuestra base de datos'
-                }
+            // Si el email no está en nuestra BD
+             res.render('user/login', {
+            errors: {
+                email: { msg: 'No se encuentra este email en nuestra base de datos' }
             }
-        });
+            });
+        
+    },    
         //     let users []
         //     if (archivoUsuarios == ""){
         //         users;
@@ -72,7 +74,7 @@ const controladorLogin = {
         //     password: req.body.password
         // }
         // res.redirect("/");
-    },
+    
     register: (req, res)=> {res.render('user/register')},
     createuser: (req,res)=>{
         let errorsregister = validationResult(req);

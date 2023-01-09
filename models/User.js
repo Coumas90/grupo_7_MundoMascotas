@@ -28,12 +28,12 @@ const User = {
     },
     // Generar ID
     generateID: function(){
-        let allUsers = this.findAll;
+        let allUsers = this.findAll();
         let lastUser = allUsers.pop();
         if(lastUser){
             return lastUser.id + 1; 
-        }
-        return 1;
+        }else{return 1;}
+        
     },
 
     // 1. Guardar al usuario en la DB
@@ -51,7 +51,7 @@ const User = {
     findByPK : function(id){
         let allUsers = this.findAll();
         let userFound = allUsers.find(oneUser => oneUser.id == id);
-        return userFound
+        return userFound;
     },
     // // 3. Buscar al usuario que se quiere loguear a cualquier field posible. Trae el primero que encuentra unicamente
     // findByField : function (field, text){
@@ -63,7 +63,7 @@ const User = {
     findByEmail : function (email){
         let allUsers = this.findAll();
         let userFound = allUsers.find(oneUser => oneUser.email === email);
-        return userFound
+        return userFound;
     },
     delete : function(id){
         let allUsers = this.findAll();
