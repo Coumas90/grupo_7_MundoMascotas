@@ -1,2 +1,31 @@
 [
+<<<<<<< HEAD
+=======
+ {
+  "email": "martinaboazzo@hotmail.com",
+  "password": "Martina11"
+ },
+ {
+  "id": null,
+  "client_name": "Facundo Nahuel",
+  "client_surname": "Vega Laricchia",
+  "client_dni": "40129462",
+  "client_telephone": "1167380175",
+  "email": "facundovega97@gmail.com",
+  "password": "$2a$10$/WcFEYICbL1I88BNjnE1qu7q1rCO06LuaM/ME1VGYfC.x4WRkIj1W",
+  "confirm_password": "Facundo12",
+  "client_picture": "undefined-1673298545266.JPG"
+ },
+ {
+  "id": 1,
+  "client_name": "Facundo Nahuel",
+  "client_surname": "Vega Laricchii",
+  "client_dni": "40129462",
+  "client_telephone": "1167380177",
+  "email": "facundovega1@gmail.com",
+  "password": "$2a$10$Rme9PnxDbXwErGT2lUbfZO8.mMFYeohikpl.hyvqVx0BU1K5Zv/HS",
+  "confirm_password": "Facundo222",
+  "client_picture": "undefined-1673304914918.JPG"
+ }
+>>>>>>> f9d1b731c08f4dcdec7fae50e4c69d05e9da530c
 ]

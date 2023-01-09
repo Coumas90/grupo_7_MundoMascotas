@@ -16,10 +16,12 @@ const controladorLogin = {
     login: (req, res)=> {res.render('user/login')},
     userLogin: (req,res)=> {
         let errors = validationResult(req);
+        
         if(errors.errors.length>0){
-            return('user/login', {errors:errors.mapped(), old:req.body});
+            res.render('user/login', {errors:errors.mapped(), old:req.body});
         }
         let userToLogin = User.findByEmail(req.body.email);
+<<<<<<< HEAD
         // Si el que intenta ingresar esta en nuestra base de datos
         if(userToLogin){
             // Comparamos la contraseña que ingreso en el formulario de Log In y el guardado en nuestra BD
@@ -42,9 +44,38 @@ const controladorLogin = {
             errors:{
                 email:{
                     msg: 'No se encuentra este email en nuestra base de datos'
+=======
+        
+        if (req.session === undefined || req.session.userLogged === undefined) {
+            req.session = {};
+          }
+          req.session.userLogged = userToLogin;
+        // Si el que intenta ingresar está en nuestra base de datos
+        if (userToLogin) {
+            // Comparamos la contraseña que ingresó en el formulario de Log In y el guardado en nuestra BD
+            let isOKPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+          
+            if (isOKPassword) {
+              req.session.userLogged = userToLogin;
+              res.redirect('/');
+            } else {
+              // Si la contraseña no coincide
+              res.render('user/login', {
+                errors: {
+                  email: { msg: 'Las credenciales son inválidas' }
+>>>>>>> f9d1b731c08f4dcdec7fae50e4c69d05e9da530c
                 }
+              });
             }
-        });
+          } else {
+            // Si el email no está en nuestra BD o si userToLogin es undefined o null
+            res.render('user/login', {
+              errors: {
+                email: { msg: 'No se encuentra este email en nuestra base de datos' }
+              }
+            });
+          }
+    },
         //     let users []
         //     if (archivoUsuarios == ""){
         //         users;
@@ -71,17 +102,17 @@ const controladorLogin = {
         //     password: req.body.password
         // }
         // res.redirect("/");
-    },
+    
     register: (req, res)=> {res.render('user/register')},
     createuser: (req,res)=>{
         let errorsregister = validationResult(req);
         if(errorsregister.errors.length>0){
-            return('user/register', {errorsregister:errorsregister.mapped(), old:req.body});
+            res.render('user/register', {errorsregister:errorsregister.mapped(), old:req.body});
         }
 
         let userInDb = User.findByEmail(req.body.email);
         if(userInDb) {
-            return res.render('user/register', {errorsregister:{
+            res.render('user/register', {errorsregister:{
                 email: {msg: 'Este email ya esta registrado'}
             }, old:req.body});
         }
@@ -104,7 +135,7 @@ const controladorLogin = {
         }
 
         let userCreated = User.create(userToCreate);
-        return res.redirect('user/login');
+        res.redirect('user/login');
         // traemos los usuarios ya existentes
         // let users;
         // if (archivoUsuarios == ""){
@@ -129,7 +160,7 @@ const controladorLogin = {
         res.redirect("/login");
     },
     profile: (req,res) =>{
-        return res.render ('../views/user/perfil',{
+         res.render('../views/user/perfil',{
             user: req.session.userLogged
         });
     }

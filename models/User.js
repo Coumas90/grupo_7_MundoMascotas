@@ -28,30 +28,34 @@ const User = {
     },
     // Generar ID
     generateID: function(){
-        let allUsers = this.findAll;
+        let allUsers = this.findAll();
         let lastUser = allUsers.pop();
         if(lastUser){
             return lastUser.id + 1; 
-        }
-        return 1;
+        }else{return 1;}
+        
     },
 
     // 1. Guardar al usuario en la DB
     create: function(userData){
         let allUsers = this.findAll();
+        console.log(allUsers);
         let newUser = {
             id: this.generateID(),
             ...userData
         }
+        console.log(newUser);
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers,null,' '));
+        console.log(newUser);
         return newUser; 
+        
     },
     // 4. Buscar a un usuario a traves del ID
     findByPK : function(id){
         let allUsers = this.findAll();
         let userFound = allUsers.find(oneUser => oneUser.id == id);
-        return userFound
+        return userFound;
     },
     // // 3. Buscar al usuario que se quiere loguear a cualquier field posible. Trae el primero que encuentra unicamente
     // findByField : function (field, text){
@@ -63,7 +67,7 @@ const User = {
     findByEmail : function (email){
         let allUsers = this.findAll();
         let userFound = allUsers.find(oneUser => oneUser.email === email);
-        return userFound
+        return userFound;
     },
     delete : function(id){
         let allUsers = this.findAll();

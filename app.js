@@ -1,10 +1,13 @@
 // Requerir Express
-const express = require ('express');
+const express = require('express');
+//requerimos session
+const session = require('express-session');
+// Ejectuto Express
+const app = express();
+
 // Requerir path
 const path = require('path');
 
-// Ejectuto Express
-const app = express();
 
 //Creamos estos dos entornos para poder trabajar con los datos que se envian desde el formulario, para poder capturar esta informacion
 app.use(express.urlencoded({extended:false}));
@@ -25,8 +28,7 @@ const rutasListado = require('./routes/listado.js');
 const methodOverride = require ('method-override');
 
 
-//requerimos session
-const session = require ('express-session');
+
 
 //Middleware para la barra de navegacion
 const userLoggedMiddleware = require ('./middlewares/userLoggedMiddleware');
@@ -57,7 +59,7 @@ app.use(methodOverride('_method'));
 app.use(session({
     secret:"Mensaje secreto",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 
 // Lo usamos SIEMPRE despues de haber requerido a session
