@@ -7,6 +7,10 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const controladorCarrito = {
     // Muestra la vista del carrito de compras
     carrito: (req, res) => {
+        // Inicializa el carrito de compras si aún no existe
+        if (!req.session.carrito) {
+            req.session.carrito = [];
+        }
         // Obtiene los productos del carrito de la sesión
         const carrito = req.session.carrito || [];
         res.render("products/productCart", { carrito });
