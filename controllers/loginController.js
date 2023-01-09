@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+
 // Aca llamamos a las validaciones para poder enviarlas a la vista
 const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs'); 
@@ -10,8 +11,6 @@ const usersFilePath = path.join(__dirname, '../database/users.json');
 let archivoUsuarios = fs.readFileSync(usersFilePath, {encoding:"utf-8"} );
 
 const User = require ('../models/User');
-
-
 
 const controladorLogin = {
     login: (req, res)=> {res.render('user/login')},

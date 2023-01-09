@@ -1,7 +1,7 @@
 <p>
     <label>
         Título
-        <input type="text" name="title" value="<%= productoEditado.nombre%>">
+        <input type="text" name="title" value="<%= productoEditado.nombre %>">
     </label>
 </p>
 <p>
@@ -12,7 +12,7 @@
 </p>
 <p class="image">
     <% if (locals.product) { %>
-        <img src="/images/Productos/<%= product.imagen ? product.imagen : '' %>" alt="">
+        <img src="/images/Productos/<%= productoEditado.imagen %>" alt="">
         <input type="hidden" name="oldImage" value="<%= product.imagen %>">
     <% } %>
 </p>

@@ -8,6 +8,9 @@ const controladorCarrito = require('../controllers/productCartController');
 
 
 
-router.get('/', controladorCarrito.carrito);
+router.get('/carritoCompras', controladorCarrito.carrito);
+router.post('/agregarProductoCarrito/:id', controladorCarrito.agregarProducto);
+router.delete('/descartarProductoCarrito/:id', controladorCarrito.descartarProducto);
+
 
 module.exports = router;
