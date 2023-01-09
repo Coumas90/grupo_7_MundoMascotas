@@ -21,6 +21,30 @@ const controladorLogin = {
             res.render('user/login', {errors:errors.mapped(), old:req.body});
         }
         let userToLogin = User.findByEmail(req.body.email);
+<<<<<<< HEAD
+        // Si el que intenta ingresar esta en nuestra base de datos
+        if(userToLogin){
+            // Comparamos la contraseña que ingreso en el formulario de Log In y el guardado en nuestra BD
+            let isOKPassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
+            if(isOKPassword){
+                req.session.userLogged = userToLogin;
+                return res.redirect('/');
+            }
+            //Si la contraseña no coincide
+            return res.render('user/login',{
+                errors:{
+                    email:{
+                        msg: 'Las credenciales son invalidas'
+                    }
+                }
+            });
+        }
+        // Si el email no esta en nuestra BD
+        return res.render('user/login',{
+            errors:{
+                email:{
+                    msg: 'No se encuentra este email en nuestra base de datos'
+=======
         
         if (req.session === undefined || req.session.userLogged === undefined) {
             req.session = {};
@@ -39,6 +63,7 @@ const controladorLogin = {
               res.render('user/login', {
                 errors: {
                   email: { msg: 'Las credenciales son inválidas' }
+>>>>>>> f9d1b731c08f4dcdec7fae50e4c69d05e9da530c
                 }
               });
             }

@@ -1,4 +1,6 @@
 [
+<<<<<<< HEAD
+=======
  {
   "email": "martinaboazzo@hotmail.com",
   "password": "Martina11"
@@ -69,4 +71,5 @@
   "confirm_password": "juanjuan123",
   "client_picture": "undefined-1673307196651.jfif"
  }
+>>>>>>> f9d1b731c08f4dcdec7fae50e4c69d05e9da530c
 ]

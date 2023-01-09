@@ -15,3 +15,8 @@ Dejar de hacer: lo mismo que antes.
 Comenzar a hacer: reuniones semanales para ver los avances del equipo o mantenernos al tanto via whatsapp. 
 Continuar haciendo: despejar dudas con el resto. 
 Hacer menos: trabajo individual sin consultar, llegando a la entrega sin haber visto lo del otro. 
+
+*5to Sprint:
+Continuar haciendo: Controles cruzados entre lo que hace uno y el otro. 
+Este sprint nos llevo mucho tiempo y vimos que la organizacion estuvo mal en lo que fue la division de tareas. 
+
