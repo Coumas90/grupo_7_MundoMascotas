@@ -59,7 +59,7 @@ app.use(methodOverride('_method'));
 app.use(session({
     secret:"Mensaje secreto",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 
 // Lo usamos SIEMPRE despues de haber requerido a session

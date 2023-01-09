@@ -39,13 +39,17 @@ const User = {
     // 1. Guardar al usuario en la DB
     create: function(userData){
         let allUsers = this.findAll();
+        console.log(allUsers);
         let newUser = {
             id: this.generateID(),
             ...userData
         }
+        console.log(newUser);
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers,null,' '));
+        console.log(newUser);
         return newUser; 
+        
     },
     // 4. Buscar a un usuario a traves del ID
     findByPK : function(id){
