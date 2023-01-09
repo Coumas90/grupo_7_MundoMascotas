@@ -3,7 +3,7 @@ function userLoggedMiddleware (req,res,next){
     res.locals.isLogged = false;
 
     //si estoy logueado
-    if(req.session && session.userLogged){
+    if(req.session && req.session.userLogged){
         //muestro perfil y carrito de copras
         res.locals.isLogged = true;
     }
