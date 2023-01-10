@@ -35,7 +35,7 @@ const userLoggedMiddleware = require ('./middlewares/userLoggedMiddleware');
 
 
 // Uso recursos estaticos -> app.use(express.static('public))
-app.use(express.static('public'));
+app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 //Le decimos a express que vamos a utilizar ejs
 app.set('view engine', 'ejs');
