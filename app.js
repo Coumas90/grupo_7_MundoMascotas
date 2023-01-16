@@ -35,13 +35,13 @@ const userLoggedMiddleware = require ('./middlewares/userLoggedMiddleware');
 
 
 // Uso recursos estaticos -> app.use(express.static('public))
-app.use(express.static(path.resolve(__dirname, '..', 'public')));
+app.use(express.static('public'));
 
 //Le decimos a express que vamos a utilizar ejs
 app.set('view engine', 'ejs');
 
 // Levanto al servidor 3030
-app.listen(3000, () => {console.log('Servidor corriendo en 3000')});
+app.listen(3040, () => {console.log('Servidor corriendo en 3040')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasIndex);
