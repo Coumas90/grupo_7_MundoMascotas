@@ -40,11 +40,11 @@ const controladorDetalleProducto = {
 
 	editar: (req, res) => {
 		let idProducto = req.params.id;
-  
+		
 		let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
 		if (productoAEditar.length > 0) {
 			let productoEditado = productoAEditar[0];
-			res.render('products/editarProducto', {producto: productoAEditar});
+			res.render('products/actualizacionProducto', {productoEditado: productoEditado});
 			} else {
 				// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
 				res.redirect("/products"); // Redirige a la lista de productos
@@ -71,11 +71,14 @@ const controladorDetalleProducto = {
 			mascota : req.body.mascota,
 		}
 
-		products.push(productoActualizado);
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
-
-		res.redirect ('/products');
+		let index = products.findIndex(producto => producto.id == idProducto);
+		if (index !== -1) {
+			products[index] = productoActualizado;
+			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
+			res.redirect("/productDetail/" + productoActualizado.id);
+		} else {
+			res.redirect("/products"); // Redirige a la lista de productos
+		}
 	},
 
 	detalleSKU: (req,res) => {
