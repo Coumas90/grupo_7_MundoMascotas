@@ -41,10 +41,10 @@ const controladorDetalleProducto = {
 	editar: (req, res) => {
 		let idProducto = req.params.id;
   
-		let productoAEditar = products.filter(productoAEditar => productoAEditar.name && productoAEditar.name.includes(idProducto));
+		let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
 		if (productoAEditar.length > 0) {
 			let productoEditado = productoAEditar[0];
-			res.render('products/editarProducto', {productoEditado: productoEditado});
+			res.render('products/editarProducto', {producto: productoAEditar});
 			} else {
 				// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
 				res.redirect("/products"); // Redirige a la lista de productos
