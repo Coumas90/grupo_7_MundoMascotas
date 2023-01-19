@@ -6,11 +6,9 @@
       <section class="product-detail">
         <div class="container form-container">
             <h2 class="title">Editar producto</h2>
-            <form action="/products/<%= productoEditado.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/products/<%= productoEditado.id %>/editar" method="PUT" enctype="multipart/form-data">
                 <%- include('./partials/formFields'); %>
                 <p class="buttons">
-                  <a class="button" href="/products/<%= productoEditado.id %>"></a>
-                  
                   <button type="submit" class="button is-primary">Guardar producto</button>
                 </p>
                 <a href="/">Volver al inicio</a>

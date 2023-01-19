@@ -53,7 +53,8 @@ const controladorDetalleProducto = {
   
 		
 	actualizar: (req,res)=> {
-	console.log(req.file);
+		let idProducto = req.params.id;
+		console.log(req.body)
 
 		let productoActualizado = {
 			//id : Math.random() *1000,
@@ -70,7 +71,7 @@ const controladorDetalleProducto = {
             seccion : req.body.seccion,
 			mascota : req.body.mascota,
 		}
-
+		console.log(req.body)
 		let index = products.findIndex(producto => producto.id == idProducto);
 		if (index !== -1) {
 			products[index] = productoActualizado;

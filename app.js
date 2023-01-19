@@ -23,11 +23,10 @@ const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
 const rutasPerfil = require('./routes/perfil.js');
 const rutasListado = require('./routes/listado.js');
+const rutasAdministrar = require('./routes/admin.js');
 
 //Necesario para poder utilizar los metodos put y delete en HTTP
 const methodOverride = require ('method-override');
-
-
 
 
 //Middleware para la barra de navegacion
@@ -51,6 +50,7 @@ app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
 app.use('/listado', rutasListado);
 app.use('/perfil', rutasPerfil);
+app.use('/administrar', rutasAdministrar);
 
 //Necesario para poder utilizar los metodos put y delete en HTTP
 app.use(methodOverride('_method'));

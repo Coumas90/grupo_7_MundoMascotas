@@ -29,7 +29,7 @@ router.post('/create', upload.single('imagen_producto'), controladorDetalleProdu
 
 //rutas para la edicion de productos
 router.get('/:id/editar', controladorDetalleProducto.editar);
-router.put('/:id/actualizar', controladorDetalleProducto.actualizar);
+router.put('/:id/editar', upload.single('imagen_producto'), controladorDetalleProducto.actualizar);
 
 //rutas para eliminar productos
 router.delete('/delete/:id', controladorDetalleProducto.eliminar);
