@@ -1,13 +1,11 @@
 <p>
-    <label>
-        Título
-        <input type="text" name="title" value="<%= productoEditado.nombre %>">
+    <label>Título del producto
+        <input type="text" name="titulo" placeholder="Nombre" value="<%= productoEditado.nombre %>">
     </label>
 </p>
 <p>
-    <label>
-        Descripción
-        <textarea name="desc"><%= productoEditado.descripcion %></textarea>
+    <label>Descripción
+        <input type="text" name="descripción" value="<%= productoEditado.descripción %>">
     </label>
 </p>
 <p class="image">
@@ -17,14 +15,82 @@
     <% } %>
 </p>
 <p>
-    <label>
-        Imagen
+    <label>Imagen
         <input type="file" name="image">
     </label>
 </p>
 <p>
-    <label>
-        Precio
-        <input type="text" name="price" value="<%= productoEditado.precio %>">
+    <label>Marca
+        <select class="selector" required aria-label="select example">
+            <option value="">Seleccionar marca</option>
+            <option value="1">Pedigree</option>
+            <option value="2">Purina</option>
+            <option value="3">Royal Canin</option>
+            <option value="4">Cat Chow</option>
+            <option value="5">Can Cat</option>
+            <option value="6">Pro Plan</option>
+            <option value="7">Whiskas</option>
+          </select>
+    </label>
+</p>
+<p>
+    <label>Categoria
+        <select class="selector" required aria-label="select example">
+            <option value="">Seleccionar categoria</option>
+            <option value="1">Alimento</option>
+            <option value="2">Juguetes</option>
+            <option value="3">Accesorios</option>
+          </select>
+    </label>
+</p>
+<p>
+    <label>Precio
+        <input type="text" name="precio" value="<%= productoEditado.precio %>">
+    </label>
+</p>
+<p>
+    <label>Descuento
+        <input type="text" name="descuento" value="<%= productoEditado.descuento %>">
+    </label>
+</p>
+<p>
+    <label>Seleccionar el color
+        <label class="form-check-label" for="validationFormCheck1"></label>   
+        <input type="color" class="form-check-input" id="validationFormCheck1" name="color">
+    </label>
+</p>
+<p>
+    <label>Talle
+        <select class="selector" required aria-label="select example">
+            <option value="">Seleccionar talle</option>
+            <option value="1">S</option>
+            <option value="2">M</option>
+            <option value="3">L</option>
+            <option value="4">XL</option>
+          </select>
+    </label>
+</p>
+<p>
+    <label>Peso del producto
+        <input type="number" class="form-input" placeholder="Ej: 10" id="validationServer01" required name="peso">
+    </label>
+</p>
+<p>
+    <label>Aplica a una sección especial
+        <select class="selector" required aria-label="select example">
+            <option value="">Sección</option>
+            <option value="1">Ofertas</option>
+            <option value="2">Más buscados</option>
+            <option value="3">No aplica</option>
+          </select>
+    </label>
+</p>
+<p>
+    <label>Seleccione el tipo de Mascota
+        <select class="selector" required aria-label="select example">
+            <option value="">Tipo de mascota</option>
+            <option value="1">Perros</option>
+            <option value="2">Gatos</option>
+          </select>
     </label>
 </p>
