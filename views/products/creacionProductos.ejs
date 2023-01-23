@@ -1,118 +1,103 @@
 <!DOCTYPE html>
-    <html lang ="es">
-        <%- include('../partials/head.ejs') %>
-
-        <body>
-
-            <%- include('../partials/header.ejs') %>
-
-            <div class="form-creacion">
-                
-
-                <div class="container products-wrapper">
-                    <div class="col-12">
-                      <h3 class="products-title">Crear nuevo producto</h3>
-                    </div>
-
-                    <form action="/administrar/creacion" method="POST" enctype="multipart/form-data" class="formulario-de-producto">
-                      <div class="row product-detail">
-                        <div>
-                          <label for="nombre-producto" class="form-label">Nombre del producto:</label>
-                          <input type="text" class="form-input" id="nombre-producto" placeholder="Ej: Alimento balanceado" required name="nombre">
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="descripcion-producto" class="form-label">Descripcion del producto:</label>
-                          <textarea class="form-input" id="descripcion-producto" required name="descripcion"></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Seleccionar marca</option>
-                              <option value="1">Pedigree</option>
-                              <option value="2">Purina</option>
-                              <option value="3">Royal Canin</option>
-                              <option value="4">Cat Chow</option>
-                              <option value="5">Can Cat</option>
-                              <option value="6">Pro Plan</option>
-                              <option value="7">Whiskas</option>
-                            </select>
-                          </div>
-
-                          <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Seleccionar categoria</option>
-                              <option value="1">Alimento</option>
-                              <option value="2">Juguetes</option>
-                              <option value="3">Accesorios</option>
-                            </select>
-                          </div>
-
-                        <div>
-                          <label for="precio" class="form-label">Precio del producto:</label>
-                          <input type="number" class="form-input" placeholder="Ej: 3000" id="precio" required name="precio">
-                        </div>
-
-                        <div>
-                          <label for="descuento" class="form-label">Descuento:</label>
-                          <input type="number" class="form-input" placeholder="Ej: 25" id="descuento" name="descuento">
-                        </div>
-
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="validationFormCheck1">
-                            <label class="form-check-label" for="validationFormCheck1">Seleccionar el color</label>   
-                            <input type="color" class="form-check-input" id="validationFormCheck1" name="color">                                
-                       </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Seleccionar talle</option>
-                              <option value="1">S</option>
-                              <option value="2">M</option>
-                              <option value="3">L</option>
-                              <option value="4">XL</option>
-                            </select>
-                          </div>
-
-                          <div>
-                            <label for="validationServer01" class="form-label">Peso del producto:</label>
-                            <input type="number" class="form-input" placeholder="Ej: 10" id="validationServer01" required name="peso">
-                          </div>
-                              
-                        <div class="mb-3">
-                          <input type="file" class="form-control" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" name="imagen_producto" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Sección</option>
-                              <option value="1">Ofertas</option>
-                              <option value="2">Más buscados</option>
-                            </select>
-                          </div>
-
-                        <div class="mb-3">
-                            <select class="selector" required aria-label="select example">
-                              <option value="">Tipo de mascota</option>
-                              <option value="1">Perros</option>
-                              <option value="2">Gatos</option>
-                            </select>
-                        </div>
-                      
-                        <div class="mb-3">
-                          <button class="btn btn-primary" type="submit" >Guardar producto</button>
-                          <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>
-                        </div>
-
-                      </div>
-                      </form>
-
-                </div>
-
-              </div>
+  <html lang ="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <link rel="stylesheet" href="/css/register.css">
+    </head>
+    <body>
+      <div class="form">
+        <span class="form__title">Crear nuevo producto</span>
+        <div class="container products-wrapper">
+          <form action="/administrar/creacion" method="POST" enctype="multipart/form-data">
+            <div class="form__input">
+              <label for="nombre-producto" class="form-label">Nombre del producto:</label>
+              <input type="text" class="form-input" id="nombre-producto" placeholder="Ej: Alimento balanceado" required name="nombre">
+              <span class="bar"></span>
             </div>
-            <%- include('../partials/footer.ejs') %>
-        </body>
-    </html>
+            <div class="form__input">
+              <label for="descripcion-producto" class="form-label">Descripcion del producto:</label>
+              <textarea class="form-input" id="descripcion-producto" required name="descripcion"></textarea>
+              <span class="bar"></span>
+            </div>
+            <div class="form__input">
+              <select class="selector" required aria-label="select example">
+                <option value="">Seleccionar marca</option>
+                <option value="1">Pedigree</option>
+                <option value="2">Purina</option>
+                <option value="3">Royal Canin</option>
+                <option value="4">Cat Chow</option>
+                <option value="5">Can Cat</option>
+                <option value="6">Pro Plan</option>
+                <option value="7">Whiskas</option>
+              </select>
+              <span class="bar"></span>
+            </div>
+            <div class="form__input">
+              <select class="selector" required aria-label="select example">
+                <option value="">Seleccionar categoria</option>
+                <option value="1">Alimento</option>
+                <option value="2">Juguetes</option>
+                <option value="3">Accesorios</option>
+              </select>
+              <span class="bar"></span>
+            </div>
+            <div class="form__input">
+              <label for="precio" class="form-label">Precio del producto:</label>
+              <input type="number" class="form-input" placeholder="Ej: 3000" id="precio" required name="precio">
+              <span class="bar"></span>
+            </div>
+            <div class="form__input">
+              <label for="descuento" class="form-label">Descuento:</label>
+              <input type="number" class="form-input" placeholder="Ej: 25" id="descuento" name="descuento">
+              <span class="bar"></span>
+            </div>
+            <div class="form__input">
+              <input type="checkbox" class="form-check-input" id="validationFormCheck1">
+              <label class="form-check-label" for="validationFormCheck1">Seleccionar el color</label>   
+              <input type="color" class="form-check-input" id="validationFormCheck1" name="color">
+            </div>
+            <div class="form__input">
+              <select class="selector" required aria-label="select example">
+                <option value="">Seleccionar talle</option>
+                <option value="1">S</option>
+                <option value="2">M</option>
+                <option value="3">L</option>
+                <option value="4">XL</option>
+              </select>
+            </div>
+            <div class="form__input">
+              <label for="validationServer01" class="form-label">Peso del producto:</label>
+              <input type="number" class="form-input" placeholder="Ej: 10" id="validationServer01" required name="peso">
+            </div>
+            <div class="form__input">
+              <input type="file" class="form-control" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
+            </div>
+            <div class="form__input">
+              <select class="selector" required aria-label="select example">
+                <option value="">Sección</option>
+                <option value="1">Ofertas</option>
+                <option value="2">Más buscados</option>
+              </select>
+            </div>
+            <div class="form__input">
+              <select class="selector" required aria-label="select example">
+                <option value="">Tipo de mascota</option>
+                <option value="1">Perros</option>
+                <option value="2">Gatos</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <button class="btn btn-primary" type="submit" >Guardar producto</button>
+              <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <%- include('../partials/footer.ejs') %>
+    </body>
+  </html>
 
    

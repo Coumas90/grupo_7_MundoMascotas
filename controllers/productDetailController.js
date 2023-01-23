@@ -98,8 +98,6 @@ const controladorDetalleProducto = {
         let SKU = products.find(product => product.id == filtroSKU)
         res.render('products/productDetail',{producto:SKU})
 	},
-
-
 }
 
 module.exports = controladorDetalleProducto;

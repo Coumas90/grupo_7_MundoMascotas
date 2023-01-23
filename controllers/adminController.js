@@ -27,16 +27,13 @@ const controladorAdmin = {
             seccion : req.body.seccion,
 			mascota : req.body.mascota,
 		}
-
 		products.push(productoNuevo);
-
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
-
 		res.redirect ('/products');
     },
+
     editar: (req, res) => {
 		let idProducto = req.params.id;
-		
 		let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
 		if (productoAEditar.length > 0) {
 			let productoEditado = productoAEditar[0];
@@ -47,11 +44,8 @@ const controladorAdmin = {
 			}
   	},
   
-		
 	actualizar: (req,res)=> {
 		let idProducto = req.params.id;
-		console.log(req.body)
-
 		let productoActualizado = {
 			//id : Math.random() *1000,
 			id : Date.now(),
@@ -72,11 +66,12 @@ const controladorAdmin = {
 		if (index !== -1) {
 			products[index] = productoActualizado;
 			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
-			res.redirect("/productDetail/" + productoActualizado.id);
+			res.redirect("/productDetail/actualizacionProducto" + productoActualizado.id);
 		} else {
 			res.redirect("/products"); // Redirige a la lista de productos
 		}
 	},
+
     eliminar: (req, res) => {
 		// Obtener el ID del producto a eliminar
 		let idProductoAEliminar = req.params.id;
@@ -87,7 +82,6 @@ const controladorAdmin = {
 		// Redirigir a la lista de productos
 		res.redirect('/products');
 	  }
-
 }
 
 module.exports = controladorAdmin;
