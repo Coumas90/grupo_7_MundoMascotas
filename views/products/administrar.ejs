@@ -3,11 +3,35 @@
     <%- include('../partials/head.ejs') %>
     <body>
         <%- include('../partials/header.ejs') %>
-        <section class="form-login">
-            <div class="imagen-detalle-producto">
-					<img src="/images/Productos/<%= product.imagen %>" class="imagen-detalle-producto" alt="">
-					
-				</div>
+        <section class="row">
+            <article class="col-12"><h2 class="display-4 text-black bg-info text-center pt-2">Administrador de Productos</h2></article>
+            <article class="col-12">
+                <a href="/administrar/creacion">Agregar un producto</a>
+            </article>
+            <article class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Ver producto</th>
+                        <th scope="col">Editar producto</th>
+                        <th scope="col">Eliminar producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td><%= product.id %></td>
+                            <td><%= product.nombre %></td>
+                            <td><a href="/productDetail/<%= product.id %>" class="text-black">Link</a></td>
+                            <td><a href="/productDetail/<%= product.id %>/editar" class="text-black">Editar</a></td>
+                            <td><a href="/delete/<%= product.id %>?_method=DELETE" class="text-black">Borrar</a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            </article>
         </section>
     </body>
 </html>

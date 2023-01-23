@@ -24,8 +24,8 @@ const controladorDetalleProducto = require('../controllers/productDetailControll
 
 router.get('/:id', controladorDetalleProducto.detalle); // seleccionar un producto 
 
-router.get('/create', controladorDetalleProducto.creacion); // obtener un producto creado
-router.post('/create', upload.single('imagen_producto'), controladorDetalleProducto.store);
+// router.get('/create', controladorDetalleProducto.creacion); // obtener un producto creado
+// router.post('/create', upload.single('imagen_producto'), controladorDetalleProducto.store);
 
 //rutas para la edicion de productos
 router.get('/:id/editar', controladorDetalleProducto.editar);

@@ -9,34 +9,34 @@ const controladorDetalleProducto = {
 		res.render('products/productDetail',{product : products.find(product => product.id == req.params.id)})
     },
 	
-    creacion: (req, res) => {res.render('products/creacionProductos');
-	},
+//     creacion: (req, res) => {res.render('products/creacionProductos');
+// 	},
 
-    store: (req, res) => {
-		//const file = req.file;
+//     store: (req, res) => {
+// 		//const file = req.file;
 
-		let productoNuevo = {
-			//id : Math.random() *1000,
-			id : Date.now(),
-			nombre : req.body.nombre,
-            descripción : req.body.descripción,
-            marca : req.body.marca,
-            categoria : req.body.categoria,
-			precio : Number(req.body.precio),
-			descuento : Number(req.body.descuento),
-            colores : req.body.colores,
-            talles : req.body.talles,
-			kilogramos : Number(req.body.kilogramos),
-            seccion : req.body.seccion,
-			mascota : req.body.mascota,
-		}
+// 		let productoNuevo = {
+// 			//id : Math.random() *1000,
+// 			id : Date.now(),
+// 			nombre : req.body.nombre,
+//             descripción : req.body.descripción,
+//             marca : req.body.marca,
+//             categoria : req.body.categoria,
+// 			precio : Number(req.body.precio),
+// 			descuento : Number(req.body.descuento),
+//             colores : req.body.colores,
+//             talles : req.body.talles,
+// 			kilogramos : Number(req.body.kilogramos),
+//             seccion : req.body.seccion,
+// 			mascota : req.body.mascota,
+// 		}
 
-		products.push(productoNuevo);
+// 		products.push(productoNuevo);
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
+// 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
 
-		res.redirect ('/products');
-},
+// 		res.redirect ('/products');
+// },
 
 	editar: (req, res) => {
 		let idProducto = req.params.id;
