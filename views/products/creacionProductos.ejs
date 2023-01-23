@@ -7,16 +7,14 @@
             <%- include('../partials/header.ejs') %>
 
             <div class="form-creacion">
-                <div>
-                  <img class="logo-chico" src = "images/logos/logo2.png" alt="Banner Mundo Mascotas">
-                </div>
+                
 
                 <div class="container products-wrapper">
                     <div class="col-12">
                       <h3 class="products-title">Crear nuevo producto</h3>
                     </div>
 
-                    <form action="/products" method="POST" enctype="multipart/form-data" class="formulario-de-producto">
+                    <form action="/administrar/creacion" method="POST" enctype="multipart/form-data" class="formulario-de-producto">
                       <div class="row product-detail">
                         <div>
                           <label for="nombre-producto" class="form-label">Nombre del producto:</label>
@@ -61,9 +59,9 @@
                         </div>
 
                         <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                            <input type="checkbox" class="form-check-input" id="validationFormCheck1">
                             <label class="form-check-label" for="validationFormCheck1">Seleccionar el color</label>   
-                            <input type="color" class="form-check-input" id="validationFormCheck1" required name="color">                                
+                            <input type="color" class="form-check-input" id="validationFormCheck1" name="color">                                
                        </div>
 
                         <div class="mb-3">
@@ -82,7 +80,7 @@
                           </div>
                               
                         <div class="mb-3">
-                          <input type="file" class="form-control" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
+                          <input type="file" class="form-control" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" name="imagen_producto" required>
                         </div>
 
                         <div class="mb-3">
@@ -103,6 +101,7 @@
                       
                         <div class="mb-3">
                           <button class="btn btn-primary" type="submit" >Guardar producto</button>
+                          <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>
                         </div>
 
                       </div>

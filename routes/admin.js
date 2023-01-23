@@ -25,6 +25,10 @@ router.get('/', controladorAdmin.administrar);
 // Crear un nuevo producto
 router.get('/creacion', controladorAdmin.creacion); 
 router.post('/creacion', upload.single('imagen_producto'), controladorAdmin.store);
-
+//rutas para la edicion de productos
+router.get('/:id/editar', controladorAdmin.editar);
+router.put('/:id/editar', upload.single('imagen_producto'), controladorAdmin.actualizar);
+//rutas para eliminar productos
+router.delete('/delete/:id', controladorAdmin.eliminar);
 
 module.exports = router;

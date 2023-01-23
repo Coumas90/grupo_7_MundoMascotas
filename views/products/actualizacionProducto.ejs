@@ -8,10 +8,10 @@
             <h2 class="title">Editar producto</h2>
             <form action="/products/<%= productoEditado.id %>/editar" method="PUT" enctype="multipart/form-data">
                 <%- include('./partials/formFields'); %>
-                <p class="buttons">
-                  <button type="submit" class="button is-primary">Guardar producto</button>
-                </p>
-                <a href="/">Volver al inicio</a>
+                <div class="mb-3">
+                  <button class="btn btn-primary" type="submit" >Guardar producto</button>
+                  <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>
+                </div>
             </form>
         </div>
     </section>       
