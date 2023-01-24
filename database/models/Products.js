@@ -82,7 +82,7 @@ Product.associate = function(models){
 Product.associate = function(models){
     Product.belongsTo(models.Categoria,{
         as: "Categoria",
-        foreignKey:"idCategorias"
+        foreignKey:"idCategoria"
     });
 }
 
@@ -115,10 +115,12 @@ Product.associate = function(models){
 
 Product.associate = function(models){
     Product.belongsToMany(models.DetalleCompra,{
-        as: "Compra",
+        as: "Detalle Compra",
+        //Tabla intermedia de la base de datos
         through: "Product_Compra",
-        foreignKey:"id",
-        otherKey: "Nose",
+        //De esta tabla
+        foreignKey:"idProductos",
+        otherKey: "idDetalleCompra",
         timestamps:false
     });
 }

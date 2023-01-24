@@ -10,7 +10,7 @@ module.exports = (Sequelize, DataTypes) =>{
             autoIncrement: true,
             primaryKey: true 
         },
-        idUsuarios:{
+        idUsuario:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -20,7 +20,7 @@ module.exports = (Sequelize, DataTypes) =>{
             type: DataTypes.DATETIME,
             allowNull: false,
         },
-        idMediosdepago:{
+        idMedioDePago:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -53,8 +53,9 @@ module.exports = (Sequelize, DataTypes) =>{
     return Compra;
 }
 
+//Has many porque podes tener varias lineas del detalle de la compra para una compra
 Compra.associate = function(models){
-    Compra.belongsTo(models.DetalleCompra,{
+    Compra.hasMany(models.DetalleCompra,{
         as: "Detalle Compra",
         foreignKey:"idDetalleCompra"
     });
@@ -63,19 +64,19 @@ Compra.associate = function(models){
 Compra.associate = function(models){
     Compra.belongsTo(models.Envio,{
         as: "Envio",
-        foreignKey:"idTiposdeenvio"
+        foreignKey:"idEnvio"
     });
 }
 Compra.associate = function(models){
     Compra.belongsTo(models.MedioDePago,{
         as: "Medio de Pago",
-        foreignKey:"idMediosdepago"
+        foreignKey:"idMedioDePago"
     });
 }
 
 Compra.associate = function(models){
     Compra.belongsTo(models.User,{
         as: "User",
-        foreignKey:"idUsuarios"
+        foreignKey:"idUsuario"
     });
 }

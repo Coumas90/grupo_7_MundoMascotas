@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 module.exports = (Sequelize, DataTypes) =>{
     const Categoria = sequelize.define("Categoria",
     {
-        idCategorias: {
+        idCategoria: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -24,9 +24,10 @@ module.exports = (Sequelize, DataTypes) =>{
     return Categoria;
 }
 
+//Models lo que hace es que sequelize trae todos los modelos que yo haya creado
 Categoria.associate = function (models){
     Categoria.hasMany(models.Product,{
         as:"Product",
-        foreignkey: "idCategorias"
+        foreignkey: "idCategoria"
     })
 }

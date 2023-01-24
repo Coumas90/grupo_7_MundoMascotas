@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 module.exports = (Sequelize, DataTypes) =>{
     const Color = sequelize.define("Color",
     {
-        idColores: {
+        idColor: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -27,6 +27,6 @@ module.exports = (Sequelize, DataTypes) =>{
 Color.associate = function (models){
     Color.hasMany(models.Product,{
         as:"Product",
-        foreignkey: "idColores"
+        foreignkey: "idColor"
     })
 }
