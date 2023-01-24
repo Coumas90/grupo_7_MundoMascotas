@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang ="es">
-  <%- include('../partials/head.ejs') %>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/register.css">
+  </head>
     <body>
-      <%- include('../partials/header.ejs') %>
-      <section class="product-detail">
-        <div class="container form-container">
-            <h2 class="title">Editar producto</h2>
-            <form action="/products/<%= productoEditado.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
-                <%- include('./partials/formFields'); %>
-                <p class="buttons">
-                  <a class="button" href="/products/<%= productoEditado.id %>"></a>
-                  
-                  <button type="submit" class="button is-primary">Guardar producto</button>
-                </p>
-                <a href="/">Volver al inicio</a>
-            </form>
-        </div>
-    </section>       
-    <%- include('../partials/footer.ejs') %>
+      <div class="form">
+        <span class="form__title">Editar producto</span>
+        <form action="/products/<%= productoEditado.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
+          <%- include('./partials/formFields'); %>
+          <div class="mb-3">
+            <button class="btn btn-primary" type="submit" >Guardar producto</button>
+            <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>
+          </div>
+        </form>
+      </div>    
   </body>
 </html>

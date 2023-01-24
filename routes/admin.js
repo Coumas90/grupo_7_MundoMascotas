@@ -1,9 +1,8 @@
 // Siempre en cada hoja de ruteo hay que requerir express
 const express = require ('express');
-
+const path = require('path');
 //Constante con la extension de express router
 const router = express.Router();
-
 
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -20,22 +19,16 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage})
 
-const controladorDetalleProducto = require('../controllers/productDetailController');
+const controladorAdmin = require('../controllers/adminController');
 
-router.get('/:id', controladorDetalleProducto.detalle); // seleccionar un producto 
-
-//routers viejo
-// router.get('/create', controladorDetalleProducto.creacion); // obtener un producto creado
-// router.post('/create', upload.single('imagen_producto'), controladorDetalleProducto.store);
-// //rutas para la edicion de productos
-// router.get('/:id/editar', controladorDetalleProducto.editar);
-// router.put('/:id/editar', upload.single('imagen_producto'), controladorDetalleProducto.actualizar);
-// //rutas para eliminar productos
-// router.delete('/delete/:id', controladorDetalleProducto.eliminar);
-
-
-// detalle de producto
-router.get('/:id',controladorDetalleProducto.detalleSKU);
-
+router.get('/', controladorAdmin.administrar);
+// Crear un nuevo producto
+router.get('/creacion', controladorAdmin.creacion); 
+router.post('/creacion', upload.single('imagen_producto'), controladorAdmin.store);
+//rutas para la edicion de productos
+router.get('/:id/editar', controladorAdmin.editar);
+router.put('/:id/editar', upload.single('imagen_producto'), controladorAdmin.actualizar);
+//rutas para eliminar productos
+router.delete('/delete/:id', controladorAdmin.eliminar);
 
 module.exports = router;

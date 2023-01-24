@@ -9,95 +9,95 @@ const controladorDetalleProducto = {
 		res.render('products/productDetail',{product : products.find(product => product.id == req.params.id)})
     },
 	
-    creacion: (req, res) => {res.render('products/creacionProductos');
-	},
+//funciones viejas	
+//     creacion: (req, res) => {res.render('products/creacionProductos');
+// 	},
 
-    store: (req, res) => {
-		//const file = req.file;
+//     store: (req, res) => {
+// 		//const file = req.file;
 
-		let productoNuevo = {
-			//id : Math.random() *1000,
-			id : Date.now(),
-			nombre : req.body.nombre,
-            descripción : req.body.descripción,
-            marca : req.body.marca,
-            categoria : req.body.categoria,
-			precio : Number(req.body.precio),
-			descuento : Number(req.body.descuento),
-            colores : req.body.colores,
-            talles : req.body.talles,
-			kilogramos : Number(req.body.kilogramos),
-            seccion : req.body.seccion,
-			mascota : req.body.mascota,
-		}
+// 		let productoNuevo = {
+// 			//id : Math.random() *1000,
+// 			id : Date.now(),
+// 			nombre : req.body.nombre,
+//             descripción : req.body.descripción,
+//             marca : req.body.marca,
+//             categoria : req.body.categoria,
+// 			precio : Number(req.body.precio),
+// 			descuento : Number(req.body.descuento),
+//             colores : req.body.colores,
+//             talles : req.body.talles,
+// 			kilogramos : Number(req.body.kilogramos),
+//             seccion : req.body.seccion,
+// 			mascota : req.body.mascota,
+// 		}
 
-		products.push(productoNuevo);
+// 		products.push(productoNuevo);
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
+// 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
 
-		res.redirect ('/products');
-},
+// 		res.redirect ('/products');
+// },
 
-	editar: (req, res) => {
-		let idProducto = req.params.id;
+	// editar: (req, res) => {
+	// 	let idProducto = req.params.id;
 		
-		let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
-		if (productoAEditar.length > 0) {
-			let productoEditado = productoAEditar[0];
-			res.render('products/actualizacionProducto', {productoEditado: productoEditado});
-			} else {
-				// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
-				res.redirect("/products"); // Redirige a la lista de productos
-			}
-  	},
+	// 	let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
+	// 	if (productoAEditar.length > 0) {
+	// 		let productoEditado = productoAEditar[0];
+	// 		res.render('products/actualizacionProducto', {productoEditado: productoEditado});
+	// 		} else {
+	// 			// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
+	// 			res.redirect("/products"); // Redirige a la lista de productos
+	// 		}
+  	// },
   
 		
-	actualizar: (req,res)=> {
-	console.log(req.file);
+	// actualizar: (req,res)=> {
+	// 	let idProducto = req.params.id;
+	// 	console.log(req.body)
 
-		let productoActualizado = {
-			//id : Math.random() *1000,
-			id : Date.now(),
-			nombre : req.body.nombre,
-            descripción : req.body.descripción,
-            marca : req.body.marca,
-            categoria : req.body.categoria,
-			precio : Number(req.body.precio),
-			descuento : Number(req.body.descuento),
-            colores : req.body.colores,
-            talles : req.body.talles,
-			kilogramos : Number(req.body.kilogramos),
-            seccion : req.body.seccion,
-			mascota : req.body.mascota,
-		}
-
-		let index = products.findIndex(producto => producto.id == idProducto);
-		if (index !== -1) {
-			products[index] = productoActualizado;
-			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
-			res.redirect("/productDetail/" + productoActualizado.id);
-		} else {
-			res.redirect("/products"); // Redirige a la lista de productos
-		}
-	},
+	// 	let productoActualizado = {
+	// 		//id : Math.random() *1000,
+	// 		id : Date.now(),
+	// 		nombre : req.body.nombre,
+    //         descripción : req.body.descripción,
+    //         marca : req.body.marca,
+    //         categoria : req.body.categoria,
+	// 		precio : Number(req.body.precio),
+	// 		descuento : Number(req.body.descuento),
+    //         colores : req.body.colores,
+    //         talles : req.body.talles,
+	// 		kilogramos : Number(req.body.kilogramos),
+    //         seccion : req.body.seccion,
+	// 		mascota : req.body.mascota,
+	// 	}
+	// 	console.log(req.body)
+	// 	let index = products.findIndex(producto => producto.id == idProducto);
+	// 	if (index !== -1) {
+	// 		products[index] = productoActualizado;
+	// 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
+	// 		res.redirect("/productDetail/" + productoActualizado.id);
+	// 	} else {
+	// 		res.redirect("/products"); // Redirige a la lista de productos
+	// 	}
+	// },
+	// eliminar: (req, res) => {
+	// 	// Obtener el ID del producto a eliminar
+	// 	let idProductoAEliminar = req.params.id;
+	// 	// Filtrar la lista de productos para obtener sólo el producto a eliminar
+	// 	let productosFiltrados = products.filter(producto => producto.id !== idProductoAEliminar);
+	// 	// Sobreescribir la lista de productos con la lista filtrada (sin el producto a eliminar)
+	// 	fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, ''));
+	// 	// Redirigir a la lista de productos
+	// 	res.redirect('/products');
+	//   }
 
 	detalleSKU: (req,res) => {
         let filtroSKU = req.params.filtro
         let SKU = products.find(product => product.id == filtroSKU)
         res.render('products/productDetail',{producto:SKU})
 	},
-
-	eliminar: (req, res) => {
-		// Obtener el ID del producto a eliminar
-		let idProductoAEliminar = req.params.id;
-		// Filtrar la lista de productos para obtener sólo el producto a eliminar
-		let productosFiltrados = products.filter(producto => producto.id !== idProductoAEliminar);
-		// Sobreescribir la lista de productos con la lista filtrada (sin el producto a eliminar)
-		fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, ''));
-		// Redirigir a la lista de productos
-		res.redirect('/products');
-	  }
-
 }
 
 module.exports = controladorDetalleProducto;

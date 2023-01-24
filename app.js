@@ -23,11 +23,10 @@ const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
 const rutasPerfil = require('./routes/perfil.js');
 const rutasListado = require('./routes/listado.js');
+const rutasAdministrar = require('./routes/admin.js');
 
 //Necesario para poder utilizar los metodos put y delete en HTTP
 const methodOverride = require ('method-override');
-
-
 
 
 //Middleware para la barra de navegacion
@@ -41,7 +40,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor 3030
-app.listen(3000, () => {console.log('Servidor corriendo en 3000')});
+app.listen(3001, () => {console.log('Servidor corriendo en 3001')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasIndex);
@@ -51,6 +50,7 @@ app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
 app.use('/listado', rutasListado);
 app.use('/perfil', rutasPerfil);
+app.use('/administrar', rutasAdministrar);
 
 //Necesario para poder utilizar los metodos put y delete en HTTP
 app.use(methodOverride('_method'));
