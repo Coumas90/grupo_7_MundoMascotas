@@ -10,7 +10,7 @@
     <body>
       <div class="form">
         <span class="form__title">Editar producto</span>
-        <form action="/products/<%= productoEditado.id %>/editar" method="PUT" enctype="multipart/form-data">
+        <form action="/products/<%= productoEditado.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
           <%- include('./partials/formFields'); %>
           <div class="mb-3">
             <button class="btn btn-primary" type="submit" >Guardar producto</button>

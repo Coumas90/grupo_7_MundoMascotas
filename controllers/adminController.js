@@ -8,29 +8,32 @@ const controladorAdmin = {
     administrar: (req, res) => {
         res.render('products/administrar',{products});
     },
-    creacion: (req, res) => {res.render('products/creacionProductos');
+    creacion: (req, res) => {
+		res.render('products/creacionProductos');
 	},
 
     store: (req, res) => {
-			let productoNuevo = {
-			//id : Math.random() *1000,
-			id : Date.now(),
-			nombre : req.body.nombre,
-            descripción : req.body.descripción,
-            marca : req.body.marca,
-            categoria : req.body.categoria,
-			precio : Number(req.body.precio),
-			descuento : Number(req.body.descuento),
-            colores : req.body.colores,
-            talles : req.body.talles,
-			kilogramos : Number(req.body.kilogramos),
-            seccion : req.body.seccion,
-			mascota : req.body.mascota,
+		let ultimoProducto = products.pop();
+		products.push(ultimoProducto);
+		let productoNuevo = {
+		  id : ultimoProducto.id +1,
+		  nombre : req.body.nombre,
+		  descripción : req.body.descripción,
+		  marca : req.body.marca,
+		  categoria : req.body.categoria,
+		  precio : Number(req.body.precio),
+		  descuento : Number(req.body.descuento),
+		  imagen: req.file ? req.file.originalname : '',
+		  colores : req.body.colores,
+		  talles : req.body.talles,
+		  kilogramos : Number(req.body.kilogramos),
+		  seccion : req.body.seccion,
+		  mascota : req.body.mascota,
 		}
 		products.push(productoNuevo);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
-		res.redirect ('/products');
-    },
+		res.redirect ('/administrar');
+	  },
 
     editar: (req, res) => {
 		let idProducto = req.params.id;
@@ -45,31 +48,16 @@ const controladorAdmin = {
   	},
   
 	actualizar: (req,res)=> {
-		let idProducto = req.params.id;
-		let productoActualizado = {
-			//id : Math.random() *1000,
-			id : Date.now(),
-			nombre : req.body.nombre,
-            descripción : req.body.descripción,
-            marca : req.body.marca,
-            categoria : req.body.categoria,
-			precio : Number(req.body.precio),
-			descuento : Number(req.body.descuento),
-            colores : req.body.colores,
-            talles : req.body.talles,
-			kilogramos : Number(req.body.kilogramos),
-            seccion : req.body.seccion,
-			mascota : req.body.mascota,
-		}
-		console.log(req.body)
-		let index = products.findIndex(producto => producto.id == idProducto);
-		if (index !== -1) {
-			products[index] = productoActualizado;
-			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
-			res.redirect("/productDetail/actualizacionProducto" + productoActualizado.id);
-		} else {
-			res.redirect("/products"); // Redirige a la lista de productos
-		}
+		req.body.id = req.params.id;
+		req.body.imagen = req.file ? req.file.filename : req.body.oldImage;
+		let productoUpdate = productos.map(products =>{
+			if(products.id == req.body.id){
+				return products = req.body;
+			}
+			return products;
+		})
+		fs.writeFileSync(productsFilePath, JSON.stringify(productoUpdate, null, ''));
+		res.redirect("/administrar");
 	},
 
     eliminar: (req, res) => {
