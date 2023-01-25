@@ -3,13 +3,25 @@ const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require("../database/models")
 
 const controladorAdmin = {
     administrar: (req, res) => {
         res.render('products/administrar',{products});
     },
     creacion: (req, res) => {
-		res.render('products/creacionProductos');
+		//res.render('products/creacionProductos');
+		Promise.all([
+			db.Categoria.findAll(),
+			db.Color.findAll(),
+			db.Marca.findAll(),
+			db.Mascota.findAll(),
+			db.Peso.findAll(),
+			db.Talle.findAll(),
+		])
+		.then(([categorias,colores,marcas,mascotas,pesos,talles]) => {
+			return res.render("products/creacionProductos",{categorias,colores,marcas,mascotas,pesos,talles})
+		});
 	},
 
     store: (req, res) => {
