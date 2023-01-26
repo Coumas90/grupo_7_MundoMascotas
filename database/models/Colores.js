@@ -11,7 +11,7 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         nombreColor: {
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.STRING,
             allowNull: false,
         }
 
@@ -21,12 +21,12 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
+    Color.associate = function (models){
+        Color.hasMany(models.Product,{
+            as:"Product",
+            foreignkey: "idColor"
+        })
+    }
     return Color;
 }
 
-Color.associate = function (models){
-    Color.hasMany(models.Product,{
-        as:"Product",
-        foreignkey: "idColor"
-    })
-}

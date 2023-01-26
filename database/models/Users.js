@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const User = require("../../models/User");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const User = sequelize.define("User",
+    const User = Sequelize.define("User",
     {
         idUsuarios: {
             type: DataTypes.INTEGER,
@@ -12,31 +12,31 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         Email:{
-            type: DataTypes.VARCHAR(100),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         Nombre: {
-            type: DataTypes.VARCHAR(100),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         Apellido:{
-            type: DataTypes.VARCHAR(100),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         DNI:{
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         Telefono:{
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         Avatar:{
-            type: DataTypes.VARCHAR(200),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         Password:{
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         idUsersCategories:{
@@ -52,19 +52,21 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
+    User.associate = function (models){
+        User.hasMany(models.Compra,{
+            as:"Compra",
+            foreignkey: "idUsuarios"
+        })
+    }
+
+    User.associate = function(models){
+        User.belongsTo(models.CategoriaUser,{
+            as: "User Category",
+            foreignKey:"idUsersCategories"
+        });
+    }
+    
     return User;
 }
 
-User.associate = function(models){
-    User.belongsTo(models.CategoriaUser,{
-        as: "User Category",
-        foreignKey:"idUsersCategories"
-    });
-}
 
-User.associate = function (models){
-    User.hasMany(models.Compra,{
-        as:"Compra",
-        foreignkey: "idUsuarios"
-    })
-}

@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const DetalleCompra = sequelize.define("DetalleCompra",
+    const DetalleCompra = Sequelize.define("DetalleCompra",
     {
         idDetalleCompra: {
             type: DataTypes.INTEGER,
@@ -28,7 +28,7 @@ module.exports = (Sequelize, DataTypes) =>{
 
         },
         Precio:{
-            type: DataTypes.VARCHAR(100),
+            type: DataTypes.DECIMAL,
             allowNull: false,
         }
 
@@ -38,22 +38,22 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
+    DetalleCompra.associate = function (models){
+        DetalleCompra.hasMany(models.Compra,{
+            as:"Compra",
+            foreignkey: "idDetalleCompra"
+        })
+    }
+    
+    DetalleCompra.associate = function(models){
+        DetalleCompra.belongsToMany(models.Product,{
+            as: "Product",
+            through: "Product_Compra",
+            foreignKey:"idProducto",
+            otherKey: "Nose",
+            timestamps:false
+        });
+    }
     return DetalleCompra;
 }
 
-DetalleCompra.associate = function (models){
-    DetalleCompra.hasMany(models.Compra,{
-        as:"Compra",
-        foreignkey: "idDetalleCompra"
-    })
-}
-
-DetalleCompra.associate = function(models){
-    DetalleCompra.belongsToMany(models.Product,{
-        as: "Product",
-        through: "Product_Compra",
-        foreignKey:"idProducto",
-        otherKey: "Nose",
-        timestamps:false
-    });
-}

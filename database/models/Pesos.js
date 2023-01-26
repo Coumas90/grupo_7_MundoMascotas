@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const Peso = sequelize.define("Peso",
+    const Peso = Sequelize.define("Peso",
     {
         idPesos: {
             type: DataTypes.INTEGER,
@@ -11,7 +11,7 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         nombrePeso: {
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.STRING,
             allowNull: false,
         }
 
@@ -21,12 +21,12 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
+    Peso.associate = function (models){
+        Peso.hasMany(models.Product,{
+            as:"Product",
+            foreignkey: "idPesos"
+        })
+    }
     return Peso;
 }
 
-Peso.associate = function (models){
-    Peso.hasMany(models.Product,{
-        as:"Product",
-        foreignkey: "idPesos"
-    })
-}

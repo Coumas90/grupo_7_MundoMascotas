@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const MedioDePago = sequelize.define("MedioDePago",
+    const MedioDePago = Sequelize.define("MedioDePago",
     {
         idMediodDePago: {
             type: DataTypes.INTEGER,
@@ -11,7 +11,7 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         NombreMedioDePago: {
-            type: DataTypes.VARCHAR(200),
+            type: DataTypes.STRING,
             allowNull: false,
         }
 
@@ -21,12 +21,12 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
+    MedioDePago.associate = function (models){
+        MedioDePago.hasMany(models.Compra,{
+            as:"Compra",
+            foreignkey: "idMediosdepago"
+        })
+    }
     return MedioDePago;
 }
 
-MedioDePago.associate = function (models){
-    MedioDePago.hasMany(models.Compra,{
-        as:"Compra",
-        foreignkey: "idMediosdepago"
-    })
-}

@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const Compra = sequelize.define("Compra",
+    const Compra = Sequelize.define("Compra",
     {
         idCompra: {
             type: DataTypes.INTEGER,
@@ -17,7 +17,7 @@ module.exports = (Sequelize, DataTypes) =>{
             //foreign key
         },
         Fecha: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATEONLY,
             allowNull: false,
         },
         idMedioDePago:{
@@ -34,7 +34,7 @@ module.exports = (Sequelize, DataTypes) =>{
             //foreign key
         },
         DireccionEntrega:{
-            type: DataTypes.VARCHAR(200),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         idEnvio:{
@@ -50,10 +50,7 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
-    return Compra;
-}
-
-//Has many porque podes tener varias lineas del detalle de la compra para una compra
+    //Has many porque podes tener varias lineas del detalle de la compra para una compra
 Compra.associate = function(models){
     Compra.hasMany(models.DetalleCompra,{
         as: "Detalle Compra",
@@ -80,3 +77,6 @@ Compra.associate = function(models){
         foreignKey:"idUsuario"
     });
 }
+    return Compra;
+}
+

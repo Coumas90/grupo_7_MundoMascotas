@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const Envio = sequelize.define("Envio",
+    const Envio = Sequelize.define("Envio",
     {
         idTiposdeenvio: {
             type: DataTypes.INTEGER,
@@ -11,7 +11,7 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         NombreTipoDeEnvio: {
-            type: DataTypes.VARCHAR(200),
+            type: DataTypes.STRING,
             allowNull: false,
         }
 
@@ -21,12 +21,12 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
+    Envio.associate = function (models){
+        Envio.hasMany(models.Compra,{
+            as:"Compra",
+            foreignkey: "idTiposdeenvio"
+        })
+    }
     return Envio;
 }
 
-Envio.associate = function (models){
-    Envio.hasMany(models.Compra,{
-        as:"Compra",
-        foreignkey: "idTiposdeenvio"
-    })
-}

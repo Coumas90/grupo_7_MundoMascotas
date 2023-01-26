@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const Talle = sequelize.define("Talle",
+    const Talle = Sequelize.define("Talle",
     {
         idTalles: {
             type: DataTypes.INTEGER,
@@ -11,7 +11,7 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         NombreTalla: {
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.STRING,
             allowNull: false,
         }
 
@@ -21,12 +21,12 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
-    return Talla;
+    Talle.associate = function (models){
+        Talle.hasMany(models.Product,{
+            as:"Product",
+            foreignkey: "idTalles"
+        })
+    }
+    return Talle;
 }
 
-Talle.associate = function (models){
-    Talle.hasMany(models.Product,{
-        as:"Product",
-        foreignkey: "idTalles"
-    })
-}

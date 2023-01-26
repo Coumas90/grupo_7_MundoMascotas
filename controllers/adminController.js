@@ -20,7 +20,7 @@ const controladorAdmin = {
 			db.Talle.findAll(),
 		])
 		.then(([categorias,colores,marcas,mascotas,pesos,talles]) => {
-			return res.render("products/creacionProductos",{categorias,colores,marcas,mascotas,pesos,talles})
+			return res.render("products/creacionProductos",{categorias:categorias,colores:colores,marcas:marcas,mascotas:mascotas,pesos:pesos,talles:talles})
 		});
 	},
 

@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const Product = sequelize.define("Product",
+    const Product = Sequelize.define("Product",
     {
         idProductos: {
             type: DataTypes.INTEGER,
@@ -11,19 +11,19 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         Nombre:{
-            type: DataTypes.VARCHAR(200),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         Descripcion: {
-            type: DataTypes.VARCHAR(500),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         Precio:{
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.DECIMAL,
             allowNull: false,
         },
         Descuento:{
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.DECIMAL,
             allowNull: false,
         },
         idMarcas:{
@@ -69,58 +69,58 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
+    Product.associate = function(models){
+        Product.belongsTo(models.Marca,{
+            as: "Marca",
+            foreignKey:"idMarcas"
+        });
+    }
+    
+    Product.associate = function(models){
+        Product.belongsTo(models.Categoria,{
+            as: "Categoria",
+            foreignKey:"idCategoria"
+        });
+    }
+    
+    Product.associate = function(models){
+        Product.belongsTo(models.Color,{
+            as: "Color",
+            foreignKey:"idColores"
+        });
+    }
+    
+    Product.associate = function(models){
+        Product.belongsTo(models.Talle,{
+            as: "Talle",
+            foreignKey:"idTalles"
+        });
+    }
+    
+    Product.associate = function(models){
+        Product.belongsTo(models.Peso,{
+            as: "Peso",
+            foreignKey:"idPesos"
+        });
+    }
+    Product.associate = function(models){
+        Product.belongsTo(models.Mascota,{
+            as: "Mascota",
+            foreignKey:"idMascotas"
+        });
+    }
+    
+    Product.associate = function(models){
+        Product.belongsToMany(models.DetalleCompra,{
+            as: "Detalle Compra",
+            //Tabla intermedia de la base de datos
+            through: "Product_Compra",
+            //De esta tabla
+            foreignKey:"idProductos",
+            otherKey: "idDetalleCompra",
+            timestamps:false
+        });
+    }
     return Product;
 }
 
-Product.associate = function(models){
-    Product.belongsTo(models.Marca,{
-        as: "Marca",
-        foreignKey:"idMarcas"
-    });
-}
-
-Product.associate = function(models){
-    Product.belongsTo(models.Categoria,{
-        as: "Categoria",
-        foreignKey:"idCategoria"
-    });
-}
-
-Product.associate = function(models){
-    Product.belongsTo(models.Color,{
-        as: "Color",
-        foreignKey:"idColores"
-    });
-}
-
-Product.associate = function(models){
-    Product.belongsTo(models.Talle,{
-        as: "Talle",
-        foreignKey:"idTalles"
-    });
-}
-
-Product.associate = function(models){
-    Product.belongsTo(models.Peso,{
-        as: "Peso",
-        foreignKey:"idPesos"
-    });
-}
-Product.associate = function(models){
-    Product.belongsTo(models.Mascota,{
-        as: "Mascota",
-        foreignKey:"idMascotas"
-    });
-}
-
-Product.associate = function(models){
-    Product.belongsToMany(models.DetalleCompra,{
-        as: "Detalle Compra",
-        //Tabla intermedia de la base de datos
-        through: "Product_Compra",
-        //De esta tabla
-        foreignKey:"idProductos",
-        otherKey: "idDetalleCompra",
-        timestamps:false
-    });
-}

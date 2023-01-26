@@ -11,7 +11,7 @@ module.exports = (Sequelize, DataTypes) =>{
             primaryKey: true 
         },
         nombreCategoria: {
-            type: DataTypes.VARCHAR(45),
+            type: DataTypes.STRING,
             allowNull: false,
         }
 
@@ -21,13 +21,13 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     }
     );
-    return Categoria;
-}
-
-//Models lo que hace es que sequelize trae todos los modelos que yo haya creado
+    //Models lo que hace es que sequelize trae todos los modelos que yo haya creado
 Categoria.associate = function (models){
     Categoria.hasMany(models.Product,{
         as:"Product",
         foreignkey: "idCategoria"
     })
 }
+    return Categoria;
+}
+
