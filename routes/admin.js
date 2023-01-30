@@ -31,4 +31,21 @@ router.put('/:id/editar', upload.single('imagen_producto'), controladorAdmin.act
 //rutas para eliminar productos
 router.delete('/delete/:id', controladorAdmin.eliminar);
 
+//rutas para formularios de tablas
+router.get('/tallas', controladorAdmin.creaciontalles);
+router.post('/tallas', controladorAdmin.storetalle);
+// router.get('/marcas', controladorAdmin.creacionmarcas);
+// router.post('/marcas', controladorAdmin.storemarcas);
+// router.get('/colores', controladorAdmin.creacioncolores);
+// router.post('/colores', controladorAdmin.storecolores);
+// router.get('/mascotas', controladorAdmin.creacionmascotas);
+// router.post('/mascotas', controladorAdmin.storemascotas);
+// router.get('/mediosdepago', controladorAdmin.creacionmediosdepago);
+// router.post('/mediosdepago', controladorAdmin.storemediosdepago);
+// router.get('/pesos', controladorAdmin.creacionpesos);
+// router.post('/pesos', controladorAdmin.storepesos);
+// router.get('/envios', controladorAdmin.creacionenvios);
+// router.post('/envios', controladorAdmin.storeenvios);
+
+
 module.exports = router;

@@ -14,80 +14,85 @@
           <form action="/administrar/creacion" method="POST" enctype="multipart/form-data">
             <div class="form__input">
               <label for="nombre-producto" class="form-label">Nombre del producto:</label>
-              <input type="text" class="form-input" id="nombre-producto" placeholder="Ej: Alimento balanceado" required name="nombre">
+              <input type="text" class="form-input" id="nombre-producto" placeholder="Ej: Alimento balanceado" required name="Nombre">
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="descripcion-producto" class="form-label">Descripcion del producto:</label>
-              <textarea class="form-input" id="descripcion-producto" required name="descripcion"></textarea>
+              <textarea class="form-input" id="descripcion-producto" required name="Descripcion"></textarea>
               <span class="bar"></span>
             </div>
             <div class="form__input">
+              <label>Seleccionar marca:</label>
               <select class="selector" required aria-label="select example">
-                <option value="">Seleccionar marca</option>
-                <option value="1">Pedigree</option>
-                <option value="2">Purina</option>
-                <option value="3">Royal Canin</option>
-                <option value="4">Cat Chow</option>
-                <option value="5">Can Cat</option>
-                <option value="6">Pro Plan</option>
-                <option value="7">Whiskas</option>
+                <% for (let i=0; i < marcas.length; i++){ %>
+                <option value="<%= marcas[i].idMarcas%>" name="idMarca">
+                  <%= marcas[i].nombreMarca%>
+                </option>
+                <% } %>
               </select>
               <span class="bar"></span>
             </div>
             <div class="form__input">
+              <label>Seleccionar Categoria:</label>
               <select class="selector" required aria-label="select example">
-                <option value="">Seleccionar categoria</option>
-                <option value="1">Alimento</option>
-                <option value="2">Juguetes</option>
-                <option value="3">Accesorios</option>
+                <% for (let i=0; i < categorias.length; i++){ %>
+                <option value="<%= categorias[i].idCategoria%>" name="idCategoria">
+                  <%= categorias[i].nombreCategoria%>
+                </option>
+                <% } %>
               </select>
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="precio" class="form-label">Precio del producto:</label>
-              <input type="number" class="form-input" placeholder="Ej: 3000" id="precio" required name="precio">
+              <input type="number" class="form-input" placeholder="Ej: 3000" id="precio" required name="Precio">
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="descuento" class="form-label">Descuento:</label>
-              <input type="number" class="form-input" placeholder="Ej: 25" id="descuento" name="descuento">
+              <input type="number" class="form-input" placeholder="Ej: 25" id="descuento" name="Descuento">
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <input type="checkbox" class="form-check-input" id="validationFormCheck1">
-              <label class="form-check-label" for="validationFormCheck1">Seleccionar el color</label>   
-              <input type="color" class="form-check-input" id="validationFormCheck1" name="color">
+              <label>Seleccionar color:</label>
+              <select class="selector" required aria-label="select example">
+                <% for (let i=0; i < colores.length; i++){ %>
+                <option value="<%= colores[i].idColor%>" name="idColor">
+                  <%= colores[i].nombreColor%>
+                </option>
+                <% } %>
+              </select>
+              <span class="bar"></span>
             </div>
             <div class="form__input">
+              <label>Seleccionar talla:</label>
               <select class="selector" required aria-label="select example">
-                <option value="">Seleccionar talle</option>
-                <option value="1">S</option>
-                <option value="2">M</option>
-                <option value="3">L</option>
-                <option value="4">XL</option>
+                <% for (let i=0; i < talles.length; i++){ %>
+                <option value="<%= talles[i].idTalles%>" name="idTalle">
+                  <%= talles[i].nombreTalla%>
+                </option>
+                <% } %>
               </select>
+              <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="validationServer01" class="form-label">Peso del producto:</label>
-              <input type="number" class="form-input" placeholder="Ej: 10" id="validationServer01" required name="peso">
+              <input type="number" class="form-input" placeholder="Ej: 10" id="validationServer01" required name="Peso">
             </div>
             <div class="form__input">
               <input type="file" class="form-control" name="imagen_producto" id="imagen_producto" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
             </div>
             <div class="form__input">
+              <label>Seleccionar mascota:</label>
               <select class="selector" required aria-label="select example">
-                <option value="">Sección</option>
-                <option value="1">Ofertas</option>
-                <option value="2">Más buscados</option>
+                <% for (let i=0; i < mascotas.length; i++){ %>
+                <option value="<%= mascotas[i].idMascota%>" name="idMascota">
+                  <%= mascotas[i].nombreMascota%>
+                </option>
+                <% } %>
               </select>
-            </div>
-            <div class="form__input">
-              <select class="selector" required aria-label="select example">
-                <option value="">Tipo de mascota</option>
-                <option value="1">Perros</option>
-                <option value="2">Gatos</option>
-              </select>
+              <span class="bar"></span>
             </div>
             <div class="mb-3">
               <button class="btn btn-primary" type="submit" >Guardar producto</button>
