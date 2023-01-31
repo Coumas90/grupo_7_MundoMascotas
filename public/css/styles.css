@@ -73,20 +73,14 @@ header{
     padding: 1%;
     background: linear-gradient(to left, #d5eaf7, #ffc97d);
 }
+
 div.contenedor{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 150px;
+    height: 100px;
 }
-div.contenedor.top-header{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    padding: 1%;
-}
+
 div.top-header{
     display: flex;
     justify-content: space-between;
@@ -94,23 +88,21 @@ div.top-header{
     align-items: center;
     padding: 1%;
 }
+
 header div.logo{
     padding: 5px;
     width: 5%;
 }
 
-header div.top-header p{
-    width: 100%;
-    text-align: center;
-    margin-top: 1px;
+img.logo-chico{
+    height: 100px;
 }
+
 
 
 /*====== Navbar ======*/
 
-header nav{
-    font-size: 15px;
-}
+
 
 /*====== Banner ======*/
 section.banner{
