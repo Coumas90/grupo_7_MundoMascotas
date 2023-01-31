@@ -104,7 +104,7 @@ img.logo-chico{
 
 
 
-/*====== Banner ======*/
+/*====== Banner superior ======*/
 section.banner{
     width: 100%;
     display: block;
@@ -137,7 +137,6 @@ div.listadoProductos{
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-
 }
 
 article div.main-article{
@@ -145,7 +144,8 @@ article div.main-article{
     margin: 1px;
     border-top: solid 1px #4B86AB;
 }
-/*====== Footer ======*/
+
+/*====== Banner inferior ======*/
 
 
 
