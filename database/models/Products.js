@@ -61,6 +61,10 @@ module.exports = (Sequelize, DataTypes) =>{
             allowNull: false,
             unique: true,
             //foreign key
+        },
+        imagen:{
+            type: DataTypes.STRING,
+            allowNull: false,
         }
 
     },

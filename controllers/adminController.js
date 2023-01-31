@@ -48,8 +48,7 @@ const controladorAdmin = {
 	//   },
 
 	store: function (req,res){
-		db.Producto.create({
-			idProducto:req.body.idProducto,
+		db.Product.create({
 			Nombre:req.body.Nombre,
 			Descripcion:req.body.Descripcion,
 			idMarcas:req.body.idMarcas,
@@ -59,7 +58,8 @@ const controladorAdmin = {
 			idColor:req.body.idColor,
 			idTalle:req.body.idTalle,
 			idPesos:req.body.idPesos,
-			idMascota:req.body.idMascota
+			idMascota:req.body.idMascota,
+			imagen: req.body.filename
 		});
 		res.redirect("/")
 	},
@@ -105,10 +105,70 @@ const controladorAdmin = {
 	},
 
 	storetalle: (req,res) => {
-		db.Talle.create({
-			NombreTalla: req.body.nombre,
-		});
-		res.redirect("products/administrar")
+	 db.Talle.create({
+		 	nombreTalla:req.body.nombreTalla,
+		 });
+		 res.redirect('/')
+	},
+	creacionmarcas: (req,res)=> {
+		res.render('products/marcas')
+	},
+
+	storemarcas: (req,res) => {
+	 db.Marca.create({
+		 	nombreMarca:req.body.nombreMarca,
+		 });
+		 res.redirect('/')
+	},
+	creacioncolores: (req,res)=> {
+		res.render('products/colores')
+	},
+
+	storecolores: (req,res) => {
+	 db.Color.create({
+		 	nombreColor:req.body.nombreColor,
+		 });
+		 res.redirect('/')
+	},
+	creacionmascotas: (req,res)=> {
+		res.render('products/mascotas')
+	},
+
+	storemascotas: (req,res) => {
+	 db.Mascota.create({
+		 	NombreMascota:req.body.NombreMascota,
+		 });
+		 res.redirect('/')
+	},
+	creacionmediosdepago: (req,res)=> {
+		res.render('products/medios_de_pago')
+	},
+
+	storemediosdepago: (req,res) => {
+	 db.MedioDePago.create({
+		 	NombreMedioDePago:req.body.NombreMedioDePago,
+		 });
+		 res.redirect('/')
+	},
+	creacionpesos: (req,res)=> {
+		res.render('products/pesos')
+	},
+
+	storepesos: (req,res) => {
+	 db.Peso.create({
+		 	nombrePeso:req.body.nombrePeso,
+		 });
+		 res.redirect('/')
+	},
+	creacionenvios: (req,res)=> {
+		res.render('products/envios')
+	},
+
+	storeenvios: (req,res) => {
+	 db.Envio.create({
+		 	NombreTipoDeEnvio:req.body.NombreTipoDeEnvio,
+		 });
+		 res.redirect('/')
 	}
 
 }
