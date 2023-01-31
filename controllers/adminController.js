@@ -106,7 +106,7 @@ const controladorAdmin = {
 
 	storetalle: (req,res) => {
 		db.Talle.create({
-			NombreTalla:req.body.nombre,
+			NombreTalla: req.body.nombre,
 		});
 		res.redirect("products/administrar")
 	}
