@@ -13,17 +13,17 @@
         <div class="container products-wrapper">
           <form action="/administrar/creacion" method="POST" enctype="multipart/form-data">
             <div class="form__input">
-              <label for="nombre-producto" class="form-label">Nombre del producto:</label>
-              <input type="text" class="form-input" id="nombre-producto" placeholder="Ej: Alimento balanceado" required name="Nombre">
+              <label for="Nombre" class="form-label">Nombre del producto:</label>
+              <input type="text" class="form-input" id="Nombre" placeholder="Ej: Alimento balanceado" required name="Nombre">
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label for="descripcion-producto" class="form-label">Descripcion del producto:</label>
-              <textarea class="form-input" id="descripcion-producto" required name="Descripcion"></textarea>
+              <label for="Descripcion" class="form-label">Descripcion del producto:</label>
+              <textarea class="form-input" id="Descripcion" required name="Descripcion"></textarea>
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label>Seleccionar marca:</label>
+              <label for="idMarca">Seleccionar marca:</label>
               <select class="selector" required aria-label="select example">
                 <% for (let i=0; i < marcas.length; i++){ %>
                 <option value="<%= marcas[i].idMarcas%>" name="idMarca">
@@ -35,7 +35,7 @@
             </div>
             <div class="form__input">
               <label>Seleccionar Categoria:</label>
-              <select class="selector" required aria-label="select example">
+              <select for="idCategoria" class="selector" required aria-label="select example">
                 <% for (let i=0; i < categorias.length; i++){ %>
                 <option value="<%= categorias[i].idCategoria%>" name="idCategoria">
                   <%= categorias[i].nombreCategoria%>
@@ -45,17 +45,17 @@
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label for="precio" class="form-label">Precio del producto:</label>
-              <input type="number" class="form-input" placeholder="Ej: 3000" id="precio" required name="Precio">
+              <label for="Precio" class="form-label">Precio del producto:</label>
+              <input type="number" class="form-input" placeholder="Ej: 3000" id="Precio" required name="Precio">
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label for="descuento" class="form-label">Descuento:</label>
-              <input type="number" class="form-input" placeholder="Ej: 25" id="descuento" name="Descuento">
+              <label for="Descuento" class="form-label">Descuento:</label>
+              <input type="number" class="form-input" placeholder="Ej: 25" id="Descuento" name="Descuento">
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label>Seleccionar color:</label>
+              <label for="idColor">Seleccionar color:</label>
               <select class="selector" required aria-label="select example">
                 <% for (let i=0; i < colores.length; i++){ %>
                 <option value="<%= colores[i].idColor%>" name="idColor">
@@ -66,7 +66,7 @@
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label>Seleccionar talla:</label>
+              <label for="idTalle">Seleccionar talla:</label>
               <select class="selector" required aria-label="select example">
                 <% for (let i=0; i < talles.length; i++){ %>
                 <option value="<%= talles[i].idTalles%>" name="idTalle">
@@ -77,14 +77,14 @@
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label for="validationServer01" class="form-label">Peso del producto:</label>
-              <input type="number" class="form-input" placeholder="Ej: 10" id="validationServer01" required name="Peso">
+              <label for="idPesos" class="form-label">Peso del producto:</label>
+              <input type="number" class="form-input" placeholder="Ej: 10" id="idPesos" required name="idPesos">
             </div>
             <div class="form__input">
-              <input type="file" class="form-control" name="imagen_producto" id="imagen_producto" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
+              <input type="file" class="form-control" name="imagen" id="imagen" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
             </div>
             <div class="form__input">
-              <label>Seleccionar mascota:</label>
+              <label for="idMascota">Seleccionar mascota:</label>
               <select class="selector" required aria-label="select example">
                 <% for (let i=0; i < mascotas.length; i++){ %>
                 <option value="<%= mascotas[i].idMascota%>" name="idMascota">
