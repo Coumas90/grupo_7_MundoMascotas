@@ -49,7 +49,8 @@ i{
 
 a{
     font-size: 13px;
-    color:white;
+    color: inherit;
+    text-decoration: none;
 }
 
 .card{
@@ -60,6 +61,7 @@ a{
 
 .card-title{
     width: 100%;
+    color: inherit;
 }
 
 a.redireccion{
@@ -78,7 +80,7 @@ div.contenedor{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 150px;
 }
 
 div.top-header{
@@ -104,12 +106,21 @@ img.logo-chico{
 
 
 
-/*====== Banner superior ======*/
+/*====== Banners  ======*/
 section.banner{
     width: 100%;
+    margin-bottom: 30px
+}
+
+
+section.cuerpo-pagina{
+    margin-bottom: 30px
+}
+
+section.banner-inferior{
+    width: 100%;
     display: block;
-    object-fit: cover;
-    object-position: top;
+    margin-bottom: 30px
 }
 
 /*====== Productos ======*/
@@ -128,15 +139,17 @@ article.detalleProducto{
     justify-content: center;
     align-items: stretch;
 }
-article:hover{
+article.hover{
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
+
 div.listadoProductos{
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: 8px 4px;
 }
 
 article div.main-article{
@@ -144,10 +157,6 @@ article div.main-article{
     margin: 1px;
     border-top: solid 1px #4B86AB;
 }
-
-/*====== Banner inferior ======*/
-
-
 
 
 /*====== Product Detail ======*/
