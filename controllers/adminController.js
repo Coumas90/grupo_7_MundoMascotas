@@ -24,29 +24,6 @@ const controladorAdmin = {
 		});
 	},
 
-    // store: (req, res) => {
-	// 	let ultimoProducto = products.pop();
-	// 	products.push(ultimoProducto);
-	// 	let productoNuevo = {
-	// 	  id : ultimoProducto.id +1,
-	// 	  nombre : req.body.nombre,
-	// 	  descripción : req.body.descripción,
-	// 	  marca : req.body.marca,
-	// 	  categoria : req.body.categoria,
-	// 	  precio : Number(req.body.precio),
-	// 	  descuento : Number(req.body.descuento),
-	// 	  imagen: req.file ? req.file.originalname : '',
-	// 	  colores : req.body.colores,
-	// 	  talles : req.body.talles,
-	// 	  kilogramos : Number(req.body.kilogramos),
-	// 	  seccion : req.body.seccion,
-	// 	  mascota : req.body.mascota,
-	// 	}
-	// 	products.push(productoNuevo);
-	// 	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
-	// 	res.redirect ('/administrar');
-	//   },
-
 	store: function (req,res){
 		db.Product.create({
 			Nombre:req.body.Nombre,
@@ -56,10 +33,10 @@ const controladorAdmin = {
 			Precio:req.body.Precio,
 			Descuento:req.body.Descuento,
 			idColor:req.body.idColor,
-			idTalle:req.body.idTalle,
+			idTalle:req.body.idTalles,
 			idPesos:req.body.idPesos,
-			idMascota:req.body.idMascota,
-			imagen: req.body.filename
+			idMascota:req.body.idMascotas,
+			imagen: req.file.filename
 		});
 		res.redirect("/")
 	},

@@ -4,7 +4,7 @@ const User = require("../../models/User");
 module.exports = (Sequelize, DataTypes) =>{
     const User = Sequelize.define("User",
     {
-        idUsuarios: {
+        idUsuario: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -39,7 +39,11 @@ module.exports = (Sequelize, DataTypes) =>{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        idUsersCategories:{
+        Password2:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        idUsersCategory:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -62,7 +66,7 @@ module.exports = (Sequelize, DataTypes) =>{
     User.associate = function(models){
         User.belongsTo(models.CategoriaUser,{
             as: "User Category",
-            foreignKey:"idUsersCategories"
+            foreignKey:"idUsersCategory"
         });
     }
     

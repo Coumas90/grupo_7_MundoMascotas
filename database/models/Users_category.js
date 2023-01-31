@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 module.exports = (Sequelize, DataTypes) =>{
     const CategoriaUser = Sequelize.define("CategoriaUser",
     {
-        idUsersCategories: {
+        idUsersCategory: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -24,7 +24,7 @@ module.exports = (Sequelize, DataTypes) =>{
     CategoriaUser.associate = function (models){
         CategoriaUser.hasMany(models.User,{
             as:"Usuario",
-            foreignkey: "idUsersCategories"
+            foreignkey: "idUsersCategory"
         })
     }
     return CategoriaUser;

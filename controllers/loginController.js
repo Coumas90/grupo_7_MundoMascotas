@@ -49,7 +49,12 @@ const controladorLogin = {
           }
     },
     
-    register: (req, res)=> {res.render('user/register')},
+    register: (req, res)=> {
+        db.CategoriaUser.findAll()
+        .then((categoriaUsers)=>
+        {return res.render('user/register',{categoriaUsers:categoriaUsers})});
+    },
+
     createuser: (req,res)=>{
         let errorsregister = validationResult(req);
         if(errorsregister.errors.length>0){
@@ -63,15 +68,20 @@ const controladorLogin = {
         }
 
         let userToCreate = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password,10),
-            client_picture: req.file.filename,
+            Email:req.body.Email,
+            Nombre:req.body.Nombre,
+            Apellido:req.body.Apellido,
+            DNI:req.body.DNI,
+            Telefono:req.body.Telefono,
+            Avatar:req.file.filename,
+            Password: bcryptjs.hashSync(req.body.Password,10),
+            Password2: bcryptjs.hashSync(req.body.Password2,10),
+            idUsersCategory:req.body.idUsersCategory,
         }
 
-        let userCreated = User.create(userToCreate);
+        let userCreated = db.User.create(userToCreate);
         res.redirect('user/login');
-
-    },
+      },
     olvido: (req, res)=> {res.render('user/restablecer');
     },
     restablecer: (req,res)=>{
@@ -86,5 +96,5 @@ const controladorLogin = {
             user: req.session.userLogged
         });
     }
-};
+  }
 module.exports = controladorLogin;

@@ -110,7 +110,7 @@ module.exports = (Sequelize, DataTypes) =>{
     Product.associate = function(models){
         Product.belongsTo(models.Mascota,{
             as: "Mascota",
-            foreignKey:"idMascotas"
+            foreignKey:"idMascota"
         });
     }
     

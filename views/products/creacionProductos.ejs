@@ -23,10 +23,10 @@
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label for="idMarca">Seleccionar marca:</label>
-              <select class="selector" required aria-label="select example">
+              <label for="idMarcas">Seleccionar marca:</label>
+              <select class="selector" required aria-label="select example" name="idMarcas">
                 <% for (let i=0; i < marcas.length; i++){ %>
-                <option value="<%= marcas[i].idMarcas%>" name="idMarca">
+                <option value="<%= marcas[i].idMarcas%>" name="idMarcas">
                   <%= marcas[i].nombreMarca%>
                 </option>
                 <% } %>
@@ -35,7 +35,7 @@
             </div>
             <div class="form__input">
               <label>Seleccionar Categoria:</label>
-              <select for="idCategoria" class="selector" required aria-label="select example">
+              <select for="idCategoria" class="selector" required aria-label="select example" name="idCategoria">
                 <% for (let i=0; i < categorias.length; i++){ %>
                 <option value="<%= categorias[i].idCategoria%>" name="idCategoria">
                   <%= categorias[i].nombreCategoria%>
@@ -56,7 +56,7 @@
             </div>
             <div class="form__input">
               <label for="idColor">Seleccionar color:</label>
-              <select class="selector" required aria-label="select example">
+              <select class="selector" required aria-label="select example" name="idColor">
                 <% for (let i=0; i < colores.length; i++){ %>
                 <option value="<%= colores[i].idColor%>" name="idColor">
                   <%= colores[i].nombreColor%>
@@ -66,10 +66,10 @@
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label for="idTalle">Seleccionar talla:</label>
-              <select class="selector" required aria-label="select example">
+              <label for="idTalles">Seleccionar talla:</label>
+              <select class="selector" required aria-label="select example" name="idTalles">
                 <% for (let i=0; i < talles.length; i++){ %>
-                <option value="<%= talles[i].idTalles%>" name="idTalle">
+                <option value="<%= talles[i].idTalles%>" name="idTalles">
                   <%= talles[i].nombreTalla%>
                 </option>
                 <% } %>
@@ -77,23 +77,32 @@
               <span class="bar"></span>
             </div>
             <div class="form__input">
-              <label for="idPesos" class="form-label">Peso del producto:</label>
-              <input type="number" class="form-input" placeholder="Ej: 10" id="idPesos" required name="idPesos">
-            </div>
-            <div class="form__input">
-              <input type="file" class="form-control" name="imagen" id="imagen" aria-label="file example" placeholder="Adjuntar imagenes del producto" accept="pdf, jpeg, jpg" required>
-            </div>
-            <div class="form__input">
-              <label for="idMascota">Seleccionar mascota:</label>
-              <select class="selector" required aria-label="select example">
-                <% for (let i=0; i < mascotas.length; i++){ %>
-                <option value="<%= mascotas[i].idMascota%>" name="idMascota">
-                  <%= mascotas[i].nombreMascota%>
+              <label for="idPesos">Seleccionar peso del producto:</label>
+              <select class="selector" required aria-label="select example" name="idPesos">
+                <% for (let i=0; i < pesos.length; i++){ %>
+                <option value="<%= pesos[i].idPesos%>" name="idPesos">
+                  <%= pesos[i].nombrePeso%>
                 </option>
                 <% } %>
               </select>
               <span class="bar"></span>
             </div>
+            <div class="form__input">
+              <label for="idMascotas">Seleccionar mascota:</label>
+              <select class="selector" required aria-label="select example" name="idMascotas">
+                <% for (let i=0; i < mascotas.length; i++){ %>
+                <option value="<%= mascotas[i].idMascotas%>" name="idMascotas">
+                  <%= mascotas[i].NombreMascota%>
+                </option>
+                <% } %>
+              </select>
+              <span class="bar"></span>
+            </div>
+            <div class="form__input">
+              <label for="idMascota">Adjuntar imagen del producto:</label>
+              <input type="file" name="imagen" id="imagen" accept= "pdf, jpeg, jpg" required>
+              <span class="bar"></span>
+          </div>
             <div class="mb-3">
               <button class="btn btn-primary" type="submit" >Guardar producto</button>
               <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>

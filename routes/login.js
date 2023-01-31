@@ -41,19 +41,19 @@ const validacionesLogIn = [
 
 // Validaciones del register
 const validacionesRegistro = [
-    body("email")
+    body("Email")
     .isEmail().withMessage("Ingresar email valido").bail()
     .notEmpty().withMessage("El campo email es obligatorio"),
-    body("password")
+    body("Password")
     .notEmpty(). withMessage("El campo contraseña es obligatorio").bail()
     .isLength(min=8),
-    body("client_name").notEmpty().withMessage("El campo nombre es obligatorio"),
-    body("client_surname").notEmpty().withMessage("El campo apellido es obligatorio"),
-    body("client_telephone").notEmpty().withMessage("El campo telefono es obligatorio"),
-    body("client_dni").notEmpty().withMessage("El campo dni es obligatorio"),
-    body("confirm_password").notEmpty().withMessage("El campo contraeña es obligatorio"),
-    body("client_picture").notEmpty().withMessage("El campo imagen es obligatorio"),
-    body("client_picture").custom((value,{req})=>{
+    body("Nombre").notEmpty().withMessage("El campo nombre es obligatorio"),
+    body("Apellido").notEmpty().withMessage("El campo apellido es obligatorio"),
+    body("Telefono").notEmpty().withMessage("El campo telefono es obligatorio"),
+    body("DNI").notEmpty().withMessage("El campo dni es obligatorio"),
+    body("Password2").notEmpty().withMessage("El campo contraeña es obligatorio"),
+    body("Avatar").notEmpty().withMessage("El campo imagen es obligatorio"),
+    body("Avatar").custom((value,{req})=>{
         let file = req.file;
         let acceptedExtensions = ['.jpg','.png','.gif','.jpeg'];
         if(!file){
@@ -74,7 +74,7 @@ const controladorLogin = require('../controllers/loginController');
 router.get('/', guestMiddleware, validacionesLogIn, controladorLogin.login);
 router.post('/',validacionesLogIn ,controladorLogin.userLogin);
 router.get('/register',guestMiddleware, controladorLogin.register);
-router.post('/register', uploadPhoto.single('client_picture'),validacionesRegistro , controladorLogin.createuser);
+router.post('/register', uploadPhoto.single('Avatar'),validacionesRegistro , controladorLogin.createuser);
 router.get('/olvido', controladorLogin.olvido);
 router.post('/olvido', controladorLogin.restablecer);
 
