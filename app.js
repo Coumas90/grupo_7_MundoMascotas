@@ -40,7 +40,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor 3030
-app.listen(3000, () => {console.log('Servidor corriendo en 3001')});
+app.listen(3000, () => {console.log('Servidor corriendo en 3000')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasIndex);

@@ -49,7 +49,8 @@ i{
 
 a{
     font-size: 13px;
-    color:white;
+    color: inherit;
+    text-decoration: none;
 }
 
 .card{
@@ -60,6 +61,7 @@ a{
 
 .card-title{
     width: 100%;
+    color: inherit;
 }
 
 a.redireccion{
@@ -73,20 +75,14 @@ header{
     padding: 1%;
     background: linear-gradient(to left, #d5eaf7, #ffc97d);
 }
+
 div.contenedor{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 150px;
 }
-div.contenedor.top-header{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    padding: 1%;
-}
+
 div.top-header{
     display: flex;
     justify-content: space-between;
@@ -94,30 +90,37 @@ div.top-header{
     align-items: center;
     padding: 1%;
 }
+
 header div.logo{
     padding: 5px;
     width: 5%;
 }
 
-header div.top-header p{
-    width: 100%;
-    text-align: center;
-    margin-top: 1px;
+img.logo-chico{
+    height: 100px;
 }
+
 
 
 /*====== Navbar ======*/
 
-header nav{
-    font-size: 15px;
-}
 
-/*====== Banner ======*/
+
+/*====== Banners  ======*/
 section.banner{
     width: 100%;
+    margin-bottom: 30px
+}
+
+
+section.cuerpo-pagina{
+    margin-bottom: 30px
+}
+
+section.banner-inferior{
+    width: 100%;
     display: block;
-    object-fit: cover;
-    object-position: top;
+    margin-bottom: 30px
 }
 
 /*====== Productos ======*/
@@ -136,16 +139,17 @@ article.detalleProducto{
     justify-content: center;
     align-items: stretch;
 }
-article:hover{
+article.hover{
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
+
 div.listadoProductos{
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-
+    gap: 8px 4px;
 }
 
 article div.main-article{
@@ -153,9 +157,6 @@ article div.main-article{
     margin: 1px;
     border-top: solid 1px #4B86AB;
 }
-/*====== Footer ======*/
-
-
 
 
 /*====== Product Detail ======*/

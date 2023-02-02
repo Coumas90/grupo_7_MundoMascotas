@@ -35,8 +35,8 @@ i {
 }
 
 .footer__title {
-    font-size: 1.8rem;
-    color: #fff;
+    font-size: 1.5rem;
+    color: inherit;
     font-weight: 500;
     margin-bottom: 2rem;
 }
@@ -70,7 +70,7 @@ i {
 }
 
 .company__logo {
-    color: #fff;
+    color: #666873;
 }
 
 .company__info ul {
