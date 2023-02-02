@@ -1,13 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../database/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+// const productsFilePath = path.join(__dirname, '../database/products.json');
+// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require("../database/models")
 
 const controladorAdmin = {
     administrar: (req, res) => {
-        res.render('products/administrar',{products});
+		db.Product.findAll()
+		.then(listadoProductos =>{
+			res.render('products/administrar',{listadoProductos});	
+		})
     },
     creacion: (req, res) => {
 		//res.render('products/creacionProductos');
@@ -42,28 +45,46 @@ const controladorAdmin = {
 	},
 
     editar: (req, res) => {
-		let idProducto = req.params.id;
-		let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
-		if (productoAEditar.length > 0) {
-			let productoEditado = productoAEditar[0];
-			res.render('products/actualizacionProducto', {productoEditado: productoEditado});
-			} else {
-				// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
-				res.redirect("/products"); // Redirige a la lista de productos
-			}
+		let pedidoProducto = db.Product.findByPk(req.params.id);
+		let pedidoColor = db.Color.findAll();
+		let pedidoPeso = db.Peso.findAll();
+		let pedidoTalle = db.Talle.findAll();
+
+		Promise.all([pedidoProducto,pedidoColor,pedidoPeso,pedidoTalle])
+		.then(function([producto,color,peso,talle]){
+			res.render('products/actualizacionProducto', {producto:producto,color:color,peso:peso,talle:talle})
+		})
+		// let idProducto = req.params.id;
+		// let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
+		// if (productoAEditar.length > 0) {
+		// 	let productoEditado = productoAEditar[0];
+		// 	res.render('products/actualizacionProducto', {productoEditado: productoEditado});
+		// 	} else {
+		// 		// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
+		// 		res.redirect("/products"); // Redirige a la lista de productos
+		// 	}
+
   	},
   
 	actualizar: (req,res)=> {
-		req.body.id = req.params.id;
-		req.body.imagen = req.file ? req.file.filename : req.body.oldImage;
-		let productoUpdate = productos.map(products =>{
-			if(products.id == req.body.id){
-				return products = req.body;
+		db.Product.update({
+			Nombre:req.body.Nombre,
+			Descripcion:req.body.Descripcion,
+			idMarcas:req.body.idMarcas,
+			idCategoria:req.body.idCategoria,
+			Precio:req.body.Precio,
+			Descuento:req.body.Descuento,
+			idColor:req.body.idColor,
+			idTalle:req.body.idTalles,
+			idPesos:req.body.idPesos,
+			idMascota:req.body.idMascotas,
+			imagen: req.file.filename
+		}, {
+			where: {
+				idProducto: req.params.idProducto
 			}
-			return products;
-		})
-		fs.writeFileSync(productsFilePath, JSON.stringify(productoUpdate, null, ''));
-		res.redirect("/administrar");
+		});
+		res.redirect("/")
 	},
 
     eliminar: (req, res) => {

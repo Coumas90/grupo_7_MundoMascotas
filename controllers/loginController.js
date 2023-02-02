@@ -6,7 +6,6 @@ const bcryptjs = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../database/users.json');
 //leemos el archivo de usuarios
 let archivoUsuarios = fs.readFileSync(usersFilePath, {encoding:"utf-8"} );
-const User = require ('../models/User');
 const db = require("../database/models")
 
 const controladorLogin = {
@@ -17,7 +16,7 @@ const controladorLogin = {
         if(errors.errors.length>0){
             res.render('user/login', {errors:errors.mapped(), old:req.body});
         }
-        let userToLogin = User.findByEmail(req.body.email);
+        let userToLogin = db.User.findByEmail(req.body.email);
         
         if (req.session === undefined || req.session.userLogged === undefined) {
             req.session = {};
@@ -26,7 +25,7 @@ const controladorLogin = {
         // Si el que intenta ingresar está en nuestra base de datos
         if (userToLogin) {
             // Comparamos la contraseña que ingresó en el formulario de Log In y el guardado en nuestra BD
-            let isOKPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+            let isOKPassword = bcryptjs.compareSync(req.body.Password, userToLogin.Password);
           
             if (isOKPassword) {
               req.session.userLogged = userToLogin;
@@ -49,40 +48,51 @@ const controladorLogin = {
           }
     },
     
-    register: (req, res)=> {
-        db.CategoriaUser.findAll()
-        .then((categoriaUsers)=>
-        {return res.render('user/register',{categoriaUsers:categoriaUsers})});
+    register: (req, res) => {
+      db.CategoriaUser.findAll().then((categoriaUsers) => {
+        res.render('user/register', { categoriaUsers });
+      });
     },
+    
+    createuser: (req, res) => {
 
-    createuser: (req,res)=>{
-        let errorsregister = validationResult(req);
-        if(errorsregister.errors.length>0){
-            res.render('user/register', {errorsregister:errorsregister.mapped(), old:req.body});
-        }
-        let userInDb = User.findByEmail(req.body.email);
-        if(userInDb) {
-            res.render('user/register', {errorsregister:{
-                email: {msg: 'Este email ya esta registrado'}
-            }, old:req.body});
-        }
-
-        let userToCreate = {
-            Email:req.body.Email,
-            Nombre:req.body.Nombre,
-            Apellido:req.body.Apellido,
-            DNI:req.body.DNI,
-            Telefono:req.body.Telefono,
-            Avatar:req.file.filename,
-            Password: bcryptjs.hashSync(req.body.Password,10),
-            Password2: bcryptjs.hashSync(req.body.Password2,10),
-            idUsersCategory:req.body.idUsersCategory,
-        }
-
-        let userCreated = db.User.create(userToCreate);
-        res.redirect('user/login');
-      },
-    olvido: (req, res)=> {res.render('user/restablecer');
+      //Dejo validaciones comentadas asi conecta a la base de datos y me crea el usuario
+      // let errorsregister = validationResult(req);
+      // if (errorsregister.errors.length > 0) {
+      //   res.render('user/register', {
+      //     errorsregister: errorsregister.mapped(),
+      //     old: req.body,
+      //     categoriaUsers
+      //   });
+      // }
+    
+      // User.findByEmail(req.body.Email)
+      //   .then((userInDb) => {
+      //     if (userInDb) {
+      //       res.render('user/register', {
+      //         errorsregister: {
+      //           email: {msg: 'Este email ya esta registrado'}
+      //         },
+      //         old: req.body,
+      //         categoriaUsers: req.categoriaUsers
+      //       });
+      //     }
+      //     else {
+            db.User.create({
+              Email: req.body.Email,
+              Nombre: req.body.Nombre,
+              Apellido: req.body.Apellido,
+              DNI: req.body.DNI,
+              Telefono: req.body.Telefono,
+              Avatar: req.file.filename,
+              Password: bcryptjs.hashSync(req.body.Password, 10),
+              Password2: bcryptjs.hashSync(req.body.Password2, 10),
+              idUsersCategory: req.body.idUsersCategory
+            });
+            res.redirect('/login')
+          },
+    
+    olvido: (req, res) => {res.render('user/restablecer');
     },
     restablecer: (req,res)=>{
         let nuevousuario={
@@ -94,7 +104,7 @@ const controladorLogin = {
     profile: (req,res) =>{
          res.render('../views/user/perfil',{
             user: req.session.userLogged
-        });
+        })
     }
   }
 module.exports = controladorLogin;

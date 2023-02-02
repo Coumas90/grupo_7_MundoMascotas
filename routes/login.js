@@ -51,7 +51,9 @@ const validacionesRegistro = [
     body("Apellido").notEmpty().withMessage("El campo apellido es obligatorio"),
     body("Telefono").notEmpty().withMessage("El campo telefono es obligatorio"),
     body("DNI").notEmpty().withMessage("El campo dni es obligatorio"),
-    body("Password2").notEmpty().withMessage("El campo contraeña es obligatorio"),
+    body("Password2")
+    .notEmpty(). withMessage("El campo contraseña es obligatorio").bail()
+    .isLength(min=8),
     body("Avatar").notEmpty().withMessage("El campo imagen es obligatorio"),
     body("Avatar").custom((value,{req})=>{
         let file = req.file;

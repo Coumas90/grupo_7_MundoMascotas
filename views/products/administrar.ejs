@@ -35,13 +35,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% products.forEach(product => { %>
+                        <% listadoProductos.forEach(listadoProductos => { %>
                             <tr>
-                                <td><%= product.id %></td>
-                                <td><%= product.nombre %></td>
-                                <td><a href="/productDetail/<%= product.id %>" class="text-black">Link</a></td>
-                                <td><a href="/administrar/<%= product.id %>/editar" class="text-black">Editar</a></td>
-                                <td><a href="/administrar/delete/<%= product.id %>?_method=DELETE" class="text-black">Borrar</a></td>
+                                <td><%= listadoProductos.idProductos %></td>
+                                <td><%= listadoProductos.Nombre %></td>
+                                <td><a href="/productDetail/<%= listadoProductos.idProductos %>" class="text-black">Link</a></td>
+                                <td><a href="/administrar/<%= listadoProductos.idProductos %>/editar" class="text-black">Editar</a></td>
+                                <td><a href="/administrar/delete/<%= listadoProductos.idProductos %>?_method=DELETE" class="text-black">Borrar</a></td>
                             </tr>
                         <% }) %>
                     </tbody>

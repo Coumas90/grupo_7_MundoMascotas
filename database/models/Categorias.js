@@ -22,7 +22,7 @@ module.exports = (Sequelize, DataTypes) =>{
     }
     );
     //Models lo que hace es que sequelize trae todos los modelos que yo haya creado
-Categoria.associate = function (models){
+    Categoria.associate = function (models){
     Categoria.hasMany(models.Product,{
         as:"Product",
         foreignkey: "idCategoria"

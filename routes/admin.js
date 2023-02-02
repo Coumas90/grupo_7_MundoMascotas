@@ -27,7 +27,7 @@ router.get('/creacion', controladorAdmin.creacion);
 router.post('/creacion', upload.single('imagen'), controladorAdmin.store);
 //rutas para la edicion de productos
 router.get('/:id/editar', controladorAdmin.editar);
-router.put('/:id/editar', upload.single('imagen'), controladorAdmin.actualizar);
+router.post('/:id/editar', upload.single('imagen'), controladorAdmin.actualizar);
 //rutas para eliminar productos
 router.delete('/delete/:id', controladorAdmin.eliminar);
 

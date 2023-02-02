@@ -7,6 +7,10 @@ const db = require("../database/models")
 
 const controladorIndex = {
     index: (req, res) => {
+        // db.Product.findAll()
+        // .then(function(productos){
+        //     res.render('products/index',{productos:productos})
+        // })
         res.render('products/index',{products : products});
     },
     search: (req, res) => {
