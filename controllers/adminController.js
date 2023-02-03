@@ -1,8 +1,11 @@
 const db = require("../database/models")
+const Product = db.Product
+
+
 
 const controladorAdmin = {
     administrar: (req, res) => {
-		db.Product.findAll({association: "Marca"},
+		Product.findAll({association: "Marca"},
 		{association: "Categoria"},
 		{association: "Color"},
 		{association: "Talle"},
