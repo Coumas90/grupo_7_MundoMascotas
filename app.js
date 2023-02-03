@@ -16,14 +16,13 @@ app.use(express.json());
 
 
 //Creo contantes que guardan las rutas
-const rutasIndex = require('./routes/index.js');
-const rutasResults = require('./routes/index.js');
 const rutasLogin = require('./routes/login.js');
 const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
 const rutasPerfil = require('./routes/perfil.js');
 const rutasListado = require('./routes/listado.js');
 const rutasAdministrar = require('./routes/admin.js');
+const rutasApi = require('./routes/api.js')
 
 //Necesario para poder utilizar los metodos put y delete en HTTP
 const methodOverride = require ('method-override');
@@ -43,14 +42,13 @@ app.set('view engine', 'ejs');
 app.listen(3000, () => {console.log('Servidor corriendo en 3000')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
-app.use('/', rutasIndex);
-app.use('/results', rutasResults);
+app.use('/', rutasListado);
 app.use('/productDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
-app.use('/listado', rutasListado);
 app.use('/perfil', rutasPerfil);
 app.use('/administrar', rutasAdministrar);
+app.use('/api',rutasApi)
 
 //Necesario para poder utilizar los metodos put y delete en HTTP
 app.use(methodOverride('_method'));

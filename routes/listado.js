@@ -5,13 +5,11 @@ const express = require ('express');
 const router = express.Router();
 
 const controladorListado = require('../controllers/listadoController');
-const controladorDetalleProducto = require('../controllers/productDetailController');
 
 //Definir todas las rutas, yendo del controlador al metodo que necesitamos
 
 //No esta funcionando
 router.get('/', controladorListado.index);
-
 router.get('/marca/:filtro', controladorListado.detallemarca);
 router.get('/animal/:filtro', controladorListado.detalleanimal);
 router.get('/categoria/:filtro', controladorListado.detallecategoria);

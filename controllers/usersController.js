@@ -1,12 +1,8 @@
-const fs = require('fs');
-const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../database/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require("../database/models")
 
-const controladorIndex = {
-    index: (req, res) => {res.render('products/index',{products:products});},
-};
+const controladorUsuarios = {
+    index: (req, res) => {res.render('users/administradorusuarios')}
+}
 
 module.exports = controladorUsuarios;

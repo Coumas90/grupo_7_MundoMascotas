@@ -1,13 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-
-// const productsFilePath = path.join(__dirname, '../database/products.json');
-// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require("../database/models")
 
 const controladorAdmin = {
     administrar: (req, res) => {
-		db.Product.findAll()
+		db.Product.findAll({association: "Marca"},
+		{association: "Categoria"},
+		{association: "Color"},
+		{association: "Talle"},
+		{association:"Peso"},
+		{association: "Mascota"},
+		{association: "Detalle Compra"})
 		.then(listadoProductos =>{
 			res.render('products/administrar',{listadoProductos});	
 		})
@@ -15,12 +16,24 @@ const controladorAdmin = {
     creacion: (req, res) => {
 		//res.render('products/creacionProductos');
 		Promise.all([
-			db.Categoria.findAll(),
-			db.Color.findAll(),
-			db.Marca.findAll(),
-			db.Mascota.findAll(),
-			db.Peso.findAll(),
-			db.Talle.findAll(),
+			db.Categoria.findAll({
+				association:"Product"
+			}),
+			db.Color.findAll({
+				association:"Product"
+			}),
+			db.Marca.findAll({
+				association:"Product"
+			}),
+			db.Mascota.findAll({
+				association:"Product"
+			}),
+			db.Peso.findAll({
+				association:"Product"
+			}),
+			db.Talle.findAll({
+				association:"Product"
+			}),
 		])
 		.then(([categorias,colores,marcas,mascotas,pesos,talles]) => {
 			return res.render("products/creacionProductos",{categorias:categorias,colores:colores,marcas:marcas,mascotas:mascotas,pesos:pesos,talles:talles})
@@ -46,9 +59,15 @@ const controladorAdmin = {
 
     editar: (req, res) => {
 		let pedidoProducto = db.Product.findByPk(req.params.id);
-		let pedidoColor = db.Color.findAll();
-		let pedidoPeso = db.Peso.findAll();
-		let pedidoTalle = db.Talle.findAll();
+		let pedidoColor = db.Color.findAll({
+			association:"Product"
+		});
+		let pedidoPeso = db.Peso.findAll({
+			association:"Product"
+		});
+		let pedidoTalle = db.Talle.findAll({
+			association:"Product"
+		});
 
 		Promise.all([pedidoProducto,pedidoColor,pedidoPeso,pedidoTalle])
 		.then(function([producto,color,peso,talle]){
@@ -88,14 +107,14 @@ const controladorAdmin = {
 	},
 
     eliminar: (req, res) => {
-		// Obtener el ID del producto a eliminar
-		let idProductoAEliminar = req.params.id;
-		// Filtrar la lista de productos para obtener sólo el producto a eliminar
-		let productosFiltrados = products.filter(producto => producto.id !== idProductoAEliminar);
-		// Sobreescribir la lista de productos con la lista filtrada (sin el producto a eliminar)
-		fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, ''));
-		// Redirigir a la lista de productos
-		res.redirect('/products');
+		// // Obtener el ID del producto a eliminar
+		// let idProductoAEliminar = req.params.id;
+		// // Filtrar la lista de productos para obtener sólo el producto a eliminar
+		// let productosFiltrados = products.filter(producto => producto.id !== idProductoAEliminar);
+		// // Sobreescribir la lista de productos con la lista filtrada (sin el producto a eliminar)
+		// fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, ''));
+		// // Redirigir a la lista de productos
+		// res.redirect('/products');
 	  },
 	
 	creaciontalles: (req,res)=> {

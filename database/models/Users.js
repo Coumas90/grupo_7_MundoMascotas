@@ -59,7 +59,7 @@ module.exports = (Sequelize, DataTypes) =>{
     User.associate = function (models){
         User.hasMany(models.Compra,{
             as:"Compra",
-            foreignkey: "idUsuarios"
+            foreignKey: "idUsuario"
         })
     }
 
