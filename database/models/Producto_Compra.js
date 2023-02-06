@@ -1,7 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
 module.exports = (Sequelize, DataTypes) =>{
-    const ProductoCompra = Sequelize.define("ProductoCompra",
+    const alias= "ProductoCompra";
+    const cols=
     {
         idProducto_Compra: {
             type: DataTypes.INTEGER,
@@ -23,13 +22,15 @@ module.exports = (Sequelize, DataTypes) =>{
             //foreign key
         }
 
-    },
+    };
+    const config =
     {
-        tableName: 'Detalle_Compra',
+        tableName: 'Producto_Compra',
         timestamps: false,
-    }
-    );
-    ProductoCompra.associate = function (models){
+    };
+    const ProductoCompra = Sequelize.define(alias,cols,config);
+
+    ProductoCompra.associate =  (models) => {
         ProductoCompra.hasMany(models.Product,{
             as:"Product",
             foreignKey: "idProducto"

@@ -3,43 +3,71 @@ const Op = db.Sequelize.Op;
 
 const apiController = {
     listadoUsuarios: (req,res)=> {
-        db.User.findAll({
-            include: [
-                {association: "User Category"},
-                {association: "Compra"}
-            ]
-        })
-        .then(usuarios => {
+        db.User.findAll({})
+        .then((usuarios) => {
+            const count = usuarios.length;
+            const mappedUsers = usuarios.map((user) => ({
+                id: user.id,
+                name: '${user.nombre} ${user.apellido}',
+                email: user.email,
+                detail: 'localhost:3000/api/users/${user.id}'
+            }));
             return res.status(200).json({
-                total: usuarios.length,
-                data: usuarios,
-                status:200
-            })
-        })
+                count,
+                users:mappedUsers,
+                status:200,
+            });
+        });
     },
     detalleUsuario: (req,res) => {
-        db.User.findByPk (req.params.id)
-        .then (usuario => {
-            return res.status(200).json({
-                data: usuario,
-                status: 200
-            })
+        const { id } = req.params;
+        db.User.findByPk(id, {
+          attributes: {
+            exclude: ["Password", "Password2","idUsersCategory"],
+          },
         })
-    },
-    listadoProductos: (req,res)=> {
-        db.Product.findAll({include: [
-            {association: "Marca"},
-		{association: "Categoria"},
-		{association: "Color"},
-		{association: "Talle"},
-		{association:"Peso"},
-		{association: "Mascota"},
-		{association: "Detalle Compra"}
-        ]})
-        .then(productos => {
+          .then((usuario) => {
+            if (!usuario) {
+              return res.status(404).json({
+                message: "Usuario no encontrado",
+                status: 404,
+              });
+            }
+            const userImage = `/images/userImage/${usuario.filename}`;
             return res.status(200).json({
-                total: productos.length,
-                data: productos,
+              ...usuario.dataValues,
+              userImage,
+              status: 200,
+            });
+          });
+      },
+      listadoProductos: (req,res)=> {
+        db.Product.findAll({
+            include: [{
+                model: db.Category,
+                as: 'categories'
+            }]
+        })
+        .then(productos => {
+            let countByCategory = {};
+            productos.forEach(product => {
+                product.categories.forEach(category => {
+                    countByCategory[category.name] = (countByCategory[category.name] || 0) + 1;
+                });
+            });
+
+            let products = productos.map(product => ({
+                id: product.id,
+                name: product.name,
+                description: product.description,
+                categories: product.categories.map(category => category.name),
+                detail: `localhost:3000/api/products/${product.id}`
+            }));
+
+            return res.status(200).json({
+                total: products.length,
+                countByCategory,
+                products,
                 status:200
             })
         })

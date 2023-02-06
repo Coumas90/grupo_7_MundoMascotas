@@ -1,8 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
 module.exports = (Sequelize, DataTypes) =>{
-    const DetalleCompra = Sequelize.define("DetalleCompra",
-    {
+    const alias = "Detalle Compra";
+    const cols = {
         idDetalleCompra: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -10,7 +8,7 @@ module.exports = (Sequelize, DataTypes) =>{
             autoIncrement: true,
             primaryKey: true 
         },
-        idProducto:{
+        idProducto_Compra:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -32,28 +30,30 @@ module.exports = (Sequelize, DataTypes) =>{
             allowNull: false,
         }
 
-    },
+    };
+    const config=
     {
         tableName: 'Detalle Compra',
         timestamps: false,
-    }
-    );
-    DetalleCompra.associate = function (models){
-        DetalleCompra.hasMany(models.Compra,{
+    };
+
+    const DetalleCompra = Sequelize.define(alias,cols,config);
+
+    DetalleCompra.associate = (models) => {
+        // cada linea de detalle pertenece a una sola venta
+        DetalleCompra.belongsTo(models.Compra,{
             as:"Compra",
-            foreignKey: "idDetalleCompra"
-        })
-    }
-    
-    DetalleCompra.associate = function(models){
+            foreignKey: "idCompra"
+        });
         DetalleCompra.belongsToMany(models.Product,{
             as: "Product",
-            through: "Product_Compra",
-            foreignKey:"idProducto",
-            otherKey: "Nose",
+            through: "Producto_Compra",
+            foreignKey:"idDetalleCompra",
+            otherKey: "idProducto",
             timestamps:false
         });
     }
+    
     return DetalleCompra;
 }
 

@@ -1,7 +1,8 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const Sequelize = require("sequelize");
 
 module.exports = (Sequelize, DataTypes) =>{
-    const Product = Sequelize.define("Product",
+    const alias= "Product";
+    const cols=
     {
         idProductos: {
             type: DataTypes.INTEGER,
@@ -67,60 +68,47 @@ module.exports = (Sequelize, DataTypes) =>{
             allowNull: false,
         }
 
-    },
+    };
+    const config=
     {
         tableName: 'Productos',
         timestamps: false,
-    }
-    );
-    Product.associate = function(models){
+    };
+
+    const Product = Sequelize.define(alias,cols,config);
+
+    Product.associate = (models) => {
         Product.belongsTo(models.Marca,{
             as: "Marca",
             foreignKey:"idMarcas"
         });
-    }
-    
-    Product.associate = function(models){
         Product.belongsTo(models.Categoria,{
             as: "Categoria",
             foreignKey:"idCategoria"
         });
-    }
-    
-    Product.associate = function(models){
         Product.belongsTo(models.Color,{
             as: "Color",
             foreignKey:"idColores"
         });
-    }
-    
-    Product.associate = function(models){
         Product.belongsTo(models.Talle,{
             as: "Talle",
             foreignKey:"idTalles"
         });
-    }
-    
-    Product.associate = function(models){
         Product.belongsTo(models.Peso,{
             as: "Peso",
             foreignKey:"idPesos"
         });
-    }
-    Product.associate = function(models){
         Product.belongsTo(models.Mascota,{
             as: "Mascota",
             foreignKey:"idMascota"
         });
-    }
-    
-    Product.associate = function(models){
         Product.belongsToMany(models.DetalleCompra,{
             as: "Detalle Compra",
             //Tabla intermedia de la base de datos
-            through: "Product_Compra",
-            //De esta tabla
-            foreignKey:"idProductos",
+            through: "Producto_Compra",
+            //Dato del producto en la tabla intermedia
+            foreignKey:"idProducto",
+            //Dato del detalle de compra en la tabla intermedia
             otherKey: "idDetalleCompra",
             timestamps:false
         });

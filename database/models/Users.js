@@ -1,8 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
-const User = require("../../models/User");
-
-module.exports = (Sequelize, DataTypes) =>{
-    const User = Sequelize.define("User",
+module.exports = (sequelize, DataTypes) =>{
+    const alias= "User";
+    const cols=
     {
         idUsuario: {
             type: DataTypes.INTEGER,
@@ -50,26 +48,24 @@ module.exports = (Sequelize, DataTypes) =>{
             //foreign key
         }
 
-    },
+    };
+    const config =
     {
         tableName: 'Users',
         timestamps: false,
-    }
-    );
-    User.associate = function (models){
+    };
+    const User = sequelize.define(alias,cols,config);
+    
+    User.associate =  (models) => {
         User.hasMany(models.Compra,{
             as:"Compra",
             foreignKey: "idUsuario"
-        })
-    }
-
-    User.associate = function(models){
+        });
         User.belongsTo(models.CategoriaUser,{
             as: "User Category",
             foreignKey:"idUsersCategory"
         });
     }
-    
     return User;
 }
 

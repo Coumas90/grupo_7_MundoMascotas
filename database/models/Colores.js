@@ -1,7 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
-module.exports = (Sequelize, DataTypes) =>{
-    const Color = Sequelize.define("Color",
+module.exports = (sequelize, DataTypes) =>{
+    const alias = "Color"
+    const cols = 
     {
         idColor: {
             type: DataTypes.INTEGER,
@@ -15,13 +14,15 @@ module.exports = (Sequelize, DataTypes) =>{
             allowNull: false,
         }
 
-    },
+    };
+    const config = 
     {
         tableName: 'Colores',
         timestamps: false,
-    }
-    );
-    Color.associate = function (models){
+    };
+    const Color = sequelize.define(alias,cols,config);
+    
+    Color.associate =  (models) => {
         Color.hasMany(models.Product,{
             as:"Product",
             foreignKey: "idColor"

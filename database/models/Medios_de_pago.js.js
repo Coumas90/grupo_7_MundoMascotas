@@ -1,7 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
-module.exports = (Sequelize, DataTypes) =>{
-    const MedioDePago = Sequelize.define("MedioDePago",
+module.exports = (sequelize, DataTypes) =>{
+    const alias = "MedioDePago";
+    const cols =
     {
         idMedioDePago: {
             type: DataTypes.INTEGER,
@@ -15,13 +14,15 @@ module.exports = (Sequelize, DataTypes) =>{
             allowNull: false,
         }
 
-    },
+    };
+    const config=
     {
         tableName: 'Medios de pago',
         timestamps: false,
-    }
-    );
-    MedioDePago.associate = function (models){
+    };
+    const MedioDePago = sequelize.define(alias,cols,config);
+    
+    MedioDePago.associate =  (models) => {
         MedioDePago.hasMany(models.Compra,{
             as:"Compra",
             foreignkey: "idMediosdepago"

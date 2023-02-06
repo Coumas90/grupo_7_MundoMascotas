@@ -1,7 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
-module.exports = (Sequelize, DataTypes) =>{
-    const CategoriaUser = Sequelize.define("CategoriaUser",
+module.exports = (sequelize, DataTypes) =>{
+    const alias ="CategoriaUser";
+    const cols=
     {
         idUsersCategory: {
             type: DataTypes.INTEGER,
@@ -15,13 +14,15 @@ module.exports = (Sequelize, DataTypes) =>{
             allowNull: false,
         }
 
-    },
+    };
+    const config=
     {
         tableName: 'Users Categories',
         timestamps: false,
-    }
-    );
-    CategoriaUser.associate = function (models){
+    };
+    const CategoriaUser = sequelize.define(alias,cols,config);
+    
+    CategoriaUser.associate =  (models) => {
         CategoriaUser.hasMany(models.User,{
             as:"Usuario",
             foreignKey: "idUsersCategory"
