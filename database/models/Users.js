@@ -45,6 +45,10 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'CategoriaUser',
+                key:'idUsersCategory'
+            }
             //foreign key
         }
 

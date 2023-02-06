@@ -1,64 +1,80 @@
-module.exports = (Sequelize, DataTypes) =>{
-    const alias = "Compra" ;
-    const cols =
+const { Sequelize, DataTypes } = require("sequelize");
+
+module.exports = (sequelize, dataTypes) =>{
+ const Compra = sequelize.define("Compra",
     {
         idCompra: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         idUsuario:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'User',
+                key:'idUsuario'
+            }
             //foreign key
         },
         Fecha: {
-            type: DataTypes.DATEONLY,
+            type: dataTypes.DATEONLY,
             allowNull: false,
         },
         idMedioDePago:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'MedioDePago',
+                key:'idMedioDePago'
+            }
             //foreign key
 
         },
         idDetalleCompra:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'DetalleCompra',
+                key:'idDetalleCompra'
+            }
             //foreign key
         },
         DireccionEntrega: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         idEnvio:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'Envio',
+                key:'idTiposdeenvio'
+            }
             //foreign key
         },
         Total: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
         }
 
-    };
-    const config =
+    },
     {
         tableName: 'Compras',
         timestamps: false,
-    };
+    });
 
-    const Compra = Sequelize.define(alias,cols,config);
+    //Relaciones
     //Has many porque podes tener varias lineas del detalle de la compra para una compra
     Compra.associate = (models) => {
     //una compra puede estar en varias lineas de detalle
-    Compra.hasMany(models.DetalleCompra,{
+    Compra.belongsTo(models.DetalleCompra,{
         as: "Detalle_Compra",
         foreignKey:"idDetalleCompra"
     });

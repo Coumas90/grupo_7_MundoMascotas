@@ -1,43 +1,50 @@
-module.exports = (Sequelize, DataTypes) =>{
-    const alias = "Detalle Compra";
-    const cols = {
+const { Sequelize, DataTypes } = require("sequelize");
+
+module.exports = (sequelize, dataTypes) =>{
+ const DetalleCompra = sequelize.define("Detalle Compra",
+    {
         idDetalleCompra: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         idProducto_Compra:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'ProductoCompra',
+                key:'idProducto_Compra'
+            }
             //foreign key
         },
         Cantidad: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
         },
         idCompra:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'Compra',
+                key:'idCompra'
+            }
             //foreign key
 
         },
         Precio:{
-            type: DataTypes.DECIMAL,
+            type: dataTypes.DECIMAL,
             allowNull: false,
         }
 
-    };
-    const config=
+    },
     {
         tableName: 'Detalle Compra',
         timestamps: false,
-    };
-
-    const DetalleCompra = Sequelize.define(alias,cols,config);
+    });
 
     DetalleCompra.associate = (models) => {
         // cada linea de detalle pertenece a una sola venta

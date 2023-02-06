@@ -13,12 +13,20 @@ module.exports = (Sequelize, DataTypes) =>{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'DetalleCompra',
+                key:'idDetalleCompra'
+            }
             //foreign key
         },
         idProducto: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
+            references:{
+                model: 'Product',
+                key:'idProductos'
+            }
             //foreign key
         }
 
