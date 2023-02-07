@@ -1,15 +1,15 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
         const alias = "Categoria";
         const cols = {
         id_category: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name_category: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
     };
@@ -18,15 +18,15 @@ module.exports = (sequelize, DataTypes) =>{
         timestamps: false,
     }
 
-    const Categoria = sequelize.define(alias,cols,config);
+    const Category = sequelize.define(alias,cols,config);
 
     //Models lo que hace es que sequelize trae todos los modelos que yo haya creado
-    Categoria.associate = (models)=> {
-    Categoria.hasMany(models.Product,{
-        as:"Product",
-        foreignKey: "idCategoria"
+    Category.associate = (models)=> {
+    Category.hasMany(models.Product,{
+        as:"Products",
+        foreignKey: "id_category"
     })
 }
-    return Categoria;
+    return Category;
 }
 

@@ -1,70 +1,62 @@
-const Sequelize = require("sequelize");
-
-module.exports = (Sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias= "Product";
     const cols=
     {
         id_product: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         description: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         price:{
-            type: DataTypes.DECIMAL,
+            type: dataTypes.DECIMAL,
             allowNull: false,
         },
         discount:{
-            type: DataTypes.DECIMAL,
+            type: dataTypes.DECIMAL,
             allowNull: false,
         },
         id_brand:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             //foreign key
         },
         id_category:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             //foreign key
         },
         id_color:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             //foreign key
         },
         id_size:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             //foreign key
         },
         id_weight:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             //foreign key
         },
         id_pet:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             //foreign key
         },
         image:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
 
@@ -75,41 +67,41 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     };
 
-    const Product = Sequelize.define(alias,cols,config);
+    const Product = sequelize.define(alias,cols,config);
 
     Product.associate = (models) => {
         Product.belongsTo(models.Marca,{
             as: "Marca",
-            foreignKey:"idMarcas"
+            foreignKey:"id_brand"
         });
         Product.belongsTo(models.Categoria,{
             as: "Categoria",
-            foreignKey:"idCategoria"
+            foreignKey:"id_category"
         });
         Product.belongsTo(models.Color,{
             as: "Color",
-            foreignKey:"idColores"
+            foreignKey:"id_color"
         });
         Product.belongsTo(models.Talle,{
             as: "Talle",
-            foreignKey:"idTalles"
+            foreignKey:"id_size"
         });
         Product.belongsTo(models.Peso,{
             as: "Peso",
-            foreignKey:"idPesos"
+            foreignKey:"id_weight"
         });
         Product.belongsTo(models.Mascota,{
             as: "Mascota",
-            foreignKey:"idMascota"
+            foreignKey:"id_pet"
         });
         Product.belongsToMany(models.DetalleCompra,{
             as: "Detalle Compra",
             //Tabla intermedia de la base de datos
-            through: "Producto_Compra",
+            through: "purchase_products",
             //Dato del producto en la tabla intermedia
-            foreignKey:"idProducto",
+            foreignKey:"id_product",
             //Dato del detalle de compra en la tabla intermedia
-            otherKey: "idDetalleCompra",
+            otherKey: "id_purchase_detail",
             timestamps:false
         });
     }

@@ -1,17 +1,17 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     let alias= 'Talle';
     let cols=
 
     {
         id_size: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: true,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name_size: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
 
@@ -23,13 +23,13 @@ module.exports = (sequelize, DataTypes) =>{
         timestamps: false,
     };
 
-    let Talle = sequelize.define(alias,cols,config);
+    let Size = sequelize.define(alias,cols,config);
 
-    Talle.associate =  (models) => {
-        Talle.hasMany(models.Product,{
+    Size.associate =  (models) => {
+        Size.hasMany(models.Product,{
             as:"Product",
-            foreignKey: "idTalles"
+            foreignKey: "id_size"
         })
     }
-    return Talle;
+    return Size;
 }

@@ -1,5 +1,6 @@
 module.exports = (sequelize, dataTypes) =>{
- const Compra = sequelize.define("Compra",
+ const alias = "Compra";
+ const cols=
     {
         id_purchase: {
             type: dataTypes.INTEGER,
@@ -11,7 +12,6 @@ module.exports = (sequelize, dataTypes) =>{
         id_user:{
             type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'User',
                 key:'idUsuario'
@@ -25,7 +25,6 @@ module.exports = (sequelize, dataTypes) =>{
         id_payment_method:{
             type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'MedioDePago',
                 key:'idMedioDePago'
@@ -36,7 +35,6 @@ module.exports = (sequelize, dataTypes) =>{
         id_purchase_detail:{
             type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'DetalleCompra',
                 key:'idDetalleCompra'
@@ -50,7 +48,6 @@ module.exports = (sequelize, dataTypes) =>{
         id_delivery_method:{
             type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'Envio',
                 key:'idTiposdeenvio'
@@ -62,32 +59,35 @@ module.exports = (sequelize, dataTypes) =>{
             allowNull: false,
         }
 
-    },
+    };
+    const config =
     {
         tableName: 'purchases',
         timestamps: false,
-    });
-    
+    };
+
+    const Purchase = sequelize.define (alias,cols,config);
+
     //Has many porque podes tener varias lineas del detalle de la compra para una compra
-    Compra.associate = (models) => {
+    Purchase.associate = (models) => {
     //una compra puede estar en varias lineas de detalle
-    Compra.belongsTo(models.DetalleCompra,{
+    Purchase.belongsTo(models.DetalleCompra,{
         as: "Detalle_Compra",
-        foreignKey:"idDetalleCompra"
+        foreignKey:"id_purchase_detail"
     });
-    Compra.belongsTo(models.Envio,{
+    Purchase.belongsTo(models.Envio,{
         as: "Envio",
-        foreignKey:"idEnvio"
+        foreignKey:"id_delivery_method"
     });
-    Compra.belongsTo(models.MedioDePago,{
+    Purchase.belongsTo(models.MedioDePago,{
         as: "Medio de Pago",
-        foreignKey:"idMedioDePago"
+        foreignKey:"id_payment_method"
     });
-    Compra.belongsTo(models.User,{
+    Purchase.belongsTo(models.User,{
         as: "User",
-        foreignKey:"idUsuario"
+        foreignKey:"id_user"
     });
 }
-    return Compra;
+    return Purchase;
 }
 

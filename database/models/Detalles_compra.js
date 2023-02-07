@@ -1,17 +1,16 @@
-module.exports = (Sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias = "Detalle Compra";
     const cols = {
         id_purchase_detail: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         id_purchase_product:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'ProductoCompra',
                 key:'idProducto_Compra'
@@ -19,13 +18,12 @@ module.exports = (Sequelize, DataTypes) =>{
             //foreign key
         },
         quantity: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
         },
         id_purchase:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'Compra',
                 key:'idCompra'
@@ -34,7 +32,7 @@ module.exports = (Sequelize, DataTypes) =>{
 
         },
         price:{
-            type: DataTypes.DECIMAL,
+            type: dataTypes.DECIMAL,
             allowNull: false,
         }
 
@@ -45,21 +43,23 @@ module.exports = (Sequelize, DataTypes) =>{
         timestamps: false,
     };
 
-    DetalleCompra.associate = (models) => {
+    const PurchaseDetail= sequelize.define(alias,cols,config);
+
+    PurchaseDetail.associate = (models) => {
         // cada linea de detalle pertenece a una sola venta
-        DetalleCompra.belongsTo(models.Compra,{
+        PurchaseDetail.belongsTo(models.Compra,{
             as:"Compra",
-            foreignKey: "idCompra"
+            foreignKey: "id_purchase"
         });
-        DetalleCompra.belongsToMany(models.Product,{
+        PurchaseDetail.belongsToMany(models.Product,{
             as: "Product",
-            through: "Producto_Compra",
-            foreignKey:"idDetalleCompra",
-            otherKey: "idProducto",
+            through: "purchase_products",
+            foreignKey:"id_purchase_detail",
+            otherKey: "id_product",
             timestamps:false
         });
     }
     
-    return DetalleCompra;
+    return PurchaseDetail;
 }
 

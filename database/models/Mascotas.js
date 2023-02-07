@@ -1,16 +1,16 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias = "Mascota";
     const cols =
     {
         id_pet: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name_pet: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
 
@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) =>{
         tableName: 'pets',
         timestamps: false,
     };
-    const Mascota = sequelize.define(alias,cols,config);
+    const Pet = sequelize.define(alias,cols,config);
     
-    Mascota.associate =  (models) => {
-        Mascota.hasMany(models.Product,{
+    Pet.associate =  (models) => {
+        Pet.hasMany(models.Product,{
             as:"Product",
-            foreignKey: "idMascotas"
+            foreignKey: "id_pet"
         })
     }
-    return Mascota;
+    return Pet;
 }
 

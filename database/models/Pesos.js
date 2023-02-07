@@ -1,16 +1,16 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias = "Peso";
     const cols=
     {
         id_weight: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name_weight: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
 
@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) =>{
         tableName: 'weights',
         timestamps: false,
     };
-    const Peso = sequelize.define(alias,cols,config);
+    const Weight = sequelize.define(alias,cols,config);
     
-    Peso.associate =  (models) => {
-        Peso.hasMany(models.Product,{
+    Weight.associate =  (models) => {
+        Weight.hasMany(models.Product,{
             as:"Product",
-            foreignKey: "idPesos"
+            foreignKey: "id_weight"
         })
     }
-    return Peso;
+    return Weight;
 }
 

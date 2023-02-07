@@ -1,8 +1,6 @@
 const db = require("../database/models")
 const Product = db.Product
 
-
-
 const controladorAdmin = {
     administrar: (req, res) => {
 		Product.findAll()
@@ -13,24 +11,12 @@ const controladorAdmin = {
     creacion: (req, res) => {
 		//res.render('products/creacionProductos');
 		Promise.all([
-			db.Categoria.findAll({
-				association:"Product"
-			}),
-			db.Color.findAll({
-				association:"Product"
-			}),
-			db.Marca.findAll({
-				association:"Product"
-			}),
-			db.Mascota.findAll({
-				association:"Product"
-			}),
-			db.Peso.findAll({
-				association:"Product"
-			}),
-			db.Talle.findAll({
-				association:"Product"
-			}),
+			db.Categoria.findAll(),
+			db.Color.findAll(),
+			db.Marca.findAll(),
+			db.Mascota.findAll(),
+			db.Peso.findAll(),
+			db.Talle.findAll(),
 		])
 		.then(([categorias,colores,marcas,mascotas,pesos,talles]) => {
 			return res.render("products/creacionProductos",{categorias:categorias,colores:colores,marcas:marcas,mascotas:mascotas,pesos:pesos,talles:talles})
@@ -56,15 +42,9 @@ const controladorAdmin = {
 
     editar: (req, res) => {
 		let pedidoProducto = db.Product.findByPk(req.params.id);
-		let pedidoColor = db.Color.findAll({
-			association:"Product"
-		});
-		let pedidoPeso = db.Peso.findAll({
-			association:"Product"
-		});
-		let pedidoTalle = db.Talle.findAll({
-			association:"Product"
-		});
+		let pedidoColor = db.Color.findAll();
+		let pedidoPeso = db.Peso.findAll();
+		let pedidoTalle = db.Talle.findAll();
 
 		Promise.all([pedidoProducto,pedidoColor,pedidoPeso,pedidoTalle])
 		.then(function([producto,color,peso,talle]){

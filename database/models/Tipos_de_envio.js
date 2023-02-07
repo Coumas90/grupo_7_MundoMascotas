@@ -1,16 +1,16 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias= "Envio";
     const cols=
     {
         id_delivery_method: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name_id_delivery_method: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
 
@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) =>{
         tableName: 'delivery_methods',
         timestamps: false,
     };
-    const Envio = sequelize.define(alias,cols,config);
+    const DeliveryMethod = sequelize.define(alias,cols,config);
     
-    Envio.associate =  (models) => {
-        Envio.hasMany(models.Compra,{
+    DeliveryMethod.associate =  (models) => {
+        DeliveryMethod.hasMany(models.Compra,{
             as:"Compra",
-            foreignKey: "idTiposdeenvio"
+            foreignKey: "id_delivery_method"
         })
     }
-    return Envio;
+    return DeliveryMethod;
 }
 

@@ -1,16 +1,16 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias = "MedioDePago";
     const cols =
     {
         id_payment_method: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name_payment_method: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
 
@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) =>{
         tableName: 'payment_methods',
         timestamps: false,
     };
-    const MedioDePago = sequelize.define(alias,cols,config);
+    const PaymentMethod = sequelize.define(alias,cols,config);
     
-    MedioDePago.associate =  (models) => {
-        MedioDePago.hasMany(models.Compra,{
+    PaymentMethod.associate =  (models) => {
+        PaymentMethod.hasMany(models.Compra,{
             as:"Compra",
-            foreignkey: "idMediosdepago"
+            foreignkey: "id_payment_method"
         })
     }
-    return MedioDePago;
+    return PaymentMethod;
 }
 

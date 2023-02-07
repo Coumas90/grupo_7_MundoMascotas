@@ -1,16 +1,16 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias = "Color"
     const cols = 
     {
         id_color: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         name_color: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         }
 
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) =>{
     
     Color.associate =  (models) => {
         Color.hasMany(models.Product,{
-            as:"Product",
-            foreignKey: "idColor"
+            as:"Products",
+            foreignKey: "id_color"
         })
     }
     return Color;

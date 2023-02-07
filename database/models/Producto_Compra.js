@@ -1,18 +1,17 @@
-module.exports = (Sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias= "ProductoCompra";
     const cols=
     {
         id_purchase_product: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         id_purchase_detail: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'DetalleCompra',
                 key:'idDetalleCompra'
@@ -20,9 +19,8 @@ module.exports = (Sequelize, DataTypes) =>{
             //foreign key
         },
         id_product: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'Product',
                 key:'idProductos'
@@ -36,14 +34,14 @@ module.exports = (Sequelize, DataTypes) =>{
         tableName: 'purchase_products',
         timestamps: false,
     };
-    const ProductoCompra = Sequelize.define(alias,cols,config);
+    const PruchaseProduct = sequelize.define(alias,cols,config);
 
-    ProductoCompra.associate =  (models) => {
-        ProductoCompra.hasMany(models.Product,{
+    PruchaseProduct.associate =  (models) => {
+        PruchaseProduct.hasMany(models.Product,{
             as:"Product",
-            foreignKey: "idProducto"
+            foreignKey: "id_product"
         })
     }
-    return ProductoCompra;
+    return PruchaseProduct;
 }
 

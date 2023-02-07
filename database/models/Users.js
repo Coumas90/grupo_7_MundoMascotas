@@ -1,50 +1,49 @@
-module.exports = (sequelize, DataTypes) =>{
+module.exports = (sequelize, dataTypes) =>{
     const alias= "User";
     const cols=
     {
         id_user: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
         email:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         name: {
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         surname:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         dni:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         telephone:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         avatar_image:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         password:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         password2:{
-            type: DataTypes.STRING,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         id_user_category:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             references:{
                 model: 'CategoriaUser',
                 key:'idUsersCategory'
@@ -63,11 +62,11 @@ module.exports = (sequelize, DataTypes) =>{
     User.associate =  (models) => {
         User.hasMany(models.Compra,{
             as:"Compra",
-            foreignKey: "idUsuario"
+            foreignKey: "id_user"
         });
         User.belongsTo(models.CategoriaUser,{
             as: "User Category",
-            foreignKey:"idUsersCategory"
+            foreignKey:"id_user_category"
         });
     }
     return User;
