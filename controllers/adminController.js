@@ -5,13 +5,7 @@ const Product = db.Product
 
 const controladorAdmin = {
     administrar: (req, res) => {
-		Product.findAll({association: "Marca"},
-		{association: "Categoria"},
-		{association: "Color"},
-		{association: "Talle"},
-		{association:"Peso"},
-		{association: "Mascota"},
-		{association: "Detalle Compra"})
+		Product.findAll()
 		.then(listadoProductos =>{
 			res.render('products/administrar',{listadoProductos});	
 		})
