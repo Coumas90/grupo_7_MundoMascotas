@@ -1,9 +1,8 @@
 const db = require("../database/models")
-const Product = db.Product
 
 const controladorAdmin = {
     administrar: (req, res) => {
-		Product.findAll()
+		db.Product.findAll()
 		.then(listadoProductos =>{
 			res.render('products/administrar',{listadoProductos});	
 		})
@@ -11,31 +10,31 @@ const controladorAdmin = {
     creacion: (req, res) => {
 		//res.render('products/creacionProductos');
 		Promise.all([
-			db.Categoria.findAll(),
+			db.Category.findAll(),
 			db.Color.findAll(),
-			db.Marca.findAll(),
-			db.Mascota.findAll(),
-			db.Peso.findAll(),
-			db.Talle.findAll(),
+			db.Brand.findAll(),
+			db.Pet.findAll(),
+			db.Weight.findAll(),
+			db.Size.findAll(),
 		])
-		.then(([categorias,colores,marcas,mascotas,pesos,talles]) => {
-			return res.render("products/creacionProductos",{categorias:categorias,colores:colores,marcas:marcas,mascotas:mascotas,pesos:pesos,talles:talles})
+		.then(([categories,colors,brands,pets,weights,sizes]) => {
+			return res.render("products/creacionProductos",{categories:categories,colors:colors,brands:brands,pets:pets,weights:weights,sizes:sizes})
 		});
 	},
 
 	store: function (req,res){
 		db.Product.create({
-			Nombre:req.body.Nombre,
-			Descripcion:req.body.Descripcion,
-			idMarcas:req.body.idMarcas,
-			idCategoria:req.body.idCategoria,
-			Precio:req.body.Precio,
-			Descuento:req.body.Descuento,
-			idColor:req.body.idColor,
-			idTalle:req.body.idTalles,
-			idPesos:req.body.idPesos,
-			idMascota:req.body.idMascotas,
-			imagen: req.file.filename
+			name:req.body.name,
+			description:req.body.description,
+			id_brand:req.body.id_brand,
+			id_category:req.body.id_category,
+			price:req.body.price,
+			discount:req.body.discount,
+			id_color:req.body.id_color,
+			id_size:req.body.id_size,
+			id_weight:req.body.id_weight,
+			id_pet:req.body.id_pet,
+			image: req.file.filename
 		});
 		res.redirect("/")
 	},
@@ -43,12 +42,12 @@ const controladorAdmin = {
     editar: (req, res) => {
 		let pedidoProducto = db.Product.findByPk(req.params.id);
 		let pedidoColor = db.Color.findAll();
-		let pedidoPeso = db.Peso.findAll();
-		let pedidoTalle = db.Talle.findAll();
+		let pedidoPeso = db.Weight.findAll();
+		let pedidoTalle = db.Size.findAll();
 
 		Promise.all([pedidoProducto,pedidoColor,pedidoPeso,pedidoTalle])
-		.then(function([producto,color,peso,talle]){
-			res.render('products/actualizacionProducto', {producto:producto,color:color,peso:peso,talle:talle})
+		.then(function([products,colors,weights,sizes]){
+			res.render('products/actualizacionProducto', {products:products,colors:colors,weights:weights,sizes:sizes})
 		})
 		// let idProducto = req.params.id;
 		// let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
@@ -64,20 +63,20 @@ const controladorAdmin = {
   
 	actualizar: (req,res)=> {
 		db.Product.update({
-			Nombre:req.body.Nombre,
-			Descripcion:req.body.Descripcion,
-			idMarcas:req.body.idMarcas,
-			idCategoria:req.body.idCategoria,
-			Precio:req.body.Precio,
-			Descuento:req.body.Descuento,
-			idColor:req.body.idColor,
-			idTalle:req.body.idTalles,
-			idPesos:req.body.idPesos,
-			idMascota:req.body.idMascotas,
-			imagen: req.file.filename
+			name:req.body.name,
+			description:req.body.description,
+			id_brand:req.body.id_brand,
+			id_category:req.body.id_category,
+			price:req.body.price,
+			discount:req.body.discount,
+			id_color:req.body.id_color,
+			id_size:req.body.id_size,
+			id_weight:req.body.id_weight,
+			id_pet:req.body.id_pet,
+			image: req.file.filename
 		}, {
 			where: {
-				idProducto: req.params.idProducto
+				id_product: req.params.id_product
 			}
 		});
 		res.redirect("/")
@@ -99,8 +98,8 @@ const controladorAdmin = {
 	},
 
 	storetalle: (req,res) => {
-	 db.Talle.create({
-		 	nombreTalla:req.body.nombreTalla,
+	 db.Size.create({
+		name_size:req.body.name_size,
 		 });
 		 res.redirect('/')
 	},
@@ -109,8 +108,8 @@ const controladorAdmin = {
 	},
 
 	storemarcas: (req,res) => {
-	 db.Marca.create({
-		 	nombreMarca:req.body.nombreMarca,
+	 db.Brand.create({
+		name_brand:req.body.name_brand,
 		 });
 		 res.redirect('/')
 	},
@@ -120,7 +119,7 @@ const controladorAdmin = {
 
 	storecolores: (req,res) => {
 	 db.Color.create({
-		 	nombreColor:req.body.nombreColor,
+		name_color:req.body.name_color,
 		 });
 		 res.redirect('/')
 	},
@@ -129,8 +128,8 @@ const controladorAdmin = {
 	},
 
 	storemascotas: (req,res) => {
-	 db.Mascota.create({
-		 	NombreMascota:req.body.NombreMascota,
+	 db.Pet.create({
+		name_pet:req.body.name_pet,
 		 });
 		 res.redirect('/')
 	},
@@ -139,8 +138,8 @@ const controladorAdmin = {
 	},
 
 	storemediosdepago: (req,res) => {
-	 db.MedioDePago.create({
-		 	NombreMedioDePago:req.body.NombreMedioDePago,
+	 db.PaymentMethod.create({
+		name_payment_method:req.body.name_payment_method,
 		 });
 		 res.redirect('/')
 	},
@@ -149,8 +148,8 @@ const controladorAdmin = {
 	},
 
 	storepesos: (req,res) => {
-	 db.Peso.create({
-		 	nombrePeso:req.body.nombrePeso,
+	 db.Weight.create({
+		name_weight:req.body.name_weight,
 		 });
 		 res.redirect('/')
 	},
@@ -159,8 +158,8 @@ const controladorAdmin = {
 	},
 
 	storeenvios: (req,res) => {
-	 db.Envio.create({
-		 	NombreTipoDeEnvio:req.body.NombreTipoDeEnvio,
+	 db.DeliveryMethod.create({
+		name_id_delivery_method:req.body.name_id_delivery_method,
 		 });
 		 res.redirect('/')
 	}

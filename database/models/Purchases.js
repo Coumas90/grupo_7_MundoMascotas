@@ -71,15 +71,15 @@ module.exports = (sequelize, dataTypes) =>{
     //Has many porque podes tener varias lineas del detalle de la compra para una compra
     Purchase.associate = (models) => {
     //una compra puede estar en varias lineas de detalle
-    Purchase.belongsTo(models.DetalleCompra,{
+    Purchase.belongsTo(models.PurchaseDetail,{
         as: "Detalle_Compra",
         foreignKey:"id_purchase_detail"
     });
-    Purchase.belongsTo(models.Envio,{
+    Purchase.belongsTo(models.DeliveryMethod,{
         as: "Envio",
         foreignKey:"id_delivery_method"
     });
-    Purchase.belongsTo(models.MedioDePago,{
+    Purchase.belongsTo(models.PaymentMethod,{
         as: "Medio de Pago",
         foreignKey:"id_payment_method"
     });

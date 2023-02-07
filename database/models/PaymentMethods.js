@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) =>{
     const PaymentMethod = sequelize.define(alias,cols,config);
     
     PaymentMethod.associate =  (models) => {
-        PaymentMethod.hasMany(models.Compra,{
+        PaymentMethod.hasMany(models.Purchase,{
             as:"Compra",
             foreignkey: "id_payment_method"
         })

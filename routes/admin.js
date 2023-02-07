@@ -24,10 +24,10 @@ const controladorAdmin = require('../controllers/adminController');
 router.get('/', controladorAdmin.administrar);
 // Crear un nuevo producto
 router.get('/creacion', controladorAdmin.creacion); 
-router.post('/creacion', upload.single('imagen'), controladorAdmin.store);
+router.post('/creacion', upload.single('image'), controladorAdmin.store);
 //rutas para la edicion de productos
 router.get('/:id/editar', controladorAdmin.editar);
-router.post('/:id/editar', upload.single('imagen'), controladorAdmin.actualizar);
+router.post('/:id/editar', upload.single('image'), controladorAdmin.actualizar);
 //rutas para eliminar productos
 router.delete('/delete/:id', controladorAdmin.eliminar);
 

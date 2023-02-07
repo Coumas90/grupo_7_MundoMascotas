@@ -4,11 +4,11 @@ const Op = db.Sequelize.Op;
 const apiController = {
     listadoUsuarios: (req,res)=> {
         db.User.findAll({})
-        .then((usuarios) => {
-            const count = usuarios.length;
-            const mappedUsers = usuarios.map((user) => ({
-                id: user.id,
-                name: '${user.nombre} ${user.apellido}',
+        .then((users) => {
+            const count = users.length;
+            const mappedUsers = users.map((user) => ({
+                id_user: user.id_user,
+                name: '${user.name} ${user.surname}',
                 email: user.email,
                 detail: 'localhost:3000/api/users/${user.id}'
             }));
@@ -20,10 +20,10 @@ const apiController = {
         });
     },
     detalleUsuario: (req,res) => {
-        const { id } = req.params;
-        db.User.findByPk(id, {
+        const { id_user } = req.params;
+        db.User.findByPk(id_user, {
           attributes: {
-            exclude: ["Password", "Password2","idUsersCategory"],
+            exclude: ["password", "password2","id_user_category"],
           },
         })
           .then((usuario) => {
@@ -33,10 +33,10 @@ const apiController = {
                 status: 404,
               });
             }
-            const userImage = `/images/userImage/${usuario.filename}`;
+            const image = `/images/userImage/${usuario.filename}`;
             return res.status(200).json({
               ...usuario.dataValues,
-              userImage,
+              image,
               status: 200,
             });
           });
@@ -52,16 +52,16 @@ const apiController = {
             let countByCategory = {};
             productos.forEach(product => {
                 product.categories.forEach(category => {
-                    countByCategory[category.name] = (countByCategory[category.name] || 0) + 1;
+                    countByCategory[category.name_category] = (countByCategory[category.name_category] || 0) + 1;
                 });
             });
 
             let products = productos.map(product => ({
-                id: product.id,
+                id_product: product.id_product,
                 name: product.name,
                 description: product.description,
-                categories: product.categories.map(category => category.name),
-                detail: `localhost:3000/api/products/${product.id}`
+                categories: product.categories.map(category => category.name_category),
+                detail: `localhost:3000/api/products/${product.id_product}`
             }));
 
             return res.status(200).json({

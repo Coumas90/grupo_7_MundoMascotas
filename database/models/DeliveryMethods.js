@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) =>{
     const DeliveryMethod = sequelize.define(alias,cols,config);
     
     DeliveryMethod.associate =  (models) => {
-        DeliveryMethod.hasMany(models.Compra,{
+        DeliveryMethod.hasMany(models.Purchase,{
             as:"Compra",
             foreignKey: "id_delivery_method"
         })

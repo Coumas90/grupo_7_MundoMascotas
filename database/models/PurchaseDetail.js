@@ -47,7 +47,7 @@ module.exports = (sequelize, dataTypes) =>{
 
     PurchaseDetail.associate = (models) => {
         // cada linea de detalle pertenece a una sola venta
-        PurchaseDetail.belongsTo(models.Compra,{
+        PurchaseDetail.belongsTo(models.Purchase,{
             as:"Compra",
             foreignKey: "id_purchase"
         });

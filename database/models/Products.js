@@ -70,11 +70,11 @@ module.exports = (sequelize, dataTypes) =>{
     const Product = sequelize.define(alias,cols,config);
 
     Product.associate = (models) => {
-        Product.belongsTo(models.Marca,{
+        Product.belongsTo(models.Brand,{
             as: "Marca",
             foreignKey:"id_brand"
         });
-        Product.belongsTo(models.Categoria,{
+        Product.belongsTo(models.Category,{
             as: "Categoria",
             foreignKey:"id_category"
         });
@@ -82,19 +82,19 @@ module.exports = (sequelize, dataTypes) =>{
             as: "Color",
             foreignKey:"id_color"
         });
-        Product.belongsTo(models.Talle,{
+        Product.belongsTo(models.Size,{
             as: "Talle",
             foreignKey:"id_size"
         });
-        Product.belongsTo(models.Peso,{
+        Product.belongsTo(models.Weight,{
             as: "Peso",
             foreignKey:"id_weight"
         });
-        Product.belongsTo(models.Mascota,{
+        Product.belongsTo(models.Pet,{
             as: "Mascota",
             foreignKey:"id_pet"
         });
-        Product.belongsToMany(models.DetalleCompra,{
+        Product.belongsToMany(models.PurchaseDetail,{
             as: "Detalle Compra",
             //Tabla intermedia de la base de datos
             through: "purchase_products",

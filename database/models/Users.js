@@ -29,7 +29,7 @@ module.exports = (sequelize, dataTypes) =>{
             type: dataTypes.STRING,
             allowNull: false,
         },
-        avatar_image:{
+        image:{
             type: dataTypes.STRING,
             allowNull: false,
         },
@@ -60,11 +60,11 @@ module.exports = (sequelize, dataTypes) =>{
     const User = sequelize.define(alias,cols,config);
     
     User.associate =  (models) => {
-        User.hasMany(models.Compra,{
+        User.hasMany(models.Purchase,{
             as:"Compra",
             foreignKey: "id_user"
         });
-        User.belongsTo(models.CategoriaUser,{
+        User.belongsTo(models.UserCategory,{
             as: "User Category",
             foreignKey:"id_user_category"
         });

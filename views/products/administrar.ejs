@@ -31,11 +31,11 @@
                     <tbody>
                         <% listadoProductos.forEach(listadoProductos => { %>
                             <tr>
-                                <td><%= listadoProductos.idProductos %></td>
-                                <td><%= listadoProductos.Nombre %></td>
-                                <td><a href="/productDetail/<%= listadoProductos.idProductos %>" class="text-black">Link</a></td>
-                                <td><a href="/administrar/<%= listadoProductos.idProductos %>/editar" class="text-black">Editar</a></td>
-                                <td><a href="/administrar/delete/<%= listadoProductos.idProductos %>?_method=DELETE" class="text-black">Borrar</a></td>
+                                <td><%= listadoProductos.id_product %></td>
+                                <td><%= listadoProductos.name %></td>
+                                <td><a href="/productDetail/<%= listadoProductos.id_product %>" class="text-black">Link</a></td>
+                                <td><a href="/administrar/<%= listadoProductos.id_product %>/editar" class="text-black">Editar</a></td>
+                                <td><a href="/administrar/delete/<%= listadoProductos.id_product %>?_method=DELETE" class="text-black">Borrar</a></td>
                             </tr>
                         <% }) %>
                     </tbody>
