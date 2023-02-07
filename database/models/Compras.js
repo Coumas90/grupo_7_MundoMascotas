@@ -1,16 +1,14 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
 module.exports = (sequelize, dataTypes) =>{
  const Compra = sequelize.define("Compra",
     {
-        idCompra: {
+        id_purchase: {
             type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        idUsuario:{
+        id_user:{
             type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -20,11 +18,11 @@ module.exports = (sequelize, dataTypes) =>{
             }
             //foreign key
         },
-        Fecha: {
+        date: {
             type: dataTypes.DATEONLY,
             allowNull: false,
         },
-        idMedioDePago:{
+        id_payment_method:{
             type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -35,7 +33,7 @@ module.exports = (sequelize, dataTypes) =>{
             //foreign key
 
         },
-        idDetalleCompra:{
+        id_purchase_detail:{
             type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -45,11 +43,11 @@ module.exports = (sequelize, dataTypes) =>{
             }
             //foreign key
         },
-        DireccionEntrega: {
+        address: {
             type: dataTypes.STRING,
             allowNull: false,
         },
-        idEnvio:{
+        id_delivery_method:{
             type: dataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -59,18 +57,17 @@ module.exports = (sequelize, dataTypes) =>{
             }
             //foreign key
         },
-        Total: {
+        total: {
             type: dataTypes.INTEGER,
             allowNull: false,
         }
 
     },
     {
-        tableName: 'Compras',
+        tableName: 'purchases',
         timestamps: false,
     });
-
-    //Relaciones
+    
     //Has many porque podes tener varias lineas del detalle de la compra para una compra
     Compra.associate = (models) => {
     //una compra puede estar en varias lineas de detalle

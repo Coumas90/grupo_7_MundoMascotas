@@ -4,66 +4,66 @@ module.exports = (Sequelize, DataTypes) =>{
     const alias= "Product";
     const cols=
     {
-        idProductos: {
+        id_product: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        Nombre:{
+        name:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Descripcion: {
+        description: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Precio:{
+        price:{
             type: DataTypes.DECIMAL,
             allowNull: false,
         },
-        Descuento:{
+        discount:{
             type: DataTypes.DECIMAL,
             allowNull: false,
         },
-        idMarcas:{
+        id_brand:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        idCategoria:{
+        id_category:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        idColor:{
+        id_color:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        idTalle:{
+        id_size:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        idPesos:{
+        id_weight:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        idMascota:{
+        id_pet:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        imagen:{
+        image:{
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -71,7 +71,7 @@ module.exports = (Sequelize, DataTypes) =>{
     };
     const config=
     {
-        tableName: 'Productos',
+        tableName: 'products',
         timestamps: false,
     };
 

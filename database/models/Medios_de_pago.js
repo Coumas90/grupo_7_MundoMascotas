@@ -2,22 +2,22 @@ module.exports = (sequelize, DataTypes) =>{
     const alias = "MedioDePago";
     const cols =
     {
-        idMedioDePago: {
+        id_payment_method: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        NombreMedioDePago: {
+        name_payment_method: {
             type: DataTypes.STRING,
             allowNull: false,
         }
 
     };
-    const config=
+    const config =
     {
-        tableName: 'Medios de pago',
+        tableName: 'payment_methods',
         timestamps: false,
     };
     const MedioDePago = sequelize.define(alias,cols,config);

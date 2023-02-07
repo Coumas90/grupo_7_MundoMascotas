@@ -2,46 +2,46 @@ module.exports = (sequelize, DataTypes) =>{
     const alias= "User";
     const cols=
     {
-        idUsuario: {
+        id_user: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        Email:{
+        email:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Nombre: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Apellido:{
+        surname:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        DNI:{
+        dni:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Telefono:{
+        telephone:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Avatar:{
+        avatar_image:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Password:{
+        password:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Password2:{
+        password2:{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        idUsersCategory:{
+        id_user_category:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) =>{
     };
     const config =
     {
-        tableName: 'Users',
+        tableName: 'users_db',
         timestamps: false,
     };
     const User = sequelize.define(alias,cols,config);

@@ -1,20 +1,20 @@
 module.exports = (sequelize, DataTypes) =>{
         const alias = "Categoria";
         const cols = {
-        idCategoria: {
+        id_category: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        nombreCategoria: {
+        name_category: {
             type: DataTypes.STRING,
             allowNull: false,
         }
     };
         const config= {
-        tableName: 'Categorias',
+        tableName: 'categories',
         timestamps: false,
     }
 
