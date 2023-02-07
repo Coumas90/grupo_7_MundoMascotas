@@ -4,7 +4,7 @@ const controladorListado = {
     index: (req, res) => {
         db.Product.findAll()
         .then(function(productos){
-            res.render('products/index',{productos:productos})
+            res.render('products/index',{productos})
         })},
 // Como hacer la ruta por url
     detalleanimal: (req,res) => {

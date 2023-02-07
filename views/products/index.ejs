@@ -37,18 +37,18 @@
         <section class="cuerpo-pagina">
             <h2>Las mejores promociones</h2>
             <div class ="listadoProductos">
-            <% products.filter(product => product.seccion === 'ofertas').forEach(product => { %>
+              <% productos.forEach(productos=> { %>
               <article class="detalleProducto">
-                <a class="redireccion" href="/productDetail/<%= product.id %>">
+                <a class="redireccion" href="/productDetail/<%=productos.id_product%>">
                   <div class="col">
                     <div class="card h-100">
-                      <img src="/images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
+                      <img src="/images/Productos/<%= productos.image %>" class="card-img-top" alt="">
                       <div class="card-body">
-                        <h5 class="card-title" ><%= product.nombre %></h5>
+                        <h5 class="card-title" ><%= productos.name %></h5>
                         <div class="main-article">
                           <i class="fas fa-truck"></i>
-                          <p class="price">$ <%= product.precio %></p>
-                          <p class="discount"><%= product.descuento %>%</p>
+                          <p class="price">$ <%= productos.price %></p>
+                          <p class="discount"><%= productos.discount %>%</p>
                           <a class="redireccion" href="/productCart"><button class="btn btn-primary btn-sm" type="submit">Comprar</button></a>
                           <a class="redireccion" href="/productCart"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></a>
                         </div>
@@ -56,7 +56,7 @@
                     </div>
                   </div>              
                 </article>
-            <% }) %>
+                <% }) %>
           </div>
           
         </section>
