@@ -6,17 +6,17 @@
   <%- include('../partials/header.ejs') %>
     <main>
       <div class ="listadoProductos">
-        <% filtrados.forEach(product => { %>
-        <article class="detalleProducto"><a class="redireccion" href="/productDetail/<%= product.id %>">
+        <% filtrados.forEach(filtrados => { %>
+        <article class="detalleProducto"><a class="redireccion" href="/productDetail/<%= filtrados.id_product %>">
           <div class="col">
             <div class="card h-100">
-              <img src="/images/Productos/<%= product.imagen %>" class="card-img-top" alt="">
+              <img src="/images/Productos/<%= filtrados.image %>" class="card-img-top" alt="">
               <div class="card-body">
-                  <h5 class="card-title"><a href= "/"><%= product.nombre %></a></h5>
+                  <h5 class="card-title"><a href= "/"><%= filtrados.name %></a></h5>
                     <div class="main-article">
                       <i class="fas fa-truck"></i>
-                        <p class="price">$ <%= product.precio %></p>
-                        <p class="discount"><%= product.descuento %>%</p>
+                        <p class="price">$ <%= filtrados.price %></p>
+                        <p class="discount"><%= filtrados.discount %>%</p>
                         <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
                         <button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button>
                     </div>

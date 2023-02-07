@@ -10,8 +10,8 @@ const controladorListado = require('../controllers/listadoController');
 
 //No esta funcionando
 router.get('/', controladorListado.index);
-router.get('/marca/:filtro', controladorListado.detallemarca);
-router.get('/animal/:filtro', controladorListado.detalleanimal);
-router.get('/categoria/:filtro', controladorListado.detallecategoria);
+router.get('/marca/:marca', controladorListado.detallemarca);
+router.get('/animal/:animal', controladorListado.detalleanimal);
+router.get('/categoria/:categoria', controladorListado.detallecategoria);
 
 module.exports = router;
