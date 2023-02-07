@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) =>{
-    const alias = "Marca";
+    const alias = "Brand";
     const cols = 
     {
         id_brand: {

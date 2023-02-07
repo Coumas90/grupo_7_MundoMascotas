@@ -44,24 +44,20 @@ const controladorAdmin = {
 		let pedidoColor = db.Color.findAll();
 		let pedidoPeso = db.Weight.findAll();
 		let pedidoTalle = db.Size.findAll();
+		let pedidoMarca = db.Brand.findAll();
+		let pedidoCategorias = db.Category.findAll();
+		let pedidoMascotas = db.Pet.findAll();
 
-		Promise.all([pedidoProducto,pedidoColor,pedidoPeso,pedidoTalle])
-		.then(function([products,colors,weights,sizes]){
-			res.render('products/actualizacionProducto', {products:products,colors:colors,weights:weights,sizes:sizes})
+		Promise.all([pedidoProducto,pedidoColor,pedidoPeso,pedidoTalle,pedidoMarca,pedidoCategorias,pedidoMascotas])
+		.then(function([products,colors,weights,sizes,brands,categories,pets]){
+			res.render('products/actualizacionProducto', {products:products,colors:colors,weights:weights,sizes:sizes,brands:brands,categories:categories,pets:pets})
 		})
-		// let idProducto = req.params.id;
-		// let productoAEditar = products.filter(productoAEditar => productoAEditar.id == idProducto);
-		// if (productoAEditar.length > 0) {
-		// 	let productoEditado = productoAEditar[0];
-		// 	res.render('products/actualizacionProducto', {productoEditado: productoEditado});
-		// 	} else {
-		// 		// Maneja el caso de que el arreglo esté vacío o que el elemento no tenga una propiedad 'name'
-		// 		res.redirect("/products"); // Redirige a la lista de productos
-		// 	}
-
   	},
   
 	actualizar: (req,res)=> {
+		console.log('req.params: ', req.params);
+		console.log('req.body: ', req.body);
+
 		db.Product.update({
 			name:req.body.name,
 			description:req.body.description,
@@ -76,10 +72,10 @@ const controladorAdmin = {
 			image: req.file.filename
 		}, {
 			where: {
-				id_product: req.params.id_product
+				id_product: req.params.id
 			}
 		});
-		res.redirect("/")
+		res.redirect("/administrar")
 	},
 
     eliminar: (req, res) => {
@@ -101,7 +97,7 @@ const controladorAdmin = {
 	 db.Size.create({
 		name_size:req.body.name_size,
 		 });
-		 res.redirect('/')
+		 res.redirect('/administrar')
 	},
 	creacionmarcas: (req,res)=> {
 		res.render('products/marcas')
@@ -111,7 +107,7 @@ const controladorAdmin = {
 	 db.Brand.create({
 		name_brand:req.body.name_brand,
 		 });
-		 res.redirect('/')
+		 res.redirect('/administrar')
 	},
 	creacioncolores: (req,res)=> {
 		res.render('products/colores')
@@ -121,7 +117,7 @@ const controladorAdmin = {
 	 db.Color.create({
 		name_color:req.body.name_color,
 		 });
-		 res.redirect('/')
+		 res.redirect('/administrar')
 	},
 	creacionmascotas: (req,res)=> {
 		res.render('products/mascotas')
@@ -131,7 +127,7 @@ const controladorAdmin = {
 	 db.Pet.create({
 		name_pet:req.body.name_pet,
 		 });
-		 res.redirect('/')
+		 res.redirect('/administrar')
 	},
 	creacionmediosdepago: (req,res)=> {
 		res.render('products/medios_de_pago')
@@ -141,7 +137,7 @@ const controladorAdmin = {
 	 db.PaymentMethod.create({
 		name_payment_method:req.body.name_payment_method,
 		 });
-		 res.redirect('/')
+		 res.redirect('/administrar')
 	},
 	creacionpesos: (req,res)=> {
 		res.render('products/pesos')
@@ -151,7 +147,7 @@ const controladorAdmin = {
 	 db.Weight.create({
 		name_weight:req.body.name_weight,
 		 });
-		 res.redirect('/')
+		 res.redirect('/administrar')
 	},
 	creacionenvios: (req,res)=> {
 		res.render('products/envios')
@@ -161,7 +157,7 @@ const controladorAdmin = {
 	 db.DeliveryMethod.create({
 		name_id_delivery_method:req.body.name_id_delivery_method,
 		 });
-		 res.redirect('/')
+		 res.redirect('/administrar')
 	}
 
 }

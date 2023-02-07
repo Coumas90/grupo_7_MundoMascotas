@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) =>{
-    const alias = "Peso";
+    const alias = "Weight";
     const cols=
     {
         id_weight: {

@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) =>{
-        const alias = "Categoria";
+        const alias = "Category";
         const cols = {
         id_category: {
             type: dataTypes.INTEGER,

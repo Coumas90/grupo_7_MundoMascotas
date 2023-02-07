@@ -11,30 +11,31 @@
       <div class="form">
         <span class="form__title">Editar producto</span>
         <div class="container products-wrapper">
-          <form action="/administrar/<%=Product.id_product%>>" method="POST" enctype="multipart/form-data">
+          <form action="/administrar/<%=products.id_product%>/editar" method="POST" enctype="multipart/form-data">
             <div class="form__input">
               <label for="name" class="form-label">Nombre del producto:</label>
-              <input type="text" class="form-input" id="name" placeholder="Ej: Alimento balanceado" required name="Nombre" value="<%= Product.name%>">
+              <input type="text" class="form-input" id="name" placeholder="Ej: Alimento balanceado" required name="Nombre" value="<%= products.name%>">
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="description" class="form-label">Descripcion del producto:</label>
-              <textarea class="form-input" id="description" required name="description" value="<%= Product.description%>"></textarea>
+              <textarea class="form-input" id="description" required name="description" value="<%= products.description%>"></textarea>
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="id_brand">Seleccionar marca:</label>
               <select class="selector" required aria-label="select example" name="id_brand">
                 <% for (let i=0; i < brands.length; i++){ %>
-                  <% if (let i=0; i < brands.length; i++){%<
+                  <% if (brands[i].id_brand == products.id_brand){%>
                       <option value="<%= brands[i].id_brand%>" name="id_brand" selected>
-                        <%= marcas[i].name_brand%>
+                        <%= brands[i].name_brand%>
                       </option>
                     <% } else {%>
                       <option value="<%= brands[i].id_brand%>" name="id_brand">
-                        <%= marcas[i].name_brand%>
+                        <%= brands[i].name_brand%>
                       </option>
-                    <%} %}
+                    <%}%>
+                  <%}%>
               </select>
               <span class="bar"></span>
             </div>
@@ -42,64 +43,94 @@
               <label>Seleccionar Categoria:</label>
               <select for="id_category" class="selector" required aria-label="select example" name="id_category">
                 <% for (let i=0; i < categories.length; i++){ %>
-                <option value="<%= categories[i].id_category%>" name="id_category">
+                  <% if (categories[i].id_category == products.id_category){%>
+                <option value="<%= categories[i].id_category%>" name="id_category" selected>
                   <%= categories[i].name_category%>
                 </option>
+                <% } else {%>
+                  <option value="<%= categories[i].id_category%>" name="id_category">
+                    <%= categories[i].name_category%>
+                  </option>
                 <% } %>
+                <%}%>
               </select>
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="price" class="form-label">Precio del producto:</label>
-              <input type="number" class="form-input" placeholder="Ej: 3000" id="price" required name="price" value="<%= Product.price%>">
+              <input type="number" class="form-input" placeholder="Ej: 3000" id="price" required name="price" value="<%= products.price%>">
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="discount" class="form-label">Descuento:</label>
-              <input type="number" class="form-input" placeholder="Ej: 25" id="discount" name="discount" value="<%= Product.discount%>">
+              <input type="number" class="form-input" placeholder="Ej: 25" id="discount" name="discount" value="<%= products.discount%>">
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="id_color">Seleccionar color:</label>
               <select class="selector" required aria-label="select example" name="id_color">
-                <% for (let i=0; i < colores.length; i++){ %>
-                <option value="<%= colores[i].id_color%>" name="id_color">
-                  <%= colores[i].name_color%>
+                <% for (let i=0; i < colors.length; i++){ %>
+                  <% if (colors[i].id_color == products.id_color){%>
+                <option value="<%= colors[i].id_color%>" name="id_color" selected>
+                  <%= colors[i].name_color%>
                 </option>
-                <% } %>
+                <% } else {%>
+                  <option value="<%= colors[i].id_color%>" name="id_color">
+                    <%= colors[i].name_color%>
+                  </option>
+                <%} %>
+                <%}%>
               </select>
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="id_size">Seleccionar talla:</label>
               <select class="selector" required aria-label="select example" name="id_size">
-                <% for (let i=0; i < talles.length; i++){ %>
-                <option value="<%= talles[i].id_size%>" name="id_size">
-                  <%= talles[i].name_size%>
+                <% for (let i=0; i < sizes.length; i++){ %>
+                  <% if (sizes[i].id_size == products.id_size){%>
+                <option value="<%= sizes[i].id_size%>" name="id_size" selected>
+                  <%= sizes[i].name_size%>
                 </option>
-                <% } %>
+                <% } else {%>
+                  <option value="<%= sizes[i].id_size%>" name="id_size">
+                    <%= sizes[i].name_size%>
+                  </option>
+                <%} %>
+                <%}%>
               </select>
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="id_weight">Seleccionar peso del producto:</label>
               <select class="selector" required aria-label="select example" name="id_weight">
-                <% for (let i=0; i < pesos.length; i++){ %>
-                <option value="<%= pesos[i].id_weight%>" name="id_weight">
-                  <%= pesos[i].name_weight%>
+                <% for (let i=0; i < weights.length; i++){ %>
+                  <% if (weights[i].id_weight == products.id_weight){%>
+                <option value="<%= weights[i].id_weight%>" name="id_weight" selected>
+                  <%= weights[i].name_weight%>
                 </option>
-                <% } %>
+                <% } else {%>
+                  <option value="<%= weights[i].id_weight%>" name="id_weight">
+                    <%= weights[i].name_weight%>
+                  </option>
+                <%} %>
+                <%}%>
               </select>
               <span class="bar"></span>
             </div>
             <div class="form__input">
               <label for="id_pet">Seleccionar mascota:</label>
               <select class="selector" required aria-label="select example" name="id_pet">
-                <% for (let i=0; i < mascotas.length; i++){ %>
-                <option value="<%= mascotas[i].id_pet%>" name="id_pet">
-                  <%= mascotas[i].name_pet%>
+                <% for (let i=0; i < pets.length; i++){ %>
+                  <% if (pets[i].id_weight == products.id_pet){%>
+                <option value="<%= pets[i].id_pet%>" name="id_pet" selected>
+                  <%= pets[i].name_pet%>
                 </option>
-                <% } %>
+                <% } else {%>
+                  <option value="<%= pets[i].id_pet%>" name="id_pet">
+                    <%= pets[i].name_pet%>
+                  </option>
+                <%} %>
+                <%}%>
               </select>
               <span class="bar"></span>
             </div>
