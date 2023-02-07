@@ -2,47 +2,47 @@ module.exports = (Sequelize, DataTypes) =>{
     const alias = "Compra" ;
     const cols =
     {
-        idCompra: {
+        id_purchase: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        idUsuario:{
+        id_user:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        Fecha: {
+        date: {
             type: DataTypes.DATEONLY,
             allowNull: false,
         },
-        idMedioDePago:{
+        id_payment_method:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
 
         },
-        idDetalleCompra:{
+        id_purchase_detail:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        DireccionEntrega: {
+        address: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        idEnvio:{
+        id_delivery_method:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        Total: {
+        total: {
             type: DataTypes.INTEGER,
             allowNull: false,
         }
@@ -50,11 +50,11 @@ module.exports = (Sequelize, DataTypes) =>{
     };
     const config =
     {
-        tableName: 'Compras',
+        tableName: 'purchases',
         timestamps: false,
     };
 
-    const Compra = Sequelize.define(alias,cols,config);
+    const Compra = Sequelize.define(alias, cols, config);
     //Has many porque podes tener varias lineas del detalle de la compra para una compra
     Compra.associate = (models) => {
     //una compra puede estar en varias lineas de detalle

@@ -1,31 +1,31 @@
 module.exports = (Sequelize, DataTypes) =>{
     const alias = "Detalle Compra";
     const cols = {
-        idDetalleCompra: {
+        id_purchase_detail: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        idProducto_Compra:{
+        id_purchase_product:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
         },
-        Cantidad: {
+        quantity: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        idCompra:{
+        id_purchase:{
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             //foreign key
 
         },
-        Precio:{
+        price:{
             type: DataTypes.DECIMAL,
             allowNull: false,
         }
@@ -33,7 +33,7 @@ module.exports = (Sequelize, DataTypes) =>{
     };
     const config=
     {
-        tableName: 'Detalle Compra',
+        tableName: 'purchases_detail',
         timestamps: false,
     };
 

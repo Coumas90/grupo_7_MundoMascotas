@@ -2,14 +2,14 @@ module.exports = (sequelize, DataTypes) =>{
     const alias ="CategoriaUser";
     const cols=
     {
-        idUsersCategory: {
+        id_user_category: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        NombreCategoriaUsuario: {
+        name_user_category: {
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) =>{
     };
     const config=
     {
-        tableName: 'Users Categories',
+        tableName: 'users_categories',
         timestamps: false,
     };
     const CategoriaUser = sequelize.define(alias,cols,config);

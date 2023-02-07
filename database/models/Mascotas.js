@@ -2,14 +2,14 @@ module.exports = (sequelize, DataTypes) =>{
     const alias = "Mascota";
     const cols =
     {
-        idMascota: {
+        id_pet: {
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             autoIncrement: true,
             primaryKey: true 
         },
-        NombreMascota: {
+        name_pet: {
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) =>{
     };
     const config =
     {
-        tableName: 'Mascotas',
+        tableName: 'pets',
         timestamps: false,
     };
     const Mascota = sequelize.define(alias,cols,config);
