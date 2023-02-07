@@ -8,14 +8,14 @@
 		<div class="product-detail">
 			<div class="row">
 				<div class="imagen-detalle-producto">
-					<img src="/images/Productos/<%= product.imagen %>" class="imagen-detalle-producto" alt="">
+					<img src="/images/Productos/<%= producto.image %>" class="imagen-detalle-producto" alt="">
 					
 				</div>
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
-						<h2 class="product-detail-title"><%= product.nombre %></h2>
-							<p class="product-detail-price"><span>$ <%= product.precio %></span></p>
-							<p class="product-detail-discount"><b><%= product.descuento %>%</b></p>
+						<h2 class="product-detail-title"><%= producto.name %></h2>
+							<p class="product-detail-price"><span>$ <%= producto.price %></span></p>
+							<p class="product-detail-discount"><b><%= producto.discount %>%</b></p>
 						<div class="actions-list">
 							<div>
 								<i class="fas fa-credit-card"><p>Pagar en 12 cuotas sin interes</p></i>
@@ -26,20 +26,14 @@
 								</div>
 								
 
-						<form action="/productCart/agregarProductoCarrito/<%= product.id %>" method="POST" ><button class="btn btn-success btn-sm" type="submit">Comprar</button></form></a>
+						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST" ><button class="btn btn-success btn-sm" type="submit">Comprar</button></form></a>
 						
-						<form action="/productCart/agregarProductoCarrito/<%= product.id %>" method="POST"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></form>
-						
-						<!-- <a href="/productDetail/<%= product.id %>/editar"><button class="btn btn-light btn-sm" type="submit">Editar producto</button></a>
-						
-						<form action="/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-							<button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-						</form> -->
+						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></form>
 						
 					
 						<p class="product-detail-description">
 							<h2>DESCRIPCIÓN:</h2>
-							<%= product.descripción %>
+							<%= producto.description %>
 						</p>
 					</article>
 				</div>
