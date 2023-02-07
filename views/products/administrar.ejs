@@ -35,7 +35,7 @@
                                 <td><%= listadoProductos.name %></td>
                                 <td><a href="/productDetail/<%= listadoProductos.id_product %>" class="text-black">Link</a></td>
                                 <td><a href="/administrar/<%= listadoProductos.id_product %>/editar" class="text-black">Editar</a></td>
-                                <td><a href="/administrar/delete/<%= listadoProductos.id_product %>?_method=DELETE" class="text-black">Borrar</a></td>
+                                <td><form action="/administrar/delete/<%= listadoProductos.id_product %>" class="text-black" method="POST"><button type="submit">Borrar</button></form></td>
                             </tr>
                         <% }) %>
                     </tbody>

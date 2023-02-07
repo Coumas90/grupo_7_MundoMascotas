@@ -79,14 +79,12 @@ const controladorAdmin = {
 	},
 
     eliminar: (req, res) => {
-		// // Obtener el ID del producto a eliminar
-		// let idProductoAEliminar = req.params.id;
-		// // Filtrar la lista de productos para obtener sólo el producto a eliminar
-		// let productosFiltrados = products.filter(producto => producto.id !== idProductoAEliminar);
-		// // Sobreescribir la lista de productos con la lista filtrada (sin el producto a eliminar)
-		// fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, ''));
-		// // Redirigir a la lista de productos
-		// res.redirect('/products');
+		db.Product.destroy({
+			where:{
+				id_product:req.params.id
+			}
+		})
+		res.redirect("/administrar")
 	  },
 	
 	creaciontalles: (req,res)=> {
