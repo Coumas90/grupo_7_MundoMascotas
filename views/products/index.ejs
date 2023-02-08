@@ -33,9 +33,38 @@
                 </button>
             </div>
         </section>
+
+        <section class="cuerpo-pagina">
+          <h2>Productos en oferta!</h2>
+          <div class ="listadoProductos">
+            <% productos.filter(producto=> {
+              if(producto.oferta == "si") {%>
+            <article class="detalleProducto">
+              <a class="redireccion" href="/productDetail/<%=producto.id_product%>">
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="/images/Productos/<%= producto.image %>" class="card-img-top" alt="">
+                    <div class="card-body">
+                      <h5 class="card-title" ><%= producto.name %></h5>
+                      <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$ <%= producto.price %></p>
+                        <p class="discount"><%= producto.discount %>%</p>
+                        <a class="redireccion" href="/productCart"><button class="btn btn-primary btn-sm" type="submit">Comprar</button></a>
+                        <a class="redireccion" href="/productCart"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>              
+              </article>
+              <% }}) %>
+        </div>
+        
+      </section>
+
         
         <section class="cuerpo-pagina">
-            <h2>Las mejores promociones</h2>
+            <h2>Destacados!</h2>
             <div class ="listadoProductos">
               <% productos.forEach(productos=> { %>
               <article class="detalleProducto">

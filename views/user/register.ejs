@@ -17,74 +17,74 @@
         <form action="/login/register" method="POST" enctype="multipart/form-data">
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="Nombre" placeholder="Nombre" id="Nombre" value="<%= locals.old && old.Nombre ? old.Nombre : '' %>" required>
+                <input type="text" name="name" placeholder="Nombre" id="name" value="<%= locals.old && old.name ? old.name : '' %>" required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.Nombre){ %>
-                    <p style="color:red"> <%=errorsregister.Nombre.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.name){ %>
+                    <p style="color:red"> <%=errorsregister.name.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="Apellido" placeholder="Apellido" id="Apellido" value="<%= locals.old && old.Apellido ? old.Apellido : '' %>"required>
+                <input type="text" name="surname" placeholder="Apellido" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>"required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.Apellido){ %>
-                    <p style="color:red"> <%=errorsregister.Apellido.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.surname){ %>
+                    <p style="color:red"> <%=errorsregister.surname.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="DNI" placeholder="DNI"  id="DNI" value="<%= locals.old && old.DNI ? old.DNI : '' %>"required>
+                <input type="text" name="dni" placeholder="DNI"  id="dni" value="<%= locals.old && old.dni ? old.dni : '' %>"required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.DNI){ %>
-                    <p style="color:red"> <%=errorsregister.DNI.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.dni){ %>
+                    <p style="color:red"> <%=errorsregister.dni.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="Telefono" placeholder="Telefono" id="client_telephone" value="<%= locals.old && old.Telefono ? old.Telefono : '' %>"required>
+                <input type="text" name="telephone" placeholder="Telefono" id="telephone" value="<%= locals.old && old.telephone ? old.telephone : '' %>"required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.Telefono){ %>
-                    <p style="color:red"> <%=errorsregister.Telefono.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.telephone){ %>
+                    <p style="color:red"> <%=errorsregister.telephone.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-mail-line"></i>
-                <input type="email" name="Email" placeholder="Email" id="Email" value="<%= locals.old && old.Email ? old.Email : '' %>"required>
+                <input type="email" name="email" placeholder="Email" id="email" value="<%= locals.old && old.email ? old.email : '' %>"required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.Email){ %>
-                    <p style="color:red"> <%=errorsregister.Email.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.email){ %>
+                    <p style="color:red"> <%=errorsregister.email.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="Password" placeholder="Contraseña" id="Password"  required>
+                <input type="password" name="password" placeholder="Contraseña" id="password"  required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.Password){ %>
-                    <p style="color:red"> <%=errorsregister.Password.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.password){ %>
+                    <p style="color:red"> <%=errorsregister.password.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="Password2" placeholder="Confirme contraseña" id="Password2" required>
+                <input type="password" name="password2" placeholder="Confirme contraseña" id="password2" required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.Password2){ %>
-                    <p style="color:red"> <%=errorsregister.Password2.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.password2){ %>
+                    <p style="color:red"> <%=errorsregister.password2.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="file" name="Avatar" placeholder="Adjuntar imagen de perfil" id="Avatar" accept= "pdf, jpeg, jpg" required>
+                <input type="file" name="image" placeholder="Adjuntar imagen de perfil" id="image" accept= "pdf, jpeg, jpg" required>
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.Avatar){ %>
-                    <p style="color:red"> <%=errorsregister.Avatar.msg%> </p>
+                <% if(locals.errorsregister && errorsregister.image){ %>
+                    <p style="color:red"> <%=errorsregister.image.msg%> </p>
                 <%}%>
             </div>
             <div class="form__input">
-                <label for="idUsersCategory">Seleccionar tipo de usuario:</label>
-                <select class="selector" required aria-label="select example" name="idUsersCategory">
+                <label for="id_user_category">Seleccionar tipo de usuario:</label>
+                <select class="selector" required aria-label="select example" name="id_user_category">
                   <% for (let i=0; i < categoriaUsers.length; i++){ %>
-                  <option value="<%= categoriaUsers[i].idUsersCategory%>" name="idUsersCategory">
-                    <%= categoriaUsers[i].NombreCategoriaUsuario%>
+                  <option value="<%= categoriaUsers[i].id_user_category%>" name="id_user_category">
+                    <%= categoriaUsers[i].name_user_category%>
                   </option>
                   <% } %>
                 </select>

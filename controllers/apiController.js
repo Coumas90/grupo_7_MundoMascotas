@@ -20,8 +20,7 @@ const apiController = {
         });
     },
     detalleUsuario: (req,res) => {
-        const { id_user } = req.params;
-        db.User.findByPk(id_user, {
+        db.User.findByPk(req.params.id, {
           attributes: {
             exclude: ["password", "password2","id_user_category"],
           },
@@ -42,42 +41,58 @@ const apiController = {
           });
       },
       listadoProductos: (req,res)=> {
-        db.Product.findAll({
-            include: [{
-                model: db.Category,
-                as: 'categories'
-            }]
-        })
-        .then(productos => {
-            let countByCategory = {};
-            productos.forEach(product => {
-                product.categories.forEach(category => {
-                    countByCategory[category.name_category] = (countByCategory[category.name_category] || 0) + 1;
-                });
-            });
-
-            let products = productos.map(product => ({
+        db.Product.findAll({})
+        .then((productos) => {
+            const count = productos.length;
+            const mappedProducts = productos.map((product) => ({
                 id_product: product.id_product,
                 name: product.name,
                 description: product.description,
-                categories: product.categories.map(category => category.name_category),
+                category: product.name_category,
                 detail: `localhost:3000/api/products/${product.id_product}`
             }));
-
             return res.status(200).json({
-                total: products.length,
-                countByCategory,
-                products,
-                status:200
-            })
-        })
+                count,
+                users:mappedProducts,
+                status:200,
+            });
+        });
     },
     detalleProducto: (req,res) => {
-        db.Product.findByPk (req.params.id)
-        .then (producto => {
+        db.Product.findByPk(req.params.id)
+            .then((producto) => {
+              if (!producto) {
+                return res.status(404).json({
+                  message: "Producto no encontrado",
+                  status: 404,
+                });
+              }
+              const image = `/images/productImage/${producto.filename}`;
+              return res.status(200).json({
+                ...producto.dataValues,
+                image,
+                status: 200,
+              });
+            });
+        },
+    
+    countByCategory: (req,res) => {
+    db.Product.findAll({
+            include: [{
+                model: db.Category,
+                as: 'Categoria'
+            }]
+        })
+        .then((productos) => {
+            let countByCategory = {};
+            productos.forEach(productos => {
+                productos.categories.forEach(category => {
+                    countByCategory[category.name_category] = (countByCategory[category.name_category] || 0) + 1;
+                });
+            });
             return res.status(200).json({
-                data: producto,
-                status: 200
+                countByCategory,
+                status:200
             })
         })
     }

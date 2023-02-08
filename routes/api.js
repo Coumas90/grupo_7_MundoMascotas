@@ -10,6 +10,7 @@ router.get('/users', apiController.listadoUsuarios);
 router.get('/users/:id', apiController.detalleUsuario);
 router.get('/products', apiController.listadoProductos);
 router.get('/products/:id', apiController.detalleProducto);
+router.get('/products/category', apiController.countByCategory);
 
 
 module.exports = router;

@@ -46,48 +46,48 @@ const controladorLogin = {
     },
     
     register: (req, res) => {
-      db.CategoriaUser.findAll().then((categoriaUsers) => {
-        res.render('user/register', { categoriaUsers });
+      db.UserCategory.findAll().then((categoriaUsers) => {
+        return res.render('user/register', { categoriaUsers:categoriaUsers });
       });
     },
     
-    createuser: (req, res) => {
-
-      //Dejo validaciones comentadas asi conecta a la base de datos y me crea el usuario
-      // let errorsregister = validationResult(req);
-      // if (errorsregister.errors.length > 0) {
-      //   res.render('user/register', {
-      //     errorsregister: errorsregister.mapped(),
-      //     old: req.body,
-      //     categoriaUsers
-      //   });
-      // }
+    createUser: (req, res) => {
+      const categoriaUsers = db.UserCategory.findAll();
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.render('user/register', {
+          errors: errors.mapped(),
+          old: req.body,
+          categoriaUsers
+        });
+      }
     
-      // User.findByEmail(req.body.Email)
-      //   .then((userInDb) => {
-      //     if (userInDb) {
-      //       res.render('user/register', {
-      //         errorsregister: {
-      //           email: {msg: 'Este email ya esta registrado'}
-      //         },
-      //         old: req.body,
-      //         categoriaUsers: req.categoriaUsers
-      //       });
-      //     }
-      //     else {
-            db.User.create({
-              Email: req.body.Email,
-              Nombre: req.body.Nombre,
-              Apellido: req.body.Apellido,
-              DNI: req.body.DNI,
-              Telefono: req.body.Telefono,
-              Avatar: req.file.filename,
-              Password: bcryptjs.hashSync(req.body.Password, 10),
-              Password2: bcryptjs.hashSync(req.body.Password2, 10),
-              idUsersCategory: req.body.idUsersCategory
+      User.findByEmail(req.body.email)
+        .then((userInDb) => {
+          if (userInDb) {
+            return res.render('user/register', {
+              errors: {
+                email: { msg: 'Este email ya está registrado' }
+              },
+              old: req.body,
+              categoriaUsers
             });
-            res.redirect('/login')
-          },
+          }
+    
+          return db.User.create({
+            email: req.body.email,
+            name: req.body.name,
+            surname: req.body.surname,
+            dni: req.body.dni,
+            telephone: req.body.telephone,
+            image: req.file.filename,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            password2: bcryptjs.hashSync(req.body.password2, 10),
+            id_user_category: req.body.id_user_category
+          })
+            .then(() => res.redirect('/login'));
+        });
+    },
     
     olvido: (req, res) => {res.render('user/restablecer');
     },

@@ -58,6 +58,10 @@ module.exports = (sequelize, dataTypes) =>{
         image:{
             type: dataTypes.STRING,
             allowNull: false,
+        },
+        oferta:{
+            type: dataTypes.STRING,
+            allowNull: false,
         }
 
     };

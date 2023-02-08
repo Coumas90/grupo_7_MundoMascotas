@@ -47,8 +47,12 @@ const validacionesRegistro = [
     body("Password")
     .notEmpty(). withMessage("El campo contraseña es obligatorio").bail()
     .isLength(min=8),
-    body("Nombre").notEmpty().withMessage("El campo nombre es obligatorio"),
-    body("Apellido").notEmpty().withMessage("El campo apellido es obligatorio"),
+    body("Nombre")
+    .notEmpty().withMessage("El campo nombre es obligatorio").bail()
+    .isLength(min=2),
+    body("Apellido")
+    .notEmpty().withMessage("El campo apellido es obligatorio").bail()
+    .isLength(min=2),
     body("Telefono").notEmpty().withMessage("El campo telefono es obligatorio"),
     body("DNI").notEmpty().withMessage("El campo dni es obligatorio"),
     body("Password2")
@@ -75,8 +79,8 @@ const controladorLogin = require('../controllers/loginController');
 
 router.get('/', guestMiddleware, validacionesLogIn, controladorLogin.login);
 router.post('/',validacionesLogIn ,controladorLogin.userLogin);
-router.get('/register',guestMiddleware, controladorLogin.register);
-router.post('/register', uploadPhoto.single('Avatar'),validacionesRegistro , controladorLogin.createuser);
+router.get('/register', guestMiddleware, controladorLogin.register);
+router.post('/register', uploadPhoto.single('image'),validacionesRegistro , controladorLogin.createUser);
 router.get('/olvido', controladorLogin.olvido);
 router.post('/olvido', controladorLogin.restablecer);
 
