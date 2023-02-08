@@ -32,17 +32,79 @@
            <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
            <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
            <% } else { %>
-            <button class="btn btn-primary" type="submit"><a href="/administrar">Administrador</a></button>
-            <button class="btn btn-primary" type="submit"><a href="/login/register">Registrate</a></button>
-            <button class="btn btn-primary" type="submit"><a href="/login">Log In</a></button>
+            <button class="btn btn-info" type="submit"><a href="/administrar">Administrador</a></button>
+            <button class="btn btn-info" type="submit"><a href="/login/register">Registrate</a></button>
+            <button class="btn btn-info" type="submit"><a href="/login">Log In</a></button>
             <% } %>
         </nav>    
     </div>   
     </div>
-    <div class="top-header">
+    <div class="desplegables-header">
         <nav class="desplegables">
+
+            
+                <nav class="navbar navbar-light bg">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            MASCOTAS
+                        </button>
+                    </div>
+                    <div class="collapse" id="navbarToggleExternalContent">
+                        <div class="bg p-4">
+                            <ul>
+                                <li><a class="dropdown-item" href="/animal/1" category="perro">Perros</a></li>
+                                <li><a class="dropdown-item" href="/animal/2" category="gato">Gatos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            MARCAS
+                        </button>
+                    </div>
+                    <div class="collapse" id="navbarToggleExternalContent">
+                        <div class="bg p-4">
+                            <ul>
+                                <li><a class="dropdown-item" href="/marca/3" category="pedigree">Pedigree</a></li>
+                                <li><a class="dropdown-item" href="/marca/15" category="purina">Purina</a></li>
+                                <li><a class="dropdown-item" href="/marca/4" category="royal canin">Royal Canin</a></li>
+                                <li><a class="dropdown-item" href="/marca/2"category= "otra marca">Cat Chow</a></li>
+                                <li><a class="dropdown-item" href="/marca/12"category= "otra marca">Can Cat</a></li>
+                                <li><a class="dropdown-item" href="/marca/8"category= "otra marca">Pro Plan</a></li>
+                                <li><a class="dropdown-item" href="/marca/11"category= "otra marca">Whiskas</a></li>
+                                <li><a class="dropdown-item" href="/marca/1"category= "otra marca">Dog Chow</a></li>
+                                <li><a class="dropdown-item" href="/marca/5"category= "otra marca">Proplan</a></li>
+                                <li><a class="dropdown-item" href="/marca/6"category= "otra marca">Eukanuba</a></li>
+                                <li><a class="dropdown-item" href="/marca/7"category= "otra marca">Balanced</a></li>
+                                <li><a class="dropdown-item" href="/marca/9"category= "otra marca">Excellent</a></li>
+                                <li><a class="dropdown-item" href="/marca/10"category= "otra marca">Dogui</a></li>
+                                <li><a class="dropdown-item" href="/marca/13"category= "otra marca">MSD</a></li>
+                                <li><a class="dropdown-item" href="/marca/14"category= "otra marca">OSSPRET</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            CATEGORIAS
+                        </button>
+                    </div>
+                    <div class="collapse" id="navbarToggleExternalContent">
+                        <div class="bg p-4">
+                            <ul>
+                                <li><a class="dropdown-item" href="/categoria/1" category="alimento">Alimento</a></li>
+                                <li><a class="dropdown-item" href="/categoria/3" category="accesorios">Accesorios</a></li>
+                                <li><a class="dropdown-item" href="/categoria/2" category="juguetes">Juguetes</a></li>
+                                <li><a class="dropdown-item" href="/categoria/4" category="juguetes">Higiene</a></li>
+                                <li><a class="dropdown-item" href="/categoria/5" category="juguetes">Antipulgas</a></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </nav>
+            
+
             <span class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Mascotas
                 </button>
                     <ul class="dropdown-menu">
@@ -51,7 +113,7 @@
                     </ul>
             </span>
             <span class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Marcas
                 </button>
                     <ul class="dropdown-menu">
@@ -73,7 +135,7 @@
                         </ul>
             </span>
             <span class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categorias
                 </button>
                     <ul class="dropdown-menu">

@@ -38,8 +38,8 @@ app.use(express.static('public'));
 //Le decimos a express que vamos a utilizar ejs
 app.set('view engine', 'ejs');
 
-// Levanto al servidor 3030
-app.listen(3001, () => {console.log('Servidor corriendo en 3000')});
+// Levanto al servidor
+app.listen(3001, () => {console.log('Servidor corriendo')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasListado);

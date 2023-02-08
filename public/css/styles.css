@@ -103,8 +103,19 @@ img.logo-chico{
 
 
 /*====== Navbar ======*/
+.dropdown-item{
+    color: black;
+}
 
+.navbar-toggler{
+    color: #0058a4;
+    font-size: 15px;
+    
+}
 
+nav.desplegables{
+    width: 100%;
+}
 
 /*====== Banners  ======*/
 section.banner{
