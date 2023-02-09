@@ -73,7 +73,7 @@
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="file" name="image" placeholder="Adjuntar imagen de perfil" id="image" accept= "pdf, jpeg, jpg" required>
+                <input class="seleccion-archivo" type="file" name="image" placeholder="Adjuntar imagen de perfil" id="image" accept= "pdf, jpeg, jpg" required>
                 <span class="bar"></span>
                 <% if(locals.errorsregister && errorsregister.image){ %>
                     <p style="color:red"> <%=errorsregister.image.msg%> </p>

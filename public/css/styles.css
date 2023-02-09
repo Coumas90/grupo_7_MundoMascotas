@@ -24,6 +24,41 @@ div.card-body{
     width: 100%;
 }
 
+.tabla-admin-productos{
+    padding: 5%;
+}
+
+.table-bordered{
+    background-color: #D0D3D4;
+}
+
+.opciones-product-admin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.boton-admin{
+    border-radius: 15px;
+    background: #F4F6F6;
+    padding: 5px 10px;
+    border: none;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.titulo-admin{
+    padding-left: 3%;
+    text-decoration: underline;
+}
+
+.botones-de-opcion{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 /*====== Tipografías y fuentes ======*/
 
 h3{
@@ -69,6 +104,13 @@ a.redireccion{
     text-decoration: none;
 }
 
+.titulo1-admin{
+    color: #666873;
+    display: flex;
+    font-size: 20px;
+    flex-direction: row;
+    justify-content: center;
+}
 
 /*====== Header ======*/
 header{
@@ -101,7 +143,6 @@ img.logo-chico{
 }
 
 
-
 /*====== Navbar ======*/
 .dropdown-item{
     color: black;
@@ -109,8 +150,7 @@ img.logo-chico{
 
 .navbar-toggler{
     color: #F0F3F4;
-    font-size: 15px;
-    
+    font-size: 25px;
 }
 
 nav.desplegables{
@@ -120,8 +160,10 @@ nav.desplegables{
     justify-content: space-evenly;
 }
 
+
 button.boton-menu{
-    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
     border-radius: 5px;
     border: none;
     background-color: inherit;
@@ -129,7 +171,6 @@ button.boton-menu{
     padding: 5px 10px;
     text-align: center;
     display: inline-block;
-    
 }
 
 /*====== Banners  ======*/
@@ -155,6 +196,7 @@ div.contenedorDetalle{
     width: auto;
     align-items: right;
 }
+
 article.detalleProducto{
     margin:10px;
     width: 9cm;
@@ -165,6 +207,7 @@ article.detalleProducto{
     justify-content: center;
     align-items: stretch;
 }
+
 article.hover{
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
