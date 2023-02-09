@@ -7,7 +7,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to left, #d5eaf7, #ffc97d);
+    background: linear-gradient(to left, #85C1E9, #F0F3F4);
 }
 
 main{
@@ -73,7 +73,7 @@ a.redireccion{
 /*====== Header ======*/
 header{
     padding: 1%;
-    background: linear-gradient(to left, #d5eaf7, #ffc97d);
+    background: linear-gradient(to left, #85C1E9, #F0F3F4);
 }
 
 div.contenedor{
@@ -108,13 +108,28 @@ img.logo-chico{
 }
 
 .navbar-toggler{
-    color: #0058a4;
+    color: #F0F3F4;
     font-size: 15px;
     
 }
 
 nav.desplegables{
-    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+button.boton-menu{
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: inherit;
+    color: #666873;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    
 }
 
 /*====== Banners  ======*/
@@ -144,8 +159,8 @@ article.detalleProducto{
     margin:10px;
     width: 9cm;
     height: 9cm;
-    padding: 0.3%;
-    background-color:  #a87731;
+    padding: 0.1%;
+    background-color: #A9CCE3;
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -236,3 +251,7 @@ img.card-img-top{
 
 
 /*====== Media-Queries ======*/
+
+
+
+
