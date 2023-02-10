@@ -5,7 +5,6 @@ module.exports = {
     "database": "mundo_mascotas",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port":3306
   },
   "test": {
     "username": "root",
@@ -13,7 +12,6 @@ module.exports = {
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port":3306
   },
   "production": {
     "username": "root",
@@ -21,6 +19,5 @@ module.exports = {
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port":3306
   }
 }

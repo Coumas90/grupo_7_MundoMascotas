@@ -49,54 +49,79 @@
         
         <section class="row">
             <article class="col-12">
-                <h5 class="titulo-admin">Administrador de datos</h5>
-                    <div class="opciones-product-admin" role="group" aria-label="Vertical button group"></div>
-                        <ul class="botones-de-opcion">
-                            <button type="button" class="boton-admin"><a href="/administrar/creacion" class="text-black">Agregar un producto</a></button>
-                            <button type="button" class="boton-admin"><a href="/administrar/tallas" class="text-black">Agregar una talla</a></button>
-                            <button type="button" class="boton-admin"><a href="/administrar/marcas" class="text-black">Agregar una marca</a></button>
-                            <button type="button" class="boton-admin"><a href="/administrar/colores" class="text-black">Agregar colores</a></button>
-                            <button type="button" class="boton-admin"><a href="/administrar/mascotas" class="text-black">Agregar mascotas</a></button>
-                            <button type="button" class="boton-admin"><a href="/administrar/mediosdepago" class="text-black">Agregar medios de pago</a></button>
-                            <button type="button" class="boton-admin"><a href="/administrar/pesos" class="text-black">Agregar medidas</a></button>
-                            <button type="button" class="boton-admin"><a href="/administrar/envios" class="text-black">Agregar medios de envio</a></button> 
-                        </ul>
+                <div class="opciones-product-admin">
+                    
+                    <div class="botones-de-opcion">
+                        <h2 class="text-black pt-2">Administrador de datos</h2>
+
+                        <div class="nav-hover nav-tabs">
+                            <div class="nav-item">
+                                <a href="/administrar/creacion" class="text-black">Agregar un producto</a>
+                            </div>
+                            <div class="nav-item">
+                                <a href="/administrar/tallas" class="text-black">Agregar una talla</a>
+                            </div>
+                            <div class="nav-item">
+                                <a href="/administrar/marcas" class="text-black">Agregar una marca</a>
+                            </div>
+                            <div class="nav-item">
+                                <a href="/administrar/colores" class="text-black">Agregar colores</a>
+                            </div>
+                            <div class="nav-item">
+                                <a href="/administrar/mascotas" class="text-black">Agregar mascotas</a>
+                            </div>
+                            <div class="nav-item">
+                                <a href="/administrar/mediosdepago" class="text-black">Agregar medios de pago</a>
+                            </div>
+                            <div class="nav-item">
+                                <a href="/administrar/pesos" class="text-black">Agregar medidas</a>
+                            </div>
+                            <div class="nav-item">
+                                <a href="/administrar/envios" class="text-black">Agregar medios de envio</a>
+                            </div>
+                        </div>
+
+
+
+                        <!-- <table class="table table-hover">
+                            <th>
+                                <td><a href="/administrar/creacion" class="text-black">Agregar un producto</a></td>
+                                <td><a href="/administrar/tallas" class="text-black">Agregar una talla</a></td>
+                                <td><a href="/administrar/marcas" class="text-black">Agregar una marca</a></td>
+                                <td><a href="/administrar/colores" class="text-black">Agregar colores</a></td>
+                                <td><a href="/administrar/mascotas" class="text-black">Agregar mascotas</a></td>
+                                <td><a href="/administrar/mediosdepago" class="text-black">Agregar medios de pago</a></td>
+                                <td><a href="/administrar/pesos" class="text-black">Agregar medidas</a></td>
+                                <td><a href="/administrar/envios" class="text-black">Agregar medios de envio</a></td>
+                            </th>
+                        </table> -->
                     </div>
-            </article>
-            
-            
-                
-                
-                
-                
-                
-                
-                
-              
-              <article class="col-12"><h2 class="text-black text-center pt-2">Administrador de Productos</h2></article>
-            <article class="tabla-admin-productos">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Ver producto</th>
-                            <th scope="col">Editar producto</th>
-                            <th scope="col">Eliminar producto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% listadoProductos.forEach(listadoProductos => { %>
+                </div>
+                <article class="tabla-admin-productos">
+                    <h2 class="text-black pt-2">Administrador de Productos</h2>
+                    <table class="table table-hover">
+                        <thead>
                             <tr>
-                                <td><%= listadoProductos.id_product %></td>
-                                <td><%= listadoProductos.name %></td>
-                                <td><a href="/productDetail/<%= listadoProductos.id_product %>" class="text-black">Link</a></td>
-                                <td><a href="/administrar/<%= listadoProductos.id_product %>/editar" class="text-black">Editar</a></td>
-                                <td><form action="/administrar/delete/<%= listadoProductos.id_product %>" class="text-black" method="POST"><button type="submit">Borrar</button></form></td>
+                                <th scope="col">Id</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Ver producto</th>
+                                <th scope="col">Editar producto</th>
+                                <th scope="col">Eliminar producto</th>
                             </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <% listadoProductos.forEach(listadoProductos => { %>
+                                <tr>
+                                    <td><%= listadoProductos.id_product %></td>
+                                    <td><%= listadoProductos.name %></td>
+                                    <td><a href="/productDetail/<%= listadoProductos.id_product %>" class="text-black">Link</a></td>
+                                    <td><a href="/administrar/<%= listadoProductos.id_product %>/editar" class="text-black">Editar</a></td>
+                                    <td><form action="/administrar/delete/<%= listadoProductos.id_product %>" class="text-black" method="POST"><button type="submit">Borrar</button></form></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </article>
             </article>
         </section>
     </body>

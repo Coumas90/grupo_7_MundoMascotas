@@ -25,23 +25,29 @@ div.card-body{
 }
 
 .tabla-admin-productos{
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    padding-top: 0%;
 }
 
-.table-bordered{
-    background-color: #D0D3D4;
+
+.table-hover{
+    border-radius: 20px;
+    background-color: #D6DBDF;
 }
 
 .opciones-product-admin{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    padding-left: 5%;
+    padding-bottom: 2%;
 }
 
 .boton-admin{
+    display: flex;
     border-radius: 15px;
-    background: #F4F6F6;
-    padding: 5px 10px;
+    background: inherit;
     border: none;
     text-align: center;
     align-items: center;
@@ -56,7 +62,7 @@ div.card-body{
 
 .botones-de-opcion{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 /*====== Tipografías y fuentes ======*/
@@ -142,6 +148,11 @@ img.logo-chico{
     height: 100px;
 }
 
+.desplegables-header{
+    border-bottom: inset;
+    border-color: #666873;
+}
+
 
 /*====== Navbar ======*/
 .dropdown-item{
@@ -206,6 +217,7 @@ article.detalleProducto{
     display: flex;
     justify-content: center;
     align-items: stretch;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
 article.hover{

@@ -4,69 +4,125 @@
   <body>
     <header>
       <div class="contenedor">
-        <div class="top-header">
-            <span class="logo-chico">
-                <a href="/"><img class="logo-chico"  src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img"></a>
-            </span>
-        </div>
-        <div class="top-header">
-            <nav>  
-                <span class="form" action="label" method="GET">
-                    <span class="barra-de-busqueda">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
-                          </form>
-                    </span>
-                </span>
-            </nav>
-        </div>
-        <div class="top-header">
-            <nav>
-              <span><a href="/login"><i class="fas fa-user-alt"></i></a></span> 
-              <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
-                <button class="btn btn-primary" type="submit"><a href="/login/register">Registrate</a></button>
-            </nav>    
-        </div>   
+      <div class="top-header">
+          <span class="logo-chico">
+              <a href="/"><img class="logo-chico"  src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img"></a>
+          </span>
       </div>
-    </header>
+      <div class="top-header">
+          <nav>  
+              <span class="form" action="label" method="GET">
+                  <span class="barra-de-busqueda">
+                      <form class="d-flex" role="search">
+                          <input class="form-control me-2" type="search" aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit">Buscar</button>
+                      </form>
+                  </span>
+              </span>
+          </nav>
+  
+          <!-- <div>
+          <h2>SearchPrueba</h2>
+          <form action="/producto/search">
+              <input type="text" name="search">
+              <input type="submit" value="Search">
+          </form>
+          </div> -->
+  
+      </div>
+          <div class="top-header">
+              <nav>
+                  <% if (locals.isLogged){ %>
+              <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
+              <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
+              <% } else { %>
+                  <button class="btn btn-light" type="submit"><a href="/administrar">Administrador</a></button>
+                  <button class="btn btn-light" type="submit"><a href="/login/register">Registrate</a></button>
+                  <button class="btn btn-light" type="submit"><a href="/login">Log In</a></button>
+                  <% } %>
+              </nav>    
+          </div>              
+      </div>
+  </header>
     
     <body>
-      <h1>Carrito de compras</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Total</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for (let i = 0; i < carrito.length; i++) { %>
-            <tr>
-              <td><img src="<%= carrito[i].imagen %>" alt="<%= carrito[i].nombre %>"></td>
-              <td><%= carrito[i].nombre %></td>
-              <td><%= carrito[i].precio %></td>
-              <td>
-                <form action="/agregarProductoCarrito/<%= carrito[i].id %>" method="POST">
-                  <input type="number" name="cantidad" min="1" value="1" required>
-                  <button type="submit">Actualizar</button>
+      <main class="mt-5 pt-4">
+        <div class="container wow fadeIn animated">
+            <h2 class="mt-5 mb-3 h2 text-center"> Productos en mi carrito</h2>
+            <div class="card my-5">
+                <div class="card-body">
+                    <table class="table table-responsive-md mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">
+                                    <strong>#</strong>
+                                </th>
+                                <th class="th-lg">
+                                    <strong>Producto</strong>
+                                </th>
+                                <th class="th-lg ">
+                                    <strong>Precio</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Cantidad</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Subtotal</strong>
+                                </th>
+                                <th style="width: 50px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="cartRows">
+                        </tbody>
+                    </table>
+                    <div class="card-footer text-right">
+                        <h2>Total: <span class="totalAmount">$ 0</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header text-center">
+                    Terminar la compra
+                </div>
+                <form class="card-body" id="checkoutCart">
+                    <div class="row">
+                        <div class=" col-md-6 mb-4">
+                            <label for="country">Tipo Envio</label>
+                            <select class="custom-select d-block w-100" id="shippingMethod" name=" shippingMethod"
+                                required="">
+                                <option value="">Elegir...</option>
+                                <option value="Cadete">Cadete</option>
+                                <option value="Correo">Correo Argentino</option>
+                                <option value="Andreani">Andreani</option>
+                                <option value="DHL">DHL</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Elija un tipo de envio.
+                            </div>
+
+                        </div>
+                        <div class=" col-md-6 mb-4">
+                            <label for="country">Pago</label>
+                            <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod"
+                                required="">
+                                <option value="">Elegir...</option>
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Débito">Tarjeta Débito</option>
+                                <option value="Crédito">Tarjeta Crédito</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Elija un tipo de envio.
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block waves-effect waves-light"
+                        type="submit">Comprar</button>
                 </form>
-              </td>
-              <td><%= carrito[i].precio %></td>
-              <td>
-                <form action="/descartarProductoCarrito/<%= carrito[i].id %>" method="POST">
-                  <button type="submit">Eliminar</button>
-                </form>
-              </td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
-      <p>Total: $<%= carrito.reduce((total, producto) => total + producto.precio, 0) %></p>
-      <a href="/">Seguir comprando</a>
+            </div>
+        </div>
+    </main>
+    
+    <script src="/js/cart.js"></script>
     </body>
 </html>
