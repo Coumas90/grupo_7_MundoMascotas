@@ -3,22 +3,79 @@
     <%- include('../partials/head.ejs') %>
     
     <body>
-        <%- include('../partials/header.ejs') %>
+        
+        <header>
+            <div class="contenedor">
+            <div class="top-header">
+                <span class="logo-chico">
+                    <a href="/"><img class="logo-chico"  src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img"></a>
+                </span>
+            </div>
+            <div class="top-header">
+                <nav>  
+                    <span class="form" action="label" method="GET">
+                        <span class="barra-de-busqueda">
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                            </form>
+                        </span>
+                    </span>
+                </nav>
+        
+                <!-- <div>
+                <h2>SearchPrueba</h2>
+                <form action="/producto/search">
+                    <input type="text" name="search">
+                    <input type="submit" value="Search">
+                </form>
+                </div> -->
+        
+            </div>
+                <div class="top-header">
+                    <nav>
+                        <% if (locals.isLogged){ %>
+                    <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
+                    <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
+                    <% } else { %>
+                        <button class="btn btn-light" type="submit"><a href="/administrar">Administrador</a></button>
+                        <button class="btn btn-light" type="submit"><a href="/login/register">Registrate</a></button>
+                        <button class="btn btn-light" type="submit"><a href="/login">Log In</a></button>
+                        <% } %>
+                    </nav>    
+                </div>              
+            </div>
+        </header>
+        
         <section class="row">
-            <article class="col-12"><h2 class="text-black text-center pt-2">Administrar datos</h2></article>
-            <div class="contenedornav" role="group" aria-label="Vertical button group">
-                <button type="button" class="btn btn-dark"><a href="/administrar/creacion" class="text-black">Agregar un producto</a></button>
-                <button type="button" class="btn btn-dark"><a href="/administrar/tallas" class="text-black">Agregar una talla</a></button>
-                <button type="button" class="btn btn-dark"><a href="/administrar/marcas" class="text-black">Agregar una marca</a></button>
-                <button type="button" class="btn btn-dark"><a href="/administrar/colores" class="text-black">Agregar colores</a></button>
-                <button type="button" class="btn btn-dark"><a href="/administrar/mascotas" class="text-black">Agregar mascotas</a></button>
-                <button type="button" class="btn btn-dark"><a href="/administrar/mediosdepago" class="text-black">Agregar medios de pago</a></button>
-                <button type="button" class="btn btn-dark"><a href="/administrar/pesos" class="text-black">Agregar medidas</a></button>
-                <button type="button" class="btn btn-dark"><a href="/administrar/envios" class="text-black">Agregar medios de envio</a></button>
-              </div>
-              <article class="col-12"><h2 class="text-black text-center pt-2">Administrador de Productos</h2></article>
             <article class="col-12">
-                <table class="table">
+                <h5 class="titulo-admin">Administrador de datos</h5>
+                    <div class="opciones-product-admin" role="group" aria-label="Vertical button group"></div>
+                        <ul class="botones-de-opcion">
+                            <button type="button" class="boton-admin"><a href="/administrar/creacion" class="text-black">Agregar un producto</a></button>
+                            <button type="button" class="boton-admin"><a href="/administrar/tallas" class="text-black">Agregar una talla</a></button>
+                            <button type="button" class="boton-admin"><a href="/administrar/marcas" class="text-black">Agregar una marca</a></button>
+                            <button type="button" class="boton-admin"><a href="/administrar/colores" class="text-black">Agregar colores</a></button>
+                            <button type="button" class="boton-admin"><a href="/administrar/mascotas" class="text-black">Agregar mascotas</a></button>
+                            <button type="button" class="boton-admin"><a href="/administrar/mediosdepago" class="text-black">Agregar medios de pago</a></button>
+                            <button type="button" class="boton-admin"><a href="/administrar/pesos" class="text-black">Agregar medidas</a></button>
+                            <button type="button" class="boton-admin"><a href="/administrar/envios" class="text-black">Agregar medios de envio</a></button> 
+                        </ul>
+                    </div>
+            </article>
+            
+            
+                
+                
+                
+                
+                
+                
+                
+              
+              <article class="col-12"><h2 class="text-black text-center pt-2">Administrador de Productos</h2></article>
+            <article class="tabla-admin-productos">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>

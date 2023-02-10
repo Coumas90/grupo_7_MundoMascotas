@@ -11,8 +11,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    background: linear-gradient(to left, #d5eaf7,
-    #ffc97d);
+    background: linear-gradient(to left, #85C1E9, #F0F3F4);
 }
 
 .form {
@@ -57,12 +56,14 @@ body {
     display: flex;
     align-items: baseline;
     margin: 0 auto;
+    color: #a1a1a1;
+    justify-content: space-around;
 }
 
 .form__input>i {
     font-size: 2rem;
     margin-right: 1rem;
-    color: #FFC97D;
+    color: #3498DB ;
 }
 
 .form__input input {
@@ -87,7 +88,7 @@ body {
 .form__input .bar::before {
     content: "";
     position: absolute;
-    background-color: #fc6767;
+    background-color: #3498DB ;
     width: 100%;
     height: 2px;
     transform: scaleX(0);
@@ -127,12 +128,13 @@ body {
 
 .form__switch a {
     text-decoration: none;
-    color: #FFC97D;
+    color: #3498DB;
 }
 
 .form__switch a:hover {
     text-decoration: underline;
 }
+
 
 @media screen and (min-width: 43.75em) {
     .form::before {
