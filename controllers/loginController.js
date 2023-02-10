@@ -8,10 +8,10 @@ const db = require("../database/models")
 const controladorLogin = {
     login: (req, res)=> {res.render('user/login')},
     userLogin: (req,res)=> {
-        let errors = validationResult(req);
+        let resulterrors = validationResult(req);
         
-        if(errors.errors.length>0){
-            res.render('user/login', {errors:errors.mapped(), old:req.body});
+        if(resulterrors.errors.length>0){
+            res.render('user/login', {resulterrors:errors.mapped(), old:req.body});
         }
         let userToLogin = db.User.findByEmail(req.body.email);
         
@@ -22,7 +22,7 @@ const controladorLogin = {
         // Si el que intenta ingresar está en nuestra base de datos
         if (userToLogin) {
             // Comparamos la contraseña que ingresó en el formulario de Log In y el guardado en nuestra BD
-            let isOKPassword = bcryptjs.compareSync(req.body.Password, userToLogin.Password);
+            let isOKPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
           
             if (isOKPassword) {
               req.session.userLogged = userToLogin;
@@ -52,42 +52,98 @@ const controladorLogin = {
     },
     
     createUser: (req, res) => {
-      const categoriaUsers = db.UserCategory.findAll();
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.render('user/register', {
-          errors: errors.mapped(),
-          old: req.body,
-          categoriaUsers
-        });
-      }
+      //Intento 2
+      const resulterrors = validationResult(req);
     
-      User.findByEmail(req.body.email)
-        .then((userInDb) => {
-          if (userInDb) {
-            return res.render('user/register', {
-              errors: {
-                email: { msg: 'Este email ya está registrado' }
+      if(resulterrors.errors.length >0){
+        return res.render("user/register",{
+          errors: resulterrors.mapped(),
+          oldData:req.body,
+          categoriaUsers:categoriaUsers
+        });
+      }else{
+        //evitar que se registren con un email que ya esta en la BD
+        User.findOne({ where: { email: req.body.email } }).then((userInDb) => {
+          if(userInDb){
+            return res.render ("user/register",{
+              errors:{
+                email:{
+                  msg: "Este email ya esta registrado",
+                },
               },
-              old: req.body,
-              categoriaUsers
+              oldData:req.body,
+              categoriaUsers:categoriaUsers
             });
           }
     
-          return db.User.create({
-            email: req.body.email,
+          //Si el password no coincide con la confirmacion
+          if(req.body.password !== req.body.password2){
+            return res.render ("user/register",{
+              errors:{
+                password2:{
+                  msg: "Contraseña no coincide con la ingresada",
+                },
+              },
+              oldData:req.body,
+              categoriaUsers:categoriaUsers
+            });
+          }
+    
+          const image = req.file ? req.file.filename : "default.png";
+          let userToCreate ={
             name: req.body.name,
             surname: req.body.surname,
-            dni: req.body.dni,
+            dni:req.body.dni,
             telephone: req.body.telephone,
-            image: req.file.filename,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            password2: bcryptjs.hashSync(req.body.password2, 10),
-            id_user_category: req.body.id_user_category
-          })
-            .then(() => res.redirect('/login'));
+            email:req.body.email,
+            password: bcryptjs.hashSync(req.body.password,10),
+            image: image,
+            id_user_category: req.body.id_user_category,
+          };
+          User.create(userToCreate).then(() => {
+            return res.redirect("user/login");
+          });
         });
+      }
     },
+      
+      // Intento 1
+    //   const categoriaUsers = db.UserCategory.findAll();
+    //   const errors = validationResult(req);
+    //   if (!errors.isEmpty()) {
+    //     return res.render('user/register', {
+    //       errors: errors.mapped(),
+    //       old: req.body,
+    //       categoriaUsers
+    //     });
+    //   }
+    
+    //   User.findByEmail(req.body.email)
+    //     .then((userInDb) => {
+    //       if (userInDb) {
+    //         return res.render('user/register', {
+    //           errors: {
+    //             email: { msg: 'Este email ya está registrado' }
+    //           },
+    //           old: req.body,
+    //           categoriaUsers
+    //         });
+    //       }
+    
+    //       return db.User.create({
+    //         email: req.body.email,
+    //         name: req.body.name,
+    //         surname: req.body.surname,
+    //         dni: req.body.dni,
+    //         telephone: req.body.telephone,
+    //         image: req.file.filename,
+    //         password: bcryptjs.hashSync(req.body.password, 10),
+    //         password2: bcryptjs.hashSync(req.body.password2, 10),
+    //         id_user_category: req.body.id_user_category
+    //       })
+    //         .then(() => res.redirect('/login'));
+    //     });
+    // },
     
     olvido: (req, res) => {res.render('user/restablecer');
     },

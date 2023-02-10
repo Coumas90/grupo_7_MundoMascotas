@@ -10,6 +10,7 @@ const path = require('path');
 //Traemos el middleware para loguearse
 const guestMiddleware = require('../middlewares/guestMiddleware');
 
+
 //Requerimos multer ya que vamos a querer almacenar las fotos de perfil
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -41,25 +42,25 @@ const validacionesLogIn = [
 
 // Validaciones del register
 const validacionesRegistro = [
-    body("Email")
+    body("email")
     .isEmail().withMessage("Ingresar email valido").bail()
     .notEmpty().withMessage("El campo email es obligatorio"),
-    body("Password")
+    body("password")
     .notEmpty(). withMessage("El campo contraseña es obligatorio").bail()
     .isLength(min=8),
-    body("Nombre")
+    body("name")
     .notEmpty().withMessage("El campo nombre es obligatorio").bail()
     .isLength(min=2),
-    body("Apellido")
+    body("surname")
     .notEmpty().withMessage("El campo apellido es obligatorio").bail()
     .isLength(min=2),
-    body("Telefono").notEmpty().withMessage("El campo telefono es obligatorio"),
-    body("DNI").notEmpty().withMessage("El campo dni es obligatorio"),
-    body("Password2")
+    body("telephone").notEmpty().withMessage("El campo telefono es obligatorio"),
+    body("dni").notEmpty().withMessage("El campo dni es obligatorio"),
+    body("password2")
     .notEmpty(). withMessage("El campo contraseña es obligatorio").bail()
     .isLength(min=8),
-    body("Avatar").notEmpty().withMessage("El campo imagen es obligatorio"),
-    body("Avatar").custom((value,{req})=>{
+    body("image").notEmpty().withMessage("El campo imagen es obligatorio"),
+    body("image").custom((value,{req})=>{
         let file = req.file;
         let acceptedExtensions = ['.jpg','.png','.gif','.jpeg'];
         if(!file){
@@ -79,7 +80,7 @@ const controladorLogin = require('../controllers/loginController');
 
 router.get('/', guestMiddleware, validacionesLogIn, controladorLogin.login);
 router.post('/',validacionesLogIn ,controladorLogin.userLogin);
-router.get('/register', guestMiddleware, controladorLogin.register);
+router.get('/register', controladorLogin.register);
 router.post('/register', uploadPhoto.single('image'),validacionesRegistro , controladorLogin.createUser);
 router.get('/olvido', controladorLogin.olvido);
 router.post('/olvido', controladorLogin.restablecer);

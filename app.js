@@ -8,10 +8,13 @@ const app = express();
 // Requerir path
 const path = require('path');
 
+const cookieParser = require('cookie-parser');
+
 
 //Creamos estos dos entornos para poder trabajar con los datos que se envian desde el formulario, para poder capturar esta informacion
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+app.use(cookieParser());
 
 
 
@@ -39,7 +42,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor
-app.listen(3001, () => {console.log('Servidor corriendo')});
+app.listen(3002, () => {console.log('Servidor corriendo')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasListado);
