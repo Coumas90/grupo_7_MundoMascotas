@@ -9,7 +9,6 @@
 			<div class="row">
 				<div class="imagen-detalle-producto">
 					<img src="/images/Productos/<%=producto.image %>" class="imagen-detalle-producto" alt="">
-					
 				</div>
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
@@ -18,25 +17,30 @@
 							<p class="product-detail-discount"><b>-<%= producto.discount %>%</b></p>
 						<div class="actions-list">
 							<div>
-								<i class="fas fa-credit-card"><p>Pagar en 12 cuotas sin interes</p></i>
+								<i class="fas fa-credit-card">
+									<p>Pagar en 12 cuotas sin interes</p>
+								</i>
 							</div>
 							<div>
-								<i class="fas fa-store"><p>Retiro gratis en locales del vendedor</p></i>
+								<i class="fas fa-store">
+									<p>Retiro gratis en locales del vendedor</p>
+								</i>
 							</div>
-								</div>
-								
-
-						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST" ><button class="btn btn-success btn-sm" type="submit">Comprar</button></form></a>
-						
-						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST"><button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button></form>
-						
-					
-						<p class="product-detail-description">
-							<h2>DESCRIPCIÓN:</h2>
-							<%= producto.description %>
-						</p>
+						</div>
+						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST" >
+							<button class="btn btn-success btn-sm" type="submit">Comprar</button>
+						</form>
+						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST">
+							<button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button>
+						</form>
 					</article>
 				</div>
+			</div>
+			<div class="descripcion-detail">
+				<h2>DESCRIPCIÓN:</h2>
+				<p class="product-detail-description">
+					<%= producto.description %>
+				</p>
 			</div>
 		</div>
 	</div>
