@@ -197,10 +197,9 @@ button.boton-menu{
 }
 
 /*====== Banners  ======*/
-section.banner{
+img.banner{
     width: 100%;
-    display: block;
-    margin-bottom: 30px
+    padding-bottom: 1%;
 }
 
 

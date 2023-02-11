@@ -59,10 +59,10 @@ module.exports = (sequelize, dataTypes) =>{
             type: dataTypes.STRING,
             allowNull: false,
         },
-        // oferta:{
-        //     type: dataTypes.STRING,
-        //     allowNull: false,
-        // }
+        oferta:{
+            type: dataTypes.STRING,
+            allowNull: false,
+        }
 
     };
     const config=
