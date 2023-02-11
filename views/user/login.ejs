@@ -14,22 +14,22 @@
 <body>
     <div class="form">
         <span class="form__title">Registrate en Mundo Mascotas!</span>
+        <% if(locals.errores){
+            errores.forEach(error => { %>
+            <p><%= error.msg %></p>
+        <% })
+        }
+        %>
         <form action="/login" method="post">
             <div class="form__input">
                 <i class="ri-mail-line"></i>
-                <input type="email" name="Email" placeholder="Email" id="email" value="<%= locals.old && old.Email ? old.Email : '' %>" required>
+                <input type="email" name="Email" placeholder="Email" id="email" value="<%= locals.old && old.Email ? old.Email : '' %>" >
                 <span class="bar"></span>
-                <% if(locals.errors && errors.Email){ %>
-                    <p style="color:red"> <%= errors.email.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="Password" placeholder="Contraseña"  id="password"minlength="8" required>
+                <input type="password" name="Password" placeholder="Contraseña"  id="password"minlength="8" >
                 <span class="bar"></span>
-                <% if(locals.errors && errors.Password){ %>
-                    <p style="color:red"> <%=errors.password.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
             <span class="recordame"name="recordame">Recordame</span>

@@ -69,6 +69,10 @@ module.exports = (sequelize, dataTypes) =>{
             foreignKey:"id_user_category"
         });
     }
+
+    User.findByEmail= function (email){
+        return this.findOne({where:{email:email}});
+    };
     return User;
 }
 

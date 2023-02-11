@@ -14,82 +14,58 @@
 <body>
     <div class="form">
         <span class="form__title">Registrate en Mundo Mascotas!</span>
+        <div class = "errores">
+            <% if(typeof errores === "object"){ %>
+                <% Object.values(errores).forEach(error => { %>
+                  <p><%= error.msg %></p>
+                <% }); %>
+              <% } else { %>
+                <% errores.forEach(error => { %>
+                  <p><%= error.msg %></p>
+                <% }); %>
+              <% } %>
+        </div>
         <form action="/login/register" method="POST" enctype="multipart/form-data">
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="name" placeholder="Nombre" id="name" value="<%= locals.old && old.name ? old.name : '' %>" required>
+                <input type="text" name="name" placeholder="Nombre" id="name" value="<%= locals.old && old.name ? old.name : '' %>" >
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.name){ %>
-                    <p style="color:red"> <%=errorsregister.name.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="surname" placeholder="Apellido" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>"required>
+                <input type="text" name="surname" placeholder="Apellido" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>">
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.surname){ %>
-                    <p style="color:red"> <%=errorsregister.surname.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="dni" placeholder="DNI"  id="dni" value="<%= locals.old && old.dni ? old.dni : '' %>"required>
+                <input type="text" name="dni" placeholder="DNI"  id="dni" value="<%= locals.old && old.dni ? old.dni : '' %>">
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.dni){ %>
-                    <p style="color:red"> <%=errorsregister.dni.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input type="text" name="telephone" placeholder="Telefono" id="telephone" value="<%= locals.old && old.telephone ? old.telephone : '' %>"required>
+                <input type="text" name="telephone" placeholder="Telefono" id="telephone" value="<%= locals.old && old.telephone ? old.telephone : '' %>">
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.telephone){ %>
-                    <p style="color:red"> <%=errorsregister.telephone.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-mail-line"></i>
-                <input type="email" name="email" placeholder="Email" id="email" value="<%= locals.old && old.email ? old.email : '' %>"required>
+                <input type="email" name="email" placeholder="Email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.email){ %>
-                    <p style="color:red"> <%=errorsregister.email.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="password" placeholder="Contraseña" id="password"  required>
+                <input type="password" name="password" placeholder="Contraseña" id="password"  >
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.password){ %>
-                    <p style="color:red"> <%=errorsregister.password.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-lock-line"></i>
-                <input type="password" name="password2" placeholder="Confirme contraseña" id="password2" required>
+                <input type="password" name="password2" placeholder="Confirme contraseña" id="password2" >
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.password2){ %>
-                    <p style="color:red"> <%=errorsregister.password2.msg%> </p>
-                <%}%>
             </div>
             <div class="form__input">
                 <i class="ri-user-line"></i>
-                <input class="seleccion-archivo" type="file" name="image" placeholder="Adjuntar imagen de perfil" id="image" accept= "pdf, jpeg, jpg" required>
+                <input class="seleccion-archivo" type="file" name="image" placeholder="Adjuntar imagen de perfil" id="image" accept= "pdf, jpeg, jpg, png" >
                 <span class="bar"></span>
-                <% if(locals.errorsregister && errorsregister.image){ %>
-                    <p style="color:red"> <%=errorsregister.image.msg%> </p>
-                <%}%>
             </div>
-            <div class="form__input">
-                <label for="id_user_category">Seleccionar tipo de usuario:</label>
-                <select class="selector" required aria-label="select example" name="id_user_category">
-                  <% for (let i=0; i < categoriaUsers.length; i++){ %>
-                  <option value="<%= categoriaUsers[i].id_user_category%>" name="id_user_category">
-                    <%= categoriaUsers[i].name_user_category%>
-                  </option>
-                  <% } %>
-                </select>
-                <span class="bar"></span>
-              </div>
             <button type="submit" class="form__button">Registrarme</button>
             <span class="form__switch">
                 Ya tenes cuenta?? <a href="/login">Login</a>
