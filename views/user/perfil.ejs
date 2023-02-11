@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <title>Perfil de usuario</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href = https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css rel = "stylesheet">
   </head>
+  <header>
+    <p class="texto-header">Bienvenido <%= user.name %> a Mundo Mascotas</p>
+    <div class="contenedor">
+    <div class="top-header">
+        <span class="logo-chico">
+            <a href="/"><img class="logo-chico"  src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img"></a>
+        </span>
+    </div>
+    <div class="top-header">
+        <nav>
+            <% if (locals.isLogged){ %>
+           <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
+           <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
+           <% } else { %>
+            <button class="btn btn-light" type="submit"><a href="/administrar">Administrador</a></button>
+            <% } %>
+        </nav>    
+    </div>   
+    </div>
+</header>
   <body>
     <div class="container">
-      <h1>Perfil de usuario</h1>
+      <h1>Perfil de <%= user.name %> <%= user.surname %></h1>
       <div class="row">
         <div class="col-md-3">
           <img src="./images/users/<%= user.image %>" alt="Imagen de perfil">
