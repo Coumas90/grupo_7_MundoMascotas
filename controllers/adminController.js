@@ -55,9 +55,11 @@ const controladorAdmin = {
   	},
   
 	actualizar: (req,res)=> {
-		console.log('req.params: ', req.params);
-		console.log('req.body: ', req.body);
-
+		
+		if (!req.file) {
+			// manejar el caso en el que no haya un archivo adjunto
+			return res.status(400).send("No se ha recibido ningún archivo");
+		}
 		db.Product.update({
 			name:req.body.name,
 			description:req.body.description,

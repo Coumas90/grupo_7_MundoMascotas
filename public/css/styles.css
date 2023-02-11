@@ -65,6 +65,10 @@ div.card-body{
     flex-direction: column;
 }
 
+.opciones-admin-datos{
+    text-decoration: underline;
+}
+
 /*====== Tipografías y fuentes ======*/
 
 h3{
