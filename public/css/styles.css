@@ -202,7 +202,6 @@ img.banner{
     padding-bottom: 1%;
 }
 
-
 section.cuerpo-pagina{
     margin-bottom: 30px
 }
@@ -335,7 +334,22 @@ div.errores{
     color: red
 }
 
+/*====== Perfil ======*/
+.contenedor-perfil{
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
 
+.datosgenerales-perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
 
 /*====== Media-Queries ======*/
 
