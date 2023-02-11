@@ -9,7 +9,7 @@ const controladorCarrito = {
         }
         // Obtiene los productos del carrito de la sesión
         const carrito = req.session.carrito || [];
-        res.render("products/productCart", { carrito });
+        res.render("products/productCart", { producto });
         },
     // Agrega un producto al carrito
     agregarProducto: (req, res) => {
@@ -21,12 +21,12 @@ const controladorCarrito = {
         const producto = products.find(product => product.id == idProducto);
         // Si el producto existe, lo agrega al carrito
         if (producto) {
-            carrito.push(producto);
-            req.session.carrito = carrito;
+          carrito.push(producto);
+          req.session.carrito = carrito;
         }
         // Redirige al usuario al carrito de compras
         res.redirect("/productCart");
-        },
+      },
     // Elimina un producto del carrito
     descartarProducto: (req, res) => {
         // Obtiene el ID del producto a eliminar
