@@ -9,11 +9,10 @@
     </head>
     <body>
       <div class="form">
-        <span class="form__title">Crear nueva talla</span>
-        <div class="container products-wrapper">
+        <span class="form__title">Crear un nuevo talle</span>
           <form action="/administrar/tallas" method="POST" >
             <div class="form__input">
-              <label for="name_size" class="form-label">Crear nueva talla</label>
+              <label for="name_size" class="form-label">Nuevo talle</label>
               <input type="text" class="form-input" id="name_size" placeholder="Ej: XS" required name="name_size">
               <span class="bar"></span>
             </div>
@@ -22,7 +21,6 @@
               <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>
             </div>
           </form>
-        </div>
       </div>
       <%- include('../partials/footer.ejs') %>
     </body>

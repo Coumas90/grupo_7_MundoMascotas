@@ -65,6 +65,10 @@ div.card-body{
     flex-direction: column;
 }
 
+.opciones-admin-datos{
+    text-decoration: underline;
+}
+
 /*====== Tipografías y fuentes ======*/
 
 h3{
@@ -312,6 +316,7 @@ img.card-img-top{
 div.errores{
     color: red
 }
+
 
 
 /*====== Media-Queries ======*/

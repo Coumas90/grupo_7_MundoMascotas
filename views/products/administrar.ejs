@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang ="es">
     <%- include('../partials/head.ejs') %>
-    
     <body>
-        
         <header>
             <div class="contenedor">
             <div class="top-header">
@@ -30,7 +28,7 @@
                     <input type="submit" value="Search">
                 </form>
                 </div> -->
-        
+
             </div>
                 <div class="top-header">
                     <nav>
@@ -46,43 +44,37 @@
                 </div>              
             </div>
         </header>
-        
         <section class="row">
             <article class="col-12">
                 <div class="opciones-product-admin">
-                    
                     <div class="botones-de-opcion">
                         <h2 class="text-black pt-2">Administrador de datos</h2>
-
                         <div class="nav-hover nav-tabs">
-                            <div class="nav-item">
+                            <div class="opciones-admin-datos">
                                 <a href="/administrar/creacion" class="text-black">Agregar un producto</a>
                             </div>
-                            <div class="nav-item">
-                                <a href="/administrar/tallas" class="text-black">Agregar una talla</a>
+                            <div class="opciones-admin-datos">
+                                <a href="/administrar/tallas" class="text-black">Agregar un talle</a>
                             </div>
-                            <div class="nav-item">
+                            <div class="opciones-admin-datos">
                                 <a href="/administrar/marcas" class="text-black">Agregar una marca</a>
                             </div>
-                            <div class="nav-item">
+                            <div class="opciones-admin-datos">
                                 <a href="/administrar/colores" class="text-black">Agregar colores</a>
                             </div>
-                            <div class="nav-item">
-                                <a href="/administrar/mascotas" class="text-black">Agregar mascotas</a>
+                            <div class="opciones-admin-datos">
+                                <a href="/administrar/mascotas" class="text-black">Agregar tipo de mascota</a>
                             </div>
-                            <div class="nav-item">
+                            <div class="opciones-admin-datos">
                                 <a href="/administrar/mediosdepago" class="text-black">Agregar medios de pago</a>
                             </div>
-                            <div class="nav-item">
-                                <a href="/administrar/pesos" class="text-black">Agregar medidas</a>
+                            <div class="opciones-admin-datos">
+                                <a href="/administrar/pesos" class="text-black">Agregar medida o peso</a>
                             </div>
-                            <div class="nav-item">
+                            <div class="opciones-admin-datos">
                                 <a href="/administrar/envios" class="text-black">Agregar medios de envio</a>
                             </div>
                         </div>
-
-
-
                         <!-- <table class="table table-hover">
                             <th>
                                 <td><a href="/administrar/creacion" class="text-black">Agregar un producto</a></td>
@@ -114,9 +106,12 @@
                                 <tr>
                                     <td><%= listadoProductos.id_product %></td>
                                     <td><%= listadoProductos.name %></td>
-                                    <td><a href="/productDetail/<%= listadoProductos.id_product %>" class="text-black">Link</a></td>
-                                    <td><a href="/administrar/<%= listadoProductos.id_product %>/editar" class="text-black">Editar</a></td>
-                                    <td><form action="/administrar/delete/<%= listadoProductos.id_product %>" class="text-black" method="POST"><button type="submit">Borrar</button></form></td>
+                                    <td><a href="/productDetail/<%= listadoProductos.id_product %>" class="text-black">
+                                        <button class="btn btn-success" type="submit">Link</button></a></td>
+                                    <td><a href="/administrar/<%= listadoProductos.id_product %>/editar" class="text-black">
+                                        <button class="btn btn-warning" type="submit">Editar</button></a></td>
+                                    <td><form action="/administrar/delete/<%= listadoProductos.id_product %>" class="text-black" method="POST">
+                                        <button class="btn btn-danger" type="submit">Borrar</button></form></td>
                                 </tr>
                             <% }) %>
                         </tbody>
