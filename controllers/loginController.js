@@ -38,7 +38,7 @@ const controladorLogin = {
           } else {
             // Si el email no está en nuestra BD o si userToLogin es undefined o null
             res.render('user/login', {
-              errors: {
+              error: {
                 email: { msg: 'No se encuentra este email en nuestra base de datos' }
               }
             });
@@ -46,34 +46,25 @@ const controladorLogin = {
     },
     
     register: (req, res) => {
-      db.UserCategory.findAll().then((categoriaUsers) => {
-        return res.render('user/register', { categoriaUsers:categoriaUsers });
-      });
-    },
-    
+        return res.render('user/register');
+      },
     createUser: (req, res) => {
       let errores = validationResult(req);
-      let categoriaUsers
-    
+      console.log(errores)
       if(!errores.isEmpty()){
-        db.UserCategory.findAll().then((categoriaUsers) => {
           res.render("user/register", {
             errores: errores.array(),
             old: req.body,
-            categoriaUsers: categoriaUsers
           });
-        });
-      } else {
+        } else {
         db.User.findByEmail(req.body.email).then((userInDB) => {
           if(userInDB){
             return res.render("user/register", {
-              errores: {
-                email:{
-                  msg: "Este email ya esta registrado"
-                }
-              },
+              errores: [{
+                msg:"Este email ya esta registrado",
+                param: "email"
+                }],
               old: req.body,
-              categoriaUsers: categoriaUsers
             });
           } else {
             let userToCreate = {
@@ -85,7 +76,6 @@ const controladorLogin = {
               password: bcryptjs.hashSync(req.body.password, 10),
               password2: bcryptjs.hashSync(req.body.password, 10),
               image: req.file.filename,
-              id_user_category: req.body.id_user_category,
             };
             db.User.create(userToCreate).then(() => {
               return res.redirect("/login");
