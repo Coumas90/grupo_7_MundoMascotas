@@ -18,8 +18,9 @@ i {
 }
 
 .footer {
+    background-color: #34495E;
     padding-block: 5rem;
-    color: #666873;
+    color: #ffffff;
 }
 
 .footer__container {
@@ -43,6 +44,7 @@ i {
 
 .footer__list {
     display: flex;
+    text-align: left;
     flex-direction: column;
     gap: 2rem;
 }
@@ -70,7 +72,7 @@ i {
 }
 
 .company__logo {
-    color: #666873;
+    color: #ffffff;
 }
 
 .company__info ul {

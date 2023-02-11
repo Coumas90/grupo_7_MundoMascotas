@@ -4,7 +4,12 @@
 <body>
   <%- include('../partials/header.ejs') %>
   <div class="container products-wrapper">
-		
+	<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="/"><i class="fa-solid fa-house"></i></a></li>
+		  <li class="breadcrumb-item active" aria-current="page"><%= producto.name %></li>
+		</ol>
+	  </nav>
 		<div class="product-detail">
 			<div class="row">
 				<div class="imagen-detalle-producto">
@@ -15,24 +20,53 @@
 						<h2 class="product-detail-title"><%= producto.name %></h2>
 							<p class="product-detail-price"><span>$ <%= producto.price %></span></p>
 							<p class="product-detail-discount"><b>-<%= producto.discount %>%</b></p>
-						<div class="actions-list">
-							<div>
-								<i class="fas fa-credit-card">
-									<p>Pagar en 12 cuotas sin interes</p>
-								</i>
+							<div class="actions-list">
+								<div>
+									<!-- Button trigger modal -->
+									<i class="fa-solid fa-truck" data-bs-toggle="modal" data-bs-target="#exampleModal1"><p>MEDIOS DE ENVIO</p></i>
+									<!-- Modal -->
+									<span class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="medio-envio" aria-hidden="true">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+										  <div class="modal-header">
+											<h1 class="modal-title fs-5" id="medio-envio">Métodos de entrega</h1>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										  </div>
+										  <div class="modal-body">
+											<img src="/images/Marcas/logos-mensajeria1.jpg">
+										  </div>
+										</div>
+									  </div>
+									</span>
+								  </div>
 							</div>
-							<div>
-								<i class="fas fa-store">
-									<p>Retiro gratis en locales del vendedor</p>
-								</i>
+							<div class="actions-list">
+								<div>
+									<!-- Button trigger modal -->
+									<i class="fa-regular fa-credit-card" data-bs-toggle="modal" data-bs-target="#exampleModal2"><p>MEDIOS DE PAGO</p></i>
+									<!-- Modal -->
+									<span class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="medio-pago" aria-hidden="true">
+									  <div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+											  <h1 class="modal-title fs-5" id="medio-pago">Medios de pago</h1>
+											  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+											  <img src="/images/Marcas/mediodepago_iconos.jpg">
+											</div>
+										  </div>
+										</div>
+									  </span>
+								  </div>
 							</div>
-						</div>
-						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST" >
-							<button class="btn btn-success btn-sm" type="submit">Comprar</button>
-						</form>
-						<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST">
-							<button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button>
-						</form>
+							<!-- <form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST" >
+								<button class="btn btn-success btn-sm" type="submit">Comprar</button>
+							</form> -->
+							<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST">
+								<button class="btn btn-success btn-lg" type="submit">Agregar al carrito</button>
+							</form>
+						<p class="product-detail-title">Cantidad disponible: <%= producto.id_product %></p>
 					</article>
 				</div>
 			</div>
