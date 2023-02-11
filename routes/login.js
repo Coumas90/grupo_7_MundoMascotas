@@ -9,6 +9,8 @@ const path = require('path');
 
 //Traemos el middleware para loguearse
 const guestMiddleware = require('../middlewares/guestMiddleware');
+const checkSession = require('../middlewares/checkSession');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 
 //Requerimos multer ya que vamos a querer almacenar las fotos de perfil
@@ -75,12 +77,13 @@ const validacionesRegistro = [
 const controladorLogin = require('../controllers/loginController');
 // Las validaciones se implementan en aquellas rutas que procesan el pedido, es decir, en las rutas POST
 
-router.get('/', controladorLogin.login);
+router.get('/',guestMiddleware,  controladorLogin.login);
 router.post('/',validacionesLogIn ,controladorLogin.userLogin);
-router.get('/register', controladorLogin.register);
+router.get('/register', guestMiddleware, controladorLogin.register);
 router.post('/register', uploadPhoto.single('image'),validacionesRegistro , controladorLogin.createUser);
-router.get('/olvido', controladorLogin.olvido);
+router.get('/olvido',guestMiddleware,  controladorLogin.olvido);
 router.post('/olvido', controladorLogin.restablecer);
+router.get('/perfil',checkSession, authMiddleware, controladorLogin.perfil);
 
 
 module.exports = router;
