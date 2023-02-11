@@ -28,7 +28,7 @@ const controladorLogin = {
             let isOKPassword = bcryptjs.compareSync(req.body.password, user.password);
             if (isOKPassword) {
               req.session.userLogged = user;
-              return res.redirect ('/perfil');
+              return res.redirect ('/login/perfil');
             } else {
               res.render('user/login', {
                 errores: [{
