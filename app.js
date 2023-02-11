@@ -15,14 +15,17 @@ const cookieParser = require('cookie-parser');
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(session({
+    secret:"Mensaje secreto",
+    resave: false,
+    saveUninitialized: false,
+}));
 
 
 //Creo contantes que guardan las rutas
 const rutasLogin = require('./routes/login.js');
 const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
-const rutasPerfil = require('./routes/perfil.js');
 const rutasListado = require('./routes/listado.js');
 const rutasAdministrar = require('./routes/admin.js');
 const rutasApi = require('./routes/api.js')
@@ -39,26 +42,20 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor
-app.listen(3002, () => {console.log('Servidor corriendo')});
+app.listen(3003, () => {console.log('Servidor corriendo')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasListado);
 app.use('/productDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
-app.use('/perfil', rutasPerfil);
 app.use('/administrar', rutasAdministrar);
 app.use('/api',rutasApi)
 
 //Necesario para poder utilizar los metodos put y delete en HTTP
 app.use(methodOverride('_method'));
 
-// configuramos session como middleware a nivel aplicacion 
-app.use(session({
-    secret:"Mensaje secreto",
-    resave: false,
-    saveUninitialized: false
-}));
+// configuramos session como middleware a nivel aplicacion
 
 
 

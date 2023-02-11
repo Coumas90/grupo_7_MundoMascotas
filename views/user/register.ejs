@@ -15,15 +15,12 @@
     <div class="form">
         <span class="form__title">Registrate en Mundo Mascotas!</span>
         <div class = "errores">
-            <% if(typeof errores === "object"){ %>
-                <% Object.values(errores).forEach(error => { %>
-                  <p><%= error.msg %></p>
-                <% }); %>
-              <% } else { %>
-                <% errores.forEach(error => { %>
-                  <p><%= error.msg %></p>
-                <% }); %>
-              <% } %>
+            <% if(locals.errores){
+                errores.forEach(error => { %>
+                <p><%= error.msg %></p>
+            <% })
+            }
+            %>
         </div>
         <form action="/login/register" method="POST" enctype="multipart/form-data">
             <div class="form__input">

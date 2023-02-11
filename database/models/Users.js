@@ -40,15 +40,6 @@ module.exports = (sequelize, dataTypes) =>{
         password2:{
             type: dataTypes.STRING,
             allowNull: false,
-        },
-        id_user_category:{
-            type: dataTypes.INTEGER,
-            allowNull: false,
-            references:{
-                model: 'CategoriaUser',
-                key:'idUsersCategory'
-            }
-            //foreign key
         }
 
     };
@@ -63,10 +54,6 @@ module.exports = (sequelize, dataTypes) =>{
         User.hasMany(models.Purchase,{
             as:"Compra",
             foreignKey: "id_user"
-        });
-        User.belongsTo(models.UserCategory,{
-            as: "User Category",
-            foreignKey:"id_user_category"
         });
     }
 
