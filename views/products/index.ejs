@@ -13,7 +13,7 @@
           <h2>Productos en oferta!</h2>
           <div class ="listadoProductos">
             <% productos.filter(producto=> {
-              if(producto.oferta == "si") {%>
+              if(producto.oferta === "si") {%>
             <article class="detalleProducto">
               <a class="redireccion" href="/productDetail/<%=producto.id_product%>">
                 <div class="col">
