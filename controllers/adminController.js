@@ -55,8 +55,6 @@ const controladorAdmin = {
   	},
   
 	actualizar: (req,res)=> {
-		console.log('req.params: ', req.params);
-		console.log('req.body: ', req.body);
 
 		db.Product.update({
 			name:req.body.name,

@@ -31,9 +31,6 @@ const rutasApi = require('./routes/api.js')
 const methodOverride = require ('method-override');
 
 
-//Middleware para la barra de navegacion
-const userLoggedMiddleware = require ('./middlewares/userLoggedMiddleware');
-
 
 // Uso recursos estaticos -> app.use(express.static('public))
 app.use(express.static('public'));
@@ -63,8 +60,7 @@ app.use(session({
     saveUninitialized: false
 }));
 
-// Lo usamos SIEMPRE despues de haber requerido a session
-app.use(userLoggedMiddleware);
+
 
 //Error 404 nos va a redirigir a una vista creada para este error
 app.use((req,res,next)=>{

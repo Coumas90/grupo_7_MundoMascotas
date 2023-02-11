@@ -56,7 +56,7 @@ body {
     display: flex;
     align-items: baseline;
     margin: 0 auto;
-    color: #a1a1a1;
+    color: rgba(0, 0, 0, 0.728);
     justify-content: space-around;
 }
 
@@ -157,4 +157,8 @@ a{
 }
 .recordame{
     color:#a1a1a1
+}
+div.errores{
+    color: red;
+    text-align: center;
 }

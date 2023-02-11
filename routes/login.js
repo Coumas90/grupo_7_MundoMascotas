@@ -56,10 +56,6 @@ const validacionesRegistro = [
     .isLength(min=2),
     body("telephone").notEmpty().withMessage("El campo telefono es obligatorio"),
     body("dni").notEmpty().withMessage("El campo dni es obligatorio"),
-    body("password2")
-    .notEmpty(). withMessage("El campo contraseña es obligatorio").bail()
-    .isLength(min=8),
-    body("image").notEmpty().withMessage("El campo imagen es obligatorio"),
     body("image").custom((value,{req})=>{
         let file = req.file;
         let acceptedExtensions = ['.jpg','.png','.gif','.jpeg'];
@@ -77,8 +73,9 @@ const validacionesRegistro = [
 
 
 const controladorLogin = require('../controllers/loginController');
+// Las validaciones se implementan en aquellas rutas que procesan el pedido, es decir, en las rutas POST
 
-router.get('/', guestMiddleware, validacionesLogIn, controladorLogin.login);
+router.get('/', controladorLogin.login);
 router.post('/',validacionesLogIn ,controladorLogin.userLogin);
 router.get('/register', controladorLogin.register);
 router.post('/register', uploadPhoto.single('image'),validacionesRegistro , controladorLogin.createUser);

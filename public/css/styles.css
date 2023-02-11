@@ -301,8 +301,9 @@ img.card-img-top{
     background-color: #ffc97d;
     color:white;
 }
-
-
+div.errores{
+    color: red
+}
 
 
 /*====== Media-Queries ======*/
