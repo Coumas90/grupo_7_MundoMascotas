@@ -26,7 +26,6 @@ app.use(session({
 const rutasLogin = require('./routes/login.js');
 const rutasProductCart = require('./routes/productCart.js');
 const rutasProductDetail = require('./routes/productDetail.js');
-const rutasPerfil = require('./routes/perfil.js');
 const rutasListado = require('./routes/listado.js');
 const rutasAdministrar = require('./routes/admin.js');
 const rutasApi = require('./routes/api.js')
@@ -50,7 +49,6 @@ app.use('/', rutasListado);
 app.use('/productDetail',rutasProductDetail);
 app.use('/productCart',rutasProductCart);
 app.use('/login',rutasLogin);
-app.use('/perfil', rutasPerfil);
 app.use('/administrar', rutasAdministrar);
 app.use('/api',rutasApi)
 

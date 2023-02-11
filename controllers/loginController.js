@@ -28,7 +28,6 @@ const controladorLogin = {
             let isOKPassword = bcryptjs.compareSync(req.body.password, user.password);
             if (isOKPassword) {
               req.session.userLogged = user;
-              console.log(req.session)
               return res.redirect ('/perfil');
             } else {
               res.render('user/login', {
@@ -44,7 +43,6 @@ const controladorLogin = {
           console.error(err);
           res.send("Hubo un error procesando su solicitud. Por favor, intente de nuevo más tarde.");
         });
-        console.log(req.session.userLogged)
     },
     register: (req, res) => {
         return res.render('user/register');
@@ -95,10 +93,13 @@ const controladorLogin = {
         res.redirect("/login");
     },
     perfil: (req,res) =>{
-      const user = req.session.user;
       res.render('user/perfil',{
-          user
+        user: req.session.userLogged,
       });
-  }
+  },
+    logOut: (req,res) => {
+    req.session.destroy();
+    return res.redirect ('/');
+}
   }
 module.exports = controladorLogin;
