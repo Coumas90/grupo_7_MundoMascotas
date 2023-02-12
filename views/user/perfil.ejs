@@ -11,9 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href = https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css rel = "stylesheet">
+    <link rel="stylesheet" href="/css/footer.css">
   </head>
+
   <header>
-    <p class="texto-header">Bienvenido <%= user.name %> a Mundo Mascotas</p>
+    <p class="texto-header">Bienvenido <%= user.name %> <%= user.surname %> a Mundo Mascotas</p>
     <div class="contenedor">
     <div class="top-header">
         <span class="logo-chico">
@@ -26,27 +28,141 @@
            <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
            <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
            <% } else { %>
-            <button class="btn btn-light" type="submit"><a href="/administrar">Administrador</a></button>
+            <button class="btn btn-light" type="submit"><a href="/administrar">Administrador de producto</a></button>
+            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
             <% } %>
         </nav>    
     </div>   
     </div>
-</header>
+  </header>
+
   <body>
     <div class="container">
-      <h1>Perfil de <%= user.name %> <%= user.surname %></h1>
-      <div class="row">
-        <div class="col-md-3">
-          <img src="./images/users/<%= user.image %>" alt="Imagen de perfil">
+      <i class="fa-regular fa-circle-user"><h9>        Mi cuenta</h9></i>
+      
+      <div class="contenedor-perfil">
+        <div class="imagen-perfil">
+          <img src="/images/users/<%= user.image %>" alt="Imagen de perfil">
         </div>
-        <div class="col-md-9">
-          <h3>Nombre: <span id="name"> <%= user.name %></span></h3>
-          <h3>Apellido: <span id="surname"><%= user.surname %></span></h3>
-          <h3>Email: <span id="email"><%= user.email %></span></h3>
-          <h3>Teléfono: <span id="telephone"><%= user.telephone %></span></h3>
-          <h3>DNI: <span id="dni"><%= user.dni %></span></h3>
+        <div class="datosgenerales-perfil">
+          <div class="datos">
+            <i class="fa-regular fa-address-card" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h9>        Mi perfil</h9></i>         
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mis datos de perfil</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="col-md-9">
+                      <h3>Nombre: <span id="name"> <%= user.name %></span></h3>
+                      <h3>Apellido: <span id="surname"><%= user.surname %></span></h3>
+                      <h3>Email: <span id="email"><%= user.email %></span></h3>
+                      <h3>Teléfono: <span id="telephone"><%= user.telephone %></span></h3>
+                      <h3>DNI: <span id="dni"><%= user.dni %></span></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="datos">
+            <i class="fa-solid fa-basket-shopping"><h9>        Mis compras</h9></i>
+
+          </div>
+          <div class="datos">
+            <i class="fa-solid fa-credit-card" data-bs-toggle="modal" data-bs-target="#exampleModal2"><h9>        Mis medios de pago</h9></i>
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mis medios de pago</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="col-md-9">
+                      <h3>Visa: <span id="name"> XXXX-XXXX-XXXX-4456</span></h3>
+                      <h3>AmericanExpress: <span id="surname">XXXX-XXXX-XXXX-1221</span></h3>
+                      <h3>MasterCard: <span id="email">XXXX-XXXX-XXXX-5897</span></h3>
+                      <h3>MercadoPago: <span id="telephone">julian.vega1</span></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
+    
+    <footer class="footer">
+      <div class="footer__container">
+          <div class="footer__top">
+              <div class="company__info">
+                  <a href="/"><h2 class="company__logo">Mundo Mascotas</h2></a>
+                  <p class="company__description">La tienda donde encontraras todo aquellos que necesites para tu mascota.</p>
+                  <ul class="footer__list">
+                      <li class="footer__list-item">
+                          <a href="#" class="footer__list-link">
+                              <i class="ri-facebook-circle-line"></i>
+                          </a>
+                      </li>
+                      <li class="footer__list-item">
+                          <a href="#" class="footer__list-link">
+                              <i class="ri-instagram-line"></i>
+                          </a>
+                      </li>
+                      <li class="footer__list-item">
+                          <a href="#" class="footer__list-link">
+                              <i class="ri-twitter-line"></i>
+                          </a>
+                      </li>
+                  </ul>
+                  <span class="copyright">&copy;2021 Mundo Mascotas. Todos los derechos estan reservados.</span>
+              </div>
+
+              <div>
+                  <h6 class="footer__title">Crea tu cuenta con Mundo Mascotas!</h6>
+                  <ul class="footer__list">
+                      <li class="footer__list-item">
+                          <a href="/login/register" class="footer__list-link">Registrate</a>
+                      </li>
+                  </ul>
+              </div>
+
+              <div>
+                  <h6 class="footer__title">Nuestros productos estrella</h6>
+                  <ul class="footer__list">
+                      <li class="footer__list-item">
+                          <a href="/listado/categoria/accesorios" class="footer__list-link">Accesorios</a>
+                      </li>
+                      <li class="footer__list-item">
+                          <a href="/listado/animal/perro" class="footer__list-link">Perros</a>
+                      </li>
+                      <li class="footer__list-item">
+                          <a href="/listado/categoria/alimento" class="footer__list-link">Alimentos</a>
+                      </li>
+                  </ul>
+              </div>
+
+              <div>
+                  <h6 class="footer__title">Contactanos</h6>
+                  <ul class="footer__list">
+                      <li class="footer__list-item">
+                          <a href="" class="footer__list-link">(54) 221 3456 7890</a>
+                      </li>
+                      <li class="footer__list-item">
+                          <a href="" class="footer__list-link">info@mundomascotas.com.ar</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    
   </body>
 </html>

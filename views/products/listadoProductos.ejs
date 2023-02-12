@@ -14,12 +14,52 @@
               <div class="card-body">
                   <h5 class="card-title"><a href= "/"><%= filtrados.name %></a></h5>
                     <div class="main-article">
-                      <i class="fas fa-truck"></i>
                         <p class="price">$ <%= filtrados.price %></p>
                         <p class="discount"><%= filtrados.discount %>%</p>
-                        <button class="btn btn-primary btn-sm" type="submit">Comprar</button>
-                        <button class="btn btn-warning btn-sm" type="submit">Agregar al carrito</button>
-                    </div>
+                        
+                        <a class="redireccion" href="/productCart"><button class="btn btn-success btn-lg" type="submit">Agregar al carrito</button></a>
+                        <span class="iconos-detalle-producto">
+                          <div class="actions-list">
+                            <div>
+                              <!-- Button trigger modal -->
+                              <i class="fa-solid fa-truck" data-bs-toggle="modal" data-bs-target="#exampleModal1"></i>
+                              <!-- Modal -->
+                              <span class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="medio-envio" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="medio-envio">Métodos de entrega</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                  <img src="/images/Marcas/logos-mensajeria1.jpg">
+                                  </div>
+                                </div>
+                                </div>
+                              </span>
+                              </div>
+                          </div>
+                          <div class="actions-list">
+                            <div>
+                              <!-- Button trigger modal -->
+                              <i class="fa-regular fa-credit-card" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>
+                              <!-- Modal -->
+                              <span class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="medio-pago" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="medio-pago">Medios de pago</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img src="/images/Marcas/mediodepago_iconos.jpg">
+                                  </div>
+                                  </div>
+                                </div>
+                                </span>
+                              </div>
+                          </div>
+                        </span>
               </div>
             </div>
           </div>
