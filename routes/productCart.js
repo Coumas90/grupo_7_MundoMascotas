@@ -1,16 +1,9 @@
-// Siempre en cada hoja de ruteo hay que requerir express
 const express = require ('express');
-
-//Constante con la extension de express router
+const authMiddleware = require("../middlewares/authMiddleware");
 const router = express.Router();
-//const authMiddleware = require("../middlewares/authMiddleware");
-
 const controladorCarrito = require('../controllers/productCartController');
 
-router.get('/carritoCompras', controladorCarrito.carrito);
+router.get('/', authMiddleware, controladorCarrito.carrito);
 router.post('/agregarProductoCarrito/:id', controladorCarrito.agregarProducto);
-router.delete('/descartarProductoCarrito/:id', controladorCarrito.descartarProducto);
 
 module.exports = router;
-
-
