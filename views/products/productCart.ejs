@@ -94,17 +94,18 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header text-center">
-                            Terminar la compra
+                        <div class="card-header text-center" style="background-color: inherit;
+                        border-bottom: white;">
+                            <h2>Finalizar la compra</h2>
                         </div>
                         <form class="card-body" id="checkoutCart">
                             <div class="row">
                                 <div class=" col-md-6 mb-4">
                                     <label for="country">Tipo Envio</label>
                                     <select class="custom-select d-block w-100" id="shippingMethod" name=" shippingMethod"
-                                        required="">
-                                        <option value="">Elegir...</option>
-                                        <option value="Cadete">Cadete</option>
+                                        required="" style="height: 40px;">
+                                        <option value="">Seleccione...</option>
+                                        <option value="FedEx">FedEx</option>
                                         <option value="Correo">Correo Argentino</option>
                                         <option value="Andreani">Andreani</option>
                                         <option value="DHL">DHL</option>
@@ -117,8 +118,8 @@
                                 <div class=" col-md-6 mb-4">
                                     <label for="country">Pago</label>
                                     <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod"
-                                        required="">
-                                        <option value="">Elegir...</option>
+                                        required="" style="height: 40px;">
+                                        <option value="">Seleccione...</option>
                                         <option value="Efectivo">Efectivo</option>
                                         <option value="Débito">Tarjeta Débito</option>
                                         <option value="Crédito">Tarjeta Crédito</option>
@@ -129,7 +130,7 @@
                                         
                                 </div>
                             </div>
-                            <button class="btn btn-primary btn-lg btn-block waves-effect waves-light"
+                            <button class="btn btn-success btn-lg btn-block waves-effect waves-light"
                                 type="submit">Comprar</button>
                         </form>
                     </div>
@@ -138,5 +139,7 @@
 
 
         <%- include('../partials/footer.ejs') %>
+        
+        <!-- <script src="/js/cart.js"></script> -->
     </body>
 </html>
