@@ -24,7 +24,7 @@
                       <div class="main-article">
                         
                         <p class="price">$ <%= producto.price %></p>
-                        <p class="discount"><%= producto.discount %>%</p>
+                        <p class="discount">-<%= producto.discount %>%</p>
                         <!-- <a class="redireccion" href="/productCart"><button class="btn btn-primary btn-sm" type="submit">Comprar</button></a> -->
                         <a class="redireccion" href="/productCart"><button class="btn btn-success btn-lg" type="submit">Agregar al carrito</button></a>
                         <span class="iconos-detalle-producto">
@@ -91,7 +91,7 @@
                         <h5 class="card-title" ><%= productos.name %></h5>
                         <div class="main-article">
                           <p class="price">$ <%= productos.price %></p>
-                          <p class="discount"><%= productos.discount %>%</p>
+                          <p class="discount">-<%= productos.discount %>%</p>
                           <!-- <a class="redireccion" href="/productCart"><button class="btn btn-primary btn-sm" type="submit">Comprar</button></a> -->
                           <a class="redireccion" href="/productCart"><button class="btn btn-success btn-lg" type="submit">Agregar al carrito</button></a>
                           <span class="iconos-detalle-producto">
