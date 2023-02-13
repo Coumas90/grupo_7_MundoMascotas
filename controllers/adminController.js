@@ -34,7 +34,8 @@ const controladorAdmin = {
 			id_size:req.body.id_size,
 			id_weight:req.body.id_weight,
 			id_pet:req.body.id_pet,
-			image: req.file.filename
+			image: req.file.filename,
+			oferta:req.body.oferta,
 		});
 		res.redirect("/")
 	},
@@ -67,7 +68,8 @@ const controladorAdmin = {
 			id_size:req.body.id_size,
 			id_weight:req.body.id_weight,
 			id_pet:req.body.id_pet,
-			image: req.file.filename
+			image: req.file.filename,
+			oferta:req.body.oferta,
 		}, {
 			where: {
 				id_product: req.params.id

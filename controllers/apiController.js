@@ -101,6 +101,21 @@ const apiController = {
                 status:200
             })
         })
+    },
+    listadoCategorias: (req,res) => {
+      db.Category.findAll ({})
+      .then ((categories) =>{
+        const count = categories.length;
+        const mappedCategories = categories.map ((categories) => ({
+          id_category: categories.id_category,
+          name_category: categories.name_category,
+        }));
+        return res.status (200).json({
+          count,
+          categories:mappedCategories,
+          status:200,
+        });
+      });
     }
 }
 

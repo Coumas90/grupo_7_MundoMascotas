@@ -99,7 +99,7 @@ const controladorLogin = {
   },
     logOut: (req,res) => {
     req.session.destroy();
-    return res.redirect ('/');
+    return res.redirect ('/login');
 }
   }
 module.exports = controladorLogin;
