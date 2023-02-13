@@ -361,7 +361,11 @@ div.errores{
 }
 
 
-/*====== Media-Queries ======*/
+/*====== Checkout Carrito ======*/
+
+  .toast {
+    width: 400px;
+  }
 
 
 

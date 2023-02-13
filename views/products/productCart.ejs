@@ -12,6 +12,11 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href = https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css rel = "stylesheet">
         <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
     </head>
   
     <header>
@@ -49,8 +54,8 @@
                 <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
                 <% } else { %>
                     
-                    <button class="btn btn-light" type="submit"><a href="/login/register">Registrate</a></button>
-                    <button class="btn btn-light" type="submit"><a href="/login">Log In</a></button>
+                    <button class="btn btn-light" type="submit"><a href="/login/register" style="color: black; ">Registrate</a></button>
+                    <button class="btn btn-light" type="submit"><a href="/login" style="color: black;">Log In</a></button>
                     <% } %>
                 </nav>    
             </div>              
@@ -68,7 +73,7 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 50px;">
-                                            <strong>#</strong>
+                                            <strong>id</strong>
                                         </th>
                                         <th class="th-lg">
                                             <strong>Producto</strong>
@@ -86,10 +91,24 @@
                                     </tr>
                                 </thead>
                                 <tbody class="cartRows">
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Royal Canin Mini Adulto</td>
+                                            <td>$ 20000</td>
+                                            <td style="text-align: center;">2</td>
+                                            <td style="text-align: center;">$ 40000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Eukanuba Adulto</td>
+                                            <td>$ 7000</td>
+                                            <td style="text-align: center;">1</td>
+                                            <td style="text-align: center;">$ 7000</td>
+                                        </tr>
                                 </tbody>
                             </table>
                             <div class="card-footer text-right">
-                                <h2>Total: <span class="totalAmount">$ 0</span></h2>
+                                <h4 style="display: flex; justify-content: center;">Total: <span class="totalAmount">$ 47000</span></h4>
                             </div>
                         </div>
                     </div>
@@ -130,8 +149,26 @@
                                         
                                 </div>
                             </div>
-                            <button class="btn btn-success btn-lg btn-block waves-effect waves-light"
-                                type="submit">Comprar</button>
+
+                            
+                                <button class="btn btn-success btn-lg btn-block waves-effect waves-light" type="button" id="liveToastBtn">Comprar</button>
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast toast-lg" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <i class="fa-regular fa-circle-check"></i>
+                                            <!-- <img src="..." class="rounded me-2" alt="..."> -->
+                                            <strong class="me-auto">Estado de compra</strong>
+                                            <small>1 mins ago</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            ¡Tu compra fue realizada con éxito!
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <button class="btn btn-warning btn-lg btn-block waves-effect waves-light"type="submit"><a href="/" style="color: black;">Seguir comprando</a></button>
+                            
                         </form>
                     </div>
                 </div>
@@ -141,5 +178,21 @@
         <%- include('../partials/footer.ejs') %>
         
         <!-- <script src="/js/cart.js"></script> -->
+
+        <script>
+            const toastTrigger = document.getElementById('liveToastBtn');
+            const toastLiveExample = document.getElementById('liveToast');
+
+            if (toastTrigger) {
+            toastTrigger.addEventListener('click', () => {
+                const toast = new bootstrap.Toast(toastLiveExample, {
+                delay: 3000
+                
+                });
+
+                toast.show();
+            });
+            }
+          </script>
     </body>
 </html>
