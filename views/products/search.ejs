@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <%- include('../partials/head.ejs') %>
+<body>
+  <%- include('../partials/header.ejs') %>
+    <main>
+      <div class ="listadoProductos">
+        <% busqueda.forEach(busque => { %>
+        <article class="detalleProducto"><a class="redireccion" href="/productDetail/<%= busque.id_product %>">
+          <div class="col">
+            <div class="card h-100">
+              <img src="/images/Productos/<%= busque.image %>" class="card-img-top" alt="">
+              <div class="card-body">
+                  <h5 class="card-title"><a href= "/"><%= busque.name %></a></h5>
+                    <div class="main-article">
+                        <p class="price">$ <%= busque.price %></p>
+                        <p class="discount"><%= busque.discount %>%</p>
+                        
+                        <a class="redireccion" href="/productCart"><button class="btn btn-success btn-lg" type="submit">Agregar al carrito</button></a>
+                        <span class="iconos-detalle-producto">
+                          <div class="actions-list">
+                            <div>
+                              <!-- Button trigger modal -->
+                              <i class="fa-solid fa-truck" data-bs-toggle="modal" data-bs-target="#exampleModal1"></i>
+                              <!-- Modal -->
+                              <span class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="medio-envio" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="medio-envio">Métodos de entrega</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                  <img src="/images/Marcas/logos-mensajeria1.jpg">
+                                  </div>
+                                </div>
+                                </div>
+                              </span>
+                              </div>
+                          </div>
+                          <div class="actions-list">
+                            <div>
+                              <!-- Button trigger modal -->
+                              <i class="fa-regular fa-credit-card" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>
+                              <!-- Modal -->
+                              <span class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="medio-pago" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="medio-pago">Medios de pago</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <img src="/images/Marcas/mediodepago_iconos.jpg">
+                                  </div>
+                                  </div>
+                                </div>
+                                </span>
+                              </div>
+                          </div>
+                        </span>
+              </div>
+            </div>
+          </div>
+        </a></article>
+        <% }) %>
+      </div>
+    </main>
+
+  <%- include('../partials/footer.ejs') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+  </body>
+</html>

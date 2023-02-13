@@ -1,4 +1,5 @@
-const db = require("../database/models")
+const db = require("../database/models");
+const {Op} = require ('sequelize');
 
 const controladorListado = {
     index: (req, res) => {
@@ -28,6 +29,22 @@ const controladorListado = {
             res.render('products/listadoProductos', {filtrados: marca});
         });
     },
+    search: async(req,res) => {
+        const Product = db.Product
+        console.log(req.query.search )
+        search = req.query.search || '';
+        newsearch = search.replace(/\+/g, "");
+        const busqueda = await Product.findAll({
+            where:{
+                [Op.or]:{
+                    name:{
+                        [Op.like]: "%" +(newsearch || '' )+ "%",
+                      },
+                },
+            },
+        });
+        return res.render("products/search", {busqueda:busqueda});
+    }
 }
 
 module.exports = controladorListado;
