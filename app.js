@@ -46,7 +46,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Levanto al servidor
-app.listen(3003, () => {console.log('Servidor corriendo')});
+app.listen(3002, () => {console.log('Servidor corriendo')});
 
 //Le indicamos a app.js que todas las rutas que inicien con x prefijo tienen que ir a x ruta
 app.use('/', rutasListado);

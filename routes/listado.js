@@ -12,7 +12,6 @@ const controladorListado = require('../controllers/listadoController');
 
 //No esta funcionando
 router.get('/', controladorListado.index);
-router.get('/search/:id', controladorListado.search);
 router.get('/marca/:marca', controladorListado.detallemarca);
 router.get('/animal/:animal', controladorListado.detalleanimal);
 router.get('/categoria/:categoria', controladorListado.detallecategoria);
