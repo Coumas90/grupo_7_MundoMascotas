@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Perfil de usuario</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href = https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css rel = "stylesheet">
+        <link rel="stylesheet" href="/css/footer.css">
+    </head>
+  
+    <header>
+        <div class="contenedor">
+        <div class="top-header">
+            <span class="logo-chico">
+                <a href="/"><img class="logo-chico"  src="/images/Logos/logo5.png" alt="Logo Mundo Mascotas" class="logo_img"></a>
+            </span>
+        </div>
+        <div class="top-header">
+            <nav>  
+                <span class="form" action="label" method="GET">
+                    <span class="barra-de-busqueda">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        </form>
+                    </span>
+                </span>
+            </nav>
+    
+            <!-- <div>
+            <h2>SearchPrueba</h2>
+            <form action="/producto/search">
+                <input type="text" name="search">
+                <input type="submit" value="Search">
+            </form>
+            </div> -->
+
+        </div>
+            <div class="top-header">
+                <nav>
+                    <% if (locals.isLogged){ %>
+                <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
+                <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
+                <% } else { %>
+                    
+                    <button class="btn btn-light" type="submit"><a href="/login/register">Registrate</a></button>
+                    <button class="btn btn-light" type="submit"><a href="/login">Log In</a></button>
+                    <% } %>
+                </nav>    
+            </div>              
+        </div>
+    </header>
+    
+    <body>
+        
+        <main class="contenedor-checkout">
+            <h1 class="mt-5 mb-3 h2 text-center"> Checkout - Carrito de compras</h1>
+            <div class="container wow fadeIn animated">
+                    <div class="card my-5">
+                        <div class="card-body">
+                            <table class="table table-responsive-md mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50px;">
+                                            <strong>#</strong>
+                                        </th>
+                                        <th class="th-lg">
+                                            <strong>Producto</strong>
+                                        </th>
+                                        <th class="th-lg ">
+                                            <strong>Precio</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Cantidad</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Subtotal</strong>
+                                        </th>
+                                        <th style="width: 50px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="cartRows">
+                                </tbody>
+                            </table>
+                            <div class="card-footer text-right">
+                                <h2>Total: <span class="totalAmount">$ 0</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header text-center" style="background-color: inherit;
+                        border-bottom: white;">
+                            <h2>Detalles de la compra</h2>
+                        </div>
+                        <form class="card-body" id="checkoutCart">
+                            <div class="row">
+                                <div class=" col-md-6 mb-4">
+                                    <p><strong>Tipo Envio:</strong> Correo Argentino</p>
+                                </div>
+                                <div class=" col-md-6 mb-4">
+                                    <p><strong>Pago:</strong> Efectivo</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+
+        <%- include('../partials/footer.ejs') %>
+        
+        <!-- <script src="/js/cart.js"></script> -->
+    </body>
+</html>

@@ -5,7 +5,7 @@ const controladorCarrito = require('../controllers/productCartController');
 const { descartarProducto } = require('../controllers/productCartController');
 
 router.get('/', authMiddleware, controladorCarrito.carrito);
-router.get('/agregarProductoCarrito/:id', controladorCarrito.agregarProducto);
+router.get('/ordenCompra/:id', authMiddleware, controladorCarrito.ordenCompra);
 router.delete('/descartarProducto/:id', authMiddleware, controladorCarrito.descartarProducto);
 
 module.exports = router;

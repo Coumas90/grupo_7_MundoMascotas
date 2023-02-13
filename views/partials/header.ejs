@@ -30,8 +30,11 @@
     <div class="top-header">
         <nav>
             <% if (locals.isLogged){ %>
-           <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
-           <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
+            <span><a href="/perfil"><i class="fas fa-user-alt"></i></a></span> 
+            <span><a href="/productCart"><i class="fas fa-shopping-basket">
+            <span class=" top-0 start-100 translate-middle badge rounded-pill bg-danger"style="font-size: 11px;">0</span>
+            </i></a></span>
+           
            <% } else { %>
             <button class="btn btn-light" type="submit"><a href="/login/register">Registrate</a></button>
             <button class="btn btn-light" type="submit"><a href="/login">Log In</a></button>
@@ -39,7 +42,7 @@
             <a href="/productCart"><i class="fa-solid fa-cart-shopping">
                 <!-- <img onclick="showCart(this)" class="cart" src="./images/cart.png" alt="">
                 <p class="count-product">0</p> -->
-                <span class=" top-0 start-100 translate-middle badge rounded-pill bg-danger"style="font-size: 11px;">7</span>
+                <span class=" top-0 start-100 translate-middle badge rounded-pill bg-danger"style="font-size: 11px;">0</span>
             </i></a>           
             <% } %>
 

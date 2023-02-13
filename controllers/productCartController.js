@@ -11,23 +11,31 @@ const controladorCarrito = {
         const carrito = req.session.carrito || [];
         res.render("products/productCart", { carrito });
       },
-    // Agrega un producto al carrito
-    agregarProducto: (req, res) => {
-      const idProducto = req.params.id;
-      let carrito = req.session.carrito || [];
+    
+    // ordenCompra: (req, res) => {
+    //   const idProducto = req.params.id;
+    //   let carrito = req.session.carrito || [];
   
-      // Obtiene el producto a partir de la base de datos
-      db.Producto.findByPk(idProducto).then(producto => {
-        if (producto) {
-          carrito.push(producto);
-          req.session.carrito = carrito;
-          res.redirect("productCart");
-        } else {
-          res.render("error", {
-            message: "Producto no encontrado"
-          });
-        }
+    //   // Obtiene el producto a partir de la base de datos
+    //   db.Producto.findByPk(idProducto).then(producto => {
+    //     if (producto) {
+    //       carrito.push(producto);
+    //       req.session.carrito = carrito;
+    //       res.redirect("productCart");
+    //     } else {
+    //       res.render("error", {
+    //         message: "Producto no encontrado"
+    //       });
+    //     }
+    //   });
+    // },
+
+    ordenCompra: async function (req, res) {
+      let ordenCompra = await db.ordenCompra.findByPk(req.params.id, {
+        include: db.ordenCompra.OrdenItems,
       });
+      // res.send(order);
+      return res.render("ordenCompra", { ordenCompra });
     },
     // Elimina un producto del carrito
     descartarProducto: (req, res) => {
