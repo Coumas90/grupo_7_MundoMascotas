@@ -29,7 +29,7 @@
            <span><a href="/productCart"><i class="fas fa-shopping-basket"></i></a></span>
            <% } else { %>
             <button class="btn btn-light" type="submit"><a href="/administrar">Administrador de producto</a></button>
-            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             <% } %>
         </nav>    
     </div>   
@@ -85,7 +85,7 @@
                       <h3>Visa: <span id="name"> XXXX-XXXX-XXXX-4456</span></h3>
                       <h3>AmericanExpress: <span id="surname">XXXX-XXXX-XXXX-1221</span></h3>
                       <h3>MasterCard: <span id="email">XXXX-XXXX-XXXX-5897</span></h3>
-                      <h3>MercadoPago: <span id="telephone">julian.vega1</span></h3>
+                      <h3>MercadoPago: <span id="telephone"><%= user.telephone %></span></h3>
                     </div>
                   </div>
                 </div>

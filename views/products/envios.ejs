@@ -16,10 +16,11 @@
               <input type="text" class="form-input" id="name_id_delivery_method" placeholder="Ej: Correo Argentino" required name="name_id_delivery_method">
               <span class="bar"></span>
             </div>
-            <div class="mb-3">
-              <button class="btn btn-primary" type="submit" >Guardar metodo de envio</button>
-              <a href="/administrar" class="btn btn-warning">Volver al Administrador</a>
+            <div class="botones-formulario" style="padding-top: 2%; display: flex; justify-content: space-evenly;" >
+              <button class="btn btn-primary" type="submit">Guardar</button>
+              <a href="/administrar" class="volver-atras" style="color: steelblue; text-decoration-line: unset">Volver al Administrador</a>            
             </div>
+              
           </form>
       </div>
       <%- include('../partials/footer.ejs') %>

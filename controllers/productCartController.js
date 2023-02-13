@@ -9,37 +9,42 @@ const controladorCarrito = {
         }
         // Obtiene los productos del carrito de la sesión
         const carrito = req.session.carrito || [];
-        res.render("products/productCart", { producto });
-        },
-    // Agrega un producto al carrito
-    agregarProducto: (req, res) => {
-        // Obtiene el ID del producto a agregar
-        const idProducto = req.params.id;
-        // Obtiene los productos del carrito de la sesión
-        let carrito = req.session.carrito || [];
-        // Busca el producto a agregar en la lista de productos
-        const producto = products.find(product => product.id == idProducto);
-        // Si el producto existe, lo agrega al carrito
-        if (producto) {
-          carrito.push(producto);
-          req.session.carrito = carrito;
-        }
-        // Redirige al usuario al carrito de compras
-        res.redirect("/productCart");
+        res.render("products/productCart", { carrito });
       },
+    
+    // ordenCompra: (req, res) => {
+    //   const idProducto = req.params.id;
+    //   let carrito = req.session.carrito || [];
+  
+    //   // Obtiene el producto a partir de la base de datos
+    //   db.Producto.findByPk(idProducto).then(producto => {
+    //     if (producto) {
+    //       carrito.push(producto);
+    //       req.session.carrito = carrito;
+    //       res.redirect("productCart");
+    //     } else {
+    //       res.render("error", {
+    //         message: "Producto no encontrado"
+    //       });
+    //     }
+    //   });
+    // },
+
+    ordenCompra: async function (req, res) {
+      let ordenCompra = await db.ordenCompra.findByPk(req.params.id, {
+        include: db.ordenCompra.OrdenItems,
+      });
+      // res.send(order);
+      return res.render("ordenCompra", { ordenCompra });
+    },
     // Elimina un producto del carrito
     descartarProducto: (req, res) => {
-        // Obtiene el ID del producto a eliminar
-        const idProducto = req.params.id;
-        // Obtiene los productos del carrito de la sesión
-        let carrito = req.session.carrito || [];
-        // Filtra el carrito para obtener solo los productos que no son el producto a eliminar
-        carrito = carrito.filter(product => product.id != idProducto);
-        // Actualiza el carrito en la sesión
-        req.session.carrito = carrito;
-        // Redirige al usuario al carrito de compras
-        res.redirect("/productCart");
-        },
-    };
-    
-    module.exports = controladorCarrito;
+      const idProducto = req.params.id;
+      let carrito = req.session.carrito || [];
+      carrito = carrito.filter(product => product.id != idProducto);
+      req.session.carrito = carrito;
+      res.redirect("productCart");
+    }
+  };
+  
+  module.exports = controladorCarrito;
