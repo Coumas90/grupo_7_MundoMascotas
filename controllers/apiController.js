@@ -8,8 +8,11 @@ const apiController = {
             const count = users.length;
             const mappedUsers = users.map((user) => ({
                 id_user: user.id_user,
-                name: '${user.name} ${user.surname}',
+                name: user.name,
+                surname:user.surname,
                 email: user.email,
+                dni:user.dni,
+                telephone: user.telephone,
                 detail: 'localhost:3000/api/users/${user.id}'
             }));
             return res.status(200).json({
@@ -48,12 +51,15 @@ const apiController = {
                 id_product: product.id_product,
                 name: product.name,
                 description: product.description,
-                category: product.name_category,
+                id_category: product.id_category,
+                id_brand:product.id_brand,
+                price:product.price,
+                image:product.image,
                 detail: `localhost:3000/api/products/${product.id_product}`
             }));
             return res.status(200).json({
                 count,
-                users:mappedProducts,
+                products:mappedProducts,
                 status:200,
             });
         });
