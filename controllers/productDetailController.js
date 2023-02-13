@@ -6,6 +6,7 @@ const controladorDetalleProducto = {
 		.then(producto=>{
 		res.render('products/productDetail',{producto})
     })
+
 }
 }
 

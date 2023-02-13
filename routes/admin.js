@@ -21,8 +21,9 @@ const upload = multer({storage})
 
 const controladorAdmin = require('../controllers/adminController');
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
-router.get('/',authMiddleware, controladorAdmin.administrar);
+router.get('/', adminMiddleware, controladorAdmin.administrar);
 // Crear un nuevo producto
 router.get('/creacion', controladorAdmin.creacion); 
 router.post('/creacion', upload.single('image'), controladorAdmin.store);

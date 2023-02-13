@@ -60,12 +60,9 @@
 									  </span>
 								  </div>
 							</div>
-							<!-- <form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST" >
-								<button class="btn btn-success btn-sm" type="submit">Comprar</button>
-							</form> -->
-							<form action="/productCart/agregarProductoCarrito/<%= producto.id_product %>" method="POST">
-								<button class="btn btn-success btn-lg" type="submit">Agregar al carrito</button>
-							</form>
+							<div class="d-flex">
+								<button class="btn btn-primary btn-block agregar_carrito" data-id="<%=producto.id_product%>">Agregar al carrito </button>
+							</div>
 						<p class="product-detail-title">Cantidad disponible: <%= producto.id_product %></p>
 					</article>
 				</div>

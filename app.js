@@ -1,5 +1,6 @@
 // Requerir Express
 const express = require('express');
+const cors = require('cors');
 //requerimos session
 const session = require('express-session');
 // Ejectuto Express
@@ -11,6 +12,9 @@ const path = require('path');
 const cookies = require('cookie-parser');
 
 
+
+
+
 //Creamos estos dos entornos para poder trabajar con los datos que se envian desde el formulario, para poder capturar esta informacion
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
@@ -20,7 +24,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
-
+app.use(cors());
 
 //Creo contantes que guardan las rutas
 const rutasLogin = require('./routes/login.js');
@@ -56,7 +60,6 @@ app.use('/api',rutasApi)
 app.use(methodOverride('_method'));
 
 // configuramos session como middleware a nivel aplicacion
-
 
 
 //Error 404 nos va a redirigir a una vista creada para este error
