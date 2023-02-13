@@ -28,6 +28,26 @@ const controladorListado = {
             res.render('products/listadoProductos', {filtrados: marca});
         });
     },
+    search: (req, res) => {
+        let query = req.query.q;
+        db.Product.findAll().then(function(products) {
+          let productoBuscado = products.filter(function(product) {
+            return product.name.includes(query);
+          });
+          if (productoBuscado.length > 0) {
+            res.render('products/productoBuscado', { products: productoBuscado });
+          } else {
+            res.render('user/not-found', { 
+              message: {
+                class: 'error-message',
+                title: 'No se encontraron resultados',
+                desc: 'No se encontraron productos con el término de búsqueda ingresado.'
+              }
+            });
+          }
+        });
+      }
+
 }
 
 module.exports = controladorListado;
