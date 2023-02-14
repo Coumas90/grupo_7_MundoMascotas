@@ -83,7 +83,7 @@ router.get('/register', guestMiddleware, controladorLogin.register);
 router.post('/register', uploadPhoto.single('image'),validacionesRegistro , controladorLogin.createUser);
 router.get('/olvido',guestMiddleware,  controladorLogin.olvido);
 router.post('/olvido', controladorLogin.restablecer);
-router.get('/perfil',checkSession, authMiddleware, controladorLogin.perfil);
+router.get('/perfil',authMiddleware, checkSession, controladorLogin.perfil);
 router.get('/perfil/logout', controladorLogin.logOut);
 
 
